@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>郝春帅的博客</title>
+  
+  <subtitle>郝帅的博客</subtitle>
+  <link href="https://hcs-21.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://hcs-21.github.io/"/>
+  <updated>2022-06-27T05:49:46.655Z</updated>
+  <id>https://hcs-21.github.io/</id>
+  
+  <author>
+    <name>郝帅</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Typora 的使用教程</title>
+    <link href="https://hcs-21.github.io/2022/06/25/typora/"/>
+    <id>https://hcs-21.github.io/2022/06/25/typora/</id>
+    <published>2022-06-25T03:41:03.000Z</published>
+    <updated>2022-06-27T05:49:46.655Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h1&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本篇文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="工具使用教程" scheme="https://hcs-21.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Typora" scheme="https://hcs-21.github.io/tags/Typora/"/>
+    
+    <category term="Markdown" scheme="https://hcs-21.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://hcs-21.github.io/2022/06/24/hello-world/"/>
+    <id>https://hcs-21.github.io/2022/06/24/hello-world/</id>
+    <published>2022-06-23T23:09:27.245Z</published>
+    <updated>2022-06-23T22:59:10.798Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>博客开源</title>
+    <link href="https://hcs-21.github.io/2019/08/27/blog-open-source/"/>
+    <id>https://hcs-21.github.io/2019/08/27/blog-open-source/</id>
+    <published>2019-08-27T03:41:03.000Z</published>
+    <updated>2022-06-25T11:40:50.681Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;简短介绍&quot;&gt;&lt;a href=&quot;#简短介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="软件安装与配置" scheme="https://hcs-21.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="Hexo" scheme="https://hcs-21.github.io/tags/Hexo/"/>
+    
+    <category term="Github" scheme="https://hcs-21.github.io/tags/Github/"/>
+    
+    <category term="博客" scheme="https://hcs-21.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>
