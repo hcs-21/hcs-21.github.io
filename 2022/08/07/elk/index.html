@@ -1,0 +1,2213 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <!-- hcs-21 郝帅  modify 2022.06.24-->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ELK的使用教程, BigData">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY" />
+    <meta name="description" content="阅读须知
+
+本片文章仅供参考
+
+一、ELK
+1、集中式日志系统
+
+日志，对于任何系统来说都是及其重要的组成部分。在计算机系统里面，更是如此。但是由于现在的计
+算机系统大多比较复杂，很多系统都不是在一个地方，甚至都是跨国界的；即使是在一个地方">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ELK的使用教程 | 郝春帅的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.12/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <style type="text/css">
+        
+    </style>
+    
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">郝春帅的博客</span>
+                </a>
+            </div>
+            
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/AV" class="waves-effect waves-light">
+            
+            <i class="fa fa-music"></i>
+            
+            <span>视听</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/galleries" class="waves-effect waves-light">
+            
+            <i class="fa fa-photo"></i>
+            
+            <span>相册</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/tags" class="waves-effect waves-light">
+              
+                <i class="fa fa-tags"></i>
+              
+              <span>标签</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/categories" class="waves-effect waves-light">
+              
+                <i class="fa fa-bookmark"></i>
+              
+              <span>分类</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/archives" class="waves-effect waves-light">
+              
+                <i class="fa fa-archive"></i>
+              
+              <span>归档</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/AV" class="waves-effect waves-light">
+              
+                <i class="fa fa-music"></i>
+              
+              <span>视听</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/galleries" class="waves-effect waves-light">
+              
+                <i class="fa fa-photo"></i>
+              
+              <span>相册</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/about" class="waves-effect waves-light">
+              
+                <i class="fa fa-user-circle-o"></i>
+              
+              <span>关于我</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/friends" class="waves-effect waves-light">
+              
+                <i class="fa fa-address-book"></i>
+              
+              <span>友情链接</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">郝春帅的博客</div>
+        <div class="logo-desc">
+            
+            什么也不会的小白
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/AV" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-music"></i>
+                
+                视听
+            </a>
+        </li>
+        
+        <li>
+            <a href="/galleries" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-photo"></i>
+                
+                相册
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hcs-21/hcs-21.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+   
+   
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<!-- <ul class="menu-list mobile-menu-list">
+    
+        <li class="m-nav-item">
+                
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-home"></i>
+                        
+                        首页
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/tags" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-tags"></i>
+                        
+                        标签
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/categories" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-bookmark"></i>
+                        
+                        分类
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/archives" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-archive"></i>
+                        
+                        归档
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/AV" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-music"></i>
+                        
+                        视听
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/galleries" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-photo"></i>
+                        
+                        相册
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/about" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-user-circle-o"></i>
+                        
+                        关于我
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/friends" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-address-book"></i>
+                        
+                        友情链接
+                    </a>
+              
+            </li>
+        
+
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hcs-21/hcs-21.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul> -->
+
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hcs-21/hcs-21.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        ELK的使用教程
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- shw2018 洪卫  modify 2019.08.15-->
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" target="_blank">
+                                <span class="chip bg-color">大数据</span>
+                            </a>
+                        
+                            <a href="/tags/ELK/" target="_blank">
+                                <span class="chip bg-color">ELK</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/" target="_blank">
+                                <span class="chip bg-color">日志系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
+                                工具使用教程
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-07
+                </div>
+    
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        郝帅
+                    
+                </div>
+    
+                
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+    
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="阅读须知"><a href="#阅读须知" class="headerlink" title="阅读须知"></a>阅读须知</h2><hr>
+<blockquote>
+<p>本片文章仅供参考</p>
+</blockquote>
+<h2 id="一、ELK"><a href="#一、ELK" class="headerlink" title="一、ELK"></a>一、<code>ELK</code></h2><hr>
+<h3 id="1、集中式日志系统"><a href="#1、集中式日志系统" class="headerlink" title="1、集中式日志系统"></a>1、集中式日志系统</h3><hr>
+<blockquote>
+<p>日志，对于任何系统来说都是及其重要的组成部分。在计算机系统里面，更是如此。但是由于现在的计</p>
+<p>算机系统大多比较复杂，很多系统都不是在一个地方，甚至都是跨国界的；即使是在一个地方的系统，</p>
+<p>也有不同的来源，比如，操作系统，应用服务，业务逻辑等等。他们都在不停产生各种各样的日志数</p>
+<p>据。根据不完全统计，我们全球每天大约要产生<code> 2EB</code>的数据。</p>
+</blockquote>
+<blockquote>
+<p>面对如此海量的数据，又是分布在各个不同地方，如果我们需要去查找一些重要的信息，难道还是使用</p>
+<p>传统的方法，去登陆到一台台机器上查看？看来传统的工具和方法已经显得非常笨拙和低效了。于是，</p>
+<p>一些聪明人就提出了建立一套集中式的方法，把不同来源的数据集中整合到一个地方。</p>
+</blockquote>
+<blockquote>
+<p>一个完整的集中式日志系统，是离不开以下几个主要特点的:</p>
+<ul>
+<li>收集－能够采集多种来源的日志数据</li>
+<li>传输－能够稳定的把日志数据传输到中央系统</li>
+<li>存储－如何存储日志数据</li>
+<li>分析－可以支持 <code>UI </code>分析</li>
+<li>警告－能够提供错误报告，监控机制</li>
+</ul>
+</blockquote>
+<h3 id="2、ELK-协议栈介绍及体系结构"><a href="#2、ELK-协议栈介绍及体系结构" class="headerlink" title="2、ELK 协议栈介绍及体系结构"></a>2、<code>ELK</code> 协议栈介绍及体系结构</h3><hr>
+<p><img src="/../image/elk/image-20220807105050470.png"></p>
+<blockquote>
+<p><code>ELK</code> 其实并不是一款软件，而是一整套解决方案，是三个软件产品的首字母缩写，</p>
+<p><code>Elasticsearch</code>（ES），<code>Logstash</code>和<code> Kibana</code>。这三款软件都是开源软件，通常是配合使用，而且</p>
+<p>又先后归于 <code>Elastic.co </code>公司名下，故被简称为<code>ELK</code>协议栈。</p>
+</blockquote>
+<h4 id="2-1、Elasticsearch"><a href="#2-1、Elasticsearch" class="headerlink" title="2.1、Elasticsearch"></a>2.1、<code>Elasticsearch</code></h4><blockquote>
+<p><code>Elasticsearch</code> 是一个实时的分布式搜索和分析引擎，它可以用于全文搜索，结构化搜索以及分</p>
+<p>析。它是一个建立在全文搜索引擎 <code>Apache Lucene</code> 基础上的搜索引擎，使用 <code>Java</code> 语言编写。</p>
+<p><strong>主要特点</strong>:</p>
+<ul>
+<li>实时分析</li>
+<li>分布式实时文件存储，并将每一个字段都编入索引</li>
+<li>文档导向，所有的对象全部是文档</li>
+<li>高可用性，易扩展，支持集群（<code>Cluster</code>）、分片和复制（<code>Shards</code> 和 <code>Replicas</code>）。见图 2 和图 3</li>
+<li>接口友好，支持<code> JSON</code></li>
+</ul>
+</blockquote>
+<h4 id="2-2、Logstash"><a href="#2-2、Logstash" class="headerlink" title="2.2、Logstash"></a>2.2、<code>Logstash</code></h4><blockquote>
+<p><code>Logstash</code> 是一个具有实时渠道能力的数据收集引擎。使用<code>JRuby</code>语言编写。其作者是世界著名的运</p>
+<p>维工程师乔丹西塞 (<code>JordanSissel</code>)。</p>
+<p><strong>主要特点</strong>：</p>
+<ul>
+<li>几乎可以访问任何数据</li>
+<li>可以和多种外部应用结合</li>
+<li>支持弹性扩展  它由三个主要部分组成</li>
+<li><code>Shipper</code>－发送日志数据</li>
+<li><code>Broker</code>－收集数据，缺省内置 <code>Redis</code></li>
+<li><code>Indexer</code>－数据写入</li>
+</ul>
+</blockquote>
+<h4 id="2-3、Kibana"><a href="#2-3、Kibana" class="headerlink" title="2.3、Kibana"></a>2.3、<code>Kibana</code></h4><blockquote>
+<p><code>Kibana</code> 是一款基于 Apache 开源协议，使用<code> JavaScript</code> 语言编写，为 <code>Elasticsearch </code>提供分析和可</p>
+<p>视化的 <code>Web</code> 平台。它可以在 <code>Elasticsearch</code> 的索引中查找，交互数据，并生成各种维度的表图。</p>
+</blockquote>
+<h3 id="3、ELK整体架构"><a href="#3、ELK整体架构" class="headerlink" title="3、ELK整体架构"></a>3、<code>ELK</code>整体架构</h3><hr>
+<p><img src="/../image/elk/image-20220807105930828.png"></p>
+<h3 id="4、参考文档"><a href="#4、参考文档" class="headerlink" title="4、参考文档"></a>4、参考文档</h3><hr>
+<blockquote>
+<p><code>ELK</code>官网：<a target="_blank" rel="noopener" href="https://www.elastic.co/">https://www.elastic.co/</a></p>
+<p><code>ELK</code>官网文档：<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/index.html">https://www.elastic.co/guide/index.html</a></p>
+<p><code>ELK</code>中文手册：<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html">https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html</a></p>
+<p><code>ELK</code>中文社区：<a target="_blank" rel="noopener" href="https://elasticsearch.cn/">https://elasticsearch.cn/</a></p>
+<p><code>ELK API</code> :<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/travelansport-client.html">https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/travelansport-client.html</a></p>
+</blockquote>
+<h2 id="二、-Elasticsearch"><a href="#二、-Elasticsearch" class="headerlink" title="二、 Elasticsearch"></a>二、 <code>Elasticsearch</code></h2><hr>
+<h3 id="1、什么是ElasticSearch"><a href="#1、什么是ElasticSearch" class="headerlink" title="1、什么是ElasticSearch"></a>1、什么是<code>ElasticSearch</code></h3><hr>
+<blockquote>
+<p><code>Elasticsearch</code>，简称为<code>es</code>， <code>es</code>是一个开源的高扩展的分布式全文检索引擎，它可以<strong>近乎实时的存</strong></p>
+<p><strong>储、检索数据</strong>；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据。<code>es</code>也使用<code>Java</code>开</p>
+<p>发并使用<code>Lucene</code>作为其核心来实现所有索引和搜索的功能，但是它的目的是通过简单的<code>RESTful </code></p>
+<p><code>API</code>来隐藏<code>Lucene</code>的复杂性，从而让全文搜索变得简单。</p>
+</blockquote>
+<h3 id="2、ElasticSearch使用案例"><a href="#2、ElasticSearch使用案例" class="headerlink" title="2、ElasticSearch使用案例"></a>2、<code>ElasticSearch</code>使用案例</h3><hr>
+<blockquote>
+<ul>
+<li><p>2013年初，<code>GitHub</code>抛弃了<code>Solr</code>，采取<code>ElasticSearch</code> 来做<code>PB</code>级的搜索。 <code>GitHub</code>使用<code>ElasticSearch</code>搜索<code>20TB</code>的数据，包括13亿文件和1300亿行代码</p>
+</li>
+<li><p>维基百科：启动以<code>elasticsearch</code>为基础的核心搜索架构</p>
+</li>
+<li><p><code>SoundCloud</code>：“<code>SoundCloud</code>使用<code>ElasticSearch</code>为1.8亿用户提供即时而精准的音乐搜索服务</p>
+</li>
+<li><p>百度：百度目前广泛使用<code>ElasticSearch</code>作为文本数据分析，采集百度所有服务器上的各类指标数</p>
+<p>据及用户自定义数据，通过对各种数据进行多维分析展示，辅助定位分析实例异常或业务层面异常。</p>
+<p>目前覆盖百度内部20多个业务线（包括<code>casio</code>、云分析、网盟、预测、文库、直达号、钱包、风控</p>
+<p>等），单集群最大100台机器，200个<code>ES</code>节点，每天导入<code>30TB</code>+数据</p>
+</li>
+<li><p>新浪使用<code>ES </code>分析处理32亿条实时日志</p>
+</li>
+<li><p>阿里使用<code>ES</code> 构建自己的日志采集和分析体系</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="3、-ElasticSearch对比Solr"><a href="#3、-ElasticSearch对比Solr" class="headerlink" title="3、 ElasticSearch对比Solr"></a>3、 <code>ElasticSearch</code>对比<code>Solr</code></h3><hr>
+<blockquote>
+<ul>
+<li><p><code>Solr</code> 利用 <code>Zookeeper</code> 进行分布式管理，而 <code>Elasticsearch</code> 自身带有分布式协调管理功能;</p>
+</li>
+<li><p><code>Solr</code> 支持更多格式的数据，而 <code>Elasticsearch</code> 仅支持<code>json</code>文件格式；</p>
+</li>
+<li><p><code>Solr </code>官方提供的功能更多，而 <code>Elasticsearch</code> 本身更注重于核心功能，高级功能多有第三方插</p>
+<p>件提供；</p>
+</li>
+<li><p><code>Solr </code>在传统的搜索应用中表现好于<code> Elasticsearch</code>，但在处理实时搜索应用时效率明显低于 </p>
+<p><code>Elasticsearch</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="4、-Elasticsearch-Single-Node-Mode部署"><a href="#4、-Elasticsearch-Single-Node-Mode部署" class="headerlink" title="4、 Elasticsearch Single-Node Mode部署"></a>4、 <code>Elasticsearch Single-Node Mode</code>部署</h3><hr>
+<blockquote>
+<p><code>Elasticsearch</code>是一个分布式全文搜索引擎，支持单节点模式(<code>Single-Node Mode</code>)和集群模式</p>
+<p>(<code>Cluster Mode</code>)部署，一般来说，小公司的业务场景往往使用<code>Single-Node Mode</code>部署即可。先以</p>
+<p><code>Single-Node Mode</code>部署感受下<code>ES</code>，后续搭建分布式集群深入学习。</p>
+</blockquote>
+<h4 id="4-1、虚拟环境准备"><a href="#4-1、虚拟环境准备" class="headerlink" title="4.1、虚拟环境准备"></a>4.1、虚拟环境准备</h4><blockquote>
+<ul>
+<li><p>准备一台虚拟机 &#x3D;&gt; 操作系统：<code>CentOS 7.x 64 bit</code></p>
+</li>
+<li><p>客户端连接工具：<code>SecureCRT</code></p>
+</li>
+<li><p>关闭虚拟机的防火墙</p>
+<ul>
+<li><pre><code class="bash">systemctl stop firewalld.service 
+
+#停止
+firewall systemctl disable firewalld.service 
+
+#禁止firewall开机启动 
+firewall-cmd --state # 查看防火墙
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="4-2、-Elasticsearch-Single-Node-Mode部署"><a href="#4-2、-Elasticsearch-Single-Node-Mode部署" class="headerlink" title="4.2、 Elasticsearch Single-Node Mode部署"></a>4.2、 <code>Elasticsearch Single-Node Mode</code>部署</h4><blockquote>
+<p> 下载<code>Elasticsearch</code> 地址： <a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/elasticsearch">https://www.elastic.co/cn/downloads/elasticsearch</a> 最新版本</p>
+<p>本课程使用<code>7.3.0</code>版本</p>
+</blockquote>
+<pre><code class="bash">https://www.elastic.co/cn/downloads/past-releases/elasticsearch-7-3-0
+</code></pre>
+<blockquote>
+<p>选择<code>Linux</code>版本下载：</p>
+</blockquote>
+<p><img src="/../image/elk/image-20220807111615515.png"></p>
+<h5 id="4-2-1、上传、解压tar-gz文件"><a href="#4-2-1、上传、解压tar-gz文件" class="headerlink" title="4.2.1、上传、解压tar.gz文件"></a>4.2.1、上传、解压<code>tar.gz</code>文件</h5><pre><code class="bash">cd /opt/lagou/software 
+tar -zxvf elasticsearch-7.3.0-linux-x86_64.tar.gz -C ../servers
+</code></pre>
+<h5 id="4-2-2、重命名"><a href="#4-2-2、重命名" class="headerlink" title="4.2.2、重命名"></a>4.2.2、重命名</h5><pre><code class="bash">cd ../servers/ 
+mv elasticsearch-7.3.0/ elasticsearch/
+</code></pre>
+<h5 id="4-2-3、-配置Elasticsearch"><a href="#4-2-3、-配置Elasticsearch" class="headerlink" title="4.2.3、 配置Elasticsearch"></a>4.2.3、 配置<code>Elasticsearch</code></h5><h6 id="4-2-3-1、编辑elasticsearch-yml"><a href="#4-2-3-1、编辑elasticsearch-yml" class="headerlink" title="4.2.3.1、编辑elasticsearch.yml"></a>4.2.3.1、编辑<code>elasticsearch.yml</code></h6><blockquote>
+<ul>
+<li>单机安装请取消注释：<code>node.name: node-1</code>，否则无法正常启动。</li>
+<li>修改网络和端口，取消注释<code>master</code>节点，单机只保留一个<code>node</code></li>
+</ul>
+</blockquote>
+<pre><code class="bash">vim /opt/lagou/servers/elasticsearch/config/elasticsearch.yml
+</code></pre>
+<pre><code class="yaml">node.name: node-1 
+network.host: linux121 
+
+#
+# Set a custom port for HTTP: 
+#
+
+http.port: 9200 
+cluster.initial_master_nodes: [&quot;node-1&quot;]
+</code></pre>
+<h6 id="4-2-3-2、按需修改jvm-options内存设置"><a href="#4-2-3-2、按需修改jvm-options内存设置" class="headerlink" title="4.2.3.2、按需修改jvm.options内存设置"></a>4.2.3.2、按需修改<code>jvm.options</code>内存设置</h6><blockquote>
+<p>根据实际情况修改占用内存，默认都是<code>1G</code>，单机<code>1G</code>内存，启动会占用<code>700m+</code>然后在安装<code>kibana</code>后，</p>
+<p>基本上无法运行了，运行了一会就挂了报内存不足。 内存设置超出物理内存，也会无法启动，启动报</p>
+<p>错。</p>
+</blockquote>
+<pre><code class="bash">vim /opt/lagou/servers/elasticsearch/config/jvm.options
+
+
+-Xms2g 
+-Xmx2g
+</code></pre>
+<h6 id="4-2-3-3、添加es用户"><a href="#4-2-3-3、添加es用户" class="headerlink" title="4.2.3.3、添加es用户"></a>4.2.3.3、添加<code>es</code>用户</h6><blockquote>
+<p>添加<code>es</code>用户，<code>es</code>默认<code>root</code>用户无法启动，需要改为其他用户</p>
+</blockquote>
+<pre><code class="bash">useradd estest 
+
+#修改密码 
+ passwd estest
+</code></pre>
+<blockquote>
+<p>改变<code>es</code>目录拥有者账号</p>
+</blockquote>
+<pre><code class="bash">chown -R estest /opt/lagou/servers/elasticsearch/
+</code></pre>
+<h6 id="4-2-3-4、修改-etc-sysctl-conf"><a href="#4-2-3-4、修改-etc-sysctl-conf" class="headerlink" title="4.2.3.4、修改/etc/sysctl.conf"></a>4.2.3.4、修改<code>/etc/sysctl.conf</code></h6><blockquote>
+<p><code>ES</code>因为需要大量的创建索引文件，需要大量的打开系统的文件，所以我们需要解除<code>linux</code>系统当中打</p>
+<p>开文件最大数目的限制，不然<code>ES</code>启动就会抛错</p>
+</blockquote>
+<blockquote>
+<p>修改文件句柄数</p>
+</blockquote>
+<pre><code class="bash">vim /etc/sysctl.conf
+</code></pre>
+<blockquote>
+<p>末尾添加：<code>vm.max_map_count=655360</code></p>
+<p>执行<code>sysctl -p</code> 让其生效</p>
+</blockquote>
+<h6 id="4-2-3-5、修改-etc-security-limits-conf"><a href="#4-2-3-5、修改-etc-security-limits-conf" class="headerlink" title="4.2.3.5、修改/etc/security/limits.conf"></a>4.2.3.5、修改<code>/etc/security/limits.conf</code></h6><blockquote>
+<p>修改<code>linux</code>系统对文件描述符的限制级别</p>
+</blockquote>
+<pre><code class="bash">vim /etc/security/limits.conf
+</code></pre>
+<blockquote>
+<p>末尾添加：</p>
+</blockquote>
+<pre><code class="pro">* soft nofile 65536 
+* hard nofile 65536 
+* soft nproc 4096 
+* hard nproc 4096
+</code></pre>
+<h6 id="4-2-3-6、启动ES"><a href="#4-2-3-6、启动ES" class="headerlink" title="4.2.3.6、启动ES"></a>4.2.3.6、启动<code>ES</code></h6><blockquote>
+<p>切换刚刚新建的用户</p>
+</blockquote>
+<pre><code class="bash">su estest
+</code></pre>
+<blockquote>
+<p>启动命令</p>
+</blockquote>
+<pre><code class="bash">##清除缓存
+echo 1&gt;/proc/sys/vm/drop_caches
+echo 2&gt;/proc/sys/vm/drop_caches
+echo 3&gt;/proc/sys/vm/drop_caches
+
+/opt/lagou/servers/elasticsearch/bin/elasticsearch
+</code></pre>
+<h6 id="4-2-3-7、ES测试"><a href="#4-2-3-7、ES测试" class="headerlink" title="4.2.3.7、ES测试"></a>4.2.3.7、<code>ES</code>测试</h6><blockquote>
+<p>配置完成：浏览器访问测试。<code> linux121:9200</code></p>
+</blockquote>
+<p><img src="/../image/elk/image-20220807112557201.png"></p>
+<h4 id="4-3、简单使用"><a href="#4-3、简单使用" class="headerlink" title="4.3、简单使用"></a>4.3、简单使用</h4><blockquote>
+<p>创建<code>blog01</code>索引</p>
+</blockquote>
+<pre><code class="bash">curl -XPUT http://linux121:9200/blog01/?pretty
+
+##返回内容
+&#123; 
+    &quot;acknowledged&quot; : true, 
+    &quot;shards_acknowledged&quot; : true,
+    &quot;index&quot; : &quot;blog01&quot;
+&#125;
+</code></pre>
+<blockquote>
+<p>插入文档</p>
+</blockquote>
+<pre><code class="bash">curl -XPUT http://linux121:9200/blog01/article/1?pretty -d &#39;&#123;&quot;id&quot;: &quot;1&quot;, &quot;title&quot;: &quot;What is lucene&quot;&#125;&#39; -H &quot;Content-Type: application/json&quot; 
+
+curl -XPUT http://linux121:9200/blog01/article/2?pretty -d &#39;&#123;&quot;id&quot;: &quot;2&quot;, &quot;title&quot;: &quot;Apache Spark is a unified analytics engine for large-scale data processing&quot;&#125;&#39; -H &quot;Content-Type: application/json&quot;
+</code></pre>
+<blockquote>
+<p>查询文档</p>
+</blockquote>
+<pre><code class="bash">curl -XGET http://linux121:9200/blog01/article/1?pretty -H &quot;Content-Type: application/json&quot;
+</code></pre>
+<blockquote>
+<p>更新文档</p>
+</blockquote>
+<pre><code class="bash">curl -XPUT http://linux121:9200/blog01/article/1?pretty -d &#39;&#123;&quot;id&quot;: &quot;1&quot;, &quot;title&quot;: &quot; What is elasticsearch&quot;&#125;&#39; -H &quot;Content-Type: application/json&quot;
+</code></pre>
+<blockquote>
+<p>搜索文档</p>
+</blockquote>
+<pre><code class="bash">curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;What&#39;&amp;pretty&quot; -H &quot;Content- Type: application/json&quot; 
+
+curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;is&#39;&amp;pretty&quot; -H &quot;Content- Type: application/json&quot; 
+
+curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;elasticsearch&#39;&amp;pretty&quot; -H &quot;Content-Type: application/json&quot; 
+
+curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;unified&#39;&amp;pretty&quot; -H &quot;Content-Type: application/json&quot;
+</code></pre>
+<h2 id="三、ElasticSearch架构图以及基本概念-术语"><a href="#三、ElasticSearch架构图以及基本概念-术语" class="headerlink" title="三、ElasticSearch架构图以及基本概念(术语)"></a>三、<code>ElasticSearch</code>架构图以及基本概念(术语)</h2><hr>
+<h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><hr>
+<blockquote>
+<p><code>Elasticsearch</code>是面向文档(<code>document oriented</code>)的，这意味着它可以存储整个对象或文档</p>
+<p>(<code>document</code>)。然而它不仅仅是存储，还会索引(index)每个文档的内容使之可以被搜索。在</p>
+<p><code>Elasticsearch</code>中，你可以对文档（而非成行成列的数据）进行索引、搜索、排序、过滤。</p>
+<p><code>Elasticsearch</code>是基于<code>Lucene</code>的全文检索引擎，本质也是存储和检索数据。<code>ES</code>中的很多概念与<code>MySQL</code></p>
+<p>类似 我们可以按照关系型数据库的经验去理解</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>关系型数据库（比如<code>Mysql</code>）</th>
+<th><strong>非关系型数据库（</strong><code>Elasticsearch</code>）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库<code>Database</code></td>
+<td>索引<code>Index</code></td>
+</tr>
+<tr>
+<td>表<code>Table</code></td>
+<td>索引<code>Index</code>类型（原为<code>Type</code>）</td>
+</tr>
+<tr>
+<td>数据行<code>Row </code></td>
+<td>文档<code>Document</code></td>
+</tr>
+<tr>
+<td>数据列<code>Column</code></td>
+<td>字段<code>Field</code></td>
+</tr>
+<tr>
+<td>约束 <code>Schema</code></td>
+<td>映射<code>Mapping</code></td>
+</tr>
+</tbody></table>
+<h3 id="2、核心概念"><a href="#2、核心概念" class="headerlink" title="2、核心概念"></a>2、核心概念</h3><hr>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html#_multi_fifields_2">https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html#_multi_fifields_2</a></p>
+</blockquote>
+<blockquote>
+<ol>
+<li><p><strong>索引<code>index</code></strong></p>
+<p>一个索引就是一个拥有几分相似特征的文档的集合。比如说，你可以有一个客户数据的索引，另一个</p>
+<p>产品目录的索引，还有一个订单数据的索引。一个索引由一个名字来标识（<strong>必须全部是小写字母</strong></p>
+<p><strong>的</strong>），并且当我们要对对应于这个索引中的文档进行索引、搜索、更新和删除的时候，都要使</p>
+<p>用到这个名字。在一个集群中，可以定义任意多的索引。</p>
+</li>
+<li><p><strong>类型</strong> <code>type</code></p>
+</li>
+</ol>
+<p>   在一个索引中，你可以定义一种或多种类型。一个类型是你的索引的一个逻辑上的分类&#x2F;分区，其语</p>
+<p>   义完全由你来定。通常，会为具有一组共同字段的文档定义一个类型。比如说，我们假设你运营一个</p>
+<p>   博客平台并且将你所有的数据存储到一个索引中。在这个索引中，你可以为用户数据定义一个类型，</p>
+<p>   为博客数据定义另一个类型，当然，也可以为评论数据定义另一个类型。</p>
+<p>   高版本<code>ES</code>中逐渐抛弃了<code>type</code>的概念，会有一个默认的<code>type:_doc</code></p>
+<ol start="3">
+<li><p><strong>字段</strong><code>Field</code></p>
+<p>相当于是数据表的字段，对文档数据根据不同属性进行的分类标识</p>
+</li>
+<li><p><strong>映射</strong> <code>mapping</code></p>
+<p>mapping是处理数据的方式和规则方面做一些限制，如某个字段的数据类型、默认值、分析器、是</p>
+<p>否被索引等等，这些都是映射里面可以设置的，其它就是处理es里面数据的一些使用规则设置也叫</p>
+<p>做映射，按着最优规则处理数据对性能提高很大，因此才需要建立映射，并且需要思考如何建立映</p>
+<p>射才能对性能更好。</p>
+</li>
+<li><p><strong>文档</strong> <code>document</code></p>
+<p>一个文档是一个可被索引的基础信息单元。比如，你可以拥有某一个客户的文档，某一个产品的一个文档，当然，也可以拥有某个订单的一个文档。文档以<code>JSON</code>（<code>Javascript Object Notation</code>）格式来表示，而<code>JSON</code>是一个到处存在的互联网数据交互格式。</p>
+<p>在一个<code>index</code>&#x2F;<code>type</code>里面，你可以存储任意多的文档。注意，尽管一个文档，物理上存在于一个索引之中，文档必须被索引&#x2F;赋予一个索引的<code>type</code>。</p>
+</li>
+<li><p><strong>接近实时</strong> <code>NRT</code></p>
+</li>
+</ol>
+<p>   <code>Elasticsearch</code>是一个接近实时的搜索平台。这意味着，从索引一个文档直到这个文档能够被搜索到有一个轻微的延迟（通常是1秒以内）</p>
+<ol start="7">
+<li><p><code>cluster</code></p>
+<ul>
+<li><p>集群（<code>Cluster</code>） 一个<code>Elasticsearch</code>集群由多个节点（<code>Node</code>）组成，每个集群都有一</p>
+<p>个共同的<strong>集群名称</strong>作为标识</p>
+</li>
+<li><p>节点（<code>Node</code>）</p>
+<ul>
+<li><p>一个<code>Elasticsearch</code>实例即一个<code>Node</code>，一台机器可以有多个实例，正常使用下每</p>
+<p>个实例都应该会部署在不同的机器上。<code>Elasticsearch</code>的配置文件中可以通过</p>
+<p><code>node.master</code>、<code>node.data</code>来设置节点类型。</p>
+</li>
+<li><p><code>node.master</code>：表示节点是否具有成为主节点的资格（<code>true</code>代表的是有资格竞选</p>
+<p>主节点，<code>false</code>代表的是没有资格竞选主节点）</p>
+</li>
+<li><p><code>node.data</code>：表示节点是否存储数据</p>
+</li>
+</ul>
+</li>
+<li><p><code>Node</code>节点组合</p>
+<ul>
+<li><p>主节点+数据节点（<code>master</code>+<code>data</code>） 默认</p>
+<ul>
+<li><p>节点既有成为<strong>主节点的资格</strong>，<strong>又存储数据</strong></p>
+<pre><code class="bash">node.master: true 
+node.data: true
+</code></pre>
+</li>
+<li><p>数据节点（data）</p>
+<p>节点没有成为主节点的资格，不参与选举，只会存储数据</p>
+<pre><code class="bash">node.master: false 
+node.data: true
+</code></pre>
+</li>
+<li><p>客户端节点（<code>client</code>）</p>
+<p>不会成为主节点，也不会存储数据，主要是针对海量请求的时候可以进行负载均衡</p>
+<pre><code class="bash">node.master: false 
+node.data: false
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>分片</p>
+<p>每个索引有1个或多个分片，每个分片存储不同的数据。分片可分为主分片（<code>primary </code></p>
+<p><code>shard</code>）和复制分片（<code>replica shard</code>），复制分片是主分片的拷贝。默认每个主分片</p>
+<p>有一个复制分片，每个索引的复制分片的数量可以动态地调整，复制分片从不与它的主分片</p>
+<p>在同一个节点上</p>
+</li>
+<li><p>副本</p>
+<p>这里指主分片的副本分片（主分片的拷贝）:</p>
+<pre><code class="tex">提高恢复能力：当主分片挂掉时，某个复制分片可以变成主分片；
+提高性能：get 和 search 请求既可以由主分片又可以由复制分片处理；
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>注意</strong>：每个索引可以被分成多个分片。一个索引也可以被复制0次（意思是没有复制）或多次。一旦复制</p>
+<p>了，每个索引就有了主分片（作为复制源的原来的分片）和复制分片（主分片的拷贝）之别。<strong>分片和复</strong></p>
+<p><strong>制的数量可以在索引创建</strong>的时候指定。</p>
+<p>在索引创建之后，你可以在任何时候动态地改变复制的数量，但是你事后不能改变分片的数量。默认情</p>
+<p>况下，<code>Elasticsearch</code>中的每个索引被分片5个主分片和1个复制，这意味着，如果你的集群中至少有两</p>
+<p>个节点，你的索引将会有5个主分片和另外5个复制分片（1个完全拷贝），这样的话每个索引总共就有10</p>
+<p>个分片。</p>
+</blockquote>
+<h2 id="四、Elasticsearch集群部署"><a href="#四、Elasticsearch集群部署" class="headerlink" title="四、Elasticsearch集群部署"></a>四、<code>Elasticsearch</code>集群部署</h2><hr>
+<h3 id="1、准备工作"><a href="#1、准备工作" class="headerlink" title="1、准备工作"></a>1、准备工作</h3><hr>
+<h4 id="1-1、-创建用户"><a href="#1-1、-创建用户" class="headerlink" title="1.1、 创建用户"></a>1.1、 创建用户</h4><blockquote>
+<p>创建一个<code>es</code>专门的用户（必须），因为es不能用root用户启动</p>
+<p>使用<code>root</code>用户在三台机器执行以下命令</p>
+</blockquote>
+<pre><code class="bash">useradd es 
+mkdir -p /opt/lagou/servers/es 
+mkdir -p /opt/lagou/servers/data/es 
+mkdir -p /opt/lagou/servers/logs/es 
+chown -R es /opt/lagou/servers/es 
+chown -R es /opt/lagou/servers/data/es 
+chown -R es /opt/lagou/servers/logs/es 
+passwd es
+</code></pre>
+<h4 id="1-2、为es用户添加sudo权限"><a href="#1-2、为es用户添加sudo权限" class="headerlink" title="1.2、为es用户添加sudo权限"></a>1.2、为<code>es</code>用户添加<code>sudo</code>权限</h4><blockquote>
+<p>三台机器使用<code>root</code>用户执行<code>visudo</code>然后为es用户添加权限</p>
+</blockquote>
+<pre><code class="bash">vim /etc/sudoers
+
+##添加以下内容
+es ALL=(ALL) ALL
+</code></pre>
+<h4 id="1-3、分布式安装部署"><a href="#1-3、分布式安装部署" class="headerlink" title="1.3、分布式安装部署"></a>1.3、分布式安装部署</h4><blockquote>
+<p>关闭所有的会话，重新连接，一定要记得使用es的用户来连接服务器</p>
+</blockquote>
+<h5 id="1-3-1、解压"><a href="#1-3-1、解压" class="headerlink" title="1.3.1、解压"></a>1.3.1、解压</h5><pre><code class="bash">tar -zxvf elasticsearch-7.3.0-linux-x86_64.tar.gz -C ../servers/es 
+cd /opt/lagou/servers/es
+mv elasticsearch-7.3.0/ elasticsearch/
+</code></pre>
+<blockquote>
+<p>修改配置文件：</p>
+<p><code>elasticsearch.yml</code>配置文件说明：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cluster.name </code></td>
+<td>集群名称，相同名称为一个集群</td>
+</tr>
+<tr>
+<td><code>node.name</code></td>
+<td>节点名称，集群模式下每个节点名称唯一</td>
+</tr>
+<tr>
+<td><code>node.master</code></td>
+<td>当前节点是否可以被选举为<code>master</code>节点，是：<code>true</code>、否：<code>false</code></td>
+</tr>
+<tr>
+<td><code>node.data</code></td>
+<td>当前节点是否用于存储数据，是：<code>true</code>、否：<code>false</code></td>
+</tr>
+<tr>
+<td><code>path.data</code></td>
+<td>索引数据存放的位置</td>
+</tr>
+<tr>
+<td><code>path.logs</code></td>
+<td>日志文件存放的位置</td>
+</tr>
+<tr>
+<td><code>bootstrap.memory_lock</code></td>
+<td>需求锁住物理内存，是：<code>true</code>、否：<code>false</code></td>
+</tr>
+<tr>
+<td><code>network.host </code></td>
+<td>监听地址，用于访问该es</td>
+</tr>
+<tr>
+<td><code>http.port </code></td>
+<td><code>es</code>对外提供的<code>http</code>端口，默认 9200</td>
+</tr>
+<tr>
+<td><code>transport.port</code></td>
+<td>节点选举的通信端口 默认是9300</td>
+</tr>
+<tr>
+<td><code>discovery.seed_hosts</code></td>
+<td><code>es7.x </code>之后新增的配置，写入候选主节点的设备地址，在开启服务后可以被选为主节点</td>
+</tr>
+<tr>
+<td><code>cluster.initial_master_nodes</code></td>
+<td><code>es7.x</code> 之后新增的配置，初始化一个新的集群时需要此配置来选举<code>master</code></td>
+</tr>
+<tr>
+<td><code>http.cors.enabled</code></td>
+<td>是否支持跨域，是：<code>true</code>，在使用head插件时需要此配置</td>
+</tr>
+<tr>
+<td><code>http.cors.allow-origin</code></td>
+<td>表示支持所有域名</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>修改配置文件</p>
+</blockquote>
+<pre><code class="bash">cd /opt/lagou/servers/es/elasticsearch/config 
+
+vim elasticsearch.yml
+</code></pre>
+<pre><code class="yaml"># 集群名字 
+cluster.name: myes 
+
+## 集群中当前的节点 
+node.name: linux121 
+
+## 数据目录 
+
+path.data: /opt/lagou/servers/data/es 
+# # 日志目录 
+path.logs: /opt/lagou/servers/logs/es
+
+# # 当前主机的ip地址 
+network.host: linux121 http.port: 9200
+
+#初始化一个新的集群时需要此配置来选举master 
+cluster.initial_master_nodes: [&quot;linux121&quot;,&quot;linux122&quot;,&quot;linux123&quot;] 
+
+#写入候选主节点的设备地址 
+discovery.seed_hosts: [&quot;linux121&quot;, &quot;linux122&quot;,&quot;linux123&quot;] 
+http.cors.enabled: true 
+http.cors.allow-origin: &quot;*&quot;
+</code></pre>
+<blockquote>
+<p>三台机器修改<code>jvm</code>内存大小</p>
+</blockquote>
+<pre><code class="bash">cd /opt/lagou/servers/es/elasticsearch/config 
+vi jvm.options
+</code></pre>
+<pre><code class="bash">-Xms2g -Xmx2g
+</code></pre>
+<h5 id="1-3-2、安装包分发到其他两台机器上"><a href="#1-3-2、安装包分发到其他两台机器上" class="headerlink" title="1.3.2、安装包分发到其他两台机器上"></a>1.3.2、安装包分发到其他两台机器上</h5><blockquote>
+<p><code>linux121</code>服务器执行以下命令</p>
+</blockquote>
+<pre><code class="bash">cd /opt/lagou/servers/es 
+
+scp -r elasticsearch/ linux122:$PWD 
+
+scp -r elasticsearch/ linux123:$PWD
+</code></pre>
+<h5 id="1-3-3、LInux122-Linux-123修改配置文件"><a href="#1-3-3、LInux122-Linux-123修改配置文件" class="headerlink" title="1.3.3、LInux122 Linux 123修改配置文件"></a>1.3.3、<code>LInux122</code> <code>Linux 123</code>修改配置文件</h5><blockquote>
+<p><code>linux122</code>服务器修改配置文件</p>
+</blockquote>
+<pre><code class="bash">cd /opt/lagou/servers/es/elasticsearch/config/ 
+
+vim elasticsearch.yml
+</code></pre>
+<pre><code class="yaml"># 集群名字 
+cluster.name: myes 
+
+## 集群中当前的节点 
+node.name: linux122 
+
+## 数据目录 
+path.data: /opt/lagou/servers/data/es 
+
+# # 日志目录 
+path.logs: /opt/lagou/servers/logs/es 
+
+# # 当前主机的ip地址 
+network.host: linux122 http.port: 9200 
+
+#初始化一个新的集群时需要此配置来选举master 
+cluster.initial_master_nodes: [&quot;linux121&quot;,&quot;linux122&quot;,&quot;linux123&quot;] 
+#写入候选主节点的设备地址 
+discovery.seed_hosts: [&quot;linux121&quot;, &quot;linux122&quot;,&quot;linux123&quot;] 
+http.cors.enabled: true
+http.cors.allow-origin: &quot;*&quot;
+</code></pre>
+<blockquote>
+<p><code>linux123</code>服务器修改配置文件</p>
+</blockquote>
+<pre><code class="bash">cd /opt/lagou/servers/es/elasticsearch/config/ 
+
+vim elasticsearch.yml
+</code></pre>
+<pre><code class="yaml"># 集群名字 
+cluster.name: myes 
+
+## 集群中当前的节点 
+node.name: linux123 
+
+## 数据目录
+path.data: /opt/lagou/servers/data/es 
+
+# # 日志目录 
+path.logs: /opt/lagou/servers/logs/es 
+
+# # 当前主机的ip地址 
+network.host: linux123 http.port: 9200
+
+#初始化一个新的集群时需要此配置来选举master
+cluster.initial_master_nodes: [&quot;linux121&quot;,&quot;linux122&quot;,&quot;linux123&quot;] 
+
+#写入候选主节点的设备地址 
+discovery.seed_hosts: [&quot;linux121&quot;, &quot;linux122&quot;,&quot;linux123&quot;] 
+http.cors.enabled: 
+true http.cors.allow-origin: &quot;*&quot;
+</code></pre>
+<h5 id="1-3-4、修改三台机器-etc-sysctl-conf"><a href="#1-3-4、修改三台机器-etc-sysctl-conf" class="headerlink" title="1.3.4、修改三台机器/etc/sysctl.conf"></a>1.3.4、修改三台机器<code>/etc/sysctl.conf</code></h5><blockquote>
+<p><code>ES</code>因为需要大量的创建索引文件，需要大量的打开系统的文件，所以我们需要解除<code>linux</code>系统当中打</p>
+<p>开文件最大数目的限制，不然<code>ES</code>启动就会抛错</p>
+</blockquote>
+<blockquote>
+<p>修改文件句柄数</p>
+</blockquote>
+<pre><code class="bash">vim /etc/sysctl.conf
+</code></pre>
+<blockquote>
+<p>末尾添加：<code>vm.max_map_count=655360</code></p>
+<p>执行<code>sysctl -p</code> 让其生效</p>
+</blockquote>
+<h5 id="1-3-5、修改三台机器-etc-security-limits-conf"><a href="#1-3-5、修改三台机器-etc-security-limits-conf" class="headerlink" title="1.3.5、修改三台机器/etc/security/limits.conf"></a>1.3.5、修改三台机器<code>/etc/security/limits.conf</code></h5><blockquote>
+<p>修改<code>linux</code>系统对文件描述符的限制级别</p>
+</blockquote>
+<pre><code class="bash">vim /etc/security/limits.conf
+</code></pre>
+<blockquote>
+<p>末尾添加：</p>
+</blockquote>
+<pre><code class="pro">* soft nofile 65536 
+* hard nofile 65536 
+* soft nproc 4096 
+* hard nproc 4096
+</code></pre>
+<h3 id="2、启动ES服务"><a href="#2、启动ES服务" class="headerlink" title="2、启动ES服务"></a>2、启动<code>ES</code>服务</h3><hr>
+<h4 id="2-1、启动"><a href="#2-1、启动" class="headerlink" title="2.1、启动"></a>2.1、启动</h4><blockquote>
+<p>这里是后台启动，要发现错误的话，去<code>/opt/lagou/servers/logs/es</code>目录下查看。</p>
+<p>三台机器均执行</p>
+</blockquote>
+<pre><code class="bash">nohup /opt/lagou/servers/es/elasticsearch/bin/elasticsearch &gt;/dev/null 2&gt;&amp;1 &amp;
+</code></pre>
+<h4 id="2-2、测试访问ES"><a href="#2-2、测试访问ES" class="headerlink" title="2.2、测试访问ES"></a>2.2、测试访问<code>ES</code></h4><blockquote>
+<p>在Google Chrome浏览器中，访问以下地址</p>
+<p><a target="_blank" rel="noopener" href="http://linux121:9200/?pretty">http://linux121:9200/?pretty</a></p>
+<p><a target="_blank" rel="noopener" href="http://linux122:9200/?pretty">http://linux122:9200/?pretty</a></p>
+<p><a target="_blank" rel="noopener" href="http://linux123:9200/?pretty">http://linux123:9200/?pretty</a></p>
+</blockquote>
+<pre><code class="json">&#123; 
+    &quot;name&quot; : &quot;linux12?&quot;, 
+    &quot;cluster_name&quot; : &quot;myes&quot;, 
+    &quot;cluster_uuid&quot; : &quot;3nUDlA_hTjaiZQfBqygrLQ&quot;, 
+    &quot;version&quot; : &#123; 
+        &quot;number&quot; : &quot;7.3.0&quot;, 
+        &quot;build_flavor&quot; : &quot;default&quot;, 
+        &quot;build_type&quot; : &quot;tar&quot;,
+        &quot;build_hash&quot; : &quot;de777fa&quot;,
+        &quot;build_date&quot; : &quot;2019-07-24T18:30:11.767338Z&quot;,
+        &quot;build_snapshot&quot; : false, 
+        &quot;lucene_version&quot; : &quot;8.1.0&quot;,
+        &quot;minimum_wire_compatibility_version&quot; : &quot;6.8.0&quot;, 
+        &quot;minimum_index_compatibility_version&quot; : &quot;6.0.0-beta1&quot;
+    &#125;,
+    &quot;tagline&quot; : &quot;You Know, for Search&quot; 
+&#125;
+</code></pre>
+<h4 id="2-3、安装elasticsearch-head插件"><a href="#2-3、安装elasticsearch-head插件" class="headerlink" title="2.3、安装elasticsearch-head插件"></a>2.3、安装<code>elasticsearch-head</code>插件</h4><blockquote>
+<p><strong>谷歌浏览其插件方式安装</strong></p>
+<p><code>Chrome</code>插件安装地址</p>
+</blockquote>
+<pre><code class="tex">https://chrome.google.com/webstore/detail/elasticsearch- head/ffmkiejjmecolpfloofpjologoblkegm/
+</code></pre>
+<p><img src="/../image/elk/image-20220808141811419.png"></p>
+<blockquote>
+<p>添加完成后可以从以下地方找到扩展程序</p>
+</blockquote>
+<p><img src="/../image/elk/image-20220808141828783.png"></p>
+<h2 id="五、安装配置kibana"><a href="#五、安装配置kibana" class="headerlink" title="五、安装配置kibana"></a>五、<strong>安装配置</strong><code>kibana</code></h2><hr>
+<blockquote>
+<p>什么是<code>Kibana</code>?</p>
+<p><code>Kibana</code>是一个基于<code>Node.js</code>的<code>Elasticsearch</code>索引库数据统计工具，可以利用<code>Elasticsearch</code>的聚</p>
+<p>合功能，生成各种图表，如柱形图，线状图，饼图等。</p>
+</blockquote>
+<p><img src="/../image/elk/image-20220808142724396.png"></p>
+<h3 id="1、下载Kibana"><a href="#1、下载Kibana" class="headerlink" title="1、下载Kibana"></a>1、下载<code>Kibana</code></h3><hr>
+<p><img src="/../image/elk/image-20220808142855781.png"></p>
+<h3 id="2、安装kibana"><a href="#2、安装kibana" class="headerlink" title="2、安装kibana"></a>2、安装<code>kibana</code></h3><hr>
+<blockquote>
+<p><code>root</code>账户下操作！！</p>
+<p>上传到<code>linux121</code>服务器</p>
+</blockquote>
+<pre><code class="bash">cd /opt/lagou/software/ 
+tar -zxvf kibana-7.3.0-linux-x86_64.tar.gz -C ../servers/ 
+
+cd ../servers/ 
+mv kibana-7.3.0-linux-x86_64/ kibana/
+</code></pre>
+<blockquote>
+<p>改变<code>kibana</code>目录拥有者账号</p>
+</blockquote>
+<pre><code class="bash">chown -R es /opt/lagou/servers/kibana
+</code></pre>
+<blockquote>
+<p>设置访问权限</p>
+</blockquote>
+<pre><code class="bash">chmod -R 777 /opt/lagou/servers/kibana
+</code></pre>
+<blockquote>
+<p><strong>修改配置文件</strong> </p>
+</blockquote>
+<pre><code class="bash">vim /opt/lagou/servers/kibana/config/kibana.yml
+</code></pre>
+<blockquote>
+<p>修改端口，访问<code>ip</code>,<code>elasticsearch</code>服务器<code>ip</code></p>
+</blockquote>
+<pre><code class="yaml">server.port: 5601 s
+erver.host: &quot;linux121&quot; 
+# The URLs of the Elasticsearch instances to use for all your queries. elasticsearch.hosts: [&quot;http://linux121:9200&quot;,&quot;http://linux122:9200&quot;,&quot;http://linux123:9200&quot;]
+</code></pre>
+<blockquote>
+<p>配置完成启动：</p>
+</blockquote>
+<pre><code class="bash">##切换用户 
+su es
+cd /opt/lagou/servers/kibana/ /bin/kibana
+</code></pre>
+<p><img src="/../image/elk/image-20220808143402994.png"></p>
+<blockquote>
+<p>没有<code>error</code>错误启动成功</p>
+<p>访问<code>linux121:5601</code>，即可看到安装成功</p>
+</blockquote>
+<p><img src="/../image/elk/image-20220808143435093.png"></p>
+<h3 id="3、kidbana使用页面"><a href="#3、kidbana使用页面" class="headerlink" title="3、kidbana使用页面"></a>3、<code>kidbana</code>使用页面</h3><hr>
+<blockquote>
+<p>选择左侧的<code>DevTools</code>菜单，即可进入控制台页面：</p>
+</blockquote>
+<p><img src="/../image/elk/image-20220808144708358.png"></p>
+<p><img src="/../image/elk/image-20220808144725488.png"></p>
+<blockquote>
+<p>在页面右侧，我们就可以输入请求，访问<code>Elasticsearch</code>了。</p>
+</blockquote>
+<p><img src="/../image/elk/image-20220808144745327.png"></p>
+
+            </div>
+            <hr/>
+    
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.bmp" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.bmp" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+    
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+    
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2022/08/07/elk/" class="b-link-green">ELK的使用教程</a>
+                </p>
+            </div>
+    
+        </div>
+    </div>
+    
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Iv1.fc0d9004c04bd10f',
+        clientSecret: 'ae1026f1a6a57e97dbd91e20bb433d5f87c2f220',
+        repo: 'hcs-21.github.io',
+        owner: 'hcs-21',
+        admin: ["hcs-21"],
+        id: '2022/08/07/elk/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/08/08/elk%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="ELK的使用教程（二）">
+                        
+                        <span class="card-title">ELK的使用教程（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ELK的使用教程
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2022-08-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
+                                    工具使用教程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" target="_blank">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/ELK/" target="_blank">
+                        <span class="chip bg-color">ELK</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/" target="_blank">
+                        <span class="chip bg-color">日志系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/05/gifts/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="gifts detail">
+                        
+                        <span class="card-title">gifts detail</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            随礼
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-08-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/person/" class="post-category" target="_blank">
+                                    person
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/person/" target="_blank">
+                        <span class="chip bg-color">person</span>
+                    </a>
+                    
+                    <a href="/tags/gifts/" target="_blank">
+                        <span class="chip bg-color">gifts</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+    
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+    
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+    
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 郝春帅的博客<br />'
+            + '作者: 郝帅<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+    
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+        <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy;  郝帅. 
+
+
+            <br>
+            <span id="sitetime"></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+            <br>
+    
+            
+    
+            
+                    
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span>
+                    
+        
+                    
+                        <span id="busuanzi_container_site_uv" style='display:none'></span>
+                        人次&nbsp; | &nbsp;访客人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+                    
+    
+            
+			
+
+
+            
+            <br>
+    
+        </div>
+    
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hcs-21.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=haocs21@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=993999150&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    
+        var t1 = Date.UTC(2022, 06, 24, 00, 00, 00); //北京时间2019-8-1 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒" ;
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+
+
+
+        <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+        <script src="https://cdn.bootcss.com/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.bootcss.com/masonry/4.2.2/masonry.pkgd.min.js"></script>
+        <script src="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.js"></script>
+        <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+        <script src="https://cdn.bootcss.com/lightgallery/1.6.12/js/lightgallery-all.min.js"></script>
+        <script src="/js/matery.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+        
+            <script src="/libs/others/clicklove.js"></script>
+        
+
+        
+            <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+
+        <!-- 洪卫 shw2018 add 2019.08.28 -->
+        <script type="text/javascript">
+            var OriginTitile = document.title,
+                st;
+            document.addEventListener("visibilitychange", function () {
+                document.hidden ? (document.title = "看不见我🙈~看不见我🙈~", clearTimeout(st)) : (document.title =
+                    "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                        document.title = OriginTitile
+                    }, 3e3))
+            })
+        </script>
+
+        <!-- 鼠标点击烟花爆炸效果  洪卫 shw2018 add 2019.09.09 -->
+        
+
+        <!-- 背景雪花飘落特效洪卫 shw2018 add 2019.09.10 -->
+        
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 鼠标点击文字特效 洪卫 shw2018 add 2019.09.10-->
+        
+            <script src="/js/wenzi.js" type="text/javascript"></script>
+        
+
+        <!-- 背景雪花飘落特效 洪卫 shw2018 add 2019.09.10 -->
+        
+            <script type="text/javascript">
+                var windowWidth = $(window).width();
+                if (windowWidth > 768) {
+                    document.write('<script type="text/javascript" src="/js/xuehuapiaoluo.js"><\/script>');
+                }
+            </script>
+        
+
+        <!-- 在线聊天工具  洪卫 shw2018 add 2019.09.11 -->
+        
+            <script src="//code.tidio.co/xxxxxxxxxxxxxxxxxxxxxxxxxxx.js"></script>
+            <!--  在线聊天位置自定义  洪卫 shw2018 add 2019.09.13  -->
+            <script> 
+                $(document).ready(function () {
+
+                    setInterval(change_Tidio, 50);  
+                    function change_Tidio() { 
+
+                        var tidio=$("#tidio-chat iframe");
+                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
+                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
+                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        } 
+                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
+                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+
+                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                        }
+                    } 
+                }); 
+            </script>
+        
+
+        <!-- 背景 canvas-nest  洪卫 shw 2018  add 2019.09.15-->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" color="0,0,255" pointColor="0,0,255" opacity= "0.8" zIndex="--1" count="150"src="/libs/background/canvas-nest.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 背景静止彩带  洪卫 shw 2018  add 2019.09.15-->
+        
+
+        <!-- 背景动态彩带 洪卫 shw 2018  add 2019.09.15-->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" src="/libs/background/ribbon-dynamic.js"><\/script>');
+            }
+            </script>
+        
+
+    </body>
+</html>

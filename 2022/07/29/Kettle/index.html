@@ -1,0 +1,1763 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <!-- hcs-21 郝帅  modify 2022.06.24-->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Kettle 的使用教程, BigData">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY" />
+    <meta name="description" content="阅读须知
+
+本篇文章仅供参考
+
+1、ETL概念
+
+ETL（Extract-Transform-Load的缩写，即数据抽取、转换、装载的过程），对于企业或行业应用来
+说，我们经常会遇到各种数据的处理，转换，迁移，所以了解并掌握一种ETL工具的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Kettle 的使用教程 | 郝春帅的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.12/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <style type="text/css">
+        
+    </style>
+    
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">郝春帅的博客</span>
+                </a>
+            </div>
+            
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/AV" class="waves-effect waves-light">
+            
+            <i class="fa fa-music"></i>
+            
+            <span>视听</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/galleries" class="waves-effect waves-light">
+            
+            <i class="fa fa-photo"></i>
+            
+            <span>相册</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/tags" class="waves-effect waves-light">
+              
+                <i class="fa fa-tags"></i>
+              
+              <span>标签</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/categories" class="waves-effect waves-light">
+              
+                <i class="fa fa-bookmark"></i>
+              
+              <span>分类</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/archives" class="waves-effect waves-light">
+              
+                <i class="fa fa-archive"></i>
+              
+              <span>归档</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/AV" class="waves-effect waves-light">
+              
+                <i class="fa fa-music"></i>
+              
+              <span>视听</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/galleries" class="waves-effect waves-light">
+              
+                <i class="fa fa-photo"></i>
+              
+              <span>相册</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/about" class="waves-effect waves-light">
+              
+                <i class="fa fa-user-circle-o"></i>
+              
+              <span>关于我</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/friends" class="waves-effect waves-light">
+              
+                <i class="fa fa-address-book"></i>
+              
+              <span>友情链接</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">郝春帅的博客</div>
+        <div class="logo-desc">
+            
+            什么也不会的小白
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/AV" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-music"></i>
+                
+                视听
+            </a>
+        </li>
+        
+        <li>
+            <a href="/galleries" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-photo"></i>
+                
+                相册
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hcs-21/hcs-21.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+   
+   
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<!-- <ul class="menu-list mobile-menu-list">
+    
+        <li class="m-nav-item">
+                
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-home"></i>
+                        
+                        首页
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/tags" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-tags"></i>
+                        
+                        标签
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/categories" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-bookmark"></i>
+                        
+                        分类
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/archives" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-archive"></i>
+                        
+                        归档
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/AV" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-music"></i>
+                        
+                        视听
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/galleries" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-photo"></i>
+                        
+                        相册
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/about" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-user-circle-o"></i>
+                        
+                        关于我
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/friends" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-address-book"></i>
+                        
+                        友情链接
+                    </a>
+              
+            </li>
+        
+
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hcs-21/hcs-21.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul> -->
+
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hcs-21/hcs-21.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Kettle 的使用教程
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- shw2018 洪卫  modify 2019.08.15-->
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Kettle/" target="_blank">
+                                <span class="chip bg-color">Kettle</span>
+                            </a>
+                        
+                            <a href="/tags/ETL/" target="_blank">
+                                <span class="chip bg-color">ETL</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
+                                工具使用教程
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-29
+                </div>
+    
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        郝帅
+                    
+                </div>
+    
+                
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+    
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="阅读须知"><a href="#阅读须知" class="headerlink" title="阅读须知"></a>阅读须知</h2><hr>
+<blockquote>
+<p>本篇文章仅供参考</p>
+</blockquote>
+<h2 id="1、ETL概念"><a href="#1、ETL概念" class="headerlink" title="1、ETL概念"></a>1、<code>ETL</code>概念</h2><hr>
+<blockquote>
+<p><code>ETL</code>（<code>Extract-Transform-Load</code>的缩写，即数据<strong>抽取</strong>、<strong>转换</strong>、<strong>装载</strong>的过程），对于企业或行业应用来</p>
+<p>说，我们经常会遇到各种数据的<strong>处理</strong>，<strong>转换</strong>，<strong>迁移</strong>，所以了解并掌握一种<code>ETL</code>工具的使用，必不可少，</p>
+<p>这里我要学习的<code>ETL</code>工具是<code>KETTLE</code>！</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801092954779.png" alt="数据仓库结构框架"></p>
+<h2 id="2、为什么要用ETL工具"><a href="#2、为什么要用ETL工具" class="headerlink" title="2、为什么要用ETL工具"></a>2、为什么要用<code>ETL</code>工具</h2><hr>
+<blockquote>
+<ol>
+<li>数据来自<strong>不同的物理主机</strong>，这时候如使用SQL语句去处理的话，就显得比较吃力且开销也更大</li>
+<li>数据来源可以是各种<strong>不同的数据库</strong>或者<strong>文件</strong>，这时候需要先把他们整理成统一的格式后才可以进行数据的处理，这一过程用代码实现显然有些麻烦。</li>
+<li>数据库中我们当然可以使用<strong>存储过程</strong>去处理数据，但是处理海量数据的时候存储过程显然比较吃力，而且会占用<strong>较多数据库的资源</strong>，这可能会<strong>导致数据资源不足</strong>，进而影响数据库的性能</li>
+</ol>
+</blockquote>
+<h2 id="3、ETL工具的优势"><a href="#3、ETL工具的优势" class="headerlink" title="3、ETL工具的优势"></a>3、<code>ETL</code>工具的优势</h2><hr>
+<blockquote>
+<ol>
+<li>支持多种<strong>异构数据源</strong>的连接</li>
+<li>图形化的界面操作十分方便</li>
+<li>处理海量数据速度快、流程更清晰等</li>
+</ol>
+</blockquote>
+<h2 id="4、KETTLE简介"><a href="#4、KETTLE简介" class="headerlink" title="4、KETTLE简介"></a>4、<code>KETTLE</code>简介</h2><hr>
+<p><img src="/../image/Kettle/image-20220801094237373.png" alt="概念模型图"></p>
+<h3 id="4-1、Transformation"><a href="#4-1、Transformation" class="headerlink" title="4.1、Transformation"></a>4.1、<code>Transformation</code></h3><blockquote>
+<p><code>Transformation</code>（转换）是由一系列被称之为<code>step</code>（步骤）的逻辑工作的网络。<strong>转换</strong>本质上是<strong>数据</strong></p>
+<p><strong>流</strong>。下图是一个转换的例子，这个转换从<strong>文本文件</strong>中读取数据，过滤，然后排序，最后将数据加载到<strong>数</strong></p>
+<p><strong>据库</strong>。本质上，转换是一组图形化的数据转换配置的逻辑结构。</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801094507327.png"></p>
+<blockquote>
+<ul>
+<li>转换的两个相关的主要组成部分是<code>step</code>（步骤）和<code>hops</code>（节点连接）。</li>
+<li>转换文件的扩展名是<code>.ktr</code>。</li>
+</ul>
+</blockquote>
+<h4 id="4-1-1、Steps（步骤）"><a href="#4-1-1、Steps（步骤）" class="headerlink" title="4.1.1、Steps（步骤）"></a>4.1.1、<code>Steps</code>（步骤）</h4><blockquote>
+<p><code>Steps</code>（步骤）是转换的建筑模块，比如一个文本文件输入或者一个表输出就是一个步骤。在<code>PDI</code>中有</p>
+<p>140多个步骤，它们按不同功能进行分类，比如<strong>输入类</strong>、<strong>输出类</strong>、<strong>脚本类</strong>等。每个步骤用于完成某种特定</p>
+<p>的功能，通过配置一系列的步骤就可以完成你所需要完成的任务</p>
+</blockquote>
+<h4 id="4-1-2、Hops（节点连接）"><a href="#4-1-2、Hops（节点连接）" class="headerlink" title="4.1.2、Hops（节点连接）"></a>4.1.2、<code>Hops</code>（节点连接）</h4><blockquote>
+<p><code>Hops</code>（节点连接）是<strong>数据的通道</strong>，用于<strong>连接两个步骤</strong>，使得元数据从一个步骤传递到另一个步骤。在上</p>
+<p>图所示的转换中，它像似顺序执行发生的，但事实并非如此。节点连接决定了<strong>贯穿在步骤之间的数据</strong></p>
+<p><strong>流</strong>，步骤之间的顺序不是转换执行的顺序。当执行一个转换时，<strong>每个步骤都以自己的线程启动</strong>，并</p>
+<p>不断的接受和推送数据。</p>
+</blockquote>
+<blockquote>
+<p><strong>注意：所以的步骤是同步开启和运行的，所以步骤的初始化的顺序是不可知的。因为我们不能在第一</strong></p>
+<p><strong>个步骤中设置一个变量，然后在接下来的步骤中使用它。</strong></p>
+</blockquote>
+<blockquote>
+<p>在一个转换中，一个步骤可以有<strong>多个连接</strong>，数据流可以从一个步骤流到多个步骤。在<code>Spoon</code>中，<code>hops</code></p>
+<p>就想是箭，它不仅允许数据从一个步骤流向另一个步骤，也决定了数据流的方向和所经步骤。如果一个</p>
+<p>步骤的数据输出到了多个步骤，那么数据既可以是<strong>复制</strong>的，也可以是<strong>分发</strong>的。</p>
+</blockquote>
+<h3 id="4-2、Jobs（工作）"><a href="#4-2、Jobs（工作）" class="headerlink" title="4.2、Jobs（工作）"></a>4.2、<code>Jobs</code>（工作）</h3><blockquote>
+<p><code>Jobs</code>（工作）是基于工作流模型的，协调数据源、执行过程和相关依赖性的<code>ETL</code>活动。</p>
+<p><code>Jobs</code>（工作）将功能性和实体过程聚合在了一起。下图是一个工作的例子。</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801102129378.png"></p>
+<blockquote>
+<p>一个工作中展示的任务有从FTP获取文件、核查一个必须存在的数据库表是否存在、执行一个转换、发送</p>
+<p>邮件通知一个转换中的错误等。最终工作的结果可能是数据仓库的更新等。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>工作由工作节点连接、工作实体和工作设置组成。</li>
+<li>工作文件的扩展名是<code>.kjb</code>。</li>
+</ul>
+</blockquote>
+<h3 id="4-3、Variable（变量）"><a href="#4-3、Variable（变量）" class="headerlink" title="4.3、Variable（变量）"></a>4.3、<code>Variable</code>（变量）</h3><blockquote>
+<p>根据变量的作用域，变量被分为两类：<strong>环境变量</strong>和**<code>KETTLE</code>变量**</p>
+</blockquote>
+<h4 id="4-3-1、环境变量"><a href="#4-3-1、环境变量" class="headerlink" title="4.3.1、环境变量"></a>4.3.1、环境变量</h4><blockquote>
+<p>环境变量可以通过<strong>edit menu</strong>下面的<strong>set environment variables</strong>对话框进行设置。使用环境变量的唯</p>
+<p>一的问题是，它<strong>不能被动态的使用</strong>。如果在同一个应用服务器中执行两个或多个使用同一环境变量的转</p>
+<p>换，将可能发生冲突。</p>
+</blockquote>
+<h4 id="4-3-2、KETTLE变量"><a href="#4-3-2、KETTLE变量" class="headerlink" title="4.3.2、KETTLE变量"></a>4.3.2、<code>KETTLE</code>变量</h4><blockquote>
+<p><code>KETTLE</code>变量用于在<strong>一个小的动态范围内存储少量的信息</strong>。<code>KETTLE</code>变量是**<code>KETTLE</code>本地**的，作用范围可</p>
+<p>以是<strong>一个工作或转换</strong>，在工作或转换中可以设置或修改。<code>Set variable</code>步骤用来设置与此变量有关的</p>
+<p>工作从此设置其作用域，如：<strong>父工作</strong>、<strong>祖父工作</strong>或<strong>根工作</strong>。</p>
+</blockquote>
+<h3 id="4-4、KETTLE执行器的使用"><a href="#4-4、KETTLE执行器的使用" class="headerlink" title="4.4、KETTLE执行器的使用"></a>4.4、<code>KETTLE</code>执行器的使用</h3><h4 id="4-4-1、-Kitchen执行器的参数"><a href="#4-4-1、-Kitchen执行器的参数" class="headerlink" title="4.4.1、 Kitchen执行器的参数"></a>4.4.1、 <code>Kitchen</code>执行器的参数</h4><pre><code class="bash">-rep      : Repository name   任务包所在存储名
+-user     : Repository username   执行人
+-pass     : Repository password   执行人密码
+-job      : The name of the job to launch 任务包名称
+-dir      : The directory (don&#39;&#39;t forget the leading / or \) 
+-file     : The filename (Job XML) to launch 
+-level    : The logging level (Basic, Detailed, Debug, Rowlevel, Error, Nothing) 指定日志级别
+-log      : The logging file to write to  指定日志文件
+-listdir  : List the directories in the repository 列出指定存储中的目录结构。
+-listjobs : List the jobs in the specified directory 列出指定目录下的所有任务
+-listrep  : List the defined repositories 列出所有的存储
+-norep    : Don&#39;&#39;t log into the repository  不写日志
+</code></pre>
+<h3 id="4-5、-Windows下kitchen的执行方式的实例"><a href="#4-5、-Windows下kitchen的执行方式的实例" class="headerlink" title="4.5、 Windows下kitchen的执行方式的实例"></a>4.5、 <code>Windows</code>下<code>kitchen</code>的执行方式的实例</h3><pre><code class="sh">kitchen.bat /norep -file=D:/kettledata/mysal2orcle.kjb &gt;&gt; kitchen_%date:~0,10%.log
+</code></pre>
+<blockquote>
+<p>上面的含义是，使用<code>kitchen.bat</code> 命令来执行<code>job</code>文件，<code>job</code>文件的存放路径是</p>
+<p><code>D:/kettledata/mysal2orcle.kjb</code>，并且将执行的结果输出到 <code>kitchen_%date:~0,10%.log</code>文件中。</p>
+</blockquote>
+<pre><code class="bash">Kitchen.sh -rep tfods -user admin -pass admin -dir / -logfile  /home/tfods/KETTLEV/log/.log
+</code></pre>
+<blockquote>
+<p>上面的含义是，使用<code>kitchen.sh</code> 命令来执行<code>job</code>文件，<code>job</code>文件的存放路径是<code>/</code>，并且将执行的结</p>
+<p>果输出到 <code>/home/tfods/KETTLEV/log/.log</code>文件中。</p>
+</blockquote>
+<h2 id="5、KETTLE安装"><a href="#5、KETTLE安装" class="headerlink" title="5、KETTLE安装"></a>5、<code>KETTLE</code>安装</h2><hr>
+<blockquote>
+<p>默认已安装<code>JDK</code>，<code>JDK1.6</code>以上。</p>
+</blockquote>
+<blockquote>
+<p>直接解压文件即可</p>
+</blockquote>
+<h3 id="5-1、配置文件"><a href="#5-1、配置文件" class="headerlink" title="5.1、配置文件"></a>5.1、配置文件</h3><p><img src="/../image/Kettle/image-20220801123609788.png"></p>
+<blockquote>
+<p><code>kettle.properties</code> ：<strong>全局变量</strong>，打开文件，直接在里面定义，如： TODAY&#x3D;to_char(sysdate,’yyyy-</p>
+<p>mm-dd’)，这里支持<strong>数据库函数</strong>，说的更直白点，就是这里定义是个啥，那么在<code>transformation</code>里边</p>
+<p>取到的它就是啥。在需要的地方，直接**%%V_YES_DATE%%<strong>，或者</strong>${V_YES_DATE}**就可以得到。定义后</p>
+<p><strong>保存重启</strong><code>spoon</code>才生效。</p>
+</blockquote>
+<blockquote>
+<p><code>repositories.xml</code>：<code>KETTLE</code>资源库的定义</p>
+</blockquote>
+<h3 id="5-2、创建资源库"><a href="#5-2、创建资源库" class="headerlink" title="5.2、创建资源库"></a>5.2、创建资源库</h3><h3 id="5-2-1、创建数据库相关资源"><a href="#5-2-1、创建数据库相关资源" class="headerlink" title="5.2.1、创建数据库相关资源"></a>5.2.1、创建数据库相关资源</h3><pre><code class="sql">--查询表空间数据文件
+select 
+  b.file_name 物理文件名,
+  b.tablespace_name 表空间,
+  b.bytes/1024/1024 大小M
+from 
+  dba_free_space a, 
+  dba_data_files b 
+where
+  a.file_id = b.file_id 
+and
+  b.tablespace_name = &#39;TSP_TFODS&#39;
+group by
+  b.tablespace_name,b.file_name,b.bytes
+order by  
+  b.tablespace_name,b.file_name desc
+;
+
+--创建表空间
+CREATE TABLESPACE TSP_KETTLE DATAFILE &#39;?&#39; SIZE 30G;
+
+--创建用户
+CREATE USER kettle IDENTIFIED BY kettle DEFAULT TABLESPACE TSP_KETTLE TEMPORARY TABLESPACE TEMP;
+
+--给用户赋予权限
+grant dba to kettle;
+</code></pre>
+<p><img src="/../image/Kettle/image-20220801140115193.png"></p>
+<blockquote>
+<p>采用数据库存储资源库</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801140252494.png"></p>
+<blockquote>
+<p>新建数据库连接</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801141322013.png"></p>
+<blockquote>
+<p>填写数据库信息</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801141150200.png"></p>
+<p><img src="/../image/Kettle/image-20220801141514487.png"></p>
+<blockquote>
+<p>创建之后数据库中会初始化相关表</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801151015362.png"></p>
+<blockquote>
+<p>创建之后进入界面</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801145543943.png"></p>
+<h2 id="6、KETTLE使用"><a href="#6、KETTLE使用" class="headerlink" title="6、KETTLE使用"></a>6、<code>KETTLE</code>使用</h2><h3 id="6-1、创建数据库连接"><a href="#6-1、创建数据库连接" class="headerlink" title="6.1、创建数据库连接"></a>6.1、创建数据库连接</h3><blockquote>
+<p>探索资源库</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801151436664.png"></p>
+<blockquote>
+<p>新建数据库连接</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801151623065.png"></p>
+<blockquote>
+<p>填写数据库连接信息</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220801151828658.png"></p>
+<p><img src="/../image/Kettle/image-20220801151953217.png"></p>
+<h3 id="6-2、创建转换"><a href="#6-2、创建转换" class="headerlink" title="6.2、创建转换"></a>6.2、创建转换</h3><p><img src="/../image/Kettle/image-20220801152314727.png"></p>
+<p><img src="/../image/Kettle/image-20220801152641679.png"></p>
+<h3 id="6-3、创建作业"><a href="#6-3、创建作业" class="headerlink" title="6.3、创建作业"></a>6.3、创建作业</h3><p><img src="/../image/Kettle/image-20220801152749889.png"></p>
+<p><img src="/../image/Kettle/image-20220801153030001.png"></p>
+<h3 id="6-4插件功能描述"><a href="#6-4插件功能描述" class="headerlink" title="6.4插件功能描述"></a>6.4插件功能描述</h3><h4 id="6-4-1、输入插件介绍"><a href="#6-4-1、输入插件介绍" class="headerlink" title="6.4.1、输入插件介绍"></a>6.4.1、输入插件介绍</h4><h5 id="6-4-1-1、CSV输入组件"><a href="#6-4-1-1、CSV输入组件" class="headerlink" title="6.4.1.1、CSV输入组件"></a>6.4.1.1、<code>CSV</code>输入组件</h5><p><img src="/../image/Kettle/image-20220801175143784.png"></p>
+<h5 id="6-4-1-2、EXCEL输入组件"><a href="#6-4-1-2、EXCEL输入组件" class="headerlink" title="6.4.1.2、EXCEL输入组件"></a>6.4.1.2、<code>EXCEL</code>输入组件</h5><blockquote>
+<p>增加<code>EXCEL</code>文件</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811145448767.png"></p>
+<blockquote>
+<p>增加工作表</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811145545153.png"></p>
+<blockquote>
+<p>文件内容设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811145725755.png"></p>
+<blockquote>
+<p>获取字段</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811145629626.png"></p>
+<h5 id="6-4-1-3、TXT文本文件输入组件"><a href="#6-4-1-3、TXT文本文件输入组件" class="headerlink" title="6.4.1.3、TXT文本文件输入组件"></a>6.4.1.3、<code>TXT</code>文本文件输入组件</h5><blockquote>
+<p>添加文本文件</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811150217961.png"></p>
+<blockquote>
+<p>文件内容设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811150258357.png"></p>
+<blockquote>
+<p>获取字段</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811150329874.png"></p>
+<h5 id="6-4-1-4、表输入"><a href="#6-4-1-4、表输入" class="headerlink" title="6.4.1.4、表输入"></a>6.4.1.4、表输入</h5><p><img src="/../image/Kettle/image-20220811150853990.png" alt="image-20220811150853990"></p>
+<h5 id="6-4-1-5、XML文件输入"><a href="#6-4-1-5、XML文件输入" class="headerlink" title="6.4.1.5、XML文件输入"></a>6.4.1.5、<code>XML</code>文件输入</h5><blockquote>
+<p>基础信息设置，文件导入</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811151240116.png"></p>
+<blockquote>
+<p>内容设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811151317817.png"></p>
+<blockquote>
+<p>获取字段</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811151340685.png"></p>
+<h4 id="6-4-2、输出插件介绍"><a href="#6-4-2、输出插件介绍" class="headerlink" title="6.4.2、输出插件介绍"></a>6.4.2、输出插件介绍</h4><h5 id="6-4-2-1、Excel输出插件"><a href="#6-4-2-1、Excel输出插件" class="headerlink" title="6.4.2.1、Excel输出插件"></a>6.4.2.1、<code>Excel</code>输出插件</h5><blockquote>
+<p><code>Excel</code>文件基础设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220802091529850.png"></p>
+<blockquote>
+<p><code>Excel</code>文件内容设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220802091823967.png"></p>
+<blockquote>
+<p><code>Excel</code>文件的格式设置，默认</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220802091942297.png"></p>
+<blockquote>
+<p><code>Excel</code>文件字段设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220802092203316.png"></p>
+<h5 id="6-4-2-2、TXT输出插件"><a href="#6-4-2-2、TXT输出插件" class="headerlink" title="6.4.2.2、TXT输出插件"></a>6.4.2.2、<code>TXT</code>输出插件</h5><blockquote>
+<p>文件基础信息设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811145849307.png"></p>
+<blockquote>
+<p>文件内容设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811145952583.png"></p>
+<blockquote>
+<p>文件字段获取</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811150059945.png" alt="image-20220811150059945"></p>
+<h5 id="6-4-2-3、表输出"><a href="#6-4-2-3、表输出" class="headerlink" title="6.4.2.3、表输出"></a>6.4.2.3、表输出</h5><blockquote>
+<p>表输出基本设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811150551195.png"></p>
+<blockquote>
+<p>获取字段</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811150656430.png"></p>
+<h5 id="6-4-2-4、XML输出"><a href="#6-4-2-4、XML输出" class="headerlink" title="6.4.2.4、XML输出"></a>6.4.2.4、<code>XML</code>输出</h5><blockquote>
+<p>文件基础信息设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811150935999.png"></p>
+<blockquote>
+<p>文件内容设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811151101378.png"></p>
+<blockquote>
+<p>获取字段</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811151141980.png"></p>
+<h4 id="6-5、通用JOB组件详解"><a href="#6-5、通用JOB组件详解" class="headerlink" title="6.5、通用JOB组件详解"></a>6.5、通用<code>JOB</code>组件详解</h4><h5 id="6-5-1、开始结束组件"><a href="#6-5-1、开始结束组件" class="headerlink" title="6.5.1、开始结束组件"></a>6.5.1、开始结束组件</h5><p><img src="/../image/Kettle/image-20220811151417941.png"></p>
+<h5 id="6-5-2、设置变量"><a href="#6-5-2、设置变量" class="headerlink" title="6.5.2、设置变量"></a>6.5.2、设置变量</h5><h6 id="6-5-2-1、JOB"><a href="#6-5-2-1、JOB" class="headerlink" title="6.5.2.1、JOB"></a>6.5.2.1、<code>JOB</code></h6><p><img src="/../image/Kettle/image-20220811151459336.png"></p>
+<h6 id="6-5-2-2、transform"><a href="#6-5-2-2、transform" class="headerlink" title="6.5.2.2、transform"></a>6.5.2.2、<code>transform</code></h6><p><img src="/../image/Kettle/image-20220811151522974.png"></p>
+<blockquote>
+<p>表输入</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811151547567.png"></p>
+<blockquote>
+<p>设置变量</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811151617239.png"></p>
+<h6 id="6-5-2-3、环境变量的使用"><a href="#6-5-2-3、环境变量的使用" class="headerlink" title="6.5.2.3、环境变量的使用"></a>6.5.2.3、环境变量的使用</h6><p><img src="/../image/Kettle/image-20220811151707847.png" alt="image-20220811151707847"></p>
+<h4 id="6-6、流程控制组件"><a href="#6-6、流程控制组件" class="headerlink" title="6.6、流程控制组件"></a>6.6、流程控制组件</h4><h5 id="6-6-1、Switch-x2F-case"><a href="#6-6-1、Switch-x2F-case" class="headerlink" title="6.6.1、Switch&#x2F;case"></a>6.6.1、<code>Switch</code>&#x2F;<code>case</code></h5><p><img src="/../image/Kettle/image-20220811151819001.png"></p>
+<blockquote>
+<p>组件接收字段</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811151928407.png"></p>
+<blockquote>
+<p>组件设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811152051238.png"></p>
+<h5 id="6-6-2、校验字段的值"><a href="#6-6-2、校验字段的值" class="headerlink" title="6.6.2、校验字段的值"></a>6.6.2、校验字段的值</h5><p><img src="/../image/Kettle/image-20220811152404586.png"></p>
+<h5 id="6-6-3、检查文件是否存在"><a href="#6-6-3、检查文件是否存在" class="headerlink" title="6.6.3、检查文件是否存在"></a>6.6.3、检查文件是否存在</h5><p><img src="/../image/Kettle/image-20220811152459790.png"></p>
+<h5 id="6-6-4、校验文件大小或者文件数目"><a href="#6-6-4、校验文件大小或者文件数目" class="headerlink" title="6.6.4、校验文件大小或者文件数目"></a>6.6.4、校验文件大小或者文件数目</h5><p><img src="/../image/Kettle/image-20220811152619958.png"></p>
+<p><img src="/../image/Kettle/image-20220811152702891.png"></p>
+<h4 id="6-7、文件传输"><a href="#6-7、文件传输" class="headerlink" title="6.7、文件传输"></a>6.7、文件传输</h4><h5 id="6-7-1、FTP传输"><a href="#6-7-1、FTP传输" class="headerlink" title="6.7.1、FTP传输"></a>6.7.1、<code>FTP</code>传输</h5><blockquote>
+<p>上传</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811152757340.png"></p>
+<blockquote>
+<p>文件设置</p>
+</blockquote>
+<p><img src="/../image/Kettle/image-20220811152840915.png"></p>
+<p><img src="/../image/Kettle/image-20220811152914050.png"></p>
+<blockquote>
+<p>文件下载与上传类似</p>
+</blockquote>
+
+            </div>
+            <hr/>
+    
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.bmp" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.bmp" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+    
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+    
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2022/07/29/Kettle/" class="b-link-green">Kettle 的使用教程</a>
+                </p>
+            </div>
+    
+        </div>
+    </div>
+    
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Iv1.fc0d9004c04bd10f',
+        clientSecret: 'ae1026f1a6a57e97dbd91e20bb433d5f87c2f220',
+        repo: 'hcs-21.github.io',
+        owner: 'hcs-21',
+        admin: ["hcs-21"],
+        id: '2022/07/29/Kettle/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/08/05/Druid/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Apache Druid的使用教程">
+                        
+                        <span class="card-title">Apache Druid的使用教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Apache Druid的使用教程
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2022-08-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
+                                    工具使用教程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" target="_blank">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/Druid/" target="_blank">
+                        <span class="chip bg-color">Druid</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/07/28/Kylin/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Apache Kylin的使用教程">
+                        
+                        <span class="card-title">Apache Kylin的使用教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Apache Kylin的使用教程
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-07-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
+                                    工具使用教程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" target="_blank">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                    <a href="/tags/Kylin/" target="_blank">
+                        <span class="chip bg-color">Kylin</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+    
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+    
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+    
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 郝春帅的博客<br />'
+            + '作者: 郝帅<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+    
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+        <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy;  郝帅. 
+
+
+            <br>
+            <span id="sitetime"></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+            <br>
+    
+            
+    
+            
+                    
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span>
+                    
+        
+                    
+                        <span id="busuanzi_container_site_uv" style='display:none'></span>
+                        人次&nbsp; | &nbsp;访客人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+                    
+    
+            
+			
+
+
+            
+            <br>
+    
+        </div>
+    
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hcs-21.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=haocs21@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=993999150&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    
+        var t1 = Date.UTC(2022, 06, 24, 00, 00, 00); //北京时间2019-8-1 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒" ;
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+
+
+
+        <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+        <script src="https://cdn.bootcss.com/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.bootcss.com/masonry/4.2.2/masonry.pkgd.min.js"></script>
+        <script src="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.js"></script>
+        <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+        <script src="https://cdn.bootcss.com/lightgallery/1.6.12/js/lightgallery-all.min.js"></script>
+        <script src="/js/matery.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+        
+            <script src="/libs/others/clicklove.js"></script>
+        
+
+        
+            <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+
+        <!-- 洪卫 shw2018 add 2019.08.28 -->
+        <script type="text/javascript">
+            var OriginTitile = document.title,
+                st;
+            document.addEventListener("visibilitychange", function () {
+                document.hidden ? (document.title = "看不见我🙈~看不见我🙈~", clearTimeout(st)) : (document.title =
+                    "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                        document.title = OriginTitile
+                    }, 3e3))
+            })
+        </script>
+
+        <!-- 鼠标点击烟花爆炸效果  洪卫 shw2018 add 2019.09.09 -->
+        
+
+        <!-- 背景雪花飘落特效洪卫 shw2018 add 2019.09.10 -->
+        
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 鼠标点击文字特效 洪卫 shw2018 add 2019.09.10-->
+        
+            <script src="/js/wenzi.js" type="text/javascript"></script>
+        
+
+        <!-- 背景雪花飘落特效 洪卫 shw2018 add 2019.09.10 -->
+        
+            <script type="text/javascript">
+                var windowWidth = $(window).width();
+                if (windowWidth > 768) {
+                    document.write('<script type="text/javascript" src="/js/xuehuapiaoluo.js"><\/script>');
+                }
+            </script>
+        
+
+        <!-- 在线聊天工具  洪卫 shw2018 add 2019.09.11 -->
+        
+            <script src="//code.tidio.co/xxxxxxxxxxxxxxxxxxxxxxxxxxx.js"></script>
+            <!--  在线聊天位置自定义  洪卫 shw2018 add 2019.09.13  -->
+            <script> 
+                $(document).ready(function () {
+
+                    setInterval(change_Tidio, 50);  
+                    function change_Tidio() { 
+
+                        var tidio=$("#tidio-chat iframe");
+                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
+                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
+                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        } 
+                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
+                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+
+                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                        }
+                    } 
+                }); 
+            </script>
+        
+
+        <!-- 背景 canvas-nest  洪卫 shw 2018  add 2019.09.15-->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" color="0,0,255" pointColor="0,0,255" opacity= "0.8" zIndex="--1" count="150"src="/libs/background/canvas-nest.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 背景静止彩带  洪卫 shw 2018  add 2019.09.15-->
+        
+
+        <!-- 背景动态彩带 洪卫 shw 2018  add 2019.09.15-->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" src="/libs/background/ribbon-dynamic.js"><\/script>');
+            }
+            </script>
+        
+
+    </body>
+</html>
