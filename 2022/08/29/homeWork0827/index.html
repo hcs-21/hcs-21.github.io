@@ -940,22 +940,23 @@
 <p>有同样的前缀，如下图所示</p>
 <p><img src="/../image/homeWork0827/image-20220831142447672.png"></p>
 <h2 id="3、分布式系统存在的问题"><a href="#3、分布式系统存在的问题" class="headerlink" title="3、分布式系统存在的问题"></a>3、分布式系统存在的问题</h2><hr>
-<h3 id="3-1、通信异常"><a href="#3-1、通信异常" class="headerlink" title="3.1、通信异常"></a>3.1、通信异常</h3><p>网络本身的不可靠性，因此每次网络通信都会伴随着网络不可用的风险（光纤、路由、<code>DNS</code>等硬件设备或系</p>
-<p>统的不可用），都会导致最终分布式系统无法顺利进行一次网络通信，另外，即使分布式系统各节点之间的网</p>
-<p>络通信能够正常执行，其延时也会大于单机操作，存在巨大的延时差别，也会影响消息的收发过程，因此消息</p>
-<p>丢失和消息延迟变的非常普遍。</p>
-<h3 id="3-2、网路分区"><a href="#3-2、网路分区" class="headerlink" title="3.2、网路分区"></a>3.2、网路分区</h3><p>网络之间出现了网络不连通，但各个子网络的内部网络是正常的，从而导致整个系统的网络环境被切分成了若</p>
-<p>干个孤立的区域，分布式系统就会出现局部小集群，<strong>在极端情况下，这些小集群会独立完成原本需要整个分布</strong></p>
-<p><strong>式系统才能完成的功能，包括数据的事务处理，这就对分布式一致性提出非常大的挑战。</strong></p>
-<h3 id="3-3、节点故障"><a href="#3-3、节点故障" class="headerlink" title="3.3、节点故障"></a>3.3、节点故障</h3><p>节点故障是分布式系统下另一个比较常见的问题，指的是组成分布式系统的服务器节点出现的宕机或”僵死”现</p>
-<p>象，根据经验来说，<strong>每个节点都有可能出现故障，并且经常发生</strong>.</p>
-<h3 id="3-4、三态"><a href="#3-4、三态" class="headerlink" title="3.4、三态"></a>3.4、三态</h3><p>分布式系统每一次请求与响应存在特有的“<strong>三态</strong>”概念，即<strong>成功、失败和超时</strong>。</p>
-<p>分布式系统中，由于网络是不可靠的，虽然绝大部分情况下，网络通信能够接收到成功或失败的响应，但当网</p>
-<p>络出现异常的情况下，就会出现超时现象，通常有以下两种情况：</p>
+<h3 id="3-1、节点故障与部分失效"><a href="#3-1、节点故障与部分失效" class="headerlink" title="3.1、节点故障与部分失效"></a>3.1、节点故障与部分失效</h3><p>分布式系统某个节点故障，具有不确定性</p>
+<h3 id="3-2、网络问题"><a href="#3-2、网络问题" class="headerlink" title="3.2、网络问题"></a>3.2、网络问题</h3><blockquote>
 <ol>
-<li>由于网络原因，该请求并没有被成功的发送到接收方，而是在<strong>发送过程就发生了丢失现象</strong>。</li>
-<li>该请求成功的被接收方接收后，并进行了处理，但<strong>在响应反馈给发送方过程中，发生了消息丢失现象</strong>。</li>
+<li>失或者相应丢失</li>
+<li>请求过载需要排队等待</li>
+<li>目标进程假死停止相应</li>
+<li>目标节点宕机</li>
 </ol>
+</blockquote>
+<h3 id="3-3、时钟问题"><a href="#3-3、时钟问题" class="headerlink" title="3.3、时钟问题"></a>3.3、时钟问题</h3><blockquote>
+<ol>
+<li>时间戳的事件</li>
+<li>依赖时间戳的事务</li>
+<li>依赖系统时间的程序将出错</li>
+</ol>
+</blockquote>
+<h3 id="3-4、拜占庭故障"><a href="#3-4、拜占庭故障" class="headerlink" title="3.4、拜占庭故障"></a>3.4、拜占庭故障</h3><p>在不信任的环境中达成共识的问题</p>
 <h2 id="4、事务的隔离级别"><a href="#4、事务的隔离级别" class="headerlink" title="4、事务的隔离级别"></a>4、事务的隔离级别</h2><hr>
 <p>事务的隔离级别有4种，由低到高分别为<code>Read uncommitted </code>、<code>Read committed </code>、<code>Repeatable read </code>、</p>
 <p><code>Serializable </code>。事物的并发操作中可能存在脏读，不可重复读，幻读：</p>
@@ -1276,52 +1277,50 @@ END &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/29/homeWork0827/">
+                <a href="/2022/09/01/javaArray/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="私教第一周">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Array 的使用教程">
                         
-                        <span class="card-title">私教第一周</span>
+                        <span class="card-title">Array 的使用教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            私教第一周
+                            Array的使用教程
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-08-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2022-09-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/homeWork%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
-                                    homeWork教程
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category" target="_blank">
+                                    数据结构
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" target="_blank">
-                        <span class="chip bg-color">大数据</span>
+                    <a href="/tags/java/" target="_blank">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/study/" target="_blank">
-                        <span class="chip bg-color">study</span>
+                    <a href="/tags/Array/" target="_blank">
+                        <span class="chip bg-color">Array</span>
                     </a>
                     
                 </div>
