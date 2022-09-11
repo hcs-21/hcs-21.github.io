@@ -6,21 +6,46 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis（三）, BigData">
+    <meta name="keywords" content="Apache Druid的使用教程, BigData">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY" />
-    <meta name="description" content="三、Redis 核心原理
-1、Redis 持久化机制
+    <meta name="description" content="阅读须知
 
-为什么要持久化？
+ 本篇文章仅供参考
 
-为了快速恢复数据，而不是为了存储数据
-Redis持久化不保证数据的完整性,所以不用来存储数据
 
-通过info命令可以查看持久化信息
+1、IO流的基本分类
 
-①RDB
-RDB（Redis ">
+读写单位：
+
+字节流
+字符流
+
+读写方向：
+
+输入流
+输出流
+
+读写角色：
+
+节点流
+处理流
+
+
+
+2、体系结构
+
+
+
+分类
+字节输入流
+字节输出流
+字符输入流
+字符输出流
+
+
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +53,7 @@ RDB（Redis ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Redis（三） | 郝春帅的博客</title>
+    <title>Apache Druid的使用教程 | 郝春帅的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -577,13 +602,13 @@ RDB（Redis ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Redis（三）
+                        Apache Druid的使用教程
                     </div>
                 </div>
             </div>
@@ -693,17 +718,9 @@ RDB（Redis ">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/redis/" target="_blank">
-                                <span class="chip bg-color">redis</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%90%8E%E7%AB%AF/" target="_blank">
-                                <span class="chip bg-color">后端</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -711,8 +728,12 @@ RDB（Redis ">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Redis-%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/" class="post-category" target="_blank">
-                                Redis 核心原理
+                            <a href="/categories/java/" class="post-category" target="_blank">
+                                java
+                            </a>
+                        
+                            <a href="/categories/java/io/" class="post-category" target="_blank">
+                                io
                             </a>
                         
                     </div>
@@ -723,7 +744,7 @@ RDB（Redis ">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-28
+                    2022-09-05
                 </div>
     
                 <div class="post-author info-break-policy">
@@ -746,211 +767,623 @@ RDB（Redis ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="三、Redis-核心原理"><a href="#三、Redis-核心原理" class="headerlink" title="三、Redis 核心原理"></a>三、<code>Redis</code> 核心原理</h1><hr>
-<h2 id="1、Redis-持久化机制"><a href="#1、Redis-持久化机制" class="headerlink" title="1、Redis 持久化机制"></a>1、<code>Redis</code> 持久化机制</h2><hr>
+                <h2 id="阅读须知"><a href="#阅读须知" class="headerlink" title="阅读须知"></a>阅读须知</h2><hr>
 <blockquote>
-<p>为什么要<strong>持久化</strong>？</p>
-<ul>
-<li>为了快速恢复数据，而不是为了存储数据</li>
-<li><code>Redis</code>持久化不保证数据的完整性,所以不用来存储数据</li>
-</ul>
-<p>通过<code>info</code>命令可以查看持久化信息</p>
+<p> 本篇文章仅供参考</p>
 </blockquote>
-<h3 id="①RDB"><a href="#①RDB" class="headerlink" title="①RDB"></a>①<code>RDB</code></h3><blockquote>
-<p><code>RDB</code>（<code>Redis DataBase</code>），是<code>redis</code>默认的存储方式，<code>RDB</code>方式是通过<strong>快照</strong>（ <code>snapshotting</code> ）完成</p>
-<p>的。</p>
-</blockquote>
-<h4 id="a-触发快照的方式"><a href="#a-触发快照的方式" class="headerlink" title="a. 触发快照的方式"></a>a. 触发快照的方式</h4><ul>
-<li>符合自定义配置的快照规则 </li>
-<li>执行<code>save</code>或者<code>bgsave</code>命令</li>
-<li>执行<code>flushall</code>命令</li>
-<li>执行主从复制操作 (第一次)</li>
-</ul>
-<h4 id="b-配置参数定期执行"><a href="#b-配置参数定期执行" class="headerlink" title="b. 配置参数定期执行"></a>b. 配置参数定期执行</h4><blockquote>
-<p>在<code>redis.conf</code>中配置：<code>save</code> 多少秒内 数据变了多少</p>
-</blockquote>
-<pre><code class="bash">save &quot;&quot; # 不使用RDB存储 不能主从 
-save 900 1 # 表示15分钟（900秒钟）内至少1个键被更改则进行快照。 
-save 300 10 # 表示5分钟（300秒）内至少10个键被更改则进行快照。
-save 60 10000 # 表示1分钟内至少10000个键被更改则进行快照。
-</code></pre>
+<hr>
+<h2 id="1、IO流的基本分类"><a href="#1、IO流的基本分类" class="headerlink" title="1、IO流的基本分类"></a>1、<code>IO</code>流的基本分类</h2><hr>
 <blockquote>
-<p>漏斗设计 提供性能</p>
-</blockquote>
-<h4 id="c-命令显示触发"><a href="#c-命令显示触发" class="headerlink" title="c. 命令显示触发"></a>c. 命令显示触发</h4><blockquote>
-<p>在客户端输入<code>bgsave</code>命令。</p>
-</blockquote>
-<pre><code class="bash">127.0.0.1:6379&gt; bgsave 
-Background saving started
-</code></pre>
-<h3 id="②RDB执行流程（原理）"><a href="#②RDB执行流程（原理）" class="headerlink" title="②RDB执行流程（原理）"></a>②<code>RDB</code>执行流程（原理）</h3><p><img src="/../image/Redis%EF%BC%88%E4%B8%89%EF%BC%89/image-20220705141345979.png"></p>
-<ul>
-<li><p><code>Redis</code>父进程首先判断：当前是否在执行<code>save</code>，或<code>bgsave/bgrewriteaof</code>（<code>aof</code>文件重写命令）的子进程，如果在执行则<code>bgsave</code>命令直接返回。</p>
-</li>
-<li><p>父进程执行**<code>fork</code>**（调用OS函数复制主进程）操作创建子进程，这个复制过程中父进程是阻塞的，<code>Redis</code>不能执行来自客户端的任何命令。</p>
-</li>
-<li><p>父进程<code>fork</code>后，<code>bgsave</code>命令返回”<code>Background saving started</code>”信息并不再阻塞父进程，并可以响应其他命令。</p>
-</li>
-<li><p>子进程创建<code>RDB</code>文件，根据父进程内存快照生成临时快照文件，完成后对原有文件进行原子替换。</p>
-<p>（<code>RDB</code>始终完整）</p>
-</li>
-<li><p>子进程发送信号给父进程表示完成，父进程更新统计信息。</p>
-</li>
-<li><p>父进程<code>fork</code>子进程后，继续工作。</p>
-</li>
-</ul>
-<h3 id="③RDB文件结构"><a href="#③RDB文件结构" class="headerlink" title="③RDB文件结构"></a>③<code>RDB</code>文件结构</h3><p><img src="/../image/Redis%EF%BC%88%E4%B8%89%EF%BC%89/image-20220705141839232.png"></p>
-<ul>
-<li><p>头部5字节固定为“<code>REDIS</code>”字符串</p>
-</li>
-<li><p>4字节“<code>RDB</code>”版本号（不是<code>Redis</code>版本号），当前为9，填充后为0009</p>
-</li>
-<li><p>辅助字段，以<code>key-value</code>的形式</p>
-</li>
-<li><p>存储数据库号码</p>
-</li>
-<li><p>字典大小</p>
-</li>
-<li><p>过期key </p>
-</li>
-<li><p>主要数据，以key-value的形式存储</p>
-</li>
-<li><p>结束标志</p>
-</li>
-<li><p>校验和，就是看文件是否损坏，或者是否被修改。</p>
-</li>
-<li><blockquote>
-<p>可以用winhex打开dump.rdb文件查看。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="④RDB的优缺点"><a href="#④RDB的优缺点" class="headerlink" title="④RDB的优缺点"></a>④<code>RDB</code>的优缺点</h3><ul>
-<li>优点：<code>RDB</code>是二进制压缩文件，占用空间小，便于传输（传给<code>slaver</code>）主进程<code>fork</code>子进程，可以最大化<code>Redis</code>性能，主进程不能太大，<code>Redis</code>的数据量不能太大，复制过程中主进程阻塞</li>
-<li>不保证数据完整性，会丢失最后一次快照以后更改的所有数据</li>
-</ul>
-<h3 id="⑤AOF"><a href="#⑤AOF" class="headerlink" title="⑤AOF"></a>⑤<code>AOF</code></h3><blockquote>
-<p><code>AOF</code>（<code>append only fifile</code>）是<code>Redis</code>的另一种持久化方式。<code>Redis</code>默认情况下是不开启的。开启<code>AOF</code>持久化后<code>Redis</code> 将所有对数据库进行过<strong>写入的命令（及其参数）</strong>（<code>RESP</code>）记录到 <code>AOF</code> 文件，以此达到记录数据库状态的目的，这样当<code>Redis</code>重启后只要按顺序回放这些命令就会恢复到原始状态了。</p>
-<p><code>AOF</code>会记录过程，<code>RDB</code>只管结果</p>
-</blockquote>
-<h3 id="⑥AOF持久化实现"><a href="#⑥AOF持久化实现" class="headerlink" title="⑥AOF持久化实现"></a>⑥<code>AOF</code>持久化实现</h3><blockquote>
-<p>配置 <code>redis.conf</code></p>
-</blockquote>
-<pre><code class="bash"># 可以通过修改redis.conf配置文件中的appendonly参数开启 
-appendonly yes 
-
-# AOF文件的保存位置和RDB文件的位置相同，都是通过dir参数设置的。
-dir ./ 
-
-# 默认的文件名是appendonly.aof，可以通过appendfilename参数修改 
-appendfilename appendonly.aof
-</code></pre>
-<h3 id="⑦AOF原理"><a href="#⑦AOF原理" class="headerlink" title="⑦AOF原理"></a>⑦<code>AOF</code>原理</h3><blockquote>
-<p><code>AOF</code>文件中存储的是<code>redis</code>的命令，同步命令到 <code>AOF</code> 文件的整个过程可以分为三个阶段：</p>
+<p>读写单位：</p>
 <ol>
-<li>命令传播：<code>Redis</code> 将执行完的命令、命令的参数、命令的参数个数等信息发送到 <code>AOF</code> 程序中。</li>
-<li>缓存追加：<code>AOF</code> 程序根据接收到的命令数据，将命令转换为网络通讯协议的格式，然后将协议内容追加到服务器的 <code>AOF</code> 缓存中。</li>
-<li>文件写入和保存：<code>AOF </code>缓存中的内容被写入到 <code>AOF </code>文件末尾，如果设定的 <code>AOF</code> 保存条件被满足的话，<code>fsync</code> 函数或者 f<code>datasync</code> 函数会被调用，将写入的内容真正地保存到磁盘中。</li>
+<li>字节流</li>
+<li>字符流</li>
+</ol>
+<p>读写方向：</p>
+<ol>
+<li>输入流</li>
+<li>输出流</li>
+</ol>
+<p>读写角色：</p>
+<ol>
+<li>节点流</li>
+<li>处理流</li>
 </ol>
 </blockquote>
-<h4 id="a-命令传播"><a href="#a-命令传播" class="headerlink" title="a. 命令传播"></a>a. <strong>命令传播</strong></h4><blockquote>
-<p>当一个 <code>Redis </code>客户端需要执行命令时， 它通过网络连接， 将协议文本发送给<code> Redis</code> 服务器。服务器在接到客户端的请求之后， 它会根据协议文本的内容， 选择适当的命令函数，并将各个参数从字符串文本转换为 <code>Redis </code>字符串对象（ <code>StringObject</code> ）。每当命令函数成功执行之后， 命令参数都会被传播到<code>AOF</code> 程序。</p>
+<p><img src="/../image/javaIo/image-20220907090626901.png" alt="image-20220907090626901"></p>
+<h2 id="2、体系结构"><a href="#2、体系结构" class="headerlink" title="2、体系结构"></a>2、体系结构</h2><hr>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>字节输入流</th>
+<th>字节输出流</th>
+<th>字符输入流</th>
+<th>字符输出流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>抽象基类</td>
+<td>InputStream</td>
+<td>OutputStream</td>
+<td>Reader</td>
+<td>Writer</td>
+</tr>
+<tr>
+<td>访问文件</td>
+<td>FileInputStream</td>
+<td>FileOutputStream</td>
+<td>FileReader</td>
+<td>FileWriter</td>
+</tr>
+<tr>
+<td>访问数组</td>
+<td>ByteArrayInputStream</td>
+<td>ByteArrayOutStream</td>
+<td>CharArrayReader</td>
+<td>CharArrayWriter</td>
+</tr>
+<tr>
+<td>访问管道</td>
+<td>PipedInputStream</td>
+<td>PipedOutputStream</td>
+<td>PipedReader</td>
+<td>PipedWriter</td>
+</tr>
+<tr>
+<td>访问字符串</td>
+<td>——</td>
+<td>——</td>
+<td>StringReader</td>
+<td>StringWriter</td>
+</tr>
+<tr>
+<td>缓冲流</td>
+<td>BufferedInputStream</td>
+<td>BufferedOutputStream</td>
+<td>BufferedReader</td>
+<td>BufferedWriter</td>
+</tr>
+<tr>
+<td>转换流</td>
+<td>——</td>
+<td>——</td>
+<td>InputStreamReader</td>
+<td>OutputStreamWriter</td>
+</tr>
+<tr>
+<td>对象流</td>
+<td>ObjectInputStream</td>
+<td>ObjectOutputStream</td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr>
+<td></td>
+<td>FileterInputStream</td>
+<td>FileterOutputStream</td>
+<td>FileterReader</td>
+<td>FileterWriter</td>
+</tr>
+<tr>
+<td>打印流</td>
+<td>——</td>
+<td>PrintStream</td>
+<td>——</td>
+<td>PrintWriter</td>
+</tr>
+<tr>
+<td>推回输入流</td>
+<td>PushbackInputStream</td>
+<td>——</td>
+<td>PushbackReader</td>
+<td>——</td>
+</tr>
+<tr>
+<td>特殊流</td>
+<td>DataInputStream</td>
+<td>DataOutputStream</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="3、相关流的详解"><a href="#3、相关流的详解" class="headerlink" title="3、相关流的详解"></a>3、相关流的详解</h2><hr>
+<h3 id="3-1、FileWriter类（重点）"><a href="#3-1、FileWriter类（重点）" class="headerlink" title="3.1、FileWriter类（重点）"></a>3.1、FileWriter类（重点）</h3><blockquote>
+<p>基本概念：将文本内容写入到文本文件中</p>
 </blockquote>
-<h4 id="b-缓存追加"><a href="#b-缓存追加" class="headerlink" title="b. 缓存追加"></a>b. <strong>缓存追加</strong></h4><blockquote>
-<p>当命令被传播到 <code>AOF </code>程序之后， 程序会根据命令以及命令的参数， 将命令从字符串对象转换回原来的协议文本。协议文本生成之后， 它会被追加到 <code>redis.h/redisServer</code> 结构的 <code>aof_buf </code>末尾。<code>redisServer</code> 结构维持着 <code>Redis </code>服务器的状态<code>aof_buf </code>域则保存着所有等待写入到 <code>AOF </code>文件的协议文本（<code>RESP</code>）。</p>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileWriter(String name)</td>
+<td>根据参数指定的文件名构造对象</td>
+</tr>
+<tr>
+<td>FileWriter(String name , boolean append)</td>
+<td>以追加的方式根据参数指定的文件名构造对象</td>
+</tr>
+<tr>
+<td>void write(int c)</td>
+<td>写入单个字符</td>
+</tr>
+<tr>
+<td>void write(char[] buf. int off,int len)</td>
+<td>将指定字符数组中从偏移量off 开始的len个字符写入此文件输出流</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf)</td>
+<td>将cbuf.length个字符从字符数组写入此文件输出流</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象，并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-2、FileReader类（重点）"><a href="#3-2、FileReader类（重点）" class="headerlink" title="3.2、FileReader类（重点）"></a>3.2、FileReader类（重点）</h3><blockquote>
+<p>基本概念：主要用于将文本文件读取文本数据内容</p>
 </blockquote>
-<h4 id="c-文件写入和保存"><a href="#c-文件写入和保存" class="headerlink" title="c. 文件写入和保存"></a>c. <strong>文件写入和保存</strong></h4><blockquote>
-<p>每当服务器常规任务函数被执行、 或者事件处理器被执行时， <code>aof.c/flflushAppendOnlyFile </code>函数都会被调用， 这个函数执行以下两个工作：</p>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileReader(String Reader)</td>
+<td>根据参数指定的文件名构造对象</td>
+</tr>
+<tr>
+<td>int read()</td>
+<td>读取单个字符的数据并返回，返回-1标识读取到末尾</td>
+</tr>
+<tr>
+<td>int read(char[] buff , int off , len)</td>
+<td>从输入流中最多将len个字符读取到数组中，返回读取到的字符个数，返回-1表示读取到末尾</td>
+</tr>
+<tr>
+<td>int read(char[] buff)</td>
+<td>从输入流中最多将buff.length个字符读取到数组中，返回读取到的字符个数，返回-1表示读取到末尾</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭对象流，并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-3、FileOutputStream类（重点）"><a href="#3-3、FileOutputStream类（重点）" class="headerlink" title="3.3、FileOutputStream类（重点）"></a>3.3、FileOutputStream类（重点）</h3><blockquote>
+<p>基本概念：主要用于将图像类的原始字节流写入到输出流中</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileOutputStream( Stream name)</td>
+<td>根据参数指定的文件名构造对象</td>
+</tr>
+<tr>
+<td>FileOutputStream(Stream name,boolean append)</td>
+<td>以追加的形式根据参数指定的文件名构造对象</td>
+</tr>
+<tr>
+<td>void write(int b)</td>
+<td>将指定字节写入此文件输出流</td>
+</tr>
+<tr>
+<td>void write(byte[] b, int off,int len)</td>
+<td>将指定字节数组中从off 开始的len个字节写入到此文件输出流中</td>
+</tr>
+<tr>
+<td>void write(byte [])</td>
+<td>将指定字节数组中byte.length个字节写入到此文件输出流中</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新此输出流并强制写出任何缓冲的输出字节</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭对象流并释放有关资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-4、FileInputStream类（重点）"><a href="#3-4、FileInputStream类（重点）" class="headerlink" title="3.4、FileInputStream类（重点）"></a>3.4、FileInputStream类（重点）</h3><blockquote>
+<p>基本概念：主要用于从输入流中以字节流的方式读取图像类数据</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileInputStream(String name)</td>
+<td>根据参数指定的文件构造对象</td>
+</tr>
+<tr>
+<td>int read()</td>
+<td>从输入流中读取单个字节的数据并返回，返回-1表示读取到末尾</td>
+</tr>
+<tr>
+<td>int read(byte[] b ,int off ,in len)</td>
+<td>从此输入流中将最多len个字节的数据读入字节数组中，返回读取到的字节个数，返回-1表示读取到末尾</td>
+</tr>
+<tr>
+<td>int read(byte[])</td>
+<td>从此输入流中将byte.length个字节的数据读入字节数组中，返回读取到的字节个数，返回-1表示读取到末尾</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭对象流并释放有关资源</td>
+</tr>
+<tr>
+<td>int available()</td>
+<td>获取输入流所关联文件的大小</td>
+</tr>
+</tbody></table>
+<h3 id="3-5、BufferedOutputStream类（重点）"><a href="#3-5、BufferedOutputStream类（重点）" class="headerlink" title="3.5、BufferedOutputStream类（重点）"></a>3.5、BufferedOutputStream类（重点）</h3><blockquote>
+<p>基本概念：缓冲输出流，此时不用为写入的每个字节调用底层系统</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedOutputStream(OutputStream out)</td>
+<td>根据参数指定的引用构造对象</td>
+</tr>
+<tr>
+<td>BufferedOutputStream(OutputStream out,int size)</td>
+<td>根据参数指定的引用和缓冲区大小构造对象</td>
+</tr>
+<tr>
+<td>void write(int b)</td>
+<td>写入单个字节</td>
+</tr>
+<tr>
+<td>void write(byte[] b , int off , int len)</td>
+<td>写入字节数组中的一部分数据</td>
+</tr>
+<tr>
+<td>void write(byte[])</td>
+<td>写入参数指定的整个字节数组</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-6、BufferedInputStream类（重点）"><a href="#3-6、BufferedInputStream类（重点）" class="headerlink" title="3.6、BufferedInputStream类（重点）"></a>3.6、BufferedInputStream类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedInputStream(InputStream in)</td>
+<td>根据参数指定的引用构造对象</td>
+</tr>
+<tr>
+<td>BufferedInputStream(InputStream in , int size)</td>
+<td>根据参数指定的引用和缓冲区的大小构造对象</td>
+</tr>
+<tr>
+<td>int read()</td>
+<td>读取单个字节</td>
+</tr>
+<tr>
+<td>int read(byte[] b , int off , int len)</td>
+<td>读取len  个字节</td>
+</tr>
+<tr>
+<td>int read(byte[] b)</td>
+<td>读取b.length个字节</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-7、BufferedWriter类（重点）"><a href="#3-7、BufferedWriter类（重点）" class="headerlink" title="3.7、BufferedWriter类（重点）"></a>3.7、BufferedWriter类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedWriter(Writer out)</td>
+<td>根据参数指定的引用构造文件</td>
+</tr>
+<tr>
+<td>BufferedWriter(Writer out , int size)</td>
+<td>根据参数指定的文件和缓冲区大小构造对象</td>
+</tr>
+<tr>
+<td>void writer(int c)</td>
+<td>写入单个字符到输出流中</td>
+</tr>
+<tr>
+<td>void writer(char[] cbuf,int off,int size)</td>
+<td>将字符数组cbuff 中从下标off开始的len个字符写入到输出流中</td>
+</tr>
+<tr>
+<td>void writer(char[] cbuf)</td>
+<td>将字符数组cbuf 中所有内容写入到输出流中</td>
+</tr>
+<tr>
+<td>void write(String s , int off , int len)</td>
+<td>将参数S中从下标off 开始的len个字符写入到输出流中</td>
+</tr>
+<tr>
+<td>void write(String str)</td>
+<td>将参数指定的字符串写入到输出流中</td>
+</tr>
+<tr>
+<td>void newLine()</td>
+<td>用于写入分隔符到输出流中</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新流</td>
+</tr>
+<tr>
+<td>void colse()</td>
+<td>关闭流对象并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-8、BufferedReader类（重点）"><a href="#3-8、BufferedReader类（重点）" class="headerlink" title="3.8、BufferedReader类（重点）"></a>3.8、BufferedReader类（重点）</h3><table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BufferedReader(Reader in)</td>
+<td>根据参数指定的引用构造对象</td>
+</tr>
+<tr>
+<td>BufferedReader(Reader in , int size)</td>
+<td>根据参数指定的引用和缓冲区大小构造对象</td>
+</tr>
+<tr>
+<td>int read()</td>
+<td>从输入流读取单个字符，读到末尾则返回-1，否则返回实际读取到的内容</td>
+</tr>
+<tr>
+<td>int read(char[] cbuf,int off,int len)</td>
+<td>从输入流中读取len 个字符放到数组cbuf 中off 开始的位置上，若读取到末尾则返回-1</td>
+</tr>
+<tr>
+<td>int read(char[] cbuf)</td>
+<td>从输入流中读满整个数组cbuf</td>
+</tr>
+<tr>
+<td>String readLine()</td>
+<td>读取一行字符串并返回，返回null表示读取到末尾</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-9、PrintStream类（重点）"><a href="#3-9、PrintStream类（重点）" class="headerlink" title="3.9、PrintStream类（重点）"></a>3.9、PrintStream类（重点）</h3><blockquote>
+<p>基本概念：方便打印各种数据内容</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PrintStream(OutputStream out)</td>
+<td>根据参数指定的引用构造对象</td>
+</tr>
+<tr>
+<td>void print(String s)</td>
+<td>用于将参数指定的内容打印出来</td>
+</tr>
+<tr>
+<td>void pintln(String s)</td>
+<td>用于打印字符串后并终止该行</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-10、PrintWriter类（重点）"><a href="#3-10、PrintWriter类（重点）" class="headerlink" title="3.10、PrintWriter类（重点）"></a>3.10、PrintWriter类（重点）</h3><blockquote>
+<p>基本概念：将对象的格式化形式打印到文本输流</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PrintWriter(Writer)</td>
+<td>根据参数指定的引用构造对象</td>
+</tr>
+<tr>
+<td>void print(String s)</td>
+<td>用于将参数指定的内容打印出来</td>
+</tr>
+<tr>
+<td>void pintln(String s)</td>
+<td>用于打印字符串后并终止该行</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-11、DataOutputStream类（重点）"><a href="#3-11、DataOutputStream类（重点）" class="headerlink" title="3.11、DataOutputStream类（重点）"></a>3.11、DataOutputStream类（重点）</h3><blockquote>
+<p>基本概念：主要用于以适当的方式将基本数据类型写入到输出流中</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DataOutputStream(OutputStream out)</td>
+<td>根据参数指定的引用构造对象，OutputStream 是一个抽象类，实参需要传递子类对象</td>
+</tr>
+<tr>
+<td>void write(int v)</td>
+<td>用于将参数指定的整数一次性写入输出流，有些写入高字节</td>
+</tr>
+<tr>
+<td>void write(  )</td>
+<td>关闭流对象，并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-12、DataInputStream类（重点）"><a href="#3-12、DataInputStream类（重点）" class="headerlink" title="3.12、DataInputStream类（重点）"></a>3.12、DataInputStream类（重点）</h3><blockquote>
+<p>基本概念：主要用于从输入流中读取基本类型的数据</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DataInputStream(InputStream in )</td>
+<td>根据参数指定的引用构造对象，InputStream 是一个抽象类，实参需要传递子类对象</td>
+</tr>
+<tr>
+<td>void readInt()</td>
+<td>用于从输入流中一次读取一个整数数据并返回</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象，并释放所有资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-13、ObjectOutputStream类（重点）"><a href="#3-13、ObjectOutputStream类（重点）" class="headerlink" title="3.13、ObjectOutputStream类（重点）"></a>3.13、ObjectOutputStream类（重点）</h3><blockquote>
 <ul>
-<li><code>WRITE</code>：根据条件，将 <code>aof_buf </code>中的缓存写入到 AOF 文件。</li>
-<li><code>SAVE</code>：根据条件，调用 <code>fsync</code> 或 <code>fdatasync </code>函数，将 <code>AOF</code> 文件保存到磁盘中。</li>
-</ul>
-</blockquote>
-<h4 id="d-AOF保存模式"><a href="#d-AOF保存模式" class="headerlink" title="d.AOF保存模式"></a>d.<code>AOF</code>保存模式</h4><ul>
-<li><p><code>AOF_FSYNC_NO </code>：不保存。</p>
+<li><p>基本概念：主要用于将一个对象的所有内容整体写到输出流中</p>
 </li>
-<li><p><code>AOF_FSYNC_EVERYSEC</code> ：每一秒钟保存一次。（默认）</p>
+<li><p>只能支持<code>Java.io.Serializable</code> 接口对象写入流中</p>
 </li>
-<li><p><code>AOF_FSYNC_ALWAYS</code> ：每执行一个命令保存一次。（不推荐）</p>
-<p>对于三种 <code>AOF </code>保存模式， 它们对服务器主进程的阻塞情况如下：</p>
-<p><img src="/../image/Redis%EF%BC%88%E4%B8%89%EF%BC%89/image-20220705143858464.png"></p>
+<li><p>类通过<code>Java.io.Serializable</code>接口以启用序列化功能</p>
+</li>
+<li><p>所谓序列化主要指将一个对象需要存储的相关信息有效组织成字节序列的转化过程</p>
 </li>
 </ul>
-<h3 id="⑧AOF重写、触发方式、混合持久化"><a href="#⑧AOF重写、触发方式、混合持久化" class="headerlink" title="⑧AOF重写、触发方式、混合持久化"></a>⑧<code>AOF</code>重写、触发方式、混合持久化</h3><h4 id="a-重写"><a href="#a-重写" class="headerlink" title="a.重写"></a>a.重写</h4><blockquote>
-<p><code>AOF</code>记录数据的变化过程，越来越大，需要重写“瘦身”</p>
-<p><code>Redis</code>可以在 <code>AOF</code>体积变得过大时，自动地在后台（<code>Fork</code>子进程）对 <code>AOF</code>进行重写。重写后的新 <code>AOF</code>文件包含了恢复当前数据集所需的最小命令集合。 所谓的“重写”其实是一个有歧义的词语， 实际上，<code>AOF</code> 重写并不需要对原有的 <code>AOF</code> 文件进行任何写入和读取， 它针对的是数据库中键的当前值。</p>
 </blockquote>
-<blockquote>
-<p><code>Redis</code> 不希望<code>AOF</code>重写造成服务器无法处理请求， 所以 <code>Redis</code> 决定将 <code>AOF</code> 重写程序放到（后台）子进</p>
-<p>程里执行， 这样处理的最大好处是：</p>
-<ol>
-<li>子进程进行 AOF 重写期间，主进程可以继续处理命令请求。</li>
-<li>子进程带有主进程的数据副本，使用子进程而不是线程，可以在避免锁的情况下，保证数据的安全性。</li>
-<li><code>Redis </code>增加了一个<code>AOF</code>重写缓存， 这个缓存在 <code>fork</code> 出子进程之后开始启用，<code>Redis </code>主进程在接到新的写命令之后， 除了会将这个写命令的协议内容追加到现有的 <code>AOF</code> 文件之外，还会追加到这个缓存中。</li>
-</ol>
-<p><img src="/../image/Redis%EF%BC%88%E4%B8%89%EF%BC%89/image-20220705150426874.png"></p>
-</blockquote>
-<h4 id="b-触发"><a href="#b-触发" class="headerlink" title="b. 触发"></a>b. 触发</h4><ul>
-<li><p>配置方式  在<code>redis.conf</code>中配置</p>
-<pre><code class="bash"># 表示当前aof文件大小超过上一次aof文件大小的百分之多少的时候会进行重写。如果之前没有重写过， 以启动时aof文件大小为准
-auto-aof-rewrite-percentage 100
-# 限制允许重写最小aof文件大小，也就是文件大小小于64mb的时候，不需要进行优化 
-auto-aof-rewrite-min-size 64mb
-</code></pre>
-</li>
-<li><p>执行<code>bgrewriteaof</code>命令</p>
-<pre><code class="bash">127.0.0.1:6379&gt; bgrewriteaof 
-Background append only file rewriting started
-</code></pre>
-</li>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ObjectOutputStream (OutputStream out)</td>
+<td>根据参数指定的引用构造对象</td>
+</tr>
+<tr>
+<td>void writeObject(Object obj)</td>
+<td>用于将参数指定的对象整体写入到输出流中</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭输出流并释放有关资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-14、ObjectInputStream类（重点）"><a href="#3-14、ObjectInputStream类（重点）" class="headerlink" title="3.14、ObjectInputStream类（重点）"></a>3.14、ObjectInputStream类（重点）</h3><blockquote>
+<ul>
+<li>基本概念：主要用于从输入流中一次性将对象整体读出来</li>
+<li>所谓反序列化指将有效组织的字节序列恢复为一个对象及有关信息的转化过程</li>
 </ul>
-<h4 id="c-混合持久化"><a href="#c-混合持久化" class="headerlink" title="c. 混合持久化"></a>c. 混合持久化</h4><blockquote>
-<p><code>RDB</code>和<code>AOF</code>各有优缺点，<code>Redis 4.0</code> 开始支持<code>rdb</code>和<code>aof</code>的混合持久化。如果把混合持久化打开，<code>aof</code></p>
-<p><code>rewrite </code>的时候就直接把<code> rdb</code> 的内容写到 <code>aof</code> 文件开头。</p>
-<p><code>RDB</code>的头+<code>AOF</code>的身体—-&gt;<code>appendonly.aof</code></p>
 </blockquote>
-<blockquote>
-<p>开启混合持久化   <code>redis.conf</code></p>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ObjectInputStream(InputStream in )</td>
+<td>根据参数指定的引用构造对象</td>
+</tr>
+<tr>
+<td>Object readObject()</td>
+<td>主要用于从输入流中读取一个对象并返回，无法通过返回对象确定是否读到文件末尾</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭输出流并释放有关资源</td>
+</tr>
+</tbody></table>
+<h3 id="3-15、RandomAccessFile类（重点）"><a href="#3-15、RandomAccessFile类（重点）" class="headerlink" title="3.15、RandomAccessFile类（重点）"></a>3.15、RandomAccessFile类（重点）</h3><blockquote>
+<p>基本概念：支持对随机访问文件的读写操作</p>
 </blockquote>
-<pre><code class="bash">aof-use-rdb-preamble yes
-</code></pre>
-<h3 id="⑨AOF文件的载入与数据的还原"><a href="#⑨AOF文件的载入与数据的还原" class="headerlink" title="⑨AOF文件的载入与数据的还原"></a>⑨<code>AOF</code>文件的载入与数据的还原</h3><blockquote>
-<p>因为<code>AOF</code>文件里面包含了重建数据库状态所需的所有写命令，所以服务器只要读入并重新执行一遍<code>AOF</code>文件里面保存的写命令，就可以还原服务器关闭之前的数据库状态</p>
-<p><code>Redis</code>读取<code>AOF</code>文件并还原数据库状态的详细步骤如下：</p>
-<ol>
-<li>创建一个不带网络连接的伪客户端（<code>fake client</code>）：因为<code>Redis</code>的命令只能在客户端上下文中执行，而载入<code>AOF</code>文件时所使用的命令直接来源于<code>AOF</code>文件而不是网络连接，所以服 务器使用了一个没有网络连接的伪客户端来执行<code>AOF</code>文件保存的写命令，伪客户端执行命令 的效果和带网络连接的客户端执行命令的效果完全一样</li>
-<li>从<code>AOF</code>文件中分析并读取出一条写命令</li>
-<li>使用伪客户端执行被读出的写命令</li>
-<li>一直执行步骤2和步骤3，直到AOF文件中的所有写命令都被处理完毕为止</li>
-</ol>
-</blockquote>
-<p><img src="/../image/Redis%EF%BC%88%E4%B8%89%EF%BC%89/image-20220705160011542.png"></p>
-<h3 id="⑩AOF与RDB的对比"><a href="#⑩AOF与RDB的对比" class="headerlink" title="⑩AOF与RDB的对比"></a>⑩<code>AOF</code>与<code>RDB</code>的对比</h3><ul>
-<li><p><code>RDB</code>存某个时刻的数据快照，采用二进制压缩存储，<code>AOF</code>存操作命令，采用文本存储(混合) </p>
-</li>
-<li><p><code>RDB</code>性能高、<code>AOF</code>性能较低</p>
-</li>
-<li><p><code>RDB</code>在配置触发状态会丢失最后一次快照以后更改的所有数据，<code>AOF</code>设置为每秒保存一次，则最多</p>
-<p>丢2秒的数据</p>
-</li>
-<li><p><code>Redis</code>以主服务器模式运行，<code>RDB</code>不会保存过期键值对数据，<code>Redis</code>以从服务器模式运行，<code>RDB</code>会保</p>
-<p>存过期键值对，当主服务器向从服务器同步时，再清空过期键值对。</p>
-<p><code>AOF</code>写入文件时，对过期的<code>key</code>会追加一条<code>del</code>命令，当执行<code>AOF</code>重写时，会忽略过期<code>key</code>和<code>del</code>命令。</p>
-</li>
-</ul>
-<h2 id="2、底层数据结构"><a href="#2、底层数据结构" class="headerlink" title="2、底层数据结构"></a>2、底层数据结构</h2><hr>
-<h2 id="3、通讯协议及事件处理机制"><a href="#3、通讯协议及事件处理机制" class="headerlink" title="3、通讯协议及事件处理机制"></a>3、通讯协议及事件处理机制</h2><hr>
-<h1 id="四、Redis-企业实战"><a href="#四、Redis-企业实战" class="headerlink" title="四、Redis 企业实战"></a>四、<code>Redis</code> 企业实战</h1><hr>
-<h2 id="1、架构设计"><a href="#1、架构设计" class="headerlink" title="1、架构设计"></a>1、架构设计</h2><hr>
-<h2 id="2、缓存过期-x2F-淘汰策略"><a href="#2、缓存过期-x2F-淘汰策略" class="headerlink" title="2、缓存过期&#x2F;淘汰策略"></a>2、缓存过期&#x2F;淘汰策略</h2><hr>
-<h2 id="3、缓存与数据库一致性"><a href="#3、缓存与数据库一致性" class="headerlink" title="3、缓存与数据库一致性"></a>3、缓存与数据库一致性</h2><hr>
-<h2 id="4、缓存问题"><a href="#4、缓存问题" class="headerlink" title="4、缓存问题"></a>4、缓存问题</h2><hr>
-<h2 id="5、分布式锁"><a href="#5、分布式锁" class="headerlink" title="5、分布式锁"></a>5、分布式锁</h2><hr>
-<h2 id="6、分布式集群架构中的session-分离"><a href="#6、分布式集群架构中的session-分离" class="headerlink" title="6、分布式集群架构中的session 分离"></a>6、分布式集群架构中的<code>session</code> 分离</h2><hr>
-<h2 id="7、阿里Redis使用手册"><a href="#7、阿里Redis使用手册" class="headerlink" title="7、阿里Redis使用手册"></a>7、阿里<code>Redis</code>使用手册</h2><hr>
-<h1 id="五、Redis-高可用方案"><a href="#五、Redis-高可用方案" class="headerlink" title="五、Redis 高可用方案"></a>五、<code>Redis</code> 高可用方案</h1><hr>
-<h2 id="1、主从复制"><a href="#1、主从复制" class="headerlink" title="1、主从复制"></a>1、主从复制</h2><hr>
-<h2 id="2、Sentinel"><a href="#2、Sentinel" class="headerlink" title="2、Sentinel"></a>2、<code>Sentinel</code></h2><hr>
-<h2 id="3、集群与分区"><a href="#3、集群与分区" class="headerlink" title="3、集群与分区"></a>3、集群与分区</h2><hr>
+<table>
+<thead>
+<tr>
+<th>方法声明</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RandomAccessFile(String name , String  mode)</td>
+<td>根据参数指定的名称和模式构对象<br />r：以只读方式打开<br />rw：打开用来读取和写入<br />rwd：打开用来读取和写入，同步文件内容的更新<br />rws：打开用来读取和写入，同步文件内容的和元数据的更新</td>
+</tr>
+<tr>
+<td>int read()</td>
+<td>读取单个字节的数据</td>
+</tr>
+<tr>
+<td>void seek(long pos)</td>
+<td>用于设置从此文件的开头开始测量的文件指针偏移量</td>
+</tr>
+<tr>
+<td>void write(int b)</td>
+<td>将参数指定的单个字节写入</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭流对象释放有关资源</td>
+</tr>
+</tbody></table>
 
             </div>
             <hr/>
@@ -1101,7 +1534,7 @@ Background append only file rewriting started
                     </span>
                     <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2022/06/28/Redis%EF%BC%88%E4%B8%89%EF%BC%89/" class="b-link-green">Redis（三）</a>
+                    <a href="/2022/09/05/javaIo/" class="b-link-green">Apache Druid的使用教程</a>
                 </p>
             </div>
     
@@ -1124,7 +1557,7 @@ Background append only file rewriting started
         repo: 'hcs-21.github.io',
         owner: 'hcs-21',
         admin: ["hcs-21"],
-        id: '2022/06/28/Redis（三）/',
+        id: '2022/09/05/javaIo/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1149,84 +1582,31 @@ Background append only file rewriting started
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/28/Redis%EF%BC%88%E4%B8%80%EF%BC%89/">
+                <a href="/2022/09/07/homeWork0904/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Redis">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="私教第二周">
                         
-                        <span class="card-title">Redis</span>
+                        <span class="card-title">私教第二周</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            REmote DIctionary Server(Redis) 是一个由 Salvatore Sanfilippo 写的 key-value 存储系统，是跨平台的非关系型数据库
+                            私教第二周
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2022-06-28
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2022-09-07
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Redis-%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
-                                    Redis 教程
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/redis/" target="_blank">
-                        <span class="chip bg-color">redis</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%90%8E%E7%AB%AF/" target="_blank">
-                        <span class="chip bg-color">后端</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/06/25/KuDu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="KuDu的使用教程">
-                        
-                        <span class="card-title">KuDu的使用教程</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            KuDu 的使用教程
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-06-25
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
-                                    工具使用教程
+                            <a href="/categories/homeWork%E6%95%99%E7%A8%8B/" class="post-category" target="_blank">
+                                    homeWork教程
                                 </a>
                             
                             
@@ -1240,8 +1620,61 @@ Background append only file rewriting started
                         <span class="chip bg-color">大数据</span>
                     </a>
                     
-                    <a href="/tags/KuDu/" target="_blank">
-                        <span class="chip bg-color">KuDu</span>
+                    <a href="/tags/study/" target="_blank">
+                        <span class="chip bg-color">study</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/09/01/javaArray/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Array 的使用教程">
+                        
+                        <span class="card-title">Array 的使用教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Array的使用教程
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-09-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category" target="_blank">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/" target="_blank">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/Array/" target="_blank">
+                        <span class="chip bg-color">Array</span>
                     </a>
                     
                 </div>
