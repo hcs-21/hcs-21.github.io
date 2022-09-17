@@ -6,10 +6,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, BigData">
+    <meta name="keywords" content="BigData">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY" />
-    <meta name="description" content="标签 | 郝春帅的博客">
+    <meta name="description" content="郝春帅的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>标签 | 郝春帅的博客</title>
+    <title>郝春帅的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -549,7 +549,9 @@
 
 </header>
 
-        <div class="bg-cover pd-header about-cover">
+        <!-- shw2018 洪卫  modify 2019.08.15-->
+
+<div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -559,7 +561,7 @@
                     郝帅的博客
                  -->
                 
-                    标签
+                    郝帅的博客
                 
             </div>
 
@@ -583,283 +585,101 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     </div>
 </div>
 
+
 <main class="content">
 
     
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/27/Blog-Open-Source/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="博客开源">
+                            
+                            <span class="card-title">博客开源</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            倒腾了一两周总算把个人博客网站完善了，目前这个版本使用应该是够了，当然还有一些优化项和功能增加后续在慢慢更新，为了回馈开源，今天准备把我自己修改完善的`blog`网站源代码开源。这不是生成后的网页文件，是您可以直接使用的源码，您只需要把博客相关信息换成您自己的就可以部署了。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" class="post-category" target="_blank">
+                                    软件安装与配置
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Hexo/" target="_blank">
+                            <span class="chip bg-color">Hexo</span>
+                        </a>
+                        
+                        <a href="/tags/Github/" target="_blank">
+                            <span class="chip bg-color">Github</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2/" target="_blank">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/Hexo/" title="Hexo: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Hexo" style="background-color: #F9EBEA;">Hexo
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Github/" title="Github: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Github" style="background-color: #F5EEF8;">Github
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="博客" style="background-color: #D5F5E3;">博客
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" title="大数据: 10">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="大数据" style="background-color: #E8F8F5;">大数据
-                        <span class="tag-length">10</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ClickHouse/" title="ClickHouse: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ClickHouse" style="background-color: #FEF9E7;">ClickHouse
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Druid/" title="Druid: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Druid" style="background-color: #F8F9F9;">Druid
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/KuDu/" title="KuDu: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="KuDu" style="background-color: #82E0AA;">KuDu
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/redis/" title="redis: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="redis" style="background-color: #D7BDE2;">redis
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%90%8E%E7%AB%AF/" title="后端: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="后端" style="background-color: #A3E4D7;">后端
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/VMware/" title="VMware: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="VMware" style="background-color: #85C1E9;">VMware
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/CentOs/" title="CentOs: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="CentOs" style="background-color: #F8C471;">CentOs
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Kylin/" title="Kylin: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Kylin" style="background-color: #F9E79F;">Kylin
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Typora/" title="Typora: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Typora" style="background-color: #F8F9F9;">Typora
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Markdown/" title="Markdown: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Markdown" style="background-color: #F8F9F9;">Markdown
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Kettle/" title="Kettle: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Kettle" style="background-color: #FEF9E7;">Kettle
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ETL/" title="ETL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ETL" style="background-color: #F9E79F;">ETL
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/person/" title="person: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="person" style="background-color: #F8F9F9;">person
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/gifts/" title="gifts: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="gifts" style="background-color: #D5F5E3;">gifts
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ELK/" title="ELK: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ELK" style="background-color: #85C1E9;">ELK
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/" title="日志系统: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="日志系统" style="background-color: #D5F5E3;">日志系统
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/study/" title="study: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="study" style="background-color: #F9EBEA;">study
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/java/" title="java: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="java" style="background-color: #A3E4D7;">java
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Array/" title="Array: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Array" style="background-color: #F9EBEA;">Array
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%9D%A2%E8%AF%95test/" title="面试test: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="面试test" style="background-color: #A3E4D7;">面试test
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%AC%94%E8%AE%B0/" title="笔记: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="笔记" style="background-color: #E8F8F5;">笔记
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/linux/" title="linux: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="linux" style="background-color: #85C1E9;">linux
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-            </div>
+            
+        </div>
+    </article>
+
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/2/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">3 / 3</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
         </div>
     </div>
 </div>
 
-    
-    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/jqcloud/1.0.4/jqcloud.min.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="https://cdn.bootcss.com/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
-
-    $('#tag-wordcloud').jQCloud([{"text":"Hexo","weight":1,"link":"/tags/Hexo/"},{"text":"Github","weight":1,"link":"/tags/Github/"},{"text":"博客","weight":1,"link":"/tags/%E5%8D%9A%E5%AE%A2/"},{"text":"大数据","weight":10,"link":"/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"},{"text":"ClickHouse","weight":2,"link":"/tags/ClickHouse/"},{"text":"Druid","weight":1,"link":"/tags/Druid/"},{"text":"KuDu","weight":1,"link":"/tags/KuDu/"},{"text":"redis","weight":3,"link":"/tags/redis/"},{"text":"后端","weight":3,"link":"/tags/%E5%90%8E%E7%AB%AF/"},{"text":"VMware","weight":1,"link":"/tags/VMware/"},{"text":"CentOs","weight":1,"link":"/tags/CentOs/"},{"text":"Kylin","weight":1,"link":"/tags/Kylin/"},{"text":"Typora","weight":1,"link":"/tags/Typora/"},{"text":"Markdown","weight":1,"link":"/tags/Markdown/"},{"text":"Kettle","weight":1,"link":"/tags/Kettle/"},{"text":"ETL","weight":1,"link":"/tags/ETL/"},{"text":"person","weight":1,"link":"/tags/person/"},{"text":"gifts","weight":1,"link":"/tags/gifts/"},{"text":"ELK","weight":2,"link":"/tags/ELK/"},{"text":"日志系统","weight":2,"link":"/tags/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"},{"text":"study","weight":3,"link":"/tags/study/"},{"text":"java","weight":1,"link":"/tags/java/"},{"text":"Array","weight":1,"link":"/tags/Array/"},{"text":"面试test","weight":1,"link":"/tags/%E9%9D%A2%E8%AF%95test/"},{"text":"笔记","weight":1,"link":"/tags/%E7%AC%94%E8%AE%B0/"},{"text":"linux","weight":3,"link":"/tags/linux/"}], {
-        autoResize: true
-    });
-</script>
-    
-
-</main>
 
         <footer class="page-footer bg-color">
     <div class="container row center-align">
