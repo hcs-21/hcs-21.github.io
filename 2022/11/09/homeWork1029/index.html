@@ -1017,12 +1017,12 @@ public class MyConsumer1 &#123;
 <p>目录</p>
 <p>hive-test-job</p>
 <ul>
-<li><code>hive.sql</code></li>
+<li><code>hive.hql</code></li>
 <li><code>hive.job</code></li>
 </ul>
 </blockquote>
 <blockquote>
-<p><code>hive.sql</code></p>
+<p><code>hive.hql</code></p>
 </blockquote>
 <pre><code class="sql">select * from ( select dt,city,user_num, row_number() over (partition by dt order by user_num desc) rn from ( select dt,city, count(distinct userid) user_num from ods_user_login_detail group by dt,city ) a )a1 where rn &lt;= 5 ;
 </code></pre>
