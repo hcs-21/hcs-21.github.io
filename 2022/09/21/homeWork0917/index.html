@@ -70,7 +70,11 @@ HotSpot：orac">
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -742,7 +746,7 @@ HotSpot：orac">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1、JVM类加载机制"><a href="#1、JVM类加载机制" class="headerlink" title="1、JVM类加载机制"></a>1、<code>JVM</code>类加载机制</h2><p><img src="/../image/homeWork0917/image-20220921094712161.png" alt="image-20220921094712161"></p>
+                <h2 id="1、JVM类加载机制"><a href="#1、JVM类加载机制" class="headerlink" title="1、JVM类加载机制"></a>1、<code>JVM</code>类加载机制</h2><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220921094712161.png" alt="image-20220921094712161"></p>
 <hr>
 <blockquote>
 <p>概念：一种跨语言的平台，是一种规范，目前支持 100+ 种语言，只要能搞成<code>class</code>文件，就在<code>JVM</code> 上运行。所以只跟<code>class</code>格式文件有关，与 <code>JAVA</code>无关</p>
@@ -766,9 +770,9 @@ HotSpot：orac">
 <li>防止资源浪费</li>
 </ol>
 </blockquote>
-<p><img src="/../image/homeWork0917/image-20220921173601269.png" alt="image-20220921173601269"></p>
-<h4 id="1-2-1、loading（加载）"><a href="#1-2-1、loading（加载）" class="headerlink" title="1.2.1、loading（加载）"></a>1.2.1、loading（加载）</h4><p><img src="/../image/homeWork0917/image-20220921155712817.png" alt="image-20220921155712817"></p>
-<p><img src="/../image/homeWork0917/image-20220921160905374.png" alt="image-20220921160905374"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220921173601269.png" alt="image-20220921173601269"></p>
+<h4 id="1-2-1、loading（加载）"><a href="#1-2-1、loading（加载）" class="headerlink" title="1.2.1、loading（加载）"></a>1.2.1、loading（加载）</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220921155712817.png" alt="image-20220921155712817"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220921160905374.png" alt="image-20220921160905374"></p>
 <blockquote>
 <p> <strong>触发类加载</strong></p>
 <p><code>JVM</code>是<code>lazyloading</code>模式，并没有规定什么时候进行加载，但是严格规定了什么时候进行初始化</p>
@@ -783,10 +787,10 @@ HotSpot：orac">
 <h4 id="1-2-2、Linking（链接）"><a href="#1-2-2、Linking（链接）" class="headerlink" title="1.2.2、Linking（链接）"></a>1.2.2、Linking（链接）</h4><h5 id="1-2-2-1、Verification（校验文件）"><a href="#1-2-2-1、Verification（校验文件）" class="headerlink" title="1.2.2.1、Verification（校验文件）"></a>1.2.2.1、Verification（校验文件）</h5><blockquote>
 <p>验证文件是否复合<code>JVM</code>规定</p>
 </blockquote>
-<h5 id="1-2-2-2、Preparation（class-gt-静态变量赋默认值）"><a href="#1-2-2-2、Preparation（class-gt-静态变量赋默认值）" class="headerlink" title="1.2.2.2、Preparation（class -&gt; 静态变量赋默认值）"></a>1.2.2.2、Preparation（class -&gt; 静态变量赋默认值）</h5><blockquote>
+<h5 id="1-2-2-2、Preparation（class-gt-静态变量赋默认值）"><a href="#1-2-2-2、Preparation（class-gt-静态变量赋默认值）" class="headerlink" title="1.2.2.2、Preparation（class -> 静态变量赋默认值）"></a>1.2.2.2、Preparation（class -&gt; 静态变量赋默认值）</h5><blockquote>
 <p> 静态成员变量赋默认值</p>
 </blockquote>
-<h5 id="1-2-2-3、Resoultion（符号引用-gt-变为直接使用的地址）"><a href="#1-2-2-3、Resoultion（符号引用-gt-变为直接使用的地址）" class="headerlink" title="1.2.2.3、Resoultion（符号引用 -&gt; 变为直接使用的地址）"></a>1.2.2.3、Resoultion（符号引用 -&gt; 变为直接使用的地址）</h5><blockquote>
+<h5 id="1-2-2-3、Resoultion（符号引用-gt-变为直接使用的地址）"><a href="#1-2-2-3、Resoultion（符号引用-gt-变为直接使用的地址）" class="headerlink" title="1.2.2.3、Resoultion（符号引用 -> 变为直接使用的地址）"></a>1.2.2.3、Resoultion（符号引用 -&gt; 变为直接使用的地址）</h5><blockquote>
 <ol>
 <li><p>将类、方法、属性等符号引用解析为直接引用</p>
 <p>常量池中的各种符号引用解析为指针、偏移量等内存地址的直接引用</p>
@@ -815,11 +819,11 @@ HotSpot：orac">
 <h4 id="2-1-3、Mark-Compact（标记压缩）"><a href="#2-1-3、Mark-Compact（标记压缩）" class="headerlink" title="2.1.3、Mark-Compact（标记压缩）"></a>2.1.3、Mark-Compact（标记压缩）</h4><blockquote>
 <p>没有碎片，效率比copy偏低</p>
 </blockquote>
-<h3 id="2-2、JVM-分代算法"><a href="#2-2、JVM-分代算法" class="headerlink" title="2.2、JVM 分代算法"></a>2.2、<code>JVM</code> 分代算法</h3><p><img src="/../image/homeWork0917/image-20220923142040615.png"></p>
+<h3 id="2-2、JVM-分代算法"><a href="#2-2、JVM-分代算法" class="headerlink" title="2.2、JVM 分代算法"></a>2.2、<code>JVM</code> 分代算法</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220923142040615.png"></p>
 <blockquote>
-<p><code>new</code> &#x2F; <code>young</code> ： 新生代 ，&#96;new &#x3D; Eden + survivor(S0) + survivor(S1) [8:1:1] &#96;&#96;</p>
+<p><code>new</code> / <code>young</code> ： 新生代 ，`new = Eden + survivor(S0) + survivor(S1) [8:1:1] ``</p>
 <ol>
-<li>&#96;&#96;YGC<code>之后，大多数对象会被回收，活着的对象进入 </code>s0&#96;</li>
+<li>``YGC<code>之后，大多数对象会被回收，活着的对象进入 </code>s0`</li>
 <li>再次<code>YGC</code> , <code>Eden </code>和 <code>s0 </code>活着的对象进入<code> s1</code></li>
 <li>再次<code>YGC</code>，活着的对象进入<code>S0</code> </li>
 <li>多次<code>YGC</code>之后一直活着的对象进入 <code>old区</code></li>
@@ -828,26 +832,26 @@ HotSpot：orac">
 <ol>
 <li>老年代满了触发 <code>FGC</code>(<code>FULL GC</code> ) , 触发 <code>STW</code>(内存冻结、应用程序停顿)</li>
 </ol>
-<p><code>PermGen</code> :永久代（1.7） &#x3D;&gt; <code>MetaSpace </code>：元数据区（1.8+）</p>
+<p><code>PermGen</code> :永久代（1.7） =&gt; <code>MetaSpace </code>：元数据区（1.8+）</p>
 <p>永久代和元数据都是装 Class，永久代可以指定大小限制；元数据区可以设置也可以不设置，无上限（受</p>
 <p>限于物理内存）</p>
 </blockquote>
-<h3 id="2-3、垃圾回收器"><a href="#2-3、垃圾回收器" class="headerlink" title="2.3、垃圾回收器"></a>2.3、垃圾回收器</h3><p><img src="/../image/homeWork0917/image-20220923154704943.png"></p>
+<h3 id="2-3、垃圾回收器"><a href="#2-3、垃圾回收器" class="headerlink" title="2.3、垃圾回收器"></a>2.3、垃圾回收器</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220923154704943.png"></p>
 <ol>
 <li><p><strong>Serial 年轻代</strong></p>
-<p><img src="/../image/homeWork0917/image-20220923160029305.png" alt="image-20220923160029305"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220923160029305.png" alt="image-20220923160029305"></p>
 <blockquote>
 <p>串行形式，会触发<code>STW</code></p>
 </blockquote>
 </li>
 <li><p><strong>Parallel Scavenge 年轻代</strong></p>
-<p><img src="/../image/homeWork0917/image-20220923160250385.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220923160250385.png"></p>
 <blockquote>
 <p>并行形式，会触发<code>STW</code></p>
 </blockquote>
 </li>
 <li><p>ParNew 年轻代</p>
-<p><img src="/../image/homeWork0917/image-20220923160616256.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0917/image-20220923160616256.png"></p>
 <blockquote>
 <p> 配合<code>CMS</code>的并行回收</p>
 </blockquote>
@@ -980,12 +984,12 @@ HotSpot：orac">
 <ul>
 <li>Hive方便熟悉SQL 的人，快速上手大数据分析</li>
 <li>Hive默认计算殷勤是MR，所以查询时间比较长</li>
-<li>Hive底层计算引擎也可以更换为Spark&#x2F;Tez</li>
-<li>Hive中的表是逻辑表，只是表的定义，本身不存储和计算，完全依赖于HDFS&#x2F;MR</li>
+<li>Hive底层计算引擎也可以更换为Spark/Tez</li>
+<li>Hive中的表是逻辑表，只是表的定义，本身不存储和计算，完全依赖于HDFS/MR</li>
 </ul>
 <p>Hbase：</p>
 <ul>
-<li>Hbase 本身不支持SQL ，需要通过集成Phoenix &#x2F; Hive 才支持SQL</li>
+<li>Hbase 本身不支持SQL ，需要通过集成Phoenix / Hive 才支持SQL</li>
 <li>Hbase基于以及索引Rowkey进行数据查询，所以速度比较快</li>
 <li>Hbase底层基于Scan进行数据扫描，而不是MR</li>
 <li>Hbase中的表是物理表，有独立的物理数据结构，查询时可以将数据加载到内存，提升后续的查询效率</li>
@@ -1167,7 +1171,7 @@ HotSpot：orac">
                     </span>
                     <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2022/09/21/homeWork0917/" class="b-link-green">私教第四周</a>
+                    <a href="/2022/09/21/homework0917/" class="b-link-green">私教第四周</a>
                 </p>
             </div>
     
@@ -1190,7 +1194,7 @@ HotSpot：orac">
         repo: 'hcs-21.github.io',
         owner: 'hcs-21',
         admin: ["hcs-21"],
-        id: '2022/09/21/homeWork0917/',
+        id: '2022/09/21/homework0917/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1215,7 +1219,7 @@ HotSpot：orac">
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/26/Hadoop%EF%BC%88%E4%B8%80%EF%BC%89/">
+                <a href="/2022/09/26/hadoop-yi/">
                     <div class="card-image">
                         
                         
@@ -1268,7 +1272,7 @@ HotSpot：orac">
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/13/homeWork0910/">
+                <a href="/2022/09/13/homework0910/">
                     <div class="card-image">
                         
                         
@@ -1710,5 +1714,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>

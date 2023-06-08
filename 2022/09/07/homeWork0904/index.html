@@ -74,7 +74,11 @@ public class">
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -750,327 +754,327 @@ public class">
 <blockquote>
 <p>实体类：记录流水元素</p>
 </blockquote>
-<pre><code class="java">package com.lagou.bean;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>bean<span class="token punctuation">;</span>
 
-import java.sql.Timestamp;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Timestamp<span class="token punctuation">;</span>
 
-/**
+<span class="token comment" spellcheck="true">/**
  * 用户登录日志流水，GenerateData
- */
-public class userLoginDetail &#123;
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">userLoginDetail</span> <span class="token punctuation">{</span>
 
-    //终端类型
-    private String platform;
+    <span class="token comment" spellcheck="true">//终端类型</span>
+    <span class="token keyword">private</span> String platform<span class="token punctuation">;</span>
 
-    //终端品牌
-    private String brand;
+    <span class="token comment" spellcheck="true">//终端品牌</span>
+    <span class="token keyword">private</span> String brand<span class="token punctuation">;</span>
 
-    //终端操作系统版本
-    private String os_version;
+    <span class="token comment" spellcheck="true">//终端操作系统版本</span>
+    <span class="token keyword">private</span> String os_version<span class="token punctuation">;</span>
 
-    //终端所在区域
-    private String region;
+    <span class="token comment" spellcheck="true">//终端所在区域</span>
+    <span class="token keyword">private</span> String region<span class="token punctuation">;</span>
 
-    //app版本号
-    private String appVersion;
+    <span class="token comment" spellcheck="true">//app版本号</span>
+    <span class="token keyword">private</span> String appVersion<span class="token punctuation">;</span>
 
-    //访问渠道
-    private String app_channel;
+    <span class="token comment" spellcheck="true">//访问渠道</span>
+    <span class="token keyword">private</span> String app_channel<span class="token punctuation">;</span>
 
-    //网路运营商
-    private String net_provider;
+    <span class="token comment" spellcheck="true">//网路运营商</span>
+    <span class="token keyword">private</span> String net_provider<span class="token punctuation">;</span>
 
-    //网络信号类型
-    private String net_type;
+    <span class="token comment" spellcheck="true">//网络信号类型</span>
+    <span class="token keyword">private</span> String net_type<span class="token punctuation">;</span>
 
-    //国家
-    private String country;
+    <span class="token comment" spellcheck="true">//国家</span>
+    <span class="token keyword">private</span> String country<span class="token punctuation">;</span>
 
-    //省
-    private String Province;
+    <span class="token comment" spellcheck="true">//省</span>
+    <span class="token keyword">private</span> String Province<span class="token punctuation">;</span>
 
-    //市
-    private String city;
+    <span class="token comment" spellcheck="true">//市</span>
+    <span class="token keyword">private</span> String city<span class="token punctuation">;</span>
 
-    //用户等级
-    private String userType;
+    <span class="token comment" spellcheck="true">//用户等级</span>
+    <span class="token keyword">private</span> String userType<span class="token punctuation">;</span>
 
-    //登陆时间
-    private Timestamp logTime;
+    <span class="token comment" spellcheck="true">//登陆时间</span>
+    <span class="token keyword">private</span> Timestamp logTime<span class="token punctuation">;</span>
 
-    //用户id
-    private String userId;
+    <span class="token comment" spellcheck="true">//用户id</span>
+    <span class="token keyword">private</span> String userId<span class="token punctuation">;</span>
 
-    //设备id
-    private String deviceId;
+    <span class="token comment" spellcheck="true">//设备id</span>
+    <span class="token keyword">private</span> String deviceId<span class="token punctuation">;</span>
 
-    //流水号
-    private String logId;
+    <span class="token comment" spellcheck="true">//流水号</span>
+    <span class="token keyword">private</span> String logId<span class="token punctuation">;</span>
 
-    public userLoginDetail() &#123;
-    &#125;
+    <span class="token keyword">public</span> <span class="token function">userLoginDetail</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
 
-    public userLoginDetail(String platform, String brand, String os_version, String region, String appVersion, String app_channel, String net_provider, String net_type, String country, String province, String city, String userType, Timestamp logTime, String userId, String deviceId, String logId) &#123;
-        this.platform = platform;
-        this.brand = brand;
-        this.os_version = os_version;
-        this.region = region;
-        this.appVersion = appVersion;
-        this.app_channel = app_channel;
-        this.net_provider = net_provider;
-        this.net_type = net_type;
-        this.country = country;
-        Province = province;
-        this.city = city;
-        this.userType = userType;
-        this.logTime = logTime;
-        this.userId = userId;
-        this.deviceId = deviceId;
-        this.logId = logId;
-    &#125;
+    <span class="token keyword">public</span> <span class="token function">userLoginDetail</span><span class="token punctuation">(</span>String platform<span class="token punctuation">,</span> String brand<span class="token punctuation">,</span> String os_version<span class="token punctuation">,</span> String region<span class="token punctuation">,</span> String appVersion<span class="token punctuation">,</span> String app_channel<span class="token punctuation">,</span> String net_provider<span class="token punctuation">,</span> String net_type<span class="token punctuation">,</span> String country<span class="token punctuation">,</span> String province<span class="token punctuation">,</span> String city<span class="token punctuation">,</span> String userType<span class="token punctuation">,</span> Timestamp logTime<span class="token punctuation">,</span> String userId<span class="token punctuation">,</span> String deviceId<span class="token punctuation">,</span> String logId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>platform <span class="token operator">=</span> platform<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>brand <span class="token operator">=</span> brand<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>os_version <span class="token operator">=</span> os_version<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>region <span class="token operator">=</span> region<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>appVersion <span class="token operator">=</span> appVersion<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>app_channel <span class="token operator">=</span> app_channel<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>net_provider <span class="token operator">=</span> net_provider<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>net_type <span class="token operator">=</span> net_type<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>country <span class="token operator">=</span> country<span class="token punctuation">;</span>
+        Province <span class="token operator">=</span> province<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>city <span class="token operator">=</span> city<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userType <span class="token operator">=</span> userType<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>logTime <span class="token operator">=</span> logTime<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userId <span class="token operator">=</span> userId<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>deviceId <span class="token operator">=</span> deviceId<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>logId <span class="token operator">=</span> logId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getPlatform() &#123;
-        return platform;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getPlatform</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> platform<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setPlatform(String platform) &#123;
-        this.platform = platform;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPlatform</span><span class="token punctuation">(</span>String platform<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>platform <span class="token operator">=</span> platform<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getBrand() &#123;
-        return brand;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getBrand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> brand<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setBrand(String brand) &#123;
-        this.brand = brand;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setBrand</span><span class="token punctuation">(</span>String brand<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>brand <span class="token operator">=</span> brand<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getOs_version() &#123;
-        return os_version;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getOs_version</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> os_version<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setOs_version(String os_version) &#123;
-        this.os_version = os_version;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setOs_version</span><span class="token punctuation">(</span>String os_version<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>os_version <span class="token operator">=</span> os_version<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getRegion() &#123;
-        return region;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getRegion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> region<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setRegion(String region) &#123;
-        this.region = region;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setRegion</span><span class="token punctuation">(</span>String region<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>region <span class="token operator">=</span> region<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getAppVersion() &#123;
-        return appVersion;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getAppVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> appVersion<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setAppVersion(String appVersion) &#123;
-        this.appVersion = appVersion;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setAppVersion</span><span class="token punctuation">(</span>String appVersion<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>appVersion <span class="token operator">=</span> appVersion<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getApp_channel() &#123;
-        return app_channel;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getApp_channel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> app_channel<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setApp_channel(String app_channel) &#123;
-        this.app_channel = app_channel;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setApp_channel</span><span class="token punctuation">(</span>String app_channel<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>app_channel <span class="token operator">=</span> app_channel<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getNet_provider() &#123;
-        return net_provider;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getNet_provider</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> net_provider<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setNet_provider(String net_provider) &#123;
-        this.net_provider = net_provider;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setNet_provider</span><span class="token punctuation">(</span>String net_provider<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>net_provider <span class="token operator">=</span> net_provider<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getNet_type() &#123;
-        return net_type;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getNet_type</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> net_type<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setNet_type(String net_type) &#123;
-        this.net_type = net_type;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setNet_type</span><span class="token punctuation">(</span>String net_type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>net_type <span class="token operator">=</span> net_type<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getCountry() &#123;
-        return country;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getCountry</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> country<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setCountry(String country) &#123;
-        this.country = country;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setCountry</span><span class="token punctuation">(</span>String country<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>country <span class="token operator">=</span> country<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getProvince() &#123;
-        return Province;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getProvince</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Province<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setProvince(String province) &#123;
-        Province = province;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setProvince</span><span class="token punctuation">(</span>String province<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Province <span class="token operator">=</span> province<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getCity() &#123;
-        return city;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getCity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> city<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setCity(String city) &#123;
-        this.city = city;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setCity</span><span class="token punctuation">(</span>String city<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>city <span class="token operator">=</span> city<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getUserType() &#123;
-        return userType;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getUserType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userType<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setUserType(String userType) &#123;
-        this.userType = userType;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUserType</span><span class="token punctuation">(</span>String userType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userType <span class="token operator">=</span> userType<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public Timestamp getLogTime() &#123;
-        return logTime;
-    &#125;
+    <span class="token keyword">public</span> Timestamp <span class="token function">getLogTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> logTime<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setLogTime(Timestamp logTime) &#123;
-        this.logTime = logTime;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setLogTime</span><span class="token punctuation">(</span>Timestamp logTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>logTime <span class="token operator">=</span> logTime<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getUserId() &#123;
-        return userId;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getUserId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setUserId(String userId) &#123;
-        this.userId = userId;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUserId</span><span class="token punctuation">(</span>String userId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userId <span class="token operator">=</span> userId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getDeviceId() &#123;
-        return deviceId;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getDeviceId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> deviceId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setDeviceId(String deviceId) &#123;
-        this.deviceId = deviceId;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setDeviceId</span><span class="token punctuation">(</span>String deviceId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>deviceId <span class="token operator">=</span> deviceId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getLogId() &#123;
-        return logId;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getLogId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> logId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setLogId(String logId) &#123;
-        this.logId = logId;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setLogId</span><span class="token punctuation">(</span>String logId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>logId <span class="token operator">=</span> logId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @Override
-    public String toString() &#123;
-        return
-                platform + &quot;|&quot; +
-                brand + &quot;|&quot; +
-                os_version + &quot;|&quot; +
-                region + &quot;|&quot; +
-                appVersion + &quot;|&quot; +
-                app_channel + &quot;|&quot; +
-                net_provider + &quot;|&quot; +
-                net_type + &quot;|&quot; +
-                country + &quot;|&quot; +
-                Province + &quot;|&quot; +
-                city + &quot;|&quot; +
-                userType + &quot;|&quot; +
-                logTime.getTime() + &quot;|&quot; +
-                userId + &quot;|&quot; +
-                deviceId + &quot;|&quot; +
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span>
+                platform <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                brand <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                os_version <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                region <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                appVersion <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                app_channel <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                net_provider <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                net_type <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                country <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                Province <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                city <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                userType <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                logTime<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                userId <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
+                deviceId <span class="token operator">+</span> <span class="token string">"|"</span> <span class="token operator">+</span>
                 logId
-                ;
-    &#125;
+                <span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-&#125;
-</code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>生成数据</p>
 </blockquote>
-<pre><code class="java">package com.lagou.mockData;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>mockData<span class="token punctuation">;</span>
 
 
-import com.github.javafaker.*;
-import com.github.jsonzou.jmockdata.JMockData;
-import com.github.jsonzou.jmockdata.MockConfig;
-import com.lagou.bean.userLoginDetail;
-import org.junit.Before;
-import org.junit.Test;
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>github<span class="token punctuation">.</span>javafaker<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>github<span class="token punctuation">.</span>jsonzou<span class="token punctuation">.</span>jmockdata<span class="token punctuation">.</span>JMockData<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>github<span class="token punctuation">.</span>jsonzou<span class="token punctuation">.</span>jmockdata<span class="token punctuation">.</span>MockConfig<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>bean<span class="token punctuation">.</span>userLoginDetail<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Before<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test<span class="token punctuation">;</span>
 
-import java.io.*;
-import java.util.Locale;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Locale<span class="token punctuation">;</span>
 
-/**
+<span class="token comment" spellcheck="true">/**
  * 创建者 ： 郝春帅
  * 创建时间： 2022-09-04
  * 实现功能： 生成测试模拟数据
  *
- * ----&gt;****************&lt;--------*
+ * ---->****************&lt;--------*
  * 修改时间    修改人     修改功能 *
  *                               *
- * ----&gt;****************&lt;--------*
- */
-public class mockData &#123;
+ * ---->****************&lt;--------*
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">mockData</span> <span class="token punctuation">{</span>
 
-    Faker faker =new Faker(new Locale(&quot;zh-Cn&quot;));
-    MockConfig mockConfig;
+    Faker faker <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Faker</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Locale</span><span class="token punctuation">(</span><span class="token string">"zh-Cn"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    MockConfig mockConfig<span class="token punctuation">;</span>
 
-    @Before
-    public void init()&#123;
-        mockConfig = new MockConfig() ;
+    <span class="token annotation punctuation">@Before</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        mockConfig <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MockConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
         mockConfig
-                .globalConfig()
-                .excludes(&quot;appVersion&quot;,&quot;country&quot;,&quot;Province&quot;,&quot;city&quot;,&quot;deviceId&quot;,&quot;userId&quot;,&quot;logId&quot;)
-                .subConfig(userLoginDetail.class,&quot;platform&quot;).sizeRange(1,1).stringSeed(&quot;android&quot;,&quot;iOS&quot;)
-                .subConfig(userLoginDetail.class,&quot;brand&quot;).sizeRange(1,1).stringSeed( &quot;Redmi_M2012K11AC&quot; ,&quot;HONOR_KNT-AL20&quot; ,&quot;HUAWEI_ELS-AN00&quot; ,&quot;iPhone 6&quot; ,&quot;HONOR_YAL-AL50&quot; ,&quot;iPhone XS Max&quot; ,&quot;iPhone XS&quot; ,&quot;Xiaomi_M2002J9E&quot; ,&quot;Xiaomi_M2011K2C&quot; ,&quot;Redmi_Redmi K30 Pro Zoom Edition&quot; ,&quot;Xiaomi_Mi 10&quot;
-                ,&quot;Xiaomi_M2102K1AC&quot; ,&quot;iPhone 11 Pro Max&quot; ,&quot;Redmi_21091116C&quot;,&quot;iPhone XR&quot;,&quot;HUAWEI_LYA-AL10&quot; ,&quot;samsung_SM-E5260&quot; ,&quot;HUAWEI_SCM-W09&quot; ,&quot;iPhone14,2&quot;,&quot;HUAWEI_LIO-AN00&quot; ,&quot;OnePlus_MT2110&quot; ,&quot;HUAWEI_NOP-AN00&quot; ,&quot;Xiaomi_Redmi K20 Pro Premium Edition&quot; ,&quot;iPhone 12&quot;,&quot;HUAWEI_NAM-AL00&quot; ,&quot;HUAWEI_SPN-AL00&quot;
-                ,&quot;iPhone14,3&quot; ,&quot;vivo_V2055A&quot; ,&quot;iPhone14,5&quot; ,&quot;iPhone SE (2nd generation)&quot; ,&quot;OPPO_PENM00&quot; ,&quot;HONOR_OXF-AN10&quot; ,&quot;iPhone 7 Plus&quot; ,&quot;HONOR_ELZ-AN10&quot;,&quot;iPhone 6s&quot; ,&quot;HUAWEI_NOH-AN00&quot; ,&quot;HUAWEI_JKM-AL00b&quot; ,&quot;vivo_V1962A&quot; ,&quot;HUAWEI_JKM-AL00&quot; ,&quot;OPPO_PCAM00&quot; ,&quot;vivo_V1922A&quot; ,&quot;HONOR_KOZ-AL00&quot;
-                ,&quot;iPhone 12 Pro Max&quot; ,&quot;samsung_SM-G7810&quot; ,&quot;vivo_vivo Y66i A&quot; ,&quot;HONOR_TNY-AL00&quot; ,&quot;HUAWEI_OCE-AN10&quot; ,&quot;iPhone 11&quot; ,&quot;iPhone 12 Pro&quot; ,&quot;HUAWEI_LYA-AL00&quot;
-                ,&quot;Xiaomi_M2102K1C&quot; ,&quot;HUAWEI_VOG-AL10&quot; ,&quot;HONOR_LND-AL30&quot; ,&quot;HONOR_TEL-AN10&quot; ,&quot;vivo_V1981A&quot; ,&quot;Xiaomi_2201123C&quot; ,&quot;Redmi_M2012K11AC&quot; ,&quot;HUAWEI_TAS-AN00&quot;
-                ,&quot;HONOR_MXW-AN00&quot; ,&quot;Xiaomi_Redmi K20 Pro&quot; ,&quot;vivo_V2012A&quot; ,&quot;HONOR_AQM-AL10&quot; ,&quot;HONOR_HJC-AN90&quot; ,&quot;realme_RMX2202&quot; ,&quot;HONOR_PCT-AL10&quot; ,&quot;HUAWEI_HMA-AL00&quot;
-                ,&quot;HUAWEI_ALP-AL00&quot;,&quot;HONOR_LRA-AL00&quot;,&quot;HONOR_BMH-AN10&quot; ,&quot;HUAWEI_JEF-AN20&quot;,&quot;HONOR_NTN-AN20&quot; ,&quot;Redmi_M2012K11C&quot;,&quot;vivo_V2047A&quot; ,&quot;iPad Pro 12.9&quot;,&quot;OnePlus_ONEPLUS A5010&quot;,&quot;iPhone X&quot;,&quot;Xiaomi_M2102J2SC&quot;,&quot;HONOR_HLK-AL00&quot;,&quot;HUAWEI_LIO-AL00&quot;,&quot;HONOR_OXF-AN00&quot; ,&quot;HONOR_LSA-AN00&quot; ,&quot;OnePlus_LE2121&quot;
-                ,&quot;Redmi_22011211C&quot;,&quot;Newman_2022N13&quot; ,&quot;Xiaomi_MI 8&quot;,&quot;Redmi_M2004J7BC&quot;,&quot;HUAWEI_TET-AN00&quot; ,&quot;OnePlus_NE2210&quot;,&quot;OPPO_OPPO A83&quot;,&quot;Redmi_M2007J17C&quot;,&quot;Xiaomi_MIX 2S&quot;,&quot;HUAWEI_OCE-AN50&quot; ,&quot;OPPO_PEFM00&quot;)
-                .subConfig(userLoginDetail.class,&quot;os_version&quot;).sizeRange(1,1).stringSeed( &quot;android31&quot; ,&quot;android26&quot; ,&quot;android29&quot; ,&quot;iOS12.5.4&quot;,&quot;iOS14.5.1&quot;
-                ,&quot;iOS14.6&quot;,&quot;iOS15.6&quot;,&quot;iOS15.4&quot;,&quot;iOS15.1.1&quot;  ,&quot;android30&quot; ,&quot;iOS15.6.1&quot;,&quot;iOS15.5&quot; ,&quot;iOS15.4.1&quot;,&quot;android28&quot; ,&quot;iOS15.3.1&quot; ,&quot;android25&quot; ,&quot;iOS14.8&quot;
-                ,&quot;iOS14.4&quot; ,&quot;iOS14.2&quot;,&quot;iOS14.2.1&quot;,&quot;iOS13.6.1&quot;)
-                .subConfig(userLoginDetail.class,&quot;region&quot;).sizeRange(1,1).stringSeed(&quot;zh-CN&quot;,&quot;zh-Hans-CN&quot;,&quot;en-NG&quot;,&quot;en-NG&quot;,&quot;zh-Hans&quot;)
-                .subConfig(userLoginDetail.class,&quot;app_channel&quot;).sizeRange(1,1).stringSeed( &quot;XMshop&quot;,&quot;huawsc&quot;,&quot;App Store&quot;,&quot;sanxingsc&quot;,&quot;Oshop&quot;,&quot;Vshop&quot;,&quot;TX04&quot;,&quot;yingyb&quot;)
-                .subConfig(userLoginDetail.class,&quot;net_provider&quot;).sizeRange(1,1).stringSeed(&quot;中国联通&quot;,&quot;中国电信&quot;,&quot;CMCC&quot;,&quot;中国移动&quot;,&quot;China Unicom&quot;)
-                .subConfig(userLoginDetail.class,&quot;net_type&quot;).sizeRange(1,1).stringSeed(&quot;4G&quot;,&quot;5G&quot;,&quot;wifi&quot;,&quot;unkonw&quot;)
-                .subConfig(userLoginDetail.class,&quot;userType&quot;).sizeRange(1,1).stringSeed(&quot;vip&quot;,&quot; &quot;)
-                .subConfig(userLoginDetail.class,&quot;logTime&quot;).sizeRange(11,11).dateRange(&quot;20220904&quot;,&quot;20220905&quot;)
-        ;
-    &#125;
+                <span class="token punctuation">.</span><span class="token function">globalConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">excludes</span><span class="token punctuation">(</span><span class="token string">"appVersion"</span><span class="token punctuation">,</span><span class="token string">"country"</span><span class="token punctuation">,</span><span class="token string">"Province"</span><span class="token punctuation">,</span><span class="token string">"city"</span><span class="token punctuation">,</span><span class="token string">"deviceId"</span><span class="token punctuation">,</span><span class="token string">"userId"</span><span class="token punctuation">,</span><span class="token string">"logId"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"platform"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stringSeed</span><span class="token punctuation">(</span><span class="token string">"android"</span><span class="token punctuation">,</span><span class="token string">"iOS"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"brand"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stringSeed</span><span class="token punctuation">(</span> <span class="token string">"Redmi_M2012K11AC"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_KNT-AL20"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_ELS-AN00"</span> <span class="token punctuation">,</span><span class="token string">"iPhone 6"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_YAL-AL50"</span> <span class="token punctuation">,</span><span class="token string">"iPhone XS Max"</span> <span class="token punctuation">,</span><span class="token string">"iPhone XS"</span> <span class="token punctuation">,</span><span class="token string">"Xiaomi_M2002J9E"</span> <span class="token punctuation">,</span><span class="token string">"Xiaomi_M2011K2C"</span> <span class="token punctuation">,</span><span class="token string">"Redmi_Redmi K30 Pro Zoom Edition"</span> <span class="token punctuation">,</span><span class="token string">"Xiaomi_Mi 10"</span>
+                <span class="token punctuation">,</span><span class="token string">"Xiaomi_M2102K1AC"</span> <span class="token punctuation">,</span><span class="token string">"iPhone 11 Pro Max"</span> <span class="token punctuation">,</span><span class="token string">"Redmi_21091116C"</span><span class="token punctuation">,</span><span class="token string">"iPhone XR"</span><span class="token punctuation">,</span><span class="token string">"HUAWEI_LYA-AL10"</span> <span class="token punctuation">,</span><span class="token string">"samsung_SM-E5260"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_SCM-W09"</span> <span class="token punctuation">,</span><span class="token string">"iPhone14,2"</span><span class="token punctuation">,</span><span class="token string">"HUAWEI_LIO-AN00"</span> <span class="token punctuation">,</span><span class="token string">"OnePlus_MT2110"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_NOP-AN00"</span> <span class="token punctuation">,</span><span class="token string">"Xiaomi_Redmi K20 Pro Premium Edition"</span> <span class="token punctuation">,</span><span class="token string">"iPhone 12"</span><span class="token punctuation">,</span><span class="token string">"HUAWEI_NAM-AL00"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_SPN-AL00"</span>
+                <span class="token punctuation">,</span><span class="token string">"iPhone14,3"</span> <span class="token punctuation">,</span><span class="token string">"vivo_V2055A"</span> <span class="token punctuation">,</span><span class="token string">"iPhone14,5"</span> <span class="token punctuation">,</span><span class="token string">"iPhone SE (2nd generation)"</span> <span class="token punctuation">,</span><span class="token string">"OPPO_PENM00"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_OXF-AN10"</span> <span class="token punctuation">,</span><span class="token string">"iPhone 7 Plus"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_ELZ-AN10"</span><span class="token punctuation">,</span><span class="token string">"iPhone 6s"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_NOH-AN00"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_JKM-AL00b"</span> <span class="token punctuation">,</span><span class="token string">"vivo_V1962A"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_JKM-AL00"</span> <span class="token punctuation">,</span><span class="token string">"OPPO_PCAM00"</span> <span class="token punctuation">,</span><span class="token string">"vivo_V1922A"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_KOZ-AL00"</span>
+                <span class="token punctuation">,</span><span class="token string">"iPhone 12 Pro Max"</span> <span class="token punctuation">,</span><span class="token string">"samsung_SM-G7810"</span> <span class="token punctuation">,</span><span class="token string">"vivo_vivo Y66i A"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_TNY-AL00"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_OCE-AN10"</span> <span class="token punctuation">,</span><span class="token string">"iPhone 11"</span> <span class="token punctuation">,</span><span class="token string">"iPhone 12 Pro"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_LYA-AL00"</span>
+                <span class="token punctuation">,</span><span class="token string">"Xiaomi_M2102K1C"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_VOG-AL10"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_LND-AL30"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_TEL-AN10"</span> <span class="token punctuation">,</span><span class="token string">"vivo_V1981A"</span> <span class="token punctuation">,</span><span class="token string">"Xiaomi_2201123C"</span> <span class="token punctuation">,</span><span class="token string">"Redmi_M2012K11AC"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_TAS-AN00"</span>
+                <span class="token punctuation">,</span><span class="token string">"HONOR_MXW-AN00"</span> <span class="token punctuation">,</span><span class="token string">"Xiaomi_Redmi K20 Pro"</span> <span class="token punctuation">,</span><span class="token string">"vivo_V2012A"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_AQM-AL10"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_HJC-AN90"</span> <span class="token punctuation">,</span><span class="token string">"realme_RMX2202"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_PCT-AL10"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_HMA-AL00"</span>
+                <span class="token punctuation">,</span><span class="token string">"HUAWEI_ALP-AL00"</span><span class="token punctuation">,</span><span class="token string">"HONOR_LRA-AL00"</span><span class="token punctuation">,</span><span class="token string">"HONOR_BMH-AN10"</span> <span class="token punctuation">,</span><span class="token string">"HUAWEI_JEF-AN20"</span><span class="token punctuation">,</span><span class="token string">"HONOR_NTN-AN20"</span> <span class="token punctuation">,</span><span class="token string">"Redmi_M2012K11C"</span><span class="token punctuation">,</span><span class="token string">"vivo_V2047A"</span> <span class="token punctuation">,</span><span class="token string">"iPad Pro 12.9"</span><span class="token punctuation">,</span><span class="token string">"OnePlus_ONEPLUS A5010"</span><span class="token punctuation">,</span><span class="token string">"iPhone X"</span><span class="token punctuation">,</span><span class="token string">"Xiaomi_M2102J2SC"</span><span class="token punctuation">,</span><span class="token string">"HONOR_HLK-AL00"</span><span class="token punctuation">,</span><span class="token string">"HUAWEI_LIO-AL00"</span><span class="token punctuation">,</span><span class="token string">"HONOR_OXF-AN00"</span> <span class="token punctuation">,</span><span class="token string">"HONOR_LSA-AN00"</span> <span class="token punctuation">,</span><span class="token string">"OnePlus_LE2121"</span>
+                <span class="token punctuation">,</span><span class="token string">"Redmi_22011211C"</span><span class="token punctuation">,</span><span class="token string">"Newman_2022N13"</span> <span class="token punctuation">,</span><span class="token string">"Xiaomi_MI 8"</span><span class="token punctuation">,</span><span class="token string">"Redmi_M2004J7BC"</span><span class="token punctuation">,</span><span class="token string">"HUAWEI_TET-AN00"</span> <span class="token punctuation">,</span><span class="token string">"OnePlus_NE2210"</span><span class="token punctuation">,</span><span class="token string">"OPPO_OPPO A83"</span><span class="token punctuation">,</span><span class="token string">"Redmi_M2007J17C"</span><span class="token punctuation">,</span><span class="token string">"Xiaomi_MIX 2S"</span><span class="token punctuation">,</span><span class="token string">"HUAWEI_OCE-AN50"</span> <span class="token punctuation">,</span><span class="token string">"OPPO_PEFM00"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"os_version"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stringSeed</span><span class="token punctuation">(</span> <span class="token string">"android31"</span> <span class="token punctuation">,</span><span class="token string">"android26"</span> <span class="token punctuation">,</span><span class="token string">"android29"</span> <span class="token punctuation">,</span><span class="token string">"iOS12.5.4"</span><span class="token punctuation">,</span><span class="token string">"iOS14.5.1"</span>
+                <span class="token punctuation">,</span><span class="token string">"iOS14.6"</span><span class="token punctuation">,</span><span class="token string">"iOS15.6"</span><span class="token punctuation">,</span><span class="token string">"iOS15.4"</span><span class="token punctuation">,</span><span class="token string">"iOS15.1.1"</span>  <span class="token punctuation">,</span><span class="token string">"android30"</span> <span class="token punctuation">,</span><span class="token string">"iOS15.6.1"</span><span class="token punctuation">,</span><span class="token string">"iOS15.5"</span> <span class="token punctuation">,</span><span class="token string">"iOS15.4.1"</span><span class="token punctuation">,</span><span class="token string">"android28"</span> <span class="token punctuation">,</span><span class="token string">"iOS15.3.1"</span> <span class="token punctuation">,</span><span class="token string">"android25"</span> <span class="token punctuation">,</span><span class="token string">"iOS14.8"</span>
+                <span class="token punctuation">,</span><span class="token string">"iOS14.4"</span> <span class="token punctuation">,</span><span class="token string">"iOS14.2"</span><span class="token punctuation">,</span><span class="token string">"iOS14.2.1"</span><span class="token punctuation">,</span><span class="token string">"iOS13.6.1"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"region"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stringSeed</span><span class="token punctuation">(</span><span class="token string">"zh-CN"</span><span class="token punctuation">,</span><span class="token string">"zh-Hans-CN"</span><span class="token punctuation">,</span><span class="token string">"en-NG"</span><span class="token punctuation">,</span><span class="token string">"en-NG"</span><span class="token punctuation">,</span><span class="token string">"zh-Hans"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"app_channel"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stringSeed</span><span class="token punctuation">(</span> <span class="token string">"XMshop"</span><span class="token punctuation">,</span><span class="token string">"huawsc"</span><span class="token punctuation">,</span><span class="token string">"App Store"</span><span class="token punctuation">,</span><span class="token string">"sanxingsc"</span><span class="token punctuation">,</span><span class="token string">"Oshop"</span><span class="token punctuation">,</span><span class="token string">"Vshop"</span><span class="token punctuation">,</span><span class="token string">"TX04"</span><span class="token punctuation">,</span><span class="token string">"yingyb"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"net_provider"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stringSeed</span><span class="token punctuation">(</span><span class="token string">"中国联通"</span><span class="token punctuation">,</span><span class="token string">"中国电信"</span><span class="token punctuation">,</span><span class="token string">"CMCC"</span><span class="token punctuation">,</span><span class="token string">"中国移动"</span><span class="token punctuation">,</span><span class="token string">"China Unicom"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"net_type"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stringSeed</span><span class="token punctuation">(</span><span class="token string">"4G"</span><span class="token punctuation">,</span><span class="token string">"5G"</span><span class="token punctuation">,</span><span class="token string">"wifi"</span><span class="token punctuation">,</span><span class="token string">"unkonw"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"userType"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stringSeed</span><span class="token punctuation">(</span><span class="token string">"vip"</span><span class="token punctuation">,</span><span class="token string">" "</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">subConfig</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token string">"logTime"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sizeRange</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">dateRange</span><span class="token punctuation">(</span><span class="token string">"20220904"</span><span class="token punctuation">,</span><span class="token string">"20220905"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @Test
-    public void mockData()  &#123;
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mockData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
 
-        PrintStream file = null;
-        try &#123;
-            file = new PrintStream(new FileOutputStream(&quot;d:/data.txt&quot;));
-            for (int i = 0; i &lt; 1000000; i++) &#123;
-                userLoginDetail mock = JMockData.mock(userLoginDetail.class, mockConfig);
-                mock.setAppVersion(faker.app().version());
-                mock.setCountry(faker.country().name());
-                mock.setProvince(faker.address().state());
-                mock.setCity(faker.address().city());
-                mock.setDeviceId(faker.crypto().md5());
-                mock.setUserId(faker.phoneNumber().cellPhone());
-                mock.setLogId(faker.internet().uuid().replace(&quot;-&quot;,&quot;&quot;));
-                file.println(mock.toString());
-            &#125;
-        &#125; catch (FileNotFoundException e) &#123;
-            e.printStackTrace();
-        &#125;finally &#123;
-            if( file != null )&#123;
-                file.close();
-            &#125;
-        &#125;
-    &#125;
+        PrintStream file <span class="token operator">=</span> null<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PrintStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"d:/data.txt"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                userLoginDetail mock <span class="token operator">=</span> JMockData<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span>userLoginDetail<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> mockConfig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mock<span class="token punctuation">.</span><span class="token function">setAppVersion</span><span class="token punctuation">(</span>faker<span class="token punctuation">.</span><span class="token function">app</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mock<span class="token punctuation">.</span><span class="token function">setCountry</span><span class="token punctuation">(</span>faker<span class="token punctuation">.</span><span class="token function">country</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mock<span class="token punctuation">.</span><span class="token function">setProvince</span><span class="token punctuation">(</span>faker<span class="token punctuation">.</span><span class="token function">address</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mock<span class="token punctuation">.</span><span class="token function">setCity</span><span class="token punctuation">(</span>faker<span class="token punctuation">.</span><span class="token function">address</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">city</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mock<span class="token punctuation">.</span><span class="token function">setDeviceId</span><span class="token punctuation">(</span>faker<span class="token punctuation">.</span><span class="token function">crypto</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mock<span class="token punctuation">.</span><span class="token function">setUserId</span><span class="token punctuation">(</span>faker<span class="token punctuation">.</span><span class="token function">phoneNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cellPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                mock<span class="token punctuation">.</span><span class="token function">setLogId</span><span class="token punctuation">(</span>faker<span class="token punctuation">.</span><span class="token function">internet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">uuid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                file<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>mock<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">FileNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span> file <span class="token operator">!=</span> null <span class="token punctuation">)</span><span class="token punctuation">{</span>
+                file<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-&#125;
-</code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>数据地址：<a target="_blank" rel="noopener" href="https://shimo.im/files/913JVgO6lZilg03E/">https://shimo.im/files/913JVgO6lZilg03E/</a></p>
 </blockquote>
-<pre><code class="txt">iOS|Newman_2022N13|android30|en-NG|0.60|Vshop|中国电信|5G|Switzerland|山西省|太原|vip|1662221154476|17878213764|d281890b79782b8e83054ee57e876101|f951cd1c413545b9a6f79b66df9965f5
+<pre class="line-numbers language-txt"><code class="language-txt">iOS|Newman_2022N13|android30|en-NG|0.60|Vshop|中国电信|5G|Switzerland|山西省|太原|vip|1662221154476|17878213764|d281890b79782b8e83054ee57e876101|f951cd1c413545b9a6f79b66df9965f5
 android|HUAWEI_TAS-AN00|iOS15.4.1|zh-CN|0.3.4|yingyb|中国联通|5G|Cambodia|天津市|北海|vip|1662276841541|15966359867|559f0ec69e0b4e856c528ca4aa254bcf|7e4d35d74a8d487db44d4a6d8ca64838
 android|HONOR_PCT-AL10|android26|en-NG|0.10|Vshop|中国联通|unkonw|Jordan|海南省|盘锦| |1662292005446|17872222811|a7f707a766ff4940f6bab646ec69a30a|7a859f9ce5234ca5bc14cb763ded285f
 iOS|Xiaomi_M2011K2C|android29|zh-Hans-CN|2.1|Oshop|China Unicom|4G|Iran (Islamic Republic of)|香港|海门|vip|1662222394905|17357993664|4093ea99d9576a81bc41ae9a89764f1a|a9c4432194e5457ca48776404e976114
@@ -1082,7 +1086,7 @@ android|Redmi_Redmi K30 Pro Zoom Edition|iOS13.6.1|zh-Hans|7.9.5|yingyb|中国�
 iOS|Xiaomi_Redmi K20 Pro|iOS15.4|en-NG|4.2.6|Oshop|CMCC|5G|Thailand|福建省|赤峰|vip|1662245453716|17565857311|85b598e07d2e4c037b937cb54c8f1898|e454c289613a4b488c34e97112739638
 iOS|HUAWEI_NAM-AL00|iOS15.1.1|zh-Hans|4.13|TX04|中国移动|wifi|Ghana|宁夏|长春|vip|1662247316901|14789825256|6192b4400760117cba4a99b5abccef1c|e3b2ca48d6754be2be40a510ac862cbf
 iOS|HONOR_TNY-AL00|iOS15.5|en-NG|9.9|sanxingsc|中国联通|5G|Rwanda|吉林省|聊城| |1662237974087|17531570742|cac1adf700c099f80b55e6
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2、递归需要满足的条件"><a href="#2、递归需要满足的条件" class="headerlink" title="2、递归需要满足的条件"></a>2、递归需要满足的条件</h2><hr>
 <blockquote>
 <ol>
@@ -1105,246 +1109,246 @@ iOS|HONOR_TNY-AL00|iOS15.5|en-NG|9.9|sanxingsc|中国联通|5G|Rwanda|吉林省|
 <li>注意：大O 表示法仅仅是一种粗略、近似的模型，是一种估算；</li>
 </ul>
 </blockquote>
-<h3 id="4-1、时间复杂度"><a href="#4-1、时间复杂度" class="headerlink" title="4.1、时间复杂度"></a>4.1、时间复杂度</h3><p><img src="/../image/homeWork0904/image-20220907171440545.png" alt="image-20220907171440545"></p>
+<h3 id="4-1、时间复杂度"><a href="#4-1、时间复杂度" class="headerlink" title="4.1、时间复杂度"></a>4.1、时间复杂度</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0904/image-20220907171440545.png" alt="image-20220907171440545"></p>
 <blockquote>
 <p>时间复杂度的优先级：</p>
 <p>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O (n2) &lt; O(n3) &lt; O (2^n)</p>
 </blockquote>
-<p><img src="/../image/homeWork0904/image-20220907171905904.png" alt="image-20220907171905904"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0904/image-20220907171905904.png" alt="image-20220907171905904"></p>
 <h3 id="4-2、空间复杂度"><a href="#4-2、空间复杂度" class="headerlink" title="4.2、空间复杂度"></a>4.2、空间复杂度</h3><blockquote>
 <p>空间复杂度：算法执行时占用的内存空间（栈内存）</p>
 </blockquote>
 <h3 id="4-3、冒泡排序"><a href="#4-3、冒泡排序" class="headerlink" title="4.3、冒泡排序"></a>4.3、冒泡排序</h3><blockquote>
 <p>时间复杂度： O(N^2)</p>
 </blockquote>
-<pre><code class="java">public class BubbleSort implements IArraySort &#123;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BubbleSort</span> <span class="token keyword">implements</span> <span class="token class-name">IArraySort</span> <span class="token punctuation">{</span>
 
-    @Override
-    public int[] sort(int[] sourceArray) throws Exception &#123;
-        // 对 arr 进行拷贝，不改变参数内容
-        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sourceArray<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 对 arr 进行拷贝，不改变参数内容</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>sourceArray<span class="token punctuation">,</span> sourceArray<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        for (int i = 1; i &lt; arr.length; i++) &#123;
-            // 设定一个标记，若为true，则表示此次循环没有进行交换，也就是待排序列已经有序，排序已经完成。
-            boolean flag = true;
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 设定一个标记，若为true，则表示此次循环没有进行交换，也就是待排序列已经有序，排序已经完成。</span>
+            <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
-            for (int j = 0; j &lt; arr.length - i; j++) &#123;
-                if (arr[j] &gt; arr[j + 1]) &#123;
-                    int tmp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = tmp;
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    arr<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
 
-                    flag = false;
-                &#125;
-            &#125;
+                    flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-            if (flag) &#123;
-                break;
-            &#125;
-        &#125;
-        return arr;
-    &#125;
-&#125;
-</code></pre>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-4、选择排序"><a href="#4-4、选择排序" class="headerlink" title="4.4、选择排序"></a>4.4、选择排序</h3><blockquote>
 <p>时间复杂度： O(N^2)	</p>
 </blockquote>
-<pre><code class="java">public class SelectionSort implements IArraySort &#123;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SelectionSort</span> <span class="token keyword">implements</span> <span class="token class-name">IArraySort</span> <span class="token punctuation">{</span>
 
-    @Override
-    public int[] sort(int[] sourceArray) throws Exception &#123;
-        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sourceArray<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>sourceArray<span class="token punctuation">,</span> sourceArray<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        // 总共要经过 N-1 轮比较
-        for (int i = 0; i &lt; arr.length - 1; i++) &#123;
-            int min = i;
+        <span class="token comment" spellcheck="true">// 总共要经过 N-1 轮比较</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> min <span class="token operator">=</span> i<span class="token punctuation">;</span>
 
-            // 每轮需要比较的次数 N-i
-            for (int j = i + 1; j &lt; arr.length; j++) &#123;
-                if (arr[j] &lt; arr[min]) &#123;
-                    // 记录目前能找到的最小值元素的下标
-                    min = j;
-                &#125;
-            &#125;
+            <span class="token comment" spellcheck="true">// 每轮需要比较的次数 N-i</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">// 记录目前能找到的最小值元素的下标</span>
+                    min <span class="token operator">=</span> j<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-            // 将找到的最小值和i位置所在的值进行交换
-            if (i != min) &#123;
-                int tmp = arr[i];
-                arr[i] = arr[min];
-                arr[min] = tmp;
-            &#125;
+            <span class="token comment" spellcheck="true">// 将找到的最小值和i位置所在的值进行交换</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> min<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-        &#125;
-        return arr;
-    &#125;
-&#125;
-</code></pre>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5、JAVA实现单链表"><a href="#5、JAVA实现单链表" class="headerlink" title="5、JAVA实现单链表"></a>5、JAVA实现单链表</h2><hr>
 <blockquote>
 <p>节点</p>
 </blockquote>
-<pre><code class="java">package com.lagou.bean;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>bean<span class="token punctuation">;</span>
 
-/**
+<span class="token comment" spellcheck="true">/**
  * 单链表的节点类
- */
-public class Node &#123;
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
 
-    //名字
-    private String name;
+    <span class="token comment" spellcheck="true">//名字</span>
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
 
-    //指向下一个节点
-    private Node next;
+    <span class="token comment" spellcheck="true">//指向下一个节点</span>
+    <span class="token keyword">private</span> Node next<span class="token punctuation">;</span>
 
-    public Node() &#123;
-    &#125;
+    <span class="token keyword">public</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
 
-    public Node(String name, Node next) &#123;
-        setName(name);
-        setNext(next);
-    &#125;
+    <span class="token keyword">public</span> <span class="token function">Node</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> Node next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setNext</span><span class="token punctuation">(</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 
-    public String getName() &#123;
-        return name;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setName(String name) &#123;
-        this.name = name;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public Node getNext() &#123;
-        return next;
-    &#125;
+    <span class="token keyword">public</span> Node <span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setNext(Node next) &#123;
-        this.next = next;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setNext</span><span class="token punctuation">(</span>Node next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @Override
-    public String toString() &#123;
-        return &quot;Node&#123;&quot; +
-                &quot;name=&#39;&quot; + name +
-                &#39;&#125;&#39;;
-    &#125;
-&#125;
-</code></pre>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"Node{"</span> <span class="token operator">+</span>
+                <span class="token string">"name='"</span> <span class="token operator">+</span> name <span class="token operator">+</span>
+                <span class="token string">'}'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>单链表</p>
 </blockquote>
-<pre><code class="java">package com.lagou.bean.packBean;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>bean<span class="token punctuation">.</span>packBean<span class="token punctuation">;</span>
 
-import com.lagou.bean.Node;
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>bean<span class="token punctuation">.</span>Node<span class="token punctuation">;</span>
 
-public class SignleLinkedList &#123;
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SignleLinkedList</span> <span class="token punctuation">{</span>
 
-    public static void main(String[] args) &#123;
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        SignleLinkedList sll = new SignleLinkedList();
-        Node node = new Node(&quot;node1&quot;,null);
-        Node node2 = new Node(&quot;node2&quot;,null);
-        sll.addNode(node);
-        sll.addNode(node2);
-        sll.show();
-        sll.delNode(&quot;node2&quot;);
-        sll.modNode(&quot;node&quot;,&quot;node1-mod&quot;);
-        sll.show();
-    &#125;
+        SignleLinkedList sll <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SignleLinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Node node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token string">"node1"</span><span class="token punctuation">,</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Node node2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token string">"node2"</span><span class="token punctuation">,</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sll<span class="token punctuation">.</span><span class="token function">addNode</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sll<span class="token punctuation">.</span><span class="token function">addNode</span><span class="token punctuation">(</span>node2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sll<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sll<span class="token punctuation">.</span><span class="token function">delNode</span><span class="token punctuation">(</span><span class="token string">"node2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sll<span class="token punctuation">.</span><span class="token function">modNode</span><span class="token punctuation">(</span><span class="token string">"node"</span><span class="token punctuation">,</span><span class="token string">"node1-mod"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sll<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 
-    //创建头节点
-    private Node head = new Node(&quot;head-node&quot;,null);
+    <span class="token comment" spellcheck="true">//创建头节点</span>
+    <span class="token keyword">private</span> Node head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token string">"head-node"</span><span class="token punctuation">,</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    /**
+    <span class="token comment" spellcheck="true">/**
      * 在链表尾部插入节点
      * @param node
-     */
-    public void addNode(Node node)&#123;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addNode</span><span class="token punctuation">(</span>Node node<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-        Node temp;
-        temp = head;
-        //找到链表尾部
-        if( temp.getNext() == null )&#123;
-            temp.setNext(node);
-        &#125;else&#123;
-            while( temp.getNext() != null )&#123;
+        Node temp<span class="token punctuation">;</span>
+        temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//找到链表尾部</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null <span class="token punctuation">)</span><span class="token punctuation">{</span>
+            temp<span class="token punctuation">.</span><span class="token function">setNext</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span> temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null <span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-                temp =  temp.getNext();
-            &#125;
-        &#125;
-        //在尾部插入节点
-        temp.setNext(node);
-    &#125;
+                temp <span class="token operator">=</span>  temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//在尾部插入节点</span>
+        temp<span class="token punctuation">.</span><span class="token function">setNext</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 
-    /**
+    <span class="token comment" spellcheck="true">/**
      * 根据传入的值，删除对应name 的节点
      * @param name
-     */
-    public void delNode(String name) &#123;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">delNode</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        Node temp;
-        temp = head;
-        while (true) &#123;
-            if (temp.getNext().getName().equals(name) ) &#123;
-                //条件匹配，找到想要删除的节点
-                temp.setNext( temp.getNext().getNext() );
-                break;
-            &#125; else &#123;
-                temp = temp.getNext();
-                if (temp.getNext() == null) &#123;
-                    System.out.println(&quot;没有找到想要删除的节点！！！&quot;);
-                    break;
-                &#125;
-            &#125;
-        &#125;
-    &#125;
+        Node temp<span class="token punctuation">;</span>
+        temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//条件匹配，找到想要删除的节点</span>
+                temp<span class="token punctuation">.</span><span class="token function">setNext</span><span class="token punctuation">(</span> temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"没有找到想要删除的节点！！！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    /**
+    <span class="token comment" spellcheck="true">/**
      * 修改节点的name 为 modName
      * @param name 需要修改的节点 的name的值
-     */
-    public void modNode(String name,String modName)&#123;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">modNode</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span>String modName<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-        Node temp;
-        temp = head;
-        while (true) &#123;
-            if (temp.getNext().getName().equals(name) ) &#123;
-                temp.getNext().setName(modName);
-                break;
-            &#125; else &#123;
-                temp = temp.getNext();
-                if (temp.getNext() == null) &#123;
-                    System.out.println(&quot;没有找到想要修改的节点！！！&quot;);
-                    break;
-                &#125;
-            &#125;
+        Node temp<span class="token punctuation">;</span>
+        temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>modName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"没有找到想要修改的节点！！！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-        &#125;
-    &#125;
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
 
-    /**
+    <span class="token comment" spellcheck="true">/**
      * 遍历链表
-     */
-    public void show() &#123;
-        Node temp;
-        temp = head;
-        while (true) &#123;
-            if (temp.getNext() == null) &#123;
-                System.out.println(temp);
-                break;
-            &#125; else &#123;
-                System.out.println(temp);
-                temp = temp.getNext();
-            &#125;
-        &#125;
-        System.out.println();
-    &#125;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Node temp<span class="token punctuation">;</span>
+        temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">getNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 
-&#125;
-</code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1495,7 +1499,7 @@ public class SignleLinkedList &#123;
                     </span>
                     <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2022/09/07/homeWork0904/" class="b-link-green">私教第二周</a>
+                    <a href="/2022/09/07/homework0904/" class="b-link-green">私教第二周</a>
                 </p>
             </div>
     
@@ -1518,7 +1522,7 @@ public class SignleLinkedList &#123;
         repo: 'hcs-21.github.io',
         owner: 'hcs-21',
         admin: ["hcs-21"],
-        id: '2022/09/07/homeWork0904/',
+        id: '2022/09/07/homework0904/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1543,7 +1547,7 @@ public class SignleLinkedList &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/13/homeWork0910/">
+                <a href="/2022/09/13/homework0910/">
                     <div class="card-image">
                         
                         
@@ -1596,7 +1600,7 @@ public class SignleLinkedList &#123;
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/05/javaIo/">
+                <a href="/2022/09/05/javaio/">
                     <div class="card-image">
                         
                         
@@ -2030,5 +2034,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>

@@ -10,7 +10,13 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY" />
     <meta name="description" content="2. 创建预分区的表
-create &amp;#39;person&amp;#39;,&amp;#39;info1&amp;#39;,&amp;#39;info2&amp;#39;,SPLITS =&amp;gt; [&amp;#39;1000&amp;#39;,&amp;#39;2000&amp;#39;,&amp;#39;3000">
+create &#39;person&#39;,&#39;info1&#39;,&#39;info2&#39;,SPLITS =&gt; [&#39;1000&#39;,&#39;2000&#39;,&#39;3000&#39;]
+
+
+表分区
+
+
+3. 用java代码，使用kafka producer API往kafk">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -64,7 +70,11 @@ create &amp;#39;person&amp;#39;,&amp;#39;info1&amp;#39;,&amp;#39;info2&amp;#39;,
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -736,282 +746,282 @@ create &amp;#39;person&amp;#39;,&amp;#39;info1&amp;#39;,&amp;#39;info2&amp;#39;,
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="2-创建预分区的表"><a href="#2-创建预分区的表" class="headerlink" title="2. 创建预分区的表"></a>2. 创建预分区的表</h2><p><img src="/../image/homeWork1029/image-20221109141408051.png" alt="image-20221109141408051"></p>
-<pre><code class="sql">create &#39;person&#39;,&#39;info1&#39;,&#39;info2&#39;,SPLITS =&gt; [&#39;1000&#39;,&#39;2000&#39;,&#39;3000&#39;]
-</code></pre>
+                <h2 id="2-创建预分区的表"><a href="#2-创建预分区的表" class="headerlink" title="2. 创建预分区的表"></a>2. 创建预分区的表</h2><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork1029/image-20221109141408051.png" alt="image-20221109141408051"></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token string">'person'</span><span class="token punctuation">,</span><span class="token string">'info1'</span><span class="token punctuation">,</span><span class="token string">'info2'</span><span class="token punctuation">,</span>SPLITS <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token string">'1000'</span><span class="token punctuation">,</span><span class="token string">'2000'</span><span class="token punctuation">,</span><span class="token string">'3000'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>表分区</p>
 </blockquote>
-<p><img src="/../image/homeWork1029/image-20221109141424396.png" alt="image-20221109141424396"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork1029/image-20221109141424396.png" alt="image-20221109141424396"></p>
 <h2 id="3-用java代码，使用kafka-producer-API往kafka-topic中写入数据"><a href="#3-用java代码，使用kafka-producer-API往kafka-topic中写入数据" class="headerlink" title="3. 用java代码，使用kafka producer API往kafka topic中写入数据"></a>3. 用<code>java</code>代码，使用<code>kafka producer API</code>往<code>kafka topic</code>中写入数据</h2><hr>
 <blockquote>
 <p>消息的实体类</p>
 </blockquote>
-<pre><code class="java">package com.lagou.kafka.demo.entity;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">;</span>
 
-/**
+<span class="token comment" spellcheck="true">/**
  * 消息发送实体类
- */
-public class User &#123;
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
 
-    private Integer userId;
-    private String userName;
+    <span class="token keyword">private</span> Integer userId<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String userName<span class="token punctuation">;</span>
 
-    public User() &#123;
-    &#125;
+    <span class="token keyword">public</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
 
-    public User(Integer userId, String userName) &#123;
-        this.userId = userId;
-        this.userName = userName;
-    &#125;
+    <span class="token keyword">public</span> <span class="token function">User</span><span class="token punctuation">(</span>Integer userId<span class="token punctuation">,</span> String userName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userId <span class="token operator">=</span> userId<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userName <span class="token operator">=</span> userName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public Integer getUserId() &#123;
-        return userId;
-    &#125;
+    <span class="token keyword">public</span> Integer <span class="token function">getUserId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setUserId(Integer userId) &#123;
-        this.userId = userId;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUserId</span><span class="token punctuation">(</span>Integer userId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userId <span class="token operator">=</span> userId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public String getUserName() &#123;
-        return userName;
-    &#125;
+    <span class="token keyword">public</span> String <span class="token function">getUserName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public void setUserName(String userName) &#123;
-        this.userName = userName;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUserName</span><span class="token punctuation">(</span>String userName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userName <span class="token operator">=</span> userName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @Override
-    public String toString() &#123;
-        return &quot;User&#123;&quot; +
-                &quot;userId=&quot; + userId +
-                &quot;, userName=&#39;&quot; + userName + &#39;\&#39;&#39; +
-                &#39;&#125;&#39;;
-    &#125;
-&#125;
-</code></pre>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"User{"</span> <span class="token operator">+</span>
+                <span class="token string">"userId="</span> <span class="token operator">+</span> userId <span class="token operator">+</span>
+                <span class="token string">", userName='"</span> <span class="token operator">+</span> userName <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">'}'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>生成这序列化器</p>
 </blockquote>
-<pre><code class="java">package com.lagou.kafka.demo.serialization;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>serialization<span class="token punctuation">;</span>
 
-import com.lagou.kafka.demo.entity.User;
-import org.apache.kafka.common.errors.SerializationException;
-import org.apache.kafka.common.serialization.Serializer;
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>errors<span class="token punctuation">.</span>SerializationException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>Serializer<span class="token punctuation">;</span>
 
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.util.Map;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>UnsupportedEncodingException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>ByteBuffer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Map<span class="token punctuation">;</span>
 
-public class UserSerialization implements Serializer&lt;User&gt; &#123;
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserSerialization</span> <span class="token keyword">implements</span> <span class="token class-name">Serializer</span><span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token punctuation">{</span>
 
-    @Override
-    public void configure(Map&lt;String, ?&gt; map, boolean b) &#123;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">configure</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> <span class="token operator">?</span><span class="token operator">></span> map<span class="token punctuation">,</span> <span class="token keyword">boolean</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    &#125;
+    <span class="token punctuation">}</span>
 
-    @Override
-    public byte[] serialize(String s, User user) &#123;
-        try &#123;
-            if (user == null) &#123;
-                return null;
-            &#125; else &#123;
-                Integer userId = user.getUserId();
-                String userName = user.getUserName();
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">serialize</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>user <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                Integer userId <span class="token operator">=</span> user<span class="token punctuation">.</span><span class="token function">getUserId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                String userName <span class="token operator">=</span> user<span class="token punctuation">.</span><span class="token function">getUserName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                //序列化
-                if (userId != null) &#123;
+                <span class="token comment" spellcheck="true">//序列化</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>userId <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    if (userName != null) &#123;
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>userName <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                        byte[] bytes = userName.getBytes(&quot;UTF-8&quot;);
-                        int length = bytes.length;
-                        ByteBuffer buffer = ByteBuffer.allocate(4 + 4 + length);
-                        buffer.putInt(userId);
-                        buffer.putInt(length);
-                        buffer.put(bytes);
+                        <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> userName<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">int</span> length <span class="token operator">=</span> bytes<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+                        ByteBuffer buffer <span class="token operator">=</span> ByteBuffer<span class="token punctuation">.</span><span class="token function">allocate</span><span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">+</span> length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        buffer<span class="token punctuation">.</span><span class="token function">putInt</span><span class="token punctuation">(</span>userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        buffer<span class="token punctuation">.</span><span class="token function">putInt</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        buffer<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                        return buffer.array();
-                    &#125;
-                &#125;
-            &#125;
-        &#125;
-        catch (Exception e) &#123;
-            throw new SerializationException(&quot;数据序列化失败&quot;);
-        &#125;
+                        <span class="token keyword">return</span> buffer<span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SerializationException</span><span class="token punctuation">(</span><span class="token string">"数据序列化失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        return null;
-    &#125;
+        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @Override
-    public void close() &#123;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    &#125;
-&#125;
-</code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>生产者</p>
 </blockquote>
-<pre><code class="java">package com.lagou.kafka.demo.producer;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>producer<span class="token punctuation">;</span>
 
-import com.lagou.kafka.demo.entity.User;
-import com.lagou.kafka.demo.serialization.UserSerialization;
-import org.apache.kafka.clients.producer.Callback;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
-import org.apache.kafka.common.header.Header;
-import org.apache.kafka.common.header.internals.RecordHeader;
-import org.apache.kafka.common.serialization.IntegerSerializer;
-import org.apache.kafka.common.serialization.StringSerializer;
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>UserSerialization<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>clients<span class="token punctuation">.</span>producer<span class="token punctuation">.</span>Callback<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>clients<span class="token punctuation">.</span>producer<span class="token punctuation">.</span>KafkaProducer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>clients<span class="token punctuation">.</span>producer<span class="token punctuation">.</span>ProducerRecord<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>clients<span class="token punctuation">.</span>producer<span class="token punctuation">.</span>RecordMetadata<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>header<span class="token punctuation">.</span>Header<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>header<span class="token punctuation">.</span>internals<span class="token punctuation">.</span>RecordHeader<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>IntegerSerializer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>StringSerializer<span class="token punctuation">;</span>
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>HashMap<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>ExecutionException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>Future<span class="token punctuation">;</span>
 
-public class MyProducer1 &#123;
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyProducer1</span> <span class="token punctuation">{</span>
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException &#123;
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> ExecutionException<span class="token punctuation">,</span> InterruptedException <span class="token punctuation">{</span>
 
-        HashMap&lt;String, Object&gt; configs = new HashMap&lt;&gt;();
-        //初始链接用到的地址
-        configs.put(&quot;bootstrap.servers&quot;,&quot;lagou121:9092&quot;);
-        configs.put(&quot;key.serializer&quot;, StringSerializer.class);
-        configs.put(&quot;value.serializer&quot;, UserSerialization.class);
+        HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span> configs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//初始链接用到的地址</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"bootstrap.servers"</span><span class="token punctuation">,</span><span class="token string">"lagou121:9092"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"key.serializer"</span><span class="token punctuation">,</span> StringSerializer<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"value.serializer"</span><span class="token punctuation">,</span> UserSerialization<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        KafkaProducer&lt;String, User&gt; producer = new KafkaProducer&lt;String, User&gt;(configs);
+        KafkaProducer<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> User<span class="token operator">></span> producer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KafkaProducer</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span> User<span class="token operator">></span><span class="token punctuation">(</span>configs<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //封装想要发送的消息
-        User user = new User();
-        user.setUserId(1001);
-        user.setUserName(&quot;zs&quot;);
-        ProducerRecord&lt;String,User&gt; record = new ProducerRecord&lt;String,User&gt;(
-                &quot;tp_user_01&quot;,
-                user.getUserName(),
+        <span class="token comment" spellcheck="true">//封装想要发送的消息</span>
+        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setUserId</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setUserName</span><span class="token punctuation">(</span><span class="token string">"zs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ProducerRecord<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>User<span class="token operator">></span> record <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ProducerRecord</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span>User<span class="token operator">></span><span class="token punctuation">(</span>
+                <span class="token string">"tp_user_01"</span><span class="token punctuation">,</span>
+                user<span class="token punctuation">.</span><span class="token function">getUserName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                 user
-        );
-        producer.send(record, new Callback() &#123;
-            @Override
-            public void onCompletion(RecordMetadata metadata, Exception e) &#123;
-                if(e != null)&#123;
-                    System.out.println(&quot;消息发送异常&quot;);
-                &#125;else&#123;
-                    System.out.println(&quot;主题&quot; + metadata.topic());
-                    System.out.println(&quot;分区&quot; + metadata.partition());
-                    System.out.println(&quot;生产者偏移量&quot; + metadata.offset());
-                &#125;
-            &#125;
-        &#125;);
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        producer<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>record<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCompletion</span><span class="token punctuation">(</span>RecordMetadata metadata<span class="token punctuation">,</span> Exception e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>e <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"消息发送异常"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"主题"</span> <span class="token operator">+</span> metadata<span class="token punctuation">.</span><span class="token function">topic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"分区"</span> <span class="token operator">+</span> metadata<span class="token punctuation">.</span><span class="token function">partition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"生产者偏移量"</span> <span class="token operator">+</span> metadata<span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //关闭生产者
-        producer.close();
+        <span class="token comment" spellcheck="true">//关闭生产者</span>
+        producer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    &#125;
-&#125;
-</code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-用java代码，使用Kafka-consumer-API从topic中消费数据"><a href="#4-用java代码，使用Kafka-consumer-API从topic中消费数据" class="headerlink" title="4. 用java代码，使用Kafka consumer API从topic中消费数据"></a>4. 用<code>java</code>代码，使用<code>Kafka consumer API</code>从<code>topic</code>中消费数据</h2><hr>
 <blockquote>
 <p>消费者的反序列化器</p>
 </blockquote>
-<pre><code class="java">package com.lagou.kafka.demo.deserializer;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>deserializer<span class="token punctuation">;</span>
 
-import com.lagou.kafka.demo.entity.User;
-import org.apache.kafka.common.serialization.Deserializer;
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>Deserializer<span class="token punctuation">;</span>
 
-import java.nio.ByteBuffer;
-import java.util.Map;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>ByteBuffer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Map<span class="token punctuation">;</span>
 
-public class UserDeserializer implements Deserializer&lt;User&gt; &#123;
-    @Override
-    public void configure(Map&lt;String, ?&gt; map, boolean b) &#123;
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserDeserializer</span> <span class="token keyword">implements</span> <span class="token class-name">Deserializer</span><span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">configure</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> <span class="token operator">?</span><span class="token operator">></span> map<span class="token punctuation">,</span> <span class="token keyword">boolean</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    &#125;
+    <span class="token punctuation">}</span>
 
-    @Override
-    public User deserialize(String s, byte[] bytes) &#123;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> User <span class="token function">deserialize</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
-        buffer.put(bytes);
-        buffer.flip();
-        int userId = buffer.getInt();
-        int userNameLength = buffer.getInt();
-        String userName = new String(bytes,8,userNameLength);
+        ByteBuffer buffer <span class="token operator">=</span> ByteBuffer<span class="token punctuation">.</span><span class="token function">allocate</span><span class="token punctuation">(</span>bytes<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        buffer<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        buffer<span class="token punctuation">.</span><span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> userId <span class="token operator">=</span> buffer<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> userNameLength <span class="token operator">=</span> buffer<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String userName <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>bytes<span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span>userNameLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        return new User(userId,userName);
-    &#125;
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span>userId<span class="token punctuation">,</span>userName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @Override
-    public void close() &#123;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    &#125;
-&#125;
-</code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>消费者</p>
 </blockquote>
-<pre><code class="java">package com.lagou.kafka.demo.consumer;
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>consumer<span class="token punctuation">;</span>
 
-import com.lagou.kafka.demo.deserializer.UserDeserializer;
-import com.lagou.kafka.demo.entity.User;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.common.serialization.IntegerDeserializer;
-import org.apache.kafka.common.serialization.IntegerSerializer;
-import org.apache.kafka.common.serialization.StringDeserializer;
-import org.apache.kafka.common.serialization.StringSerializer;
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>deserializer<span class="token punctuation">.</span>UserDeserializer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>clients<span class="token punctuation">.</span>consumer<span class="token punctuation">.</span>ConsumerConfig<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>clients<span class="token punctuation">.</span>consumer<span class="token punctuation">.</span>ConsumerRecord<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>clients<span class="token punctuation">.</span>consumer<span class="token punctuation">.</span>ConsumerRecords<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>clients<span class="token punctuation">.</span>consumer<span class="token punctuation">.</span>KafkaConsumer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>IntegerDeserializer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>IntegerSerializer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>StringDeserializer<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>kafka<span class="token punctuation">.</span>common<span class="token punctuation">.</span>serialization<span class="token punctuation">.</span>StringSerializer<span class="token punctuation">;</span>
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Consumer;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Arrays<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>HashMap<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Map<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span>Consumer<span class="token punctuation">;</span>
 
-public class MyConsumer1 &#123;
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyConsumer1</span> <span class="token punctuation">{</span>
 
-    public static void main(String[] args) &#123;
-        Map&lt;String,Object&gt; configs = new HashMap&lt;&gt;();
-        configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,&quot;lagou121:9092&quot;);
-        // key的反序列化器
-//        configs.put(&quot;key.deserializer&quot;,
-//                &quot;org.apache.kafka.common.serialization.IntegerDeserializer&quot;);
-//// value的反序列化器
-//        configs.put(&quot;value.deserializer&quot;,
-//                &quot;org.apache.kafka.common.serialization.StringDeserializer&quot;);
-        configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, UserDeserializer.class);
-        configs.put(ConsumerConfig.GROUP_ID_CONFIG,&quot;user_consumer&quot;);
-        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,&quot;earliest&quot;);
-        configs.put(ConsumerConfig.CLIENT_ID_CONFIG,&quot;user_consumer_01&quot;);
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> configs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>ConsumerConfig<span class="token punctuation">.</span>BOOTSTRAP_SERVERS_CONFIG<span class="token punctuation">,</span><span class="token string">"lagou121:9092"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// key的反序列化器</span>
+<span class="token comment" spellcheck="true">//        configs.put("key.deserializer",</span>
+<span class="token comment" spellcheck="true">//                "org.apache.kafka.common.serialization.IntegerDeserializer");</span>
+<span class="token comment" spellcheck="true">//// value的反序列化器</span>
+<span class="token comment" spellcheck="true">//        configs.put("value.deserializer",</span>
+<span class="token comment" spellcheck="true">//                "org.apache.kafka.common.serialization.StringDeserializer");</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>ConsumerConfig<span class="token punctuation">.</span>KEY_DESERIALIZER_CLASS_CONFIG<span class="token punctuation">,</span> StringDeserializer<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>ConsumerConfig<span class="token punctuation">.</span>VALUE_DESERIALIZER_CLASS_CONFIG<span class="token punctuation">,</span> UserDeserializer<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>ConsumerConfig<span class="token punctuation">.</span>GROUP_ID_CONFIG<span class="token punctuation">,</span><span class="token string">"user_consumer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>ConsumerConfig<span class="token punctuation">.</span>AUTO_OFFSET_RESET_CONFIG<span class="token punctuation">,</span><span class="token string">"earliest"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        configs<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>ConsumerConfig<span class="token punctuation">.</span>CLIENT_ID_CONFIG<span class="token punctuation">,</span><span class="token string">"user_consumer_01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        KafkaConsumer&lt;String, User&gt; consumer = new KafkaConsumer&lt;String, User&gt;(configs);
+        KafkaConsumer<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> User<span class="token operator">></span> consumer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KafkaConsumer</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span> User<span class="token operator">></span><span class="token punctuation">(</span>configs<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //订阅
-        consumer.subscribe(Collections.singleton(&quot;tp_user_01&quot;));
-        //消费
-//        while(true)&#123;
-//            ConsumerRecords&lt;Integer, String&gt; consumerRecords = consumer.poll(3_000);
-//        &#125;
+        <span class="token comment" spellcheck="true">//订阅</span>
+        consumer<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>Collections<span class="token punctuation">.</span><span class="token function">singleton</span><span class="token punctuation">(</span><span class="token string">"tp_user_01"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//消费</span>
+<span class="token comment" spellcheck="true">//        while(true){</span>
+<span class="token comment" spellcheck="true">//            ConsumerRecords&lt;Integer, String> consumerRecords = consumer.poll(3_000);</span>
+<span class="token comment" spellcheck="true">//        }</span>
 
-        ConsumerRecords&lt;String, User&gt; consumerRecords = consumer.poll(3_000);
-        consumerRecords.forEach(
-                new Consumer&lt;ConsumerRecord&lt;String, User&gt;&gt;() &#123;
-                    @Override
-                    public void accept(ConsumerRecord&lt;String, User&gt; record) &#123;
-                        System.out.println(record.value());
-                    &#125;
-                &#125;
-        );
+        ConsumerRecords<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> User<span class="token operator">></span> consumerRecords <span class="token operator">=</span> consumer<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span>3_000<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        consumerRecords<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">Consumer</span><span class="token operator">&lt;</span>ConsumerRecord<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> User<span class="token operator">>></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token annotation punctuation">@Override</span>
+                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">accept</span><span class="token punctuation">(</span>ConsumerRecord<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> User<span class="token operator">></span> record<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-        consumer.close();
-    &#125;
-&#125;
-</code></pre>
+        consumer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-从上面的调度系统中，选择一个调度系统，搭建起来，把之前做的任务调度运行起来。"><a href="#5-从上面的调度系统中，选择一个调度系统，搭建起来，把之前做的任务调度运行起来。" class="headerlink" title="5. 从上面的调度系统中，选择一个调度系统，搭建起来，把之前做的任务调度运行起来。"></a>5. 从上面的调度系统中，选择一个调度系统，搭建起来，把之前做的任务调度运行起来。</h2><hr>
 <blockquote>
 <p>目录</p>
@@ -1024,14 +1034,14 @@ public class MyConsumer1 &#123;
 <blockquote>
 <p><code>hive.hql</code></p>
 </blockquote>
-<pre><code class="sql">select * from ( select dt,city,user_num, row_number() over (partition by dt order by user_num desc) rn from ( select dt,city, count(distinct userid) user_num from ods_user_login_detail group by dt,city ) a )a1 where rn &lt;= 5 ;
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span> <span class="token keyword">select</span> dt<span class="token punctuation">,</span>city<span class="token punctuation">,</span>user_num<span class="token punctuation">,</span> row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> dt <span class="token keyword">order</span> <span class="token keyword">by</span> user_num <span class="token keyword">desc</span><span class="token punctuation">)</span> rn <span class="token keyword">from</span> <span class="token punctuation">(</span> <span class="token keyword">select</span> dt<span class="token punctuation">,</span>city<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> userid<span class="token punctuation">)</span> user_num <span class="token keyword">from</span> ods_user_login_detail <span class="token keyword">group</span> <span class="token keyword">by</span> dt<span class="token punctuation">,</span>city <span class="token punctuation">)</span> <span class="token number">a</span> <span class="token punctuation">)</span><span class="token number">a1</span> <span class="token keyword">where</span> rn <span class="token operator">&lt;=</span> <span class="token number">5</span> <span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p><code>hive.job</code></p>
 </blockquote>
-<pre><code class="sql">type=command
-command=$HIVE_HOME/bin/hive -f &quot;hive.hql&quot;
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">type</span><span class="token operator">=</span>command
+command<span class="token operator">=</span>$HIVE_HOME<span class="token operator">/</span>bin<span class="token operator">/</span>hive <span class="token operator">-</span><span class="token number">f</span> <span class="token string">"hive.hql"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1182,7 +1192,7 @@ command=$HIVE_HOME/bin/hive -f &quot;hive.hql&quot;
                     </span>
                     <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2022/11/09/homeWork1029/" class="b-link-green">私教第七周</a>
+                    <a href="/2022/11/09/homework1029/" class="b-link-green">私教第七周</a>
                 </p>
             </div>
     
@@ -1205,7 +1215,7 @@ command=$HIVE_HOME/bin/hive -f &quot;hive.hql&quot;
         repo: 'hcs-21.github.io',
         owner: 'hcs-21',
         admin: ["hcs-21"],
-        id: '2022/11/09/homeWork1029/',
+        id: '2022/11/09/homework1029/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1283,7 +1293,7 @@ command=$HIVE_HOME/bin/hive -f &quot;hive.hql&quot;
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/26/homeWork1015/">
+                <a href="/2022/10/26/homework1015/">
                     <div class="card-image">
                         
                         
@@ -1725,5 +1735,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>

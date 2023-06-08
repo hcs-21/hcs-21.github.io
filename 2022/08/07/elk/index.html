@@ -71,7 +71,11 @@
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -775,7 +779,7 @@
 </ul>
 </blockquote>
 <h3 id="2、ELK-协议栈介绍及体系结构"><a href="#2、ELK-协议栈介绍及体系结构" class="headerlink" title="2、ELK 协议栈介绍及体系结构"></a>2、<code>ELK</code> 协议栈介绍及体系结构</h3><hr>
-<p><img src="/../image/elk/image-20220807105050470.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220807105050470.png"></p>
 <blockquote>
 <p><code>ELK</code> 其实并不是一款软件，而是一整套解决方案，是三个软件产品的首字母缩写，</p>
 <p><code>Elasticsearch</code>（ES），<code>Logstash</code>和<code> Kibana</code>。这三款软件都是开源软件，通常是配合使用，而且</p>
@@ -811,7 +815,7 @@
 <p>视化的 <code>Web</code> 平台。它可以在 <code>Elasticsearch</code> 的索引中查找，交互数据，并生成各种维度的表图。</p>
 </blockquote>
 <h3 id="3、ELK整体架构"><a href="#3、ELK整体架构" class="headerlink" title="3、ELK整体架构"></a>3、<code>ELK</code>整体架构</h3><hr>
-<p><img src="/../image/elk/image-20220807105930828.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220807105930828.png"></p>
 <h3 id="4、参考文档"><a href="#4、参考文档" class="headerlink" title="4、参考文档"></a>4、参考文档</h3><hr>
 <blockquote>
 <p><code>ELK</code>官网：<a target="_blank" rel="noopener" href="https://www.elastic.co/">https://www.elastic.co/</a></p>
@@ -871,20 +875,20 @@
 </blockquote>
 <h4 id="4-1、虚拟环境准备"><a href="#4-1、虚拟环境准备" class="headerlink" title="4.1、虚拟环境准备"></a>4.1、虚拟环境准备</h4><blockquote>
 <ul>
-<li><p>准备一台虚拟机 &#x3D;&gt; 操作系统：<code>CentOS 7.x 64 bit</code></p>
+<li><p>准备一台虚拟机 =&gt; 操作系统：<code>CentOS 7.x 64 bit</code></p>
 </li>
 <li><p>客户端连接工具：<code>SecureCRT</code></p>
 </li>
 <li><p>关闭虚拟机的防火墙</p>
 <ul>
-<li><pre><code class="bash">systemctl stop firewalld.service 
+<li><pre class="line-numbers language-bash"><code class="language-bash">systemctl stop firewalld.service 
 
-#停止
+<span class="token comment" spellcheck="true">#停止</span>
 firewall systemctl disable firewalld.service 
 
-#禁止firewall开机启动 
-firewall-cmd --state # 查看防火墙
-</code></pre>
+<span class="token comment" spellcheck="true">#禁止firewall开机启动 </span>
+firewall-cmd --state <span class="token comment" spellcheck="true"># 查看防火墙</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -894,60 +898,60 @@ firewall-cmd --state # 查看防火墙
 <p> 下载<code>Elasticsearch</code> 地址： <a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/elasticsearch">https://www.elastic.co/cn/downloads/elasticsearch</a> 最新版本</p>
 <p>本课程使用<code>7.3.0</code>版本</p>
 </blockquote>
-<pre><code class="bash">https://www.elastic.co/cn/downloads/past-releases/elasticsearch-7-3-0
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">https://www.elastic.co/cn/downloads/past-releases/elasticsearch-7-3-0
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>选择<code>Linux</code>版本下载：</p>
 </blockquote>
-<p><img src="/../image/elk/image-20220807111615515.png"></p>
-<h5 id="4-2-1、上传、解压tar-gz文件"><a href="#4-2-1、上传、解压tar-gz文件" class="headerlink" title="4.2.1、上传、解压tar.gz文件"></a>4.2.1、上传、解压<code>tar.gz</code>文件</h5><pre><code class="bash">cd /opt/lagou/software 
-tar -zxvf elasticsearch-7.3.0-linux-x86_64.tar.gz -C ../servers
-</code></pre>
-<h5 id="4-2-2、重命名"><a href="#4-2-2、重命名" class="headerlink" title="4.2.2、重命名"></a>4.2.2、重命名</h5><pre><code class="bash">cd ../servers/ 
-mv elasticsearch-7.3.0/ elasticsearch/
-</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220807111615515.png"></p>
+<h5 id="4-2-1、上传、解压tar-gz文件"><a href="#4-2-1、上传、解压tar-gz文件" class="headerlink" title="4.2.1、上传、解压tar.gz文件"></a>4.2.1、上传、解压<code>tar.gz</code>文件</h5><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/software 
+<span class="token function">tar</span> -zxvf elasticsearch-7.3.0-linux-x86_64.tar.gz -C <span class="token punctuation">..</span>/servers
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="4-2-2、重命名"><a href="#4-2-2、重命名" class="headerlink" title="4.2.2、重命名"></a>4.2.2、重命名</h5><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token punctuation">..</span>/servers/ 
+<span class="token function">mv</span> elasticsearch-7.3.0/ elasticsearch/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="4-2-3、-配置Elasticsearch"><a href="#4-2-3、-配置Elasticsearch" class="headerlink" title="4.2.3、 配置Elasticsearch"></a>4.2.3、 配置<code>Elasticsearch</code></h5><h6 id="4-2-3-1、编辑elasticsearch-yml"><a href="#4-2-3-1、编辑elasticsearch-yml" class="headerlink" title="4.2.3.1、编辑elasticsearch.yml"></a>4.2.3.1、编辑<code>elasticsearch.yml</code></h6><blockquote>
 <ul>
 <li>单机安装请取消注释：<code>node.name: node-1</code>，否则无法正常启动。</li>
 <li>修改网络和端口，取消注释<code>master</code>节点，单机只保留一个<code>node</code></li>
 </ul>
 </blockquote>
-<pre><code class="bash">vim /opt/lagou/servers/elasticsearch/config/elasticsearch.yml
-</code></pre>
-<pre><code class="yaml">node.name: node-1 
-network.host: linux121 
+<pre class="line-numbers language-bash"><code class="language-bash">vim /opt/lagou/servers/elasticsearch/config/elasticsearch.yml
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">node.name</span><span class="token punctuation">:</span> node<span class="token punctuation">-</span><span class="token number">1 </span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> linux121 
 
-#
-# Set a custom port for HTTP: 
-#
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># Set a custom port for HTTP: </span>
+<span class="token comment" spellcheck="true">#</span>
 
-http.port: 9200 
-cluster.initial_master_nodes: [&quot;node-1&quot;]
-</code></pre>
+<span class="token key atrule">http.port</span><span class="token punctuation">:</span> <span class="token number">9200 </span>
+<span class="token key atrule">cluster.initial_master_nodes</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"node-1"</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h6 id="4-2-3-2、按需修改jvm-options内存设置"><a href="#4-2-3-2、按需修改jvm-options内存设置" class="headerlink" title="4.2.3.2、按需修改jvm.options内存设置"></a>4.2.3.2、按需修改<code>jvm.options</code>内存设置</h6><blockquote>
 <p>根据实际情况修改占用内存，默认都是<code>1G</code>，单机<code>1G</code>内存，启动会占用<code>700m+</code>然后在安装<code>kibana</code>后，</p>
 <p>基本上无法运行了，运行了一会就挂了报内存不足。 内存设置超出物理内存，也会无法启动，启动报</p>
 <p>错。</p>
 </blockquote>
-<pre><code class="bash">vim /opt/lagou/servers/elasticsearch/config/jvm.options
+<pre class="line-numbers language-bash"><code class="language-bash">vim /opt/lagou/servers/elasticsearch/config/jvm.options
 
 
 -Xms2g 
 -Xmx2g
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h6 id="4-2-3-3、添加es用户"><a href="#4-2-3-3、添加es用户" class="headerlink" title="4.2.3.3、添加es用户"></a>4.2.3.3、添加<code>es</code>用户</h6><blockquote>
 <p>添加<code>es</code>用户，<code>es</code>默认<code>root</code>用户无法启动，需要改为其他用户</p>
 </blockquote>
-<pre><code class="bash">useradd estest 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">useradd</span> estest 
 
-#修改密码 
- passwd estest
-</code></pre>
+<span class="token comment" spellcheck="true">#修改密码 </span>
+ <span class="token function">passwd</span> estest
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>改变<code>es</code>目录拥有者账号</p>
 </blockquote>
-<pre><code class="bash">chown -R estest /opt/lagou/servers/elasticsearch/
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">chown</span> -R estest /opt/lagou/servers/elasticsearch/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h6 id="4-2-3-4、修改-etc-sysctl-conf"><a href="#4-2-3-4、修改-etc-sysctl-conf" class="headerlink" title="4.2.3.4、修改/etc/sysctl.conf"></a>4.2.3.4、修改<code>/etc/sysctl.conf</code></h6><blockquote>
 <p><code>ES</code>因为需要大量的创建索引文件，需要大量的打开系统的文件，所以我们需要解除<code>linux</code>系统当中打</p>
 <p>开文件最大数目的限制，不然<code>ES</code>启动就会抛错</p>
@@ -955,8 +959,8 @@ cluster.initial_master_nodes: [&quot;node-1&quot;]
 <blockquote>
 <p>修改文件句柄数</p>
 </blockquote>
-<pre><code class="bash">vim /etc/sysctl.conf
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">vim /etc/sysctl.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>末尾添加：<code>vm.max_map_count=655360</code></p>
 <p>执行<code>sysctl -p</code> 让其生效</p>
@@ -964,75 +968,75 @@ cluster.initial_master_nodes: [&quot;node-1&quot;]
 <h6 id="4-2-3-5、修改-etc-security-limits-conf"><a href="#4-2-3-5、修改-etc-security-limits-conf" class="headerlink" title="4.2.3.5、修改/etc/security/limits.conf"></a>4.2.3.5、修改<code>/etc/security/limits.conf</code></h6><blockquote>
 <p>修改<code>linux</code>系统对文件描述符的限制级别</p>
 </blockquote>
-<pre><code class="bash">vim /etc/security/limits.conf
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">vim /etc/security/limits.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>末尾添加：</p>
 </blockquote>
-<pre><code class="pro">* soft nofile 65536 
+<pre class="line-numbers language-pro"><code class="language-pro">* soft nofile 65536 
 * hard nofile 65536 
 * soft nproc 4096 
 * hard nproc 4096
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h6 id="4-2-3-6、启动ES"><a href="#4-2-3-6、启动ES" class="headerlink" title="4.2.3.6、启动ES"></a>4.2.3.6、启动<code>ES</code></h6><blockquote>
 <p>切换刚刚新建的用户</p>
 </blockquote>
-<pre><code class="bash">su estest
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">su</span> estest
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>启动命令</p>
 </blockquote>
-<pre><code class="bash">##清除缓存
-echo 1&gt;/proc/sys/vm/drop_caches
-echo 2&gt;/proc/sys/vm/drop_caches
-echo 3&gt;/proc/sys/vm/drop_caches
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">##清除缓存</span>
+<span class="token keyword">echo</span> 1<span class="token operator">></span>/proc/sys/vm/drop_caches
+<span class="token keyword">echo</span> 2<span class="token operator">></span>/proc/sys/vm/drop_caches
+<span class="token keyword">echo</span> 3<span class="token operator">></span>/proc/sys/vm/drop_caches
 
 /opt/lagou/servers/elasticsearch/bin/elasticsearch
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h6 id="4-2-3-7、ES测试"><a href="#4-2-3-7、ES测试" class="headerlink" title="4.2.3.7、ES测试"></a>4.2.3.7、<code>ES</code>测试</h6><blockquote>
 <p>配置完成：浏览器访问测试。<code> linux121:9200</code></p>
 </blockquote>
-<p><img src="/../image/elk/image-20220807112557201.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220807112557201.png"></p>
 <h4 id="4-3、简单使用"><a href="#4-3、简单使用" class="headerlink" title="4.3、简单使用"></a>4.3、简单使用</h4><blockquote>
 <p>创建<code>blog01</code>索引</p>
 </blockquote>
-<pre><code class="bash">curl -XPUT http://linux121:9200/blog01/?pretty
+<pre class="line-numbers language-bash"><code class="language-bash">curl -XPUT http://linux121:9200/blog01/?pretty
 
-##返回内容
-&#123; 
-    &quot;acknowledged&quot; : true, 
-    &quot;shards_acknowledged&quot; : true,
-    &quot;index&quot; : &quot;blog01&quot;
-&#125;
-</code></pre>
+<span class="token comment" spellcheck="true">##返回内容</span>
+<span class="token punctuation">{</span> 
+    <span class="token string">"acknowledged"</span> <span class="token keyword">:</span> true, 
+    <span class="token string">"shards_acknowledged"</span> <span class="token keyword">:</span> true,
+    <span class="token string">"index"</span> <span class="token keyword">:</span> <span class="token string">"blog01"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>插入文档</p>
 </blockquote>
-<pre><code class="bash">curl -XPUT http://linux121:9200/blog01/article/1?pretty -d &#39;&#123;&quot;id&quot;: &quot;1&quot;, &quot;title&quot;: &quot;What is lucene&quot;&#125;&#39; -H &quot;Content-Type: application/json&quot; 
+<pre class="line-numbers language-bash"><code class="language-bash">curl -XPUT http://linux121:9200/blog01/article/1?pretty -d <span class="token string">'{"id": "1", "title": "What is lucene"}'</span> -H <span class="token string">"Content-Type: application/json"</span> 
 
-curl -XPUT http://linux121:9200/blog01/article/2?pretty -d &#39;&#123;&quot;id&quot;: &quot;2&quot;, &quot;title&quot;: &quot;Apache Spark is a unified analytics engine for large-scale data processing&quot;&#125;&#39; -H &quot;Content-Type: application/json&quot;
-</code></pre>
+curl -XPUT http://linux121:9200/blog01/article/2?pretty -d <span class="token string">'{"id": "2", "title": "Apache Spark is a unified analytics engine for large-scale data processing"}'</span> -H <span class="token string">"Content-Type: application/json"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>查询文档</p>
 </blockquote>
-<pre><code class="bash">curl -XGET http://linux121:9200/blog01/article/1?pretty -H &quot;Content-Type: application/json&quot;
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">curl -XGET http://linux121:9200/blog01/article/1?pretty -H <span class="token string">"Content-Type: application/json"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>更新文档</p>
 </blockquote>
-<pre><code class="bash">curl -XPUT http://linux121:9200/blog01/article/1?pretty -d &#39;&#123;&quot;id&quot;: &quot;1&quot;, &quot;title&quot;: &quot; What is elasticsearch&quot;&#125;&#39; -H &quot;Content-Type: application/json&quot;
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">curl -XPUT http://linux121:9200/blog01/article/1?pretty -d <span class="token string">'{"id": "1", "title": " What is elasticsearch"}'</span> -H <span class="token string">"Content-Type: application/json"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>搜索文档</p>
 </blockquote>
-<pre><code class="bash">curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;What&#39;&amp;pretty&quot; -H &quot;Content- Type: application/json&quot; 
+<pre class="line-numbers language-bash"><code class="language-bash">curl -XGET <span class="token string">"http://linux121:9200/blog01/article/_search?q=title:'What'&amp;pretty"</span> -H <span class="token string">"Content- Type: application/json"</span> 
 
-curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;is&#39;&amp;pretty&quot; -H &quot;Content- Type: application/json&quot; 
+curl -XGET <span class="token string">"http://linux121:9200/blog01/article/_search?q=title:'is'&amp;pretty"</span> -H <span class="token string">"Content- Type: application/json"</span> 
 
-curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;elasticsearch&#39;&amp;pretty&quot; -H &quot;Content-Type: application/json&quot; 
+curl -XGET <span class="token string">"http://linux121:9200/blog01/article/_search?q=title:'elasticsearch'&amp;pretty"</span> -H <span class="token string">"Content-Type: application/json"</span> 
 
-curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;unified&#39;&amp;pretty&quot; -H &quot;Content-Type: application/json&quot;
-</code></pre>
+curl -XGET <span class="token string">"http://linux121:9200/blog01/article/_search?q=title:'unified'&amp;pretty"</span> -H <span class="token string">"Content-Type: application/json"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="三、ElasticSearch架构图以及基本概念-术语"><a href="#三、ElasticSearch架构图以及基本概念-术语" class="headerlink" title="三、ElasticSearch架构图以及基本概念(术语)"></a>三、<code>ElasticSearch</code>架构图以及基本概念(术语)</h2><hr>
 <h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><hr>
 <blockquote>
@@ -1085,7 +1089,7 @@ curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;unifie
 <li><p><strong>类型</strong> <code>type</code></p>
 </li>
 </ol>
-<p>   在一个索引中，你可以定义一种或多种类型。一个类型是你的索引的一个逻辑上的分类&#x2F;分区，其语</p>
+<p>   在一个索引中，你可以定义一种或多种类型。一个类型是你的索引的一个逻辑上的分类/分区，其语</p>
 <p>   义完全由你来定。通常，会为具有一组共同字段的文档定义一个类型。比如说，我们假设你运营一个</p>
 <p>   博客平台并且将你所有的数据存储到一个索引中。在这个索引中，你可以为用户数据定义一个类型，</p>
 <p>   为博客数据定义另一个类型，当然，也可以为评论数据定义另一个类型。</p>
@@ -1102,7 +1106,7 @@ curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;unifie
 </li>
 <li><p><strong>文档</strong> <code>document</code></p>
 <p>一个文档是一个可被索引的基础信息单元。比如，你可以拥有某一个客户的文档，某一个产品的一个文档，当然，也可以拥有某个订单的一个文档。文档以<code>JSON</code>（<code>Javascript Object Notation</code>）格式来表示，而<code>JSON</code>是一个到处存在的互联网数据交互格式。</p>
-<p>在一个<code>index</code>&#x2F;<code>type</code>里面，你可以存储任意多的文档。注意，尽管一个文档，物理上存在于一个索引之中，文档必须被索引&#x2F;赋予一个索引的<code>type</code>。</p>
+<p>在一个<code>index</code>/<code>type</code>里面，你可以存储任意多的文档。注意，尽管一个文档，物理上存在于一个索引之中，文档必须被索引/赋予一个索引的<code>type</code>。</p>
 </li>
 <li><p><strong>接近实时</strong> <code>NRT</code></p>
 </li>
@@ -1132,21 +1136,21 @@ curl -XGET &quot;http://linux121:9200/blog01/article/_search?q=title:&#39;unifie
 <li><p>主节点+数据节点（<code>master</code>+<code>data</code>） 默认</p>
 <ul>
 <li><p>节点既有成为<strong>主节点的资格</strong>，<strong>又存储数据</strong></p>
-<pre><code class="bash">node.master: true 
-node.data: true
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">node.master: <span class="token boolean">true</span> 
+node.data: <span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>数据节点（data）</p>
 <p>节点没有成为主节点的资格，不参与选举，只会存储数据</p>
-<pre><code class="bash">node.master: false 
-node.data: true
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">node.master: <span class="token boolean">false</span> 
+node.data: <span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>客户端节点（<code>client</code>）</p>
 <p>不会成为主节点，也不会存储数据，主要是针对海量请求的时候可以进行负载均衡</p>
-<pre><code class="bash">node.master: false 
-node.data: false
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">node.master: <span class="token boolean">false</span> 
+node.data: <span class="token boolean">false</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -1160,9 +1164,9 @@ node.data: false
 </li>
 <li><p>副本</p>
 <p>这里指主分片的副本分片（主分片的拷贝）:</p>
-<pre><code class="tex">提高恢复能力：当主分片挂掉时，某个复制分片可以变成主分片；
+<pre class="line-numbers language-tex"><code class="language-tex">提高恢复能力：当主分片挂掉时，某个复制分片可以变成主分片；
 提高性能：get 和 search 请求既可以由主分片又可以由复制分片处理；
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -1181,30 +1185,30 @@ node.data: false
 <p>创建一个<code>es</code>专门的用户（必须），因为es不能用root用户启动</p>
 <p>使用<code>root</code>用户在三台机器执行以下命令</p>
 </blockquote>
-<pre><code class="bash">useradd es 
-mkdir -p /opt/lagou/servers/es 
-mkdir -p /opt/lagou/servers/data/es 
-mkdir -p /opt/lagou/servers/logs/es 
-chown -R es /opt/lagou/servers/es 
-chown -R es /opt/lagou/servers/data/es 
-chown -R es /opt/lagou/servers/logs/es 
-passwd es
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">useradd</span> es 
+<span class="token function">mkdir</span> -p /opt/lagou/servers/es 
+<span class="token function">mkdir</span> -p /opt/lagou/servers/data/es 
+<span class="token function">mkdir</span> -p /opt/lagou/servers/logs/es 
+<span class="token function">chown</span> -R es /opt/lagou/servers/es 
+<span class="token function">chown</span> -R es /opt/lagou/servers/data/es 
+<span class="token function">chown</span> -R es /opt/lagou/servers/logs/es 
+<span class="token function">passwd</span> es
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-2、为es用户添加sudo权限"><a href="#1-2、为es用户添加sudo权限" class="headerlink" title="1.2、为es用户添加sudo权限"></a>1.2、为<code>es</code>用户添加<code>sudo</code>权限</h4><blockquote>
 <p>三台机器使用<code>root</code>用户执行<code>visudo</code>然后为es用户添加权限</p>
 </blockquote>
-<pre><code class="bash">vim /etc/sudoers
+<pre class="line-numbers language-bash"><code class="language-bash">vim /etc/sudoers
 
-##添加以下内容
-es ALL=(ALL) ALL
-</code></pre>
+<span class="token comment" spellcheck="true">##添加以下内容</span>
+es ALL<span class="token operator">=</span><span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> ALL
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-3、分布式安装部署"><a href="#1-3、分布式安装部署" class="headerlink" title="1.3、分布式安装部署"></a>1.3、分布式安装部署</h4><blockquote>
 <p>关闭所有的会话，重新连接，一定要记得使用es的用户来连接服务器</p>
 </blockquote>
-<h5 id="1-3-1、解压"><a href="#1-3-1、解压" class="headerlink" title="1.3.1、解压"></a>1.3.1、解压</h5><pre><code class="bash">tar -zxvf elasticsearch-7.3.0-linux-x86_64.tar.gz -C ../servers/es 
-cd /opt/lagou/servers/es
-mv elasticsearch-7.3.0/ elasticsearch/
-</code></pre>
+<h5 id="1-3-1、解压"><a href="#1-3-1、解压" class="headerlink" title="1.3.1、解压"></a>1.3.1、解压</h5><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf elasticsearch-7.3.0-linux-x86_64.tar.gz -C <span class="token punctuation">..</span>/servers/es 
+<span class="token function">cd</span> /opt/lagou/servers/es
+<span class="token function">mv</span> elasticsearch-7.3.0/ elasticsearch/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>修改配置文件：</p>
 <p><code>elasticsearch.yml</code>配置文件说明：</p>
@@ -1276,109 +1280,109 @@ mv elasticsearch-7.3.0/ elasticsearch/
 <blockquote>
 <p>修改配置文件</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/servers/es/elasticsearch/config 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/servers/es/elasticsearch/config 
 
 vim elasticsearch.yml
-</code></pre>
-<pre><code class="yaml"># 集群名字 
-cluster.name: myes 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># 集群名字 </span>
+<span class="token key atrule">cluster.name</span><span class="token punctuation">:</span> myes 
 
-## 集群中当前的节点 
-node.name: linux121 
+<span class="token comment" spellcheck="true">## 集群中当前的节点 </span>
+<span class="token key atrule">node.name</span><span class="token punctuation">:</span> linux121 
 
-## 数据目录 
+<span class="token comment" spellcheck="true">## 数据目录 </span>
 
-path.data: /opt/lagou/servers/data/es 
-# # 日志目录 
-path.logs: /opt/lagou/servers/logs/es
+<span class="token key atrule">path.data</span><span class="token punctuation">:</span> /opt/lagou/servers/data/es 
+<span class="token comment" spellcheck="true"># # 日志目录 </span>
+<span class="token key atrule">path.logs</span><span class="token punctuation">:</span> /opt/lagou/servers/logs/es
 
-# # 当前主机的ip地址 
-network.host: linux121 http.port: 9200
+<span class="token comment" spellcheck="true"># # 当前主机的ip地址 </span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> linux121 http.port<span class="token punctuation">:</span> <span class="token number">9200</span>
 
-#初始化一个新的集群时需要此配置来选举master 
-cluster.initial_master_nodes: [&quot;linux121&quot;,&quot;linux122&quot;,&quot;linux123&quot;] 
+<span class="token comment" spellcheck="true">#初始化一个新的集群时需要此配置来选举master </span>
+<span class="token key atrule">cluster.initial_master_nodes</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"linux121"</span><span class="token punctuation">,</span><span class="token string">"linux122"</span><span class="token punctuation">,</span><span class="token string">"linux123"</span><span class="token punctuation">]</span> 
 
-#写入候选主节点的设备地址 
-discovery.seed_hosts: [&quot;linux121&quot;, &quot;linux122&quot;,&quot;linux123&quot;] 
-http.cors.enabled: true 
-http.cors.allow-origin: &quot;*&quot;
-</code></pre>
+<span class="token comment" spellcheck="true">#写入候选主节点的设备地址 </span>
+<span class="token key atrule">discovery.seed_hosts</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"linux121"</span><span class="token punctuation">,</span> <span class="token string">"linux122"</span><span class="token punctuation">,</span><span class="token string">"linux123"</span><span class="token punctuation">]</span> 
+<span class="token key atrule">http.cors.enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true </span>
+<span class="token key atrule">http.cors.allow-origin</span><span class="token punctuation">:</span> <span class="token string">"*"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>三台机器修改<code>jvm</code>内存大小</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/servers/es/elasticsearch/config 
-vi jvm.options
-</code></pre>
-<pre><code class="bash">-Xms2g -Xmx2g
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/servers/es/elasticsearch/config 
+<span class="token function">vi</span> jvm.options
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">-Xms2g -Xmx2g
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5 id="1-3-2、安装包分发到其他两台机器上"><a href="#1-3-2、安装包分发到其他两台机器上" class="headerlink" title="1.3.2、安装包分发到其他两台机器上"></a>1.3.2、安装包分发到其他两台机器上</h5><blockquote>
 <p><code>linux121</code>服务器执行以下命令</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/servers/es 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/servers/es 
 
-scp -r elasticsearch/ linux122:$PWD 
+<span class="token function">scp</span> -r elasticsearch/ linux122:<span class="token variable">$PWD</span> 
 
-scp -r elasticsearch/ linux123:$PWD
-</code></pre>
+<span class="token function">scp</span> -r elasticsearch/ linux123:<span class="token variable">$PWD</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="1-3-3、LInux122-Linux-123修改配置文件"><a href="#1-3-3、LInux122-Linux-123修改配置文件" class="headerlink" title="1.3.3、LInux122 Linux 123修改配置文件"></a>1.3.3、<code>LInux122</code> <code>Linux 123</code>修改配置文件</h5><blockquote>
 <p><code>linux122</code>服务器修改配置文件</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/servers/es/elasticsearch/config/ 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/servers/es/elasticsearch/config/ 
 
 vim elasticsearch.yml
-</code></pre>
-<pre><code class="yaml"># 集群名字 
-cluster.name: myes 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># 集群名字 </span>
+<span class="token key atrule">cluster.name</span><span class="token punctuation">:</span> myes 
 
-## 集群中当前的节点 
-node.name: linux122 
+<span class="token comment" spellcheck="true">## 集群中当前的节点 </span>
+<span class="token key atrule">node.name</span><span class="token punctuation">:</span> linux122 
 
-## 数据目录 
-path.data: /opt/lagou/servers/data/es 
+<span class="token comment" spellcheck="true">## 数据目录 </span>
+<span class="token key atrule">path.data</span><span class="token punctuation">:</span> /opt/lagou/servers/data/es 
 
-# # 日志目录 
-path.logs: /opt/lagou/servers/logs/es 
+<span class="token comment" spellcheck="true"># # 日志目录 </span>
+<span class="token key atrule">path.logs</span><span class="token punctuation">:</span> /opt/lagou/servers/logs/es 
 
-# # 当前主机的ip地址 
-network.host: linux122 http.port: 9200 
+<span class="token comment" spellcheck="true"># # 当前主机的ip地址 </span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> linux122 http.port<span class="token punctuation">:</span> <span class="token number">9200 </span>
 
-#初始化一个新的集群时需要此配置来选举master 
-cluster.initial_master_nodes: [&quot;linux121&quot;,&quot;linux122&quot;,&quot;linux123&quot;] 
-#写入候选主节点的设备地址 
-discovery.seed_hosts: [&quot;linux121&quot;, &quot;linux122&quot;,&quot;linux123&quot;] 
-http.cors.enabled: true
-http.cors.allow-origin: &quot;*&quot;
-</code></pre>
+<span class="token comment" spellcheck="true">#初始化一个新的集群时需要此配置来选举master </span>
+<span class="token key atrule">cluster.initial_master_nodes</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"linux121"</span><span class="token punctuation">,</span><span class="token string">"linux122"</span><span class="token punctuation">,</span><span class="token string">"linux123"</span><span class="token punctuation">]</span> 
+<span class="token comment" spellcheck="true">#写入候选主节点的设备地址 </span>
+<span class="token key atrule">discovery.seed_hosts</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"linux121"</span><span class="token punctuation">,</span> <span class="token string">"linux122"</span><span class="token punctuation">,</span><span class="token string">"linux123"</span><span class="token punctuation">]</span> 
+<span class="token key atrule">http.cors.enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">http.cors.allow-origin</span><span class="token punctuation">:</span> <span class="token string">"*"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><code>linux123</code>服务器修改配置文件</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/servers/es/elasticsearch/config/ 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/servers/es/elasticsearch/config/ 
 
 vim elasticsearch.yml
-</code></pre>
-<pre><code class="yaml"># 集群名字 
-cluster.name: myes 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># 集群名字 </span>
+<span class="token key atrule">cluster.name</span><span class="token punctuation">:</span> myes 
 
-## 集群中当前的节点 
-node.name: linux123 
+<span class="token comment" spellcheck="true">## 集群中当前的节点 </span>
+<span class="token key atrule">node.name</span><span class="token punctuation">:</span> linux123 
 
-## 数据目录
-path.data: /opt/lagou/servers/data/es 
+<span class="token comment" spellcheck="true">## 数据目录</span>
+<span class="token key atrule">path.data</span><span class="token punctuation">:</span> /opt/lagou/servers/data/es 
 
-# # 日志目录 
-path.logs: /opt/lagou/servers/logs/es 
+<span class="token comment" spellcheck="true"># # 日志目录 </span>
+<span class="token key atrule">path.logs</span><span class="token punctuation">:</span> /opt/lagou/servers/logs/es 
 
-# # 当前主机的ip地址 
-network.host: linux123 http.port: 9200
+<span class="token comment" spellcheck="true"># # 当前主机的ip地址 </span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> linux123 http.port<span class="token punctuation">:</span> <span class="token number">9200</span>
 
-#初始化一个新的集群时需要此配置来选举master
-cluster.initial_master_nodes: [&quot;linux121&quot;,&quot;linux122&quot;,&quot;linux123&quot;] 
+<span class="token comment" spellcheck="true">#初始化一个新的集群时需要此配置来选举master</span>
+<span class="token key atrule">cluster.initial_master_nodes</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"linux121"</span><span class="token punctuation">,</span><span class="token string">"linux122"</span><span class="token punctuation">,</span><span class="token string">"linux123"</span><span class="token punctuation">]</span> 
 
-#写入候选主节点的设备地址 
-discovery.seed_hosts: [&quot;linux121&quot;, &quot;linux122&quot;,&quot;linux123&quot;] 
-http.cors.enabled: 
-true http.cors.allow-origin: &quot;*&quot;
-</code></pre>
+<span class="token comment" spellcheck="true">#写入候选主节点的设备地址 </span>
+<span class="token key atrule">discovery.seed_hosts</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"linux121"</span><span class="token punctuation">,</span> <span class="token string">"linux122"</span><span class="token punctuation">,</span><span class="token string">"linux123"</span><span class="token punctuation">]</span> 
+<span class="token key atrule">http.cors.enabled</span><span class="token punctuation">:</span> 
+true http.cors.allow<span class="token punctuation">-</span><span class="token key atrule">origin</span><span class="token punctuation">:</span> <span class="token string">"*"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="1-3-4、修改三台机器-etc-sysctl-conf"><a href="#1-3-4、修改三台机器-etc-sysctl-conf" class="headerlink" title="1.3.4、修改三台机器/etc/sysctl.conf"></a>1.3.4、修改三台机器<code>/etc/sysctl.conf</code></h5><blockquote>
 <p><code>ES</code>因为需要大量的创建索引文件，需要大量的打开系统的文件，所以我们需要解除<code>linux</code>系统当中打</p>
 <p>开文件最大数目的限制，不然<code>ES</code>启动就会抛错</p>
@@ -1386,8 +1390,8 @@ true http.cors.allow-origin: &quot;*&quot;
 <blockquote>
 <p>修改文件句柄数</p>
 </blockquote>
-<pre><code class="bash">vim /etc/sysctl.conf
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">vim /etc/sysctl.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>末尾添加：<code>vm.max_map_count=655360</code></p>
 <p>执行<code>sysctl -p</code> 让其生效</p>
@@ -1395,123 +1399,123 @@ true http.cors.allow-origin: &quot;*&quot;
 <h5 id="1-3-5、修改三台机器-etc-security-limits-conf"><a href="#1-3-5、修改三台机器-etc-security-limits-conf" class="headerlink" title="1.3.5、修改三台机器/etc/security/limits.conf"></a>1.3.5、修改三台机器<code>/etc/security/limits.conf</code></h5><blockquote>
 <p>修改<code>linux</code>系统对文件描述符的限制级别</p>
 </blockquote>
-<pre><code class="bash">vim /etc/security/limits.conf
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">vim /etc/security/limits.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>末尾添加：</p>
 </blockquote>
-<pre><code class="pro">* soft nofile 65536 
+<pre class="line-numbers language-pro"><code class="language-pro">* soft nofile 65536 
 * hard nofile 65536 
 * soft nproc 4096 
 * hard nproc 4096
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2、启动ES服务"><a href="#2、启动ES服务" class="headerlink" title="2、启动ES服务"></a>2、启动<code>ES</code>服务</h3><hr>
 <h4 id="2-1、启动"><a href="#2-1、启动" class="headerlink" title="2.1、启动"></a>2.1、启动</h4><blockquote>
 <p>这里是后台启动，要发现错误的话，去<code>/opt/lagou/servers/logs/es</code>目录下查看。</p>
 <p>三台机器均执行</p>
 </blockquote>
-<pre><code class="bash">nohup /opt/lagou/servers/es/elasticsearch/bin/elasticsearch &gt;/dev/null 2&gt;&amp;1 &amp;
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">nohup</span> /opt/lagou/servers/es/elasticsearch/bin/elasticsearch <span class="token operator">></span>/dev/null 2<span class="token operator">></span><span class="token operator">&amp;</span>1 <span class="token operator">&amp;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="2-2、测试访问ES"><a href="#2-2、测试访问ES" class="headerlink" title="2.2、测试访问ES"></a>2.2、测试访问<code>ES</code></h4><blockquote>
 <p>在Google Chrome浏览器中，访问以下地址</p>
 <p><a target="_blank" rel="noopener" href="http://linux121:9200/?pretty">http://linux121:9200/?pretty</a></p>
 <p><a target="_blank" rel="noopener" href="http://linux122:9200/?pretty">http://linux122:9200/?pretty</a></p>
 <p><a target="_blank" rel="noopener" href="http://linux123:9200/?pretty">http://linux123:9200/?pretty</a></p>
 </blockquote>
-<pre><code class="json">&#123; 
-    &quot;name&quot; : &quot;linux12?&quot;, 
-    &quot;cluster_name&quot; : &quot;myes&quot;, 
-    &quot;cluster_uuid&quot; : &quot;3nUDlA_hTjaiZQfBqygrLQ&quot;, 
-    &quot;version&quot; : &#123; 
-        &quot;number&quot; : &quot;7.3.0&quot;, 
-        &quot;build_flavor&quot; : &quot;default&quot;, 
-        &quot;build_type&quot; : &quot;tar&quot;,
-        &quot;build_hash&quot; : &quot;de777fa&quot;,
-        &quot;build_date&quot; : &quot;2019-07-24T18:30:11.767338Z&quot;,
-        &quot;build_snapshot&quot; : false, 
-        &quot;lucene_version&quot; : &quot;8.1.0&quot;,
-        &quot;minimum_wire_compatibility_version&quot; : &quot;6.8.0&quot;, 
-        &quot;minimum_index_compatibility_version&quot; : &quot;6.0.0-beta1&quot;
-    &#125;,
-    &quot;tagline&quot; : &quot;You Know, for Search&quot; 
-&#125;
-</code></pre>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span> 
+    <span class="token property">"name"</span> <span class="token operator">:</span> <span class="token string">"linux12?"</span><span class="token punctuation">,</span> 
+    <span class="token property">"cluster_name"</span> <span class="token operator">:</span> <span class="token string">"myes"</span><span class="token punctuation">,</span> 
+    <span class="token property">"cluster_uuid"</span> <span class="token operator">:</span> <span class="token string">"3nUDlA_hTjaiZQfBqygrLQ"</span><span class="token punctuation">,</span> 
+    <span class="token property">"version"</span> <span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token property">"number"</span> <span class="token operator">:</span> <span class="token string">"7.3.0"</span><span class="token punctuation">,</span> 
+        <span class="token property">"build_flavor"</span> <span class="token operator">:</span> <span class="token string">"default"</span><span class="token punctuation">,</span> 
+        <span class="token property">"build_type"</span> <span class="token operator">:</span> <span class="token string">"tar"</span><span class="token punctuation">,</span>
+        <span class="token property">"build_hash"</span> <span class="token operator">:</span> <span class="token string">"de777fa"</span><span class="token punctuation">,</span>
+        <span class="token property">"build_date"</span> <span class="token operator">:</span> <span class="token string">"2019-07-24T18:30:11.767338Z"</span><span class="token punctuation">,</span>
+        <span class="token property">"build_snapshot"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> 
+        <span class="token property">"lucene_version"</span> <span class="token operator">:</span> <span class="token string">"8.1.0"</span><span class="token punctuation">,</span>
+        <span class="token property">"minimum_wire_compatibility_version"</span> <span class="token operator">:</span> <span class="token string">"6.8.0"</span><span class="token punctuation">,</span> 
+        <span class="token property">"minimum_index_compatibility_version"</span> <span class="token operator">:</span> <span class="token string">"6.0.0-beta1"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"tagline"</span> <span class="token operator">:</span> <span class="token string">"You Know, for Search"</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-3、安装elasticsearch-head插件"><a href="#2-3、安装elasticsearch-head插件" class="headerlink" title="2.3、安装elasticsearch-head插件"></a>2.3、安装<code>elasticsearch-head</code>插件</h4><blockquote>
 <p><strong>谷歌浏览其插件方式安装</strong></p>
 <p><code>Chrome</code>插件安装地址</p>
 </blockquote>
-<pre><code class="tex">https://chrome.google.com/webstore/detail/elasticsearch- head/ffmkiejjmecolpfloofpjologoblkegm/
-</code></pre>
-<p><img src="/../image/elk/image-20220808141811419.png"></p>
+<pre class="line-numbers language-tex"><code class="language-tex">https://chrome.google.com/webstore/detail/elasticsearch- head/ffmkiejjmecolpfloofpjologoblkegm/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808141811419.png"></p>
 <blockquote>
 <p>添加完成后可以从以下地方找到扩展程序</p>
 </blockquote>
-<p><img src="/../image/elk/image-20220808141828783.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808141828783.png"></p>
 <h2 id="五、安装配置kibana"><a href="#五、安装配置kibana" class="headerlink" title="五、安装配置kibana"></a>五、<strong>安装配置</strong><code>kibana</code></h2><hr>
 <blockquote>
 <p>什么是<code>Kibana</code>?</p>
 <p><code>Kibana</code>是一个基于<code>Node.js</code>的<code>Elasticsearch</code>索引库数据统计工具，可以利用<code>Elasticsearch</code>的聚</p>
 <p>合功能，生成各种图表，如柱形图，线状图，饼图等。</p>
 </blockquote>
-<p><img src="/../image/elk/image-20220808142724396.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808142724396.png"></p>
 <h3 id="1、下载Kibana"><a href="#1、下载Kibana" class="headerlink" title="1、下载Kibana"></a>1、下载<code>Kibana</code></h3><hr>
-<p><img src="/../image/elk/image-20220808142855781.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808142855781.png"></p>
 <h3 id="2、安装kibana"><a href="#2、安装kibana" class="headerlink" title="2、安装kibana"></a>2、安装<code>kibana</code></h3><hr>
 <blockquote>
 <p><code>root</code>账户下操作！！</p>
 <p>上传到<code>linux121</code>服务器</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/software/ 
-tar -zxvf kibana-7.3.0-linux-x86_64.tar.gz -C ../servers/ 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/software/ 
+<span class="token function">tar</span> -zxvf kibana-7.3.0-linux-x86_64.tar.gz -C <span class="token punctuation">..</span>/servers/ 
 
-cd ../servers/ 
-mv kibana-7.3.0-linux-x86_64/ kibana/
-</code></pre>
+<span class="token function">cd</span> <span class="token punctuation">..</span>/servers/ 
+<span class="token function">mv</span> kibana-7.3.0-linux-x86_64/ kibana/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>改变<code>kibana</code>目录拥有者账号</p>
 </blockquote>
-<pre><code class="bash">chown -R es /opt/lagou/servers/kibana
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">chown</span> -R es /opt/lagou/servers/kibana
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>设置访问权限</p>
 </blockquote>
-<pre><code class="bash">chmod -R 777 /opt/lagou/servers/kibana
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">chmod</span> -R 777 /opt/lagou/servers/kibana
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p><strong>修改配置文件</strong> </p>
 </blockquote>
-<pre><code class="bash">vim /opt/lagou/servers/kibana/config/kibana.yml
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">vim /opt/lagou/servers/kibana/config/kibana.yml
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>修改端口，访问<code>ip</code>,<code>elasticsearch</code>服务器<code>ip</code></p>
 </blockquote>
-<pre><code class="yaml">server.port: 5601 s
-erver.host: &quot;linux121&quot; 
-# The URLs of the Elasticsearch instances to use for all your queries. elasticsearch.hosts: [&quot;http://linux121:9200&quot;,&quot;http://linux122:9200&quot;,&quot;http://linux123:9200&quot;]
-</code></pre>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">server.port</span><span class="token punctuation">:</span> 5601 s
+<span class="token key atrule">erver.host</span><span class="token punctuation">:</span> <span class="token string">"linux121"</span> 
+<span class="token comment" spellcheck="true"># The URLs of the Elasticsearch instances to use for all your queries. elasticsearch.hosts: ["http://linux121:9200","http://linux122:9200","http://linux123:9200"]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>配置完成启动：</p>
 </blockquote>
-<pre><code class="bash">##切换用户 
-su es
-cd /opt/lagou/servers/kibana/ /bin/kibana
-</code></pre>
-<p><img src="/../image/elk/image-20220808143402994.png"></p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">##切换用户 </span>
+<span class="token function">su</span> es
+<span class="token function">cd</span> /opt/lagou/servers/kibana/ /bin/kibana
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808143402994.png"></p>
 <blockquote>
 <p>没有<code>error</code>错误启动成功</p>
 <p>访问<code>linux121:5601</code>，即可看到安装成功</p>
 </blockquote>
-<p><img src="/../image/elk/image-20220808143435093.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808143435093.png"></p>
 <h3 id="3、kidbana使用页面"><a href="#3、kidbana使用页面" class="headerlink" title="3、kidbana使用页面"></a>3、<code>kidbana</code>使用页面</h3><hr>
 <blockquote>
 <p>选择左侧的<code>DevTools</code>菜单，即可进入控制台页面：</p>
 </blockquote>
-<p><img src="/../image/elk/image-20220808144708358.png"></p>
-<p><img src="/../image/elk/image-20220808144725488.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808144708358.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808144725488.png"></p>
 <blockquote>
 <p>在页面右侧，我们就可以输入请求，访问<code>Elasticsearch</code>了。</p>
 </blockquote>
-<p><img src="/../image/elk/image-20220808144745327.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/elk/image-20220808144745327.png"></p>
 
             </div>
             <hr/>
@@ -1710,7 +1714,7 @@ cd /opt/lagou/servers/kibana/ /bin/kibana
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/08/elk%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                <a href="/2022/08/08/elk-er/">
                     <div class="card-image">
                         
                         
@@ -2209,5 +2213,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>

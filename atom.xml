@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>郝春帅的博客</title>
+  
+  <subtitle>郝帅的博客</subtitle>
+  <link href="https://hcs-21.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://hcs-21.github.io/"/>
+  <updated>2022-06-23T22:59:10.798Z</updated>
+  <id>https://hcs-21.github.io/</id>
+  
+  <author>
+    <name>郝帅</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://hcs-21.github.io/2023/06/07/hello-world/"/>
+    <id>https://hcs-21.github.io/2023/06/07/hello-world/</id>
+    <published>2023-06-07T06:35:06.181Z</published>
+    <updated>2022-06-23T22:59:10.798Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>superset</title>
+    <link href="https://hcs-21.github.io/2022/11/14/superset/"/>
+    <id>https://hcs-21.github.io/2022/11/14/superset/</id>
+    <published>2022-11-14T01:37:15.000Z</published>
+    <updated>2023-01-31T01:34:36.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本篇文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="数据可视化" scheme="https://hcs-21.github.io/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>私教第七周</title>
+    <link href="https://hcs-21.github.io/2022/11/09/homework1029/"/>
+    <id>https://hcs-21.github.io/2022/11/09/homework1029/</id>
+    <published>2022-11-09T06:07:46.000Z</published>
+    <updated>2022-11-09T06:22:03.315Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;2-创建预分区的表&quot;&gt;&lt;a href=&quot;#2-创建预分区的表&quot; class=&quot;headerlink&quot; title=&quot;2. 创建预分区的表&quot;&gt;&lt;/a&gt;2. 创建预分区的表&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="homeWork教程" scheme="https://hcs-21.github.io/categories/homeWork%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>私教第六周</title>
+    <link href="https://hcs-21.github.io/2022/10/26/homework1015/"/>
+    <id>https://hcs-21.github.io/2022/10/26/homework1015/</id>
+    <published>2022-10-26T08:23:46.000Z</published>
+    <updated>2022-10-26T09:55:51.910Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;SparkCore&quot;&gt;&lt;a href=&quot;#SparkCore&quot; class=&quot;headerlink&quot; title=&quot;SparkCore&quot;&gt;&lt;/a&gt;SparkCore&lt;/h2&gt;&lt;hr&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="homeWork教程" scheme="https://hcs-21.github.io/categories/homeWork%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>私教第五周</title>
+    <link href="https://hcs-21.github.io/2022/10/02/homework0924/"/>
+    <id>https://hcs-21.github.io/2022/10/02/homework0924/</id>
+    <published>2022-10-02T07:57:26.000Z</published>
+    <updated>2022-10-02T08:01:25.719Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1、统计近一周的日活&quot;&gt;&lt;a href=&quot;#1、统计近一周的日活&quot; class=&quot;headerlink&quot; title=&quot;1、统计近一周的日活&quot;&gt;&lt;/a&gt;1、统计近一周的日活&lt;/h2&gt;&lt;hr&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="homeWork教程" scheme="https://hcs-21.github.io/categories/homeWork%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop</title>
+    <link href="https://hcs-21.github.io/2022/09/26/hadoop-yi/"/>
+    <id>https://hcs-21.github.io/2022/09/26/hadoop-yi/</id>
+    <published>2022-09-26T05:52:31.000Z</published>
+    <updated>2022-09-26T08:10:34.299Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本篇文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="大数据,Hadoop,HDFS" scheme="https://hcs-21.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE-Hadoop-HDFS/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>私教第四周</title>
+    <link href="https://hcs-21.github.io/2022/09/21/homework0917/"/>
+    <id>https://hcs-21.github.io/2022/09/21/homework0917/</id>
+    <published>2022-09-21T01:15:18.000Z</published>
+    <updated>2022-09-24T11:37:34.587Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1、JVM类加载机制&quot;&gt;&lt;a href=&quot;#1、JVM类加载机制&quot; class=&quot;headerlink&quot; title=&quot;1、JVM类加载机制&quot;&gt;&lt;/a&gt;1、&lt;code&gt;JVM&lt;/code&gt;类加载机制&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="homeWork教程" scheme="https://hcs-21.github.io/categories/homeWork%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>私教第三周</title>
+    <link href="https://hcs-21.github.io/2022/09/13/homework0910/"/>
+    <id>https://hcs-21.github.io/2022/09/13/homework0910/</id>
+    <published>2022-09-13T05:47:03.000Z</published>
+    <updated>2022-09-17T11:58:21.746Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1、异常的常见分类&quot;&gt;&lt;a href=&quot;#1、异常的常见分类&quot; class=&quot;headerlink&quot; title=&quot;1、异常的常见分类&quot;&gt;&lt;/a&gt;1、异常的常见分类&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="homeWork教程" scheme="https://hcs-21.github.io/categories/homeWork%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>私教第二周</title>
+    <link href="https://hcs-21.github.io/2022/09/07/homework0904/"/>
+    <id>https://hcs-21.github.io/2022/09/07/homework0904/</id>
+    <published>2022-09-07T08:06:43.000Z</published>
+    <updated>2022-09-12T04:02:51.689Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1、mock数据&quot;&gt;&lt;a href=&quot;#1、mock数据&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="homeWork教程" scheme="https://hcs-21.github.io/categories/homeWork%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache Druid的使用教程</title>
+    <link href="https://hcs-21.github.io/2022/09/05/javaio/"/>
+    <id>https://hcs-21.github.io/2022/09/05/javaio/</id>
+    <published>2022-09-05T06:09:05.000Z</published>
+    <updated>2022-09-07T06:41:28.836Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 本篇文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://hcs-21.github.io/categories/java/"/>
+    
+    <category term="io" scheme="https://hcs-21.github.io/categories/java/io/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Array 的使用教程</title>
+    <link href="https://hcs-21.github.io/2022/09/01/javaarray/"/>
+    <id>https://hcs-21.github.io/2022/09/01/javaarray/</id>
+    <published>2022-09-01T08:00:12.000Z</published>
+    <updated>2022-09-01T08:04:09.573Z</updated>
+    
+    
+    
+    
+    <category term="数据结构" scheme="https://hcs-21.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="java" scheme="https://hcs-21.github.io/tags/java/"/>
+    
+    <category term="Array" scheme="https://hcs-21.github.io/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>私教第一周</title>
+    <link href="https://hcs-21.github.io/2022/08/29/homework0827/"/>
+    <id>https://hcs-21.github.io/2022/08/29/homework0827/</id>
+    <published>2022-08-29T11:47:44.000Z</published>
+    <updated>2022-09-05T00:55:43.454Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1、CAP定理&quot;&gt;&lt;a href=&quot;#1、CAP定理&quot; class=&quot;headerlink&quot; title=&quot;1、CAP定理&quot;&gt;&lt;/a&gt;1、&lt;code&gt;CAP&lt;/code&gt;定理&lt;/h2&gt;&lt;hr&gt;
+&lt;h3 id=&quot;1-1、CAP原则&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="homeWork教程" scheme="https://hcs-21.github.io/categories/homeWork%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="study" scheme="https://hcs-21.github.io/tags/study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux的使用教程（三）</title>
+    <link href="https://hcs-21.github.io/2022/08/24/linux-san/"/>
+    <id>https://hcs-21.github.io/2022/08/24/linux-san/</id>
+    <published>2022-08-24T02:49:19.000Z</published>
+    <updated>2022-08-29T01:09:17.423Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;本篇文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="系统" scheme="https://hcs-21.github.io/categories/%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="linux" scheme="https://hcs-21.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux的使用教程（二）</title>
+    <link href="https://hcs-21.github.io/2022/08/22/linux-er/"/>
+    <id>https://hcs-21.github.io/2022/08/22/linux-er/</id>
+    <published>2022-08-22T03:14:13.000Z</published>
+    <updated>2022-08-24T06:21:46.113Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;本篇文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="系统" scheme="https://hcs-21.github.io/categories/%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="linux" scheme="https://hcs-21.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>person_teacher的使用教程</title>
+    <link href="https://hcs-21.github.io/2022/08/12/person-teacher/"/>
+    <id>https://hcs-21.github.io/2022/08/12/person-teacher/</id>
+    <published>2022-08-12T07:45:40.000Z</published>
+    <updated>2022-08-24T06:37:05.043Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;阿里云服务器   &lt;code&gt;hadoop&lt;/code&gt;  环境搭建    5次&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;java&lt;/code&gt; 基础语言  预科班   原理   &lt;/li&gt;
+&lt;li&gt;算法   </summary>
+        
+      
+    
+    
+    
+    <category term="工具使用教程" scheme="https://hcs-21.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="面试test" scheme="https://hcs-21.github.io/tags/%E9%9D%A2%E8%AF%95test/"/>
+    
+    <category term="笔记" scheme="https://hcs-21.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ELK的使用教程（二）</title>
+    <link href="https://hcs-21.github.io/2022/08/08/elk-er/"/>
+    <id>https://hcs-21.github.io/2022/08/08/elk-er/</id>
+    <published>2022-08-08T07:52:01.000Z</published>
+    <updated>2022-08-24T06:16:29.505Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;hr&gt;
+&lt;h2 id=&quot;一、管理索引&quot;&gt;&lt;a href=&quot;#一、管理索引&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="工具使用教程" scheme="https://hcs-21.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="ELK" scheme="https://hcs-21.github.io/tags/ELK/"/>
+    
+    <category term="日志系统" scheme="https://hcs-21.github.io/tags/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ELK的使用教程</title>
+    <link href="https://hcs-21.github.io/2022/08/07/elk/"/>
+    <id>https://hcs-21.github.io/2022/08/07/elk/</id>
+    <published>2022-08-07T02:38:02.000Z</published>
+    <updated>2022-08-24T06:16:25.166Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本片文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="工具使用教程" scheme="https://hcs-21.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="ELK" scheme="https://hcs-21.github.io/tags/ELK/"/>
+    
+    <category term="日志系统" scheme="https://hcs-21.github.io/tags/%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gifts detail</title>
+    <link href="https://hcs-21.github.io/2022/08/05/gifts/"/>
+    <id>https://hcs-21.github.io/2022/08/05/gifts/</id>
+    <published>2022-08-05T08:52:48.000Z</published>
+    <updated>2023-05-17T03:47:47.150Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;hr&gt;
+&lt;h2 id=&quot;一、公司&quot;&gt;&lt;a href=&quot;#一、公司&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="person" scheme="https://hcs-21.github.io/categories/person/"/>
+    
+    
+    <category term="person" scheme="https://hcs-21.github.io/tags/person/"/>
+    
+    <category term="gifts" scheme="https://hcs-21.github.io/tags/gifts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache Druid的使用教程</title>
+    <link href="https://hcs-21.github.io/2022/08/05/druid/"/>
+    <id>https://hcs-21.github.io/2022/08/05/druid/</id>
+    <published>2022-08-05T01:14:59.000Z</published>
+    <updated>2022-08-05T08:12:08.796Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本片文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="工具使用教程" scheme="https://hcs-21.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="大数据" scheme="https://hcs-21.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="Druid" scheme="https://hcs-21.github.io/tags/Druid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kettle 的使用教程</title>
+    <link href="https://hcs-21.github.io/2022/07/29/kettle/"/>
+    <id>https://hcs-21.github.io/2022/07/29/kettle/</id>
+    <published>2022-07-29T06:52:34.000Z</published>
+    <updated>2022-08-24T06:16:39.963Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;阅读须知&quot;&gt;&lt;a href=&quot;#阅读须知&quot; class=&quot;headerlink&quot; title=&quot;阅读须知&quot;&gt;&lt;/a&gt;阅读须知&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本篇文章仅供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="工具使用教程" scheme="https://hcs-21.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Kettle" scheme="https://hcs-21.github.io/tags/Kettle/"/>
+    
+    <category term="ETL" scheme="https://hcs-21.github.io/tags/ETL/"/>
+    
+  </entry>
+  
+</feed>

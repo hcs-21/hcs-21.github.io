@@ -71,7 +71,11 @@ Apache Kylin是一个开源的、分布式的分析引擎，提供 Hadoop 之上
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -753,7 +757,7 @@ Apache Kylin是一个开源的、分布式的分析引擎，提供 Hadoop 之上
 <p>接口及多维分析（<code>OLAP</code>）能力以支持超大规模数据，最初由 <code>eBay</code> 开发并贡献至开</p>
 <p>源社区，<strong>它能在亚秒内查询巨大的表</strong>。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220728144252537.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220728144252537.png"></p>
 <h3 id="1、背景、历史以及特点"><a href="#1、背景、历史以及特点" class="headerlink" title="1、背景、历史以及特点"></a>1、背景、历史以及特点</h3><hr>
 <h4 id="1-1、背景"><a href="#1-1、背景" class="headerlink" title="1.1、背景"></a>1.1、背景</h4><blockquote>
 <p><code>Apache Kylin</code>，一种<code>MOLAP</code>的数据分析引擎。最早脱胎于<code>eBay</code>中国研发中心，并贡献给<code>Apache</code>基金</p>
@@ -767,12 +771,12 @@ Apache Kylin是一个开源的、分布式的分析引擎，提供 Hadoop 之上
 <li>2015 年 V1.5 首次支持 <code>Kafka</code> 数据源，采用单机微批次构建</li>
 <li>2016 年 V1.6 发布准实时（<code>NRT Streaming</code>）， 使用 <code>Hadoop </code>微批次消费流数据2017 年 V2.0 支持雪花模型和 <code>Spark </code>引擎</li>
 <li><code>eBay</code> 团队开始尝试 <code>real-time</code></li>
-<li>2018 年 V2.4 支持 <code>Kafka 流数据 与 </code>Hive<code>维度表</code>join&#96;</li>
+<li>2018 年 V2.4 支持 <code>Kafka 流数据 与 </code>Hive<code>维度表</code>join`</li>
 <li><code>eBay</code> 开源 <code>real-time </code> <code>OLAP</code> 实现</li>
 <li>2019 年 Q1，经过社区 <code>review</code> 和完善，合并 <code>master</code></li>
 <li>2019 年 Q4，v3.0 发布 <code>Real-time</code> <code> OLAP</code>，实现秒级数据准备延迟</li>
 </ul>
-<h4 id="1-3、特点"><a href="#1-3、特点" class="headerlink" title="1.3、特点"></a>1.3、特点</h4><p><img src="/../image/Kylin/image-20220728144744711.png"></p>
+<h4 id="1-3、特点"><a href="#1-3、特点" class="headerlink" title="1.3、特点"></a>1.3、特点</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220728144744711.png"></p>
 <ul>
 <li><strong>数据源和模型：</strong>主要支持<code>Hive</code>、<code>Kafka</code></li>
 <li><strong>构建引擎：</strong>早期支持<code>MapReduce</code>计算引擎，新版本支持<code>Spar</code>k、<code>Flink</code>计算引擎。除了全量构建外，对基于时间的分区特性，支持增量构建</li>
@@ -820,7 +824,7 @@ Apache Kylin是一个开源的、分布式的分析引擎，提供 Hadoop 之上
 <p><strong>维度表</strong>（<code>Dimension Table</code>）：也称为<strong>查找表</strong>（<code>Lookup Table</code>），是与事实表相对应的一种表；</p>
 <p>它保存了维度的属性值，可以跟事实表做关联；相当于将事实表上经常重复的属性抽取、规范出来</p>
 <p>用一张表进行管理。常见的维度表有：<strong>日期表</strong>（存储与日期对应的周、月、季度等属性）、<strong>地区表</strong></p>
-<p>（包含国家、省&#x2F;州、城市等属性）等。维度表的变化通常不会太大。</p>
+<p>（包含国家、省/州、城市等属性）等。维度表的变化通常不会太大。</p>
 <p>使用维度表有许多好处：</p>
 <ul>
 <li>缩小了事实表的大小</li>
@@ -846,7 +850,7 @@ Apache Kylin是一个开源的、分布式的分析引擎，提供 Hadoop 之上
 </blockquote>
 <blockquote>
 <p><strong>多维立方体</strong>（<code>Cube</code>）：也叫数据立方体</p>
-<p><img src="/../image/Kylin/image-20220802095356153.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220802095356153.png"></p>
 <p>这是由三个维度（维度数可以超过 3 个，上图仅为了方便画图表达）构成的一个<code>OLAP</code> 立方体，立方体</p>
 <p>中包含了满足条件的 <code>cell</code>（子立方块）值，这些 <code>cell</code> 里面包含了要分析的数据，称之为<strong>度量值</strong>。</p>
 <p><strong>关键字</strong>：</p>
@@ -870,7 +874,7 @@ Apache Kylin是一个开源的、分布式的分析引擎，提供 Hadoop 之上
 </li>
 </ul>
 </blockquote>
-<h4 id="1-6、Kylin的技术架构"><a href="#1-6、Kylin的技术架构" class="headerlink" title="1.6、Kylin的技术架构"></a>1.6、<code>Kylin</code>的技术架构</h4><p><img src="/../image/Kylin/image-20220802100147640.png"></p>
+<h4 id="1-6、Kylin的技术架构"><a href="#1-6、Kylin的技术架构" class="headerlink" title="1.6、Kylin的技术架构"></a>1.6、<code>Kylin</code>的技术架构</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220802100147640.png"></p>
 <blockquote>
 <p><code>Apache Kylin</code>系统可以分为：<strong>在线查询</strong>和<strong>离线构建</strong>两部分。</p>
 </blockquote>
@@ -942,7 +946,7 @@ Apache Kylin是一个开源的、分布式的分析引擎，提供 Hadoop 之上
 </li>
 </ul>
 </blockquote>
-<h4 id="1-8、Kylin生态"><a href="#1-8、Kylin生态" class="headerlink" title="1.8、Kylin生态"></a>1.8、<code>Kylin</code>生态</h4><p><img src="/../image/Kylin/image-20220802101427732.png"></p>
+<h4 id="1-8、Kylin生态"><a href="#1-8、Kylin生态" class="headerlink" title="1.8、Kylin生态"></a>1.8、<code>Kylin</code>生态</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220802101427732.png"></p>
 <blockquote>
 <ul>
 <li><p><code>Apache Kylin</code>核心：<code>Kylin</code>的<code>OALP</code> 引擎由元数据引擎、查询引擎、任务引擎、存储引擎组成。</p>
@@ -989,90 +993,90 @@ Apache Kylin是一个开源的、分布式的分析引擎，提供 Hadoop 之上
 <td>2.4.5</td>
 </tr>
 </tbody></table>
-<h4 id="2-2、集群规划"><a href="#2-2、集群规划" class="headerlink" title="2.2、集群规划"></a>2.2、集群规划</h4><p><img src="/../image/Kylin/image-20220802102122387.png"></p>
+<h4 id="2-2、集群规划"><a href="#2-2、集群规划" class="headerlink" title="2.2、集群规划"></a>2.2、集群规划</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220802102122387.png"></p>
 <blockquote>
 <p>注意：</p>
 <p><strong>要求<code>hbase</code>的<code>hbase.zookeeper.quorum</code>值必须只能是<code>host1</code>、<code>host2</code>、…。不允许出现</strong></p>
 <p><strong><code>host:2181</code>。 <code>hbase-site.xml</code>文件：</strong></p>
-<pre><code class="properties">&lt;configuration&gt; 
-    &lt;!-- 指定hbase在HDFS上存储的路径 --&gt;
-    &lt;property&gt; 
-        &lt;name&gt;hbase.rootdir&lt;/name&gt; 
-        &lt;value&gt;hdfs://linux121:9000/hbase&lt;/value&gt; 
-    &lt;/property&gt; 
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">&lt;configuration></span> 
+<span class="token attr-name">    &lt;!--</span> <span class="token attr-value">指定hbase在HDFS上存储的路径 --></span>
+<span class="token attr-name">    &lt;property></span> 
+<span class="token attr-name">        &lt;name>hbase.rootdir&lt;/name></span> 
+<span class="token attr-name">        &lt;value>hdfs</span><span class="token punctuation">:</span><span class="token attr-value">//linux121:9000/hbase&lt;/value> </span>
+<span class="token attr-name">    &lt;/property></span> 
     
-    &lt;!-- 指定hbase是分布式的 --&gt; 
-    &lt;property&gt; 
-        &lt;name&gt;hbase.cluster.distributed&lt;/name&gt; 
-        &lt;value&gt;true&lt;/value&gt; 
-    &lt;/property&gt; 
+<span class="token attr-name">    &lt;!--</span> <span class="token attr-value">指定hbase是分布式的 --> </span>
+<span class="token attr-name">    &lt;property></span> 
+<span class="token attr-name">        &lt;name>hbase.cluster.distributed&lt;/name></span> 
+<span class="token attr-name">        &lt;value>true&lt;/value></span> 
+<span class="token attr-name">    &lt;/property></span> 
     
-    &lt;!-- 指定zk的地址，多个用“,”分割 --&gt; 
-    &lt;property&gt; 
-        &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt; 
-        &lt;value&gt;linux121,linux122,linux123&lt;/value&gt; 
-    &lt;/property&gt; 
-&lt;/configuration&gt;
-</code></pre>
+<span class="token attr-name">    &lt;!--</span> <span class="token attr-value">指定zk的地址，多个用“,”分割 --> </span>
+<span class="token attr-name">    &lt;property></span> 
+<span class="token attr-name">        &lt;name>hbase.zookeeper.quorum&lt;/name></span> 
+<span class="token attr-name">        &lt;value>linux121,linux122,linux123&lt;/value></span> 
+<span class="token attr-name">    &lt;/property></span> 
+&lt;/configuration>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <h4 id="2-3、Kylin的安装配置"><a href="#2-3、Kylin的安装配置" class="headerlink" title="2.3、Kylin的安装配置"></a>2.3、<code>Kylin</code>的安装配置</h4><blockquote>
 <p>解压缩软件(<code>apache-kylin-3.1.1-bin-hbase1x.tar.gz</code>)，并移动到<code>/opt/lagou/servers</code> 目录下</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/software 
-tar zxvf apache-kylin-3.1.1-bin-hbase1x.tar.gz 
-mv apache-kylin-3.1.1-bin-hbase1x/ ../servers/kylin-3.1.1 
-cd ../servers/kylin-3.1.1
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/software 
+<span class="token function">tar</span> zxvf apache-kylin-3.1.1-bin-hbase1x.tar.gz 
+<span class="token function">mv</span> apache-kylin-3.1.1-bin-hbase1x/ <span class="token punctuation">..</span>/servers/kylin-3.1.1 
+<span class="token function">cd</span> <span class="token punctuation">..</span>/servers/kylin-3.1.1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>添加环境变量，并使之生效</p>
 </blockquote>
-<pre><code class="bash">vi /etc/profile 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile 
 
-# 增加以下内容 
-export KYLIN_HOME=/opt/lagou/servers/kylin-3.1.1 
-export PATH=$PATH:$KYLIN_HOME/bin 
+<span class="token comment" spellcheck="true"># 增加以下内容 </span>
+<span class="token function">export</span> KYLIN_HOME<span class="token operator">=</span>/opt/lagou/servers/kylin-3.1.1 
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span><span class="token keyword">:</span><span class="token variable">$KYLIN_HOME</span>/bin 
 
-source /etc/profile
-</code></pre>
+<span class="token function">source</span> /etc/profile
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>增加<code>kylin</code>依赖组件的配置</p>
 </blockquote>
-<pre><code class="bash">cd $KYLIN_HOME/conf 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token variable">$KYLIN_HOME</span>/conf 
 
-##软连接
-ln -s $HADOOP_HOME/etc/hadoop/hdfs-site.xml hdfs-site.xml
-ln -s $HADOOP_HOME/etc/hadoop/core-site.xml core-site.xml 
-ln -s $HBASE_HOME/conf/hbase-site.xml hbase-site.xml 
-ln -s $HIVE_HOME/conf/hive-site.xml hive-site.xml 
-ln -s $SPARK_HOME/conf/spark-defaults.conf spark-defaults.conf
-</code></pre>
+<span class="token comment" spellcheck="true">##软连接</span>
+<span class="token function">ln</span> -s <span class="token variable">$HADOOP_HOME</span>/etc/hadoop/hdfs-site.xml hdfs-site.xml
+<span class="token function">ln</span> -s <span class="token variable">$HADOOP_HOME</span>/etc/hadoop/core-site.xml core-site.xml 
+<span class="token function">ln</span> -s <span class="token variable">$HBASE_HOME</span>/conf/hbase-site.xml hbase-site.xml 
+<span class="token function">ln</span> -s <span class="token variable">$HIVE_HOME</span>/conf/hive-site.xml hive-site.xml 
+<span class="token function">ln</span> -s <span class="token variable">$SPARK_HOME</span>/conf/spark-defaults.conf spark-defaults.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>修改<code> kylin.sh</code></p>
 </blockquote>
-<pre><code class="bash">cd $KYLIN_HOME/bin 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token variable">$KYLIN_HOME</span>/bin 
 
 vim kylin.sh 
 
-# 在 kylin.sh 文件头部添加 
-export HADOOP_HOME=/opt/lagou/servers/hadoop-2.9.2 
+<span class="token comment" spellcheck="true"># 在 kylin.sh 文件头部添加 </span>
+<span class="token function">export</span> HADOOP_HOME<span class="token operator">=</span>/opt/lagou/servers/hadoop-2.9.2 
 
-export HIVE_HOME=/opt/lagou/servers/hive-2.3.7 
-export HBASE_HOME=/opt/lagou/servers/hbase-1.3.1 
-export SPARK_HOME=/opt/lagou/servers/spark-2.4.5
-</code></pre>
+<span class="token function">export</span> HIVE_HOME<span class="token operator">=</span>/opt/lagou/servers/hive-2.3.7 
+<span class="token function">export</span> HBASE_HOME<span class="token operator">=</span>/opt/lagou/servers/hbase-1.3.1 
+<span class="token function">export</span> SPARK_HOME<span class="token operator">=</span>/opt/lagou/servers/spark-2.4.5
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>检查依赖</p>
 </blockquote>
-<pre><code class="bash">$KYLIN_HOME/bin/check-env.sh
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token variable">$KYLIN_HOME</span>/bin/check-env.sh
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p><strong>错误处理：</strong></p>
 </blockquote>
-<pre><code class="bash">/opt/lagou/servers/kylin-3.1.1/bin/check-port-availability.sh: line 30: netstat: command not found 
+<pre class="line-numbers language-bash"><code class="language-bash">/opt/lagou/servers/kylin-3.1.1/bin/check-port-availability.sh: line 30: netstat: <span class="token function">command</span> not found 
 
-##解决：
-yum install net-tools
-</code></pre>
+<span class="token comment" spellcheck="true">##解决：</span>
+yum <span class="token function">install</span> net-tools
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-4、启动集群"><a href="#2-4、启动集群" class="headerlink" title="2.4、启动集群"></a>2.4、启动集群</h4><blockquote>
 <ol>
 <li><p>启动<code>Zookeeper</code></p>
@@ -1088,8 +1092,8 @@ yum install net-tools
 <li><p>启动<code>Yarn history server</code></p>
 </li>
 <li><p>启动 <code>kylin </code></p>
-<pre><code class="bash">kylin.sh start
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">kylin.sh start
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>登录 <code>Kylin Web</code>界面</p>
 </li>
@@ -1118,85 +1122,85 @@ yum install net-tools
 <p>将4个数据文件：<code>dw_sales_data.txt</code>、<code>dim_channel_data.txt</code>、<code>dim_product_data.txt</code>、</p>
 <p><code>dim_region_data.txt</code></p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220802154347850.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220802154347850.png"></p>
 <blockquote>
 <p><code>kylin_examples.sql </code>脚本内容：</p>
 </blockquote>
-<pre><code class="sql">-- 创建订单数据库、表结构 
-create database if not exists `lagou_kylin`; 
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 创建订单数据库、表结构 </span>
+<span class="token keyword">create</span> <span class="token keyword">database</span> <span class="token keyword">if</span> <span class="token operator">not</span> <span class="token keyword">exists</span> <span class="token punctuation">`</span>lagou_kylin<span class="token punctuation">`</span><span class="token punctuation">;</span> 
 
--- 1、销售表：dw_sales 
--- id 唯一标识 
--- date1 日期 
--- channelId 渠道ID
--- productId 产品ID
--- regionId 区域ID 
--- amount 数量 
--- price 金额 
+<span class="token comment" spellcheck="true">-- 1、销售表：dw_sales </span>
+<span class="token comment" spellcheck="true">-- id 唯一标识 </span>
+<span class="token comment" spellcheck="true">-- date1 日期 </span>
+<span class="token comment" spellcheck="true">-- channelId 渠道ID</span>
+<span class="token comment" spellcheck="true">-- productId 产品ID</span>
+<span class="token comment" spellcheck="true">-- regionId 区域ID </span>
+<span class="token comment" spellcheck="true">-- amount 数量 </span>
+<span class="token comment" spellcheck="true">-- price 金额 </span>
 
-create table lagou_kylin.dw_sales( 
-    id string,
-    date1 string, 
-    channelId string, 
-    productId string, 
-    regionId string,
-    amount int, 
-    price double 
-)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;,&#39;
-; 
+<span class="token keyword">create</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dw_sales<span class="token punctuation">(</span> 
+    id string<span class="token punctuation">,</span>
+    date1 string<span class="token punctuation">,</span> 
+    channelId string<span class="token punctuation">,</span> 
+    productId string<span class="token punctuation">,</span> 
+    regionId string<span class="token punctuation">,</span>
+    amount <span class="token keyword">int</span><span class="token punctuation">,</span> 
+    price <span class="token keyword">double</span> 
+<span class="token punctuation">)</span>
+<span class="token keyword">ROW</span> FORMAT DELIMITED <span class="token keyword">FIELDS</span> <span class="token keyword">TERMINATED BY</span> <span class="token string">','</span>
+<span class="token punctuation">;</span> 
 
--- 2、渠道表：dim_channel 
--- channelId 渠道ID 
--- channelName 渠道名称 
+<span class="token comment" spellcheck="true">-- 2、渠道表：dim_channel </span>
+<span class="token comment" spellcheck="true">-- channelId 渠道ID </span>
+<span class="token comment" spellcheck="true">-- channelName 渠道名称 </span>
 
-create table lagou_kylin.dim_channel( 
-    channelId string, 
+<span class="token keyword">create</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dim_channel<span class="token punctuation">(</span> 
+    channelId string<span class="token punctuation">,</span> 
     channelName string
-)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;,&#39;
-; 
+<span class="token punctuation">)</span>
+<span class="token keyword">ROW</span> FORMAT DELIMITED <span class="token keyword">FIELDS</span> <span class="token keyword">TERMINATED BY</span> <span class="token string">','</span>
+<span class="token punctuation">;</span> 
 
--- 3、产品表：dim_product 
+<span class="token comment" spellcheck="true">-- 3、产品表：dim_product </span>
 
-create table lagou_kylin.dim_product( 
-    productId string,
+<span class="token keyword">create</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dim_product<span class="token punctuation">(</span> 
+    productId string<span class="token punctuation">,</span>
     productName string
-)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;,&#39;
-; 
+<span class="token punctuation">)</span>
+<span class="token keyword">ROW</span> FORMAT DELIMITED <span class="token keyword">FIELDS</span> <span class="token keyword">TERMINATED BY</span> <span class="token string">','</span>
+<span class="token punctuation">;</span> 
 
---4、区域表：dim_region 
+<span class="token comment" spellcheck="true">--4、区域表：dim_region </span>
 
-create table lagou_kylin.dim_region( 
-    regionId string,
+<span class="token keyword">create</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dim_region<span class="token punctuation">(</span> 
+    regionId string<span class="token punctuation">,</span>
     regionName string 
-)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;,&#39;;
+<span class="token punctuation">)</span>
+<span class="token keyword">ROW</span> FORMAT DELIMITED <span class="token keyword">FIELDS</span> <span class="token keyword">TERMINATED BY</span> <span class="token string">','</span><span class="token punctuation">;</span>
 
--- 导入数据 
-LOAD DATA LOCAL INPATH &#39;/root/kylin/dw_sales_data.txt&#39; OVERWRITE INTO TABLE 
-lagou_kylin.dw_sales; 
+<span class="token comment" spellcheck="true">-- 导入数据 </span>
+<span class="token keyword">LOAD</span> <span class="token keyword">DATA</span> <span class="token keyword">LOCAL</span> INPATH <span class="token string">'/root/kylin/dw_sales_data.txt'</span> OVERWRITE <span class="token keyword">INTO</span> <span class="token keyword">TABLE</span> 
+lagou_kylin<span class="token punctuation">.</span>dw_sales<span class="token punctuation">;</span> 
 
-LOAD DATA LOCAL INPATH &#39;/root/kylin/dim_channel_data.txt&#39; OVERWRITE INTO TABLE lagou_kylin.dim_channel; 
+<span class="token keyword">LOAD</span> <span class="token keyword">DATA</span> <span class="token keyword">LOCAL</span> INPATH <span class="token string">'/root/kylin/dim_channel_data.txt'</span> OVERWRITE <span class="token keyword">INTO</span> <span class="token keyword">TABLE</span> lagou_kylin<span class="token punctuation">.</span>dim_channel<span class="token punctuation">;</span> 
 
-LOAD DATA LOCAL INPATH &#39;/root/kylin/dim_product_data.txt&#39; OVERWRITE INTO TABLE lagou_kylin.dim_product;
+<span class="token keyword">LOAD</span> <span class="token keyword">DATA</span> <span class="token keyword">LOCAL</span> INPATH <span class="token string">'/root/kylin/dim_product_data.txt'</span> OVERWRITE <span class="token keyword">INTO</span> <span class="token keyword">TABLE</span> lagou_kylin<span class="token punctuation">.</span>dim_product<span class="token punctuation">;</span>
 
-LOAD DATA LOCAL INPATH &#39;/root/kylin/dim_region_data.txt&#39; OVERWRITE INTO TABLE lagou_kylin.dim_region;
-</code></pre>
-<h5 id="3-1-2、执行脚本"><a href="#3-1-2、执行脚本" class="headerlink" title="3.1.2、执行脚本"></a>3.1.2、执行脚本</h5><pre><code class="bash"> hive -f kylin_examples.sql
-</code></pre>
-<h5 id="3-1-3、检查建表、数据导入操作是否成功"><a href="#3-1-3、检查建表、数据导入操作是否成功" class="headerlink" title="3.1.3、检查建表、数据导入操作是否成功"></a>3.1.3、检查建表、数据导入操作是否成功</h5><h5 id="3-1-4、按照日期统计订单量、订单总金额"><a href="#3-1-4、按照日期统计订单量、订单总金额" class="headerlink" title="3.1.4、按照日期统计订单量、订单总金额"></a>3.1.4、按照日期统计订单量、订单总金额</h5><pre><code class="sql">use lagou_kylin; 
+<span class="token keyword">LOAD</span> <span class="token keyword">DATA</span> <span class="token keyword">LOCAL</span> INPATH <span class="token string">'/root/kylin/dim_region_data.txt'</span> OVERWRITE <span class="token keyword">INTO</span> <span class="token keyword">TABLE</span> lagou_kylin<span class="token punctuation">.</span>dim_region<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="3-1-2、执行脚本"><a href="#3-1-2、执行脚本" class="headerlink" title="3.1.2、执行脚本"></a>3.1.2、执行脚本</h5><pre class="line-numbers language-bash"><code class="language-bash"> hive -f kylin_examples.sql
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="3-1-3、检查建表、数据导入操作是否成功"><a href="#3-1-3、检查建表、数据导入操作是否成功" class="headerlink" title="3.1.3、检查建表、数据导入操作是否成功"></a>3.1.3、检查建表、数据导入操作是否成功</h5><h5 id="3-1-4、按照日期统计订单量、订单总金额"><a href="#3-1-4、按照日期统计订单量、订单总金额" class="headerlink" title="3.1.4、按照日期统计订单量、订单总金额"></a>3.1.4、按照日期统计订单量、订单总金额</h5><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">use</span> lagou_kylin<span class="token punctuation">;</span> 
 
-select 
-    date1, 
-    sum(price) as total_money, 
-    sum(amount) as total_amount 
-from 
+<span class="token keyword">select</span> 
+    date1<span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">as</span> total_money<span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">as</span> total_amount 
+<span class="token keyword">from</span> 
     dw_sales 
-group by date1
-;
-</code></pre>
+<span class="token keyword">group</span> <span class="token keyword">by</span> date1
+<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="3-1-5、维表优化"><a href="#3-1-5、维表优化" class="headerlink" title="3.1.5、维表优化"></a>3.1.5、维表优化</h5><blockquote>
 <ul>
 <li><p>要具有数据一致性，<strong>主键值必须是唯一的</strong>（否则 <code>Kylin</code> 构建过程会报错）</p>
@@ -1227,17 +1231,17 @@ group by date1
 <li><p>定义<code>Model</code>:描述了一个星型模式的数据结构，定义事实表（<code>Fact Table</code>）和维度表（<code>Lookup Tbale</code>）,以及他们之间的关系。基于一个<code>Model</code>可以构建多个<code>Cube</code>，可以减少重复定义的工作</p>
 </li>
 <li><p>构建<code>Cube</code>：</p>
-<pre><code class="sql">--维度  日期
---指标（度量）  订单商品销售量、销售金额
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--维度  日期</span>
+<span class="token comment" spellcheck="true">--指标（度量）  订单商品销售量、销售金额</span>
 
---SQL
-select date1, sum(price), sum(amount) from dw_sales group by date1;
-</code></pre>
+<span class="token comment" spellcheck="true">--SQL</span>
+<span class="token keyword">select</span> date1<span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">from</span> dw_sales <span class="token keyword">group</span> <span class="token keyword">by</span> date1<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 </blockquote>
-<h5 id="3-2-1、创建项目"><a href="#3-2-1、创建项目" class="headerlink" title="3.2.1、创建项目"></a>3.2.1、创建项目</h5><p><img src="/../image/Kylin/image-20220803090950559.png"></p>
-<h5 id="3-2-2、创建数据源（DataSource）"><a href="#3-2-2、创建数据源（DataSource）" class="headerlink" title="3.2.2、创建数据源（DataSource）"></a>3.2.2、创建数据源（<code>DataSource</code>）</h5><p><img src="/../image/Kylin/image-20220803091041214.png"></p>
+<h5 id="3-2-1、创建项目"><a href="#3-2-1、创建项目" class="headerlink" title="3.2.1、创建项目"></a>3.2.1、创建项目</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803090950559.png"></p>
+<h5 id="3-2-2、创建数据源（DataSource）"><a href="#3-2-2、创建数据源（DataSource）" class="headerlink" title="3.2.2、创建数据源（DataSource）"></a>3.2.2、创建数据源（<code>DataSource</code>）</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803091041214.png"></p>
 <h5 id="3-2-3、创建模型（Model）"><a href="#3-2-3、创建模型（Model）" class="headerlink" title="3.2.3、创建模型（Model）"></a>3.2.3、创建模型（<code>Model</code>）</h5><table>
 <thead>
 <tr>
@@ -1245,37 +1249,37 @@ select date1, sum(price), sum(amount) from dw_sales group by date1;
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220803091401310.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803091401310.png"></td>
 </tr>
 <tr>
 <td>2、指定模型名称</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803091420103.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803091420103.png"></td>
 </tr>
 <tr>
 <td>3、选择事实表</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803091522509.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803091522509.png"></td>
 </tr>
 <tr>
 <td>4、选择维度</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803091539041.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803091539041.png"></td>
 </tr>
 <tr>
 <td>5、指定度量</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803091604162.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803091604162.png"></td>
 </tr>
 <tr>
 <td>6、指定分区和过滤条件</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803091642525.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803091642525.png"></td>
 </tr>
 <tr>
 <td></td>
@@ -1288,81 +1292,81 @@ select date1, sum(price), sum(amount) from dw_sales group by date1;
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220803091953674.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803091953674.png"></td>
 </tr>
 <tr>
 <td>2、选择数据模型&amp;指定<code>Cube</code>名称</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803092025176.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803092025176.png"></td>
 </tr>
 <tr>
 <td>2、指定维度</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803092132293.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803092132293.png"></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803092429330.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803092429330.png"></td>
 </tr>
 <tr>
 <td>3、指定度量</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803092544636.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803092544636.png"></td>
 </tr>
 <tr>
 <td>4、指定刷新设置</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803092612699.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803092612699.png"></td>
 </tr>
 <tr>
 <td>5、高级设置</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803092640960.png" alt="image-20220803092640960"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803092640960.png" alt="image-20220803092640960"></td>
 </tr>
 <tr>
 <td>6、执行构建</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803092924865.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803092924865.png"></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803093005459.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803093005459.png"></td>
 </tr>
 </tbody></table>
-<h5 id="3-2-5、执行SQL语句"><a href="#3-2-5、执行SQL语句" class="headerlink" title="3.2.5、执行SQL语句"></a>3.2.5、执行<code>SQL</code>语句</h5><p><img src="/../image/Kylin/image-20220803093243502.png"></p>
+<h5 id="3-2-5、执行SQL语句"><a href="#3-2-5、执行SQL语句" class="headerlink" title="3.2.5、执行SQL语句"></a>3.2.5、执行<code>SQL</code>语句</h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803093243502.png"></p>
 <h4 id="3-3创建Cube（按照渠道）"><a href="#3-3创建Cube（按照渠道）" class="headerlink" title="3.3创建Cube（按照渠道）"></a>3.3创建<code>Cube</code>（按照渠道）</h4><blockquote>
 <p><code>Cube</code>设计：</p>
 <p>​	维度：渠道</p>
 <p>​	指标：销售金额，最大订单金额，订单的平均金额</p>
-<p><img src="/../image/Kylin/image-20220803093602452.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803093602452.png"></p>
 </blockquote>
-<pre><code class="sql">--SQL
-select 
-    t2.channelid, 
-    t2.channelname, 
-    sum(t1.price), 
-    max(t1.price), 
-    count(t1.price), 
-    avg(t1.price) 
-from 
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--SQL</span>
+<span class="token keyword">select</span> 
+    t2<span class="token punctuation">.</span>channelid<span class="token punctuation">,</span> 
+    t2<span class="token punctuation">.</span>channelname<span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    <span class="token function">max</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    <span class="token function">count</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    <span class="token function">avg</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>price<span class="token punctuation">)</span> 
+<span class="token keyword">from</span> 
     dw_sales t1 
-join 
-    dim_channel t2 on t1.channelid = t2.channelid 
-group by 
-    t2.channelid, t2.channelname;
-</code></pre>
+<span class="token keyword">join</span> 
+    dim_channel t2 <span class="token keyword">on</span> t1<span class="token punctuation">.</span>channelid <span class="token operator">=</span> t2<span class="token punctuation">.</span>channelid 
+<span class="token keyword">group</span> <span class="token keyword">by</span> 
+    t2<span class="token punctuation">.</span>channelid<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>channelname<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr>
-<th>1、创建&#96;model</th>
+<th>1、创建`model</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220803094843634.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803094843634.png"></td>
 </tr>
 <tr>
 <td>2、创建<code>Cube</code></td>
@@ -1371,13 +1375,13 @@ group by
 <td>2.1、定义提维度</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803094935914.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803094935914.png"></td>
 </tr>
 <tr>
 <td>2.2、定义度量</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803094952589.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803094952589.png"></td>
 </tr>
 <tr>
 <td>3、执行构建</td>
@@ -1390,27 +1394,27 @@ group by
 <p><code>Cube</code>设计：</p>
 <p>​	维度：日期、区域、产品、渠道</p>
 <p>​	指标（度量）：销售总金额、订单总比数</p>
-<p><img src="/../image/Kylin/image-20220803095233929.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803095233929.png"></p>
 </blockquote>
-<pre><code class="sql">select
-    t1.date1,
-    t2.regionid, 
-    t2.regionname, 
-    t3.productid, 
-    t3.productname, 
-    sum(t1.price) as total_money, 
-    sum(t1.amount) as total_amount 
-from
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span>
+    t1<span class="token punctuation">.</span>date1<span class="token punctuation">,</span>
+    t2<span class="token punctuation">.</span>regionid<span class="token punctuation">,</span> 
+    t2<span class="token punctuation">.</span>regionname<span class="token punctuation">,</span> 
+    t3<span class="token punctuation">.</span>productid<span class="token punctuation">,</span> 
+    t3<span class="token punctuation">.</span>productname<span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>price<span class="token punctuation">)</span> <span class="token keyword">as</span> total_money<span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token keyword">as</span> total_amount 
+<span class="token keyword">from</span>
     dw_sales t1 
-inner join 
-    dim_region t2 on t1.regionid = t2.regionid 
-inner join 
-    dim_product t3 on t1.productid = t3.productid 
-group by 
-    t1.date1, t2.regionid, t2.regionname, t3.productid, t3.productname 
-order by 
-    t1.date1, t2.regionname, t3.productname
-</code></pre>
+<span class="token keyword">inner</span> <span class="token keyword">join</span> 
+    dim_region t2 <span class="token keyword">on</span> t1<span class="token punctuation">.</span>regionid <span class="token operator">=</span> t2<span class="token punctuation">.</span>regionid 
+<span class="token keyword">inner</span> <span class="token keyword">join</span> 
+    dim_product t3 <span class="token keyword">on</span> t1<span class="token punctuation">.</span>productid <span class="token operator">=</span> t3<span class="token punctuation">.</span>productid 
+<span class="token keyword">group</span> <span class="token keyword">by</span> 
+    t1<span class="token punctuation">.</span>date1<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>regionid<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>regionname<span class="token punctuation">,</span> t3<span class="token punctuation">.</span>productid<span class="token punctuation">,</span> t3<span class="token punctuation">.</span>productname 
+<span class="token keyword">order</span> <span class="token keyword">by</span> 
+    t1<span class="token punctuation">.</span>date1<span class="token punctuation">,</span> t2<span class="token punctuation">.</span>regionname<span class="token punctuation">,</span> t3<span class="token punctuation">.</span>productname
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="3-4-1创建Model"><a href="#3-4-1创建Model" class="headerlink" title="3.4.1创建Model"></a>3.4.1创建<code>Model</code></h5><table>
 <thead>
 <tr>
@@ -1418,19 +1422,19 @@ order by
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220803095636566.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803095636566.png"></td>
 </tr>
 <tr>
 <td>2、指定维度字段</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803095652823.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803095652823.png"></td>
 </tr>
 <tr>
 <td>3、指定度量字段</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803095721463.png" alt="image-20220803095721463"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803095721463.png" alt="image-20220803095721463"></td>
 </tr>
 </tbody></table>
 <h5 id="3-4-2、创建Cube"><a href="#3-4-2、创建Cube" class="headerlink" title="3.4.2、创建Cube"></a>3.4.2、创建<code>Cube</code></h5><table>
@@ -1440,13 +1444,13 @@ order by
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220803095811421.png"><img src="/../image/Kylin/image-20220803095823686.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803095811421.png"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803095823686.png"></td>
 </tr>
 <tr>
 <td>2、指定指标(度量)</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803095852462.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803095852462.png"></td>
 </tr>
 <tr>
 <td>3、执行构建<code>Cube</code></td>
@@ -1482,7 +1486,7 @@ order by
 <li></li>
 </ul>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803101201509.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803101201509.png"></p>
 <h4 id="4-2、全量构建与增量构建"><a href="#4-2、全量构建与增量构建" class="headerlink" title="4.2、全量构建与增量构建"></a>4.2、全量构建与增量构建</h4><h5 id="4-2-1、全量构建"><a href="#4-2-1、全量构建" class="headerlink" title="4.2.1、全量构建"></a>4.2.1、全量构建</h5><blockquote>
 <ul>
 <li><p><code>Cube中</code>只存在<strong>唯一</strong>的一个<code>Segment</code></p>
@@ -1549,33 +1553,33 @@ order by
 </ul>
 </blockquote>
 <h4 id="4-3、增量构建Cube"><a href="#4-3、增量构建Cube" class="headerlink" title="4.3、增量构建Cube"></a>4.3、增量构建<code>Cube</code></h4><blockquote>
-<p>步骤：定义数据源 &#x3D;&gt; 定义<code>model</code> &#x3D;&gt; 定义<code>Cube</code> &#x3D;&gt; 构建<code>Cube</code></p>
+<p>步骤：定义数据源 =&gt; 定义<code>model</code> =&gt; 定义<code>Cube</code> =&gt; 构建<code>Cube</code></p>
 </blockquote>
-<h5 id="4-3-1、定义数据源"><a href="#4-3-1、定义数据源" class="headerlink" title="4.3.1、定义数据源"></a>4.3.1、定义数据源</h5><pre><code class="sql">-- 数据结构类似，只是改为了分区表 
+<h5 id="4-3-1、定义数据源"><a href="#4-3-1、定义数据源" class="headerlink" title="4.3.1、定义数据源"></a>4.3.1、定义数据源</h5><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 数据结构类似，只是改为了分区表 </span>
 
-drop table lagou_kylin.dw_sales1; 
+<span class="token keyword">drop</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dw_sales1<span class="token punctuation">;</span> 
 
-create table lagou_kylin.dw_sales1( 
-    id string, 
-    channelId string, 
-    productId string,
-    regionId string, 
-    amount int, 
-    price double
-)
-partitioned by (dt string) 
-ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;,&#39;; 
+<span class="token keyword">create</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dw_sales1<span class="token punctuation">(</span> 
+    id string<span class="token punctuation">,</span> 
+    channelId string<span class="token punctuation">,</span> 
+    productId string<span class="token punctuation">,</span>
+    regionId string<span class="token punctuation">,</span> 
+    amount <span class="token keyword">int</span><span class="token punctuation">,</span> 
+    price <span class="token keyword">double</span>
+<span class="token punctuation">)</span>
+partitioned <span class="token keyword">by</span> <span class="token punctuation">(</span>dt string<span class="token punctuation">)</span> 
+<span class="token keyword">ROW</span> FORMAT DELIMITED <span class="token keyword">FIELDS</span> <span class="token keyword">TERMINATED BY</span> <span class="token string">','</span><span class="token punctuation">;</span> 
 
--- 加载数据 
-load data local inpath &quot;/root/kylin/dw_sales1001_data.txt&quot; into table lagou_kylin.dw_sales1 partition(dt=&quot;2020-10-01&quot;); 
+<span class="token comment" spellcheck="true">-- 加载数据 </span>
+<span class="token keyword">load</span> <span class="token keyword">data</span> <span class="token keyword">local</span> inpath <span class="token string">"/root/kylin/dw_sales1001_data.txt"</span> <span class="token keyword">into</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dw_sales1 <span class="token keyword">partition</span><span class="token punctuation">(</span>dt<span class="token operator">=</span><span class="token string">"2020-10-01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-load data local inpath &quot;/root/kylin/dw_sales1002_data.txt&quot; into table lagou_kylin.dw_sales1 partition(dt=&quot;2020-10-02&quot;); 
+<span class="token keyword">load</span> <span class="token keyword">data</span> <span class="token keyword">local</span> inpath <span class="token string">"/root/kylin/dw_sales1002_data.txt"</span> <span class="token keyword">into</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dw_sales1 <span class="token keyword">partition</span><span class="token punctuation">(</span>dt<span class="token operator">=</span><span class="token string">"2020-10-02"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-load data local inpath &quot;/root/kylin/dw_sales1003_data.txt&quot; into table lagou_kylin.dw_sales1 partition(dt=&quot;2020-10-03&quot;); 
+<span class="token keyword">load</span> <span class="token keyword">data</span> <span class="token keyword">local</span> inpath <span class="token string">"/root/kylin/dw_sales1003_data.txt"</span> <span class="token keyword">into</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dw_sales1 <span class="token keyword">partition</span><span class="token punctuation">(</span>dt<span class="token operator">=</span><span class="token string">"2020-10-03"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-load data local inpath &quot;/root/kylin/dw_sales1004_data.txt&quot; into table lagou_kylin.dw_sales1 partition(dt=&quot;2020-10-04&quot;);
-</code></pre>
-<p><img src="/../image/Kylin/image-20220803103302496.png"></p>
+<span class="token keyword">load</span> <span class="token keyword">data</span> <span class="token keyword">local</span> inpath <span class="token string">"/root/kylin/dw_sales1004_data.txt"</span> <span class="token keyword">into</span> <span class="token keyword">table</span> lagou_kylin<span class="token punctuation">.</span>dw_sales1 <span class="token keyword">partition</span><span class="token punctuation">(</span>dt<span class="token operator">=</span><span class="token string">"2020-10-04"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803103302496.png"></p>
 <h5 id="4-3-2、定义Model"><a href="#4-3-2、定义Model" class="headerlink" title="4.3.2、定义Model"></a>4.3.2、定义<code>Model</code></h5><blockquote>
 <p><strong>增量构建的Cube需要指定分割时间列</strong>。例如：将日期分区字段添加到维度列中</p>
 </blockquote>
@@ -1586,22 +1590,22 @@ load data local inpath &quot;/root/kylin/dw_sales1004_data.txt&quot; into table 
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220803103437823.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803103437823.png"></td>
 </tr>
 <tr>
 <td>配置分区列，并指定日期格式</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220803103453883.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803103453883.png"></td>
 </tr>
 </tbody></table>
 <h5 id="4-3-3、定义Cube"><a href="#4-3-3、定义Cube" class="headerlink" title="4.3.3、定义Cube"></a>4.3.3、定义<code>Cube</code></h5><h5 id="4-3-4、构建Cube"><a href="#4-3-4、构建Cube" class="headerlink" title="4.3.4、构建Cube"></a>4.3.4、构建<code>Cube</code></h5><blockquote>
 <p>需要输入分割时间</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803104653019.png"></p>
-<h5 id="4-3-5、查看Segment"><a href="#4-3-5、查看Segment" class="headerlink" title="4.3.5、查看Segment"></a>4.3.5、查看<code>Segment</code></h5><p><img src="/../image/Kylin/image-20220803104801019.png"></p>
-<h5 id="4-3-6、增量构建Cube"><a href="#4-3-6、增量构建Cube" class="headerlink" title="4.3.6、增量构建Cube"></a>4.3.6、增量构建<code>Cube</code></h5><p><img src="/../image/Kylin/image-20220803104840863.png"></p>
-<h5 id="4-3-7、查看对应的Segment"><a href="#4-3-7、查看对应的Segment" class="headerlink" title="4.3.7、查看对应的Segment"></a>4.3.7、查看对应的<code>Segment</code></h5><p><img src="/../image/Kylin/image-20220803104917783.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803104653019.png"></p>
+<h5 id="4-3-5、查看Segment"><a href="#4-3-5、查看Segment" class="headerlink" title="4.3.5、查看Segment"></a>4.3.5、查看<code>Segment</code></h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803104801019.png"></p>
+<h5 id="4-3-6、增量构建Cube"><a href="#4-3-6、增量构建Cube" class="headerlink" title="4.3.6、增量构建Cube"></a>4.3.6、增量构建<code>Cube</code></h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803104840863.png"></p>
+<h5 id="4-3-7、查看对应的Segment"><a href="#4-3-7、查看对应的Segment" class="headerlink" title="4.3.7、查看对应的Segment"></a>4.3.7、查看对应的<code>Segment</code></h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803104917783.png"></p>
 <h4 id="4-4、Segment管理"><a href="#4-4、Segment管理" class="headerlink" title="4.4、Segment管理"></a>4.4、<code>Segment</code>管理</h4><blockquote>
 <p>增量构建的<code>Cube</code>每天都可能会有新的增量，这样的<code>Cube</code>中最终可能包含很多</p>
 <p><code>Segment</code>，这将导致<code>Kylin</code>性能受到严重影响：</p>
@@ -1619,7 +1623,7 @@ load data local inpath &quot;/root/kylin/dw_sales1004_data.txt&quot; into table 
 <p><code>Kylin</code>提供了一种简单的机制用于控制<code>Cube</code>中<code>Segment</code>的数量：合并<code>Segments</code>。在</p>
 <p><code>Web GUI</code>中选中需要进行<code>Segments</code>合并的<code>Cube</code>。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803105330497.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803105330497.png"></p>
 <blockquote>
 <p>选中需要合并的S<code>egment</code>，<strong>可以同时合并多个<code>Segment</code>，但这些Segment必须是连续的</strong></p>
 <p>单击提交后系统会提交一个类型为<code>MERGE</code>的构建任务，它以选中的<code>Segment</code>中的数据作为</p>
@@ -1629,7 +1633,7 @@ load data local inpath &quot;/root/kylin/dw_sales1004_data.txt&quot; into table 
 <blockquote>
 <p>查看合并任务</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803105522559.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803105522559.png"></p>
 <blockquote>
 <p><strong>注意事项</strong>：</p>
 <ul>
@@ -1641,11 +1645,11 @@ load data local inpath &quot;/root/kylin/dw_sales1004_data.txt&quot; into table 
 <h5 id="4-4-2、删除Segment"><a href="#4-4-2、删除Segment" class="headerlink" title="4.4.2、删除Segment"></a>4.4.2、删除<code>Segment</code></h5><blockquote>
 <p><code>Disable  Cube</code></p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803105850523.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803105850523.png"></p>
 <blockquote>
 <p>点击 <code>delete Segment</code>，删除指定的<code>segment</code></p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803105933428.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803105933428.png"></p>
 <h5 id="4-4-3、自动合并Segment"><a href="#4-4-3、自动合并Segment" class="headerlink" title="4.4.3、自动合并Segment"></a>4.4.3、自动合并<code>Segment</code></h5><blockquote>
 <p>手动维护<code>Segment</code>很繁琐，人工成本很高，<code>Kylin</code>中是可以支持自动合<code>并Segment</code>。</p>
 <p>在<code>Cube Designer</code>的<code>Refresh Settings</code>的页面中有：</p>
@@ -1654,7 +1658,7 @@ load data local inpath &quot;/root/kylin/dw_sales1004_data.txt&quot; into table 
 <li>Retention Threshold   保留策略</li>
 </ul>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803133954390.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803133954390.png"></p>
 <blockquote>
 <p><code>Auto Merge Thresholds</code></p>
 <ol>
@@ -1680,94 +1684,94 @@ load data local inpath &quot;/root/kylin/dw_sales1004_data.txt&quot; into table 
 <p>可以将<code>Retention Threshold</code>设置为365。每当有新的<code>Segment</code>状态变为 <code>READY</code> 的</p>
 <p>时候，系统会检查每一个<code>Segment</code>。**如果它的结束时间距离最晚的一个 <code>Segment </code>的</p>
 <p>结束时间已经大于等于 <code>Retention Threshold</code> ，那么这个<code>Segment</code>将被视为无需保</p>
-<p>留。系统会自动地从<code>Cube</code>中删除这个Segment&#96;。</p>
+<p>留。系统会自动地从<code>Cube</code>中删除这个Segment`。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803135656102.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803135656102.png"></p>
 <h5 id="4-4-5、使用JDBC连接操作Kylin"><a href="#4-4-5、使用JDBC连接操作Kylin" class="headerlink" title="4.4.5、使用JDBC连接操作Kylin"></a>4.4.5、使用<code>JDBC</code>连接操作<code>Kylin</code></h5><blockquote>
 <p>使用<code>Kylin</code>的<code>JDBC</code>与<code>JDBC</code>操作<code>MySQL</code>一致</p>
 <ul>
-<li><code>jdbc url</code>： <code>jdbc:kylin://linux122:7070/lagou_sales_olap</code> &#x3D;&gt; <code>lagou_sales_olap</code>项目名曾</li>
-<li>用户名密码：<code>ADMIN</code>&#x2F;<code>KYLIN</code></li>
+<li><code>jdbc url</code>： <code>jdbc:kylin://linux122:7070/lagou_sales_olap</code> =&gt; <code>lagou_sales_olap</code>项目名曾</li>
+<li>用户名密码：<code>ADMIN</code>/<code>KYLIN</code></li>
 </ul>
 </blockquote>
 <blockquote>
 <p>导入依赖</p>
 </blockquote>
-<pre><code class="xml">&lt;dependency&gt; 
-    &lt;groupId&gt;org.apache.kylin&lt;/groupId&gt; 
-    &lt;artifactId&gt;kylin-jdbc&lt;/artifactId&gt; 
-    &lt;version&gt;3.1.1&lt;/version&gt; 
-&lt;/dependency&gt;
-</code></pre>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.kylin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>kylin-jdbc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.1.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>开发流程</p>
 </blockquote>
-<pre><code class="java">package cn.lagou.other 
-import java.sql.DriverManager 
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>lagou<span class="token punctuation">.</span>other 
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>DriverManager 
     
-object KylinJDBC &#123; 
+object KylinJDBC <span class="token punctuation">{</span> 
     
-    def main(args: Array[String]): Unit = &#123; 
+    def <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span>String<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> Unit <span class="token operator">=</span> <span class="token punctuation">{</span> 
         
-        // 创建Connection连接对象 
-        val url = &quot;jdbc:kylin://linux122:7070/lagou_ sales_olap&quot;
-        val connection = DriverManager.getConnection(url, &quot;ADMIN&quot;, &quot;KYLIN&quot;) 
+        <span class="token comment" spellcheck="true">// 创建Connection连接对象 </span>
+        val url <span class="token operator">=</span> <span class="token string">"jdbc:kylin://linux122:7070/lagou_ sales_olap"</span>
+        val connection <span class="token operator">=</span> DriverManager<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token string">"ADMIN"</span><span class="token punctuation">,</span> <span class="token string">"KYLIN"</span><span class="token punctuation">)</span> 
             
-        // 创建Statement对象，并执行executeQuery，获取ResultSet 
-        val statement = connection.createStatement()
+        <span class="token comment" spellcheck="true">// 创建Statement对象，并执行executeQuery，获取ResultSet </span>
+        val statement <span class="token operator">=</span> connection<span class="token punctuation">.</span><span class="token function">createStatement</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             
-        // 构建SQL和语句 
-        val sql = &quot;&quot;&quot;
-            |select 
-                | t1.dt, 
-                | t2.regionid, 
-                | t2.regionname, 
-                | t3.productid, 
-                | t3.productname,
-                | sum(t1.price) as total_money, 
-                | sum(t1.amount) as total_amount 
-            |from
-            | dw_sales1 t1 
-            |inner join dim_region t2 
-                    |on t1.regionid = t2.regionid 
-                    |inner join dim_product t3 
-                    |on t1.productid = t3.productid 
-                    |group by 
-                    | t1.dt, 
-        | t2.regionid, 
-        | t2.regionname, 
-        | t3.productid, 
-        | t3.productname 
-            |order by 
-            | t1.dt, 
-        | t2.regionname, 
-        | t3.productname 
-            |&quot;&quot;&quot;.stripMargin 
+        <span class="token comment" spellcheck="true">// 构建SQL和语句 </span>
+        val sql <span class="token operator">=</span> <span class="token string">""</span>"
+            <span class="token operator">|</span>select 
+                <span class="token operator">|</span> t1<span class="token punctuation">.</span>dt<span class="token punctuation">,</span> 
+                <span class="token operator">|</span> t2<span class="token punctuation">.</span>regionid<span class="token punctuation">,</span> 
+                <span class="token operator">|</span> t2<span class="token punctuation">.</span>regionname<span class="token punctuation">,</span> 
+                <span class="token operator">|</span> t3<span class="token punctuation">.</span>productid<span class="token punctuation">,</span> 
+                <span class="token operator">|</span> t3<span class="token punctuation">.</span>productname<span class="token punctuation">,</span>
+                <span class="token operator">|</span> <span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>price<span class="token punctuation">)</span> as total_money<span class="token punctuation">,</span> 
+                <span class="token operator">|</span> <span class="token function">sum</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>amount<span class="token punctuation">)</span> as total_amount 
+            <span class="token operator">|</span>from
+            <span class="token operator">|</span> dw_sales1 t1 
+            <span class="token operator">|</span>inner join dim_region t2 
+                    <span class="token operator">|</span>on t1<span class="token punctuation">.</span>regionid <span class="token operator">=</span> t2<span class="token punctuation">.</span>regionid 
+                    <span class="token operator">|</span>inner join dim_product t3 
+                    <span class="token operator">|</span>on t1<span class="token punctuation">.</span>productid <span class="token operator">=</span> t3<span class="token punctuation">.</span>productid 
+                    <span class="token operator">|</span>group by 
+                    <span class="token operator">|</span> t1<span class="token punctuation">.</span>dt<span class="token punctuation">,</span> 
+        <span class="token operator">|</span> t2<span class="token punctuation">.</span>regionid<span class="token punctuation">,</span> 
+        <span class="token operator">|</span> t2<span class="token punctuation">.</span>regionname<span class="token punctuation">,</span> 
+        <span class="token operator">|</span> t3<span class="token punctuation">.</span>productid<span class="token punctuation">,</span> 
+        <span class="token operator">|</span> t3<span class="token punctuation">.</span>productname 
+            <span class="token operator">|</span>order by 
+            <span class="token operator">|</span> t1<span class="token punctuation">.</span>dt<span class="token punctuation">,</span> 
+        <span class="token operator">|</span> t2<span class="token punctuation">.</span>regionname<span class="token punctuation">,</span> 
+        <span class="token operator">|</span> t3<span class="token punctuation">.</span>productname 
+            <span class="token operator">|</span><span class="token string">""</span>"<span class="token punctuation">.</span>stripMargin 
             
-        val resultSet = statement.executeQuery(sql) 
-        println(&quot;dt regionname productname total_money total_amount &quot;) 
-        while (resultSet.next()) &#123; 
-            // 获取时间 
-            val dt: String = resultSet.getString(&quot;dt&quot;)
+        val resultSet <span class="token operator">=</span> statement<span class="token punctuation">.</span><span class="token function">executeQuery</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span> 
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"dt regionname productname total_money total_amount "</span><span class="token punctuation">)</span> 
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>resultSet<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            <span class="token comment" spellcheck="true">// 获取时间 </span>
+            val dt<span class="token operator">:</span> String <span class="token operator">=</span> resultSet<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"dt"</span><span class="token punctuation">)</span>
                 
-            // 获取区域名称 
-            val regionname: String = resultSet.getString(&quot;regionname&quot;) 
+            <span class="token comment" spellcheck="true">// 获取区域名称 </span>
+            val regionname<span class="token operator">:</span> String <span class="token operator">=</span> resultSet<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"regionname"</span><span class="token punctuation">)</span> 
                 
-            // 获取产品名称 
-            val productname: String = resultSet.getString(&quot;productname&quot;) 
+            <span class="token comment" spellcheck="true">// 获取产品名称 </span>
+            val productname<span class="token operator">:</span> String <span class="token operator">=</span> resultSet<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"productname"</span><span class="token punctuation">)</span> 
                 
-            // 总金额 
-            val total_money: String = resultSet.getString(&quot;total_money&quot;) 
+            <span class="token comment" spellcheck="true">// 总金额 </span>
+            val total_money<span class="token operator">:</span> String <span class="token operator">=</span> resultSet<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"total_money"</span><span class="token punctuation">)</span> 
                 
-            // 总数量 
-            val total_amount: String = resultSet.getString(&quot;total_amount&quot;) 
+            <span class="token comment" spellcheck="true">// 总数量 </span>
+            val total_amount<span class="token operator">:</span> String <span class="token operator">=</span> resultSet<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"total_amount"</span><span class="token punctuation">)</span> 
                 
-            println(f&quot;$dt $regionname $productname%-10s $total_money%10s 							$total_amount%10s&quot;) 
-        &#125;
-        connection.close 
-    &#125; 
-&#125;
-</code></pre>
+            <span class="token function">println</span><span class="token punctuation">(</span>f<span class="token string">"$dt $regionname $productname%-10s $total_money%10s 							$total_amount%10s"</span><span class="token punctuation">)</span> 
+        <span class="token punctuation">}</span>
+        connection<span class="token punctuation">.</span>close 
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="5、Cube优化"><a href="#5、Cube优化" class="headerlink" title="5、Cube优化"></a>5、<code>Cube</code>优化</h3><h4 id="5-1、Cuboid剪枝优化"><a href="#5-1、Cuboid剪枝优化" class="headerlink" title="5.1、Cuboid剪枝优化"></a>5.1、<code>Cuboid</code>剪枝优化</h4><blockquote>
 <p><code>Cuboid</code> 特指 <code>Kylin</code> 中在某一种维度组合下所计算的所有数据。</p>
 <p><strong>以减少<code>Cuboid</code>数量为目的的优化统称为<code>Cuboid</code>剪枝</strong>。</p>
@@ -1775,9 +1779,9 @@ object KylinJDBC &#123;
 <blockquote>
 <p>在没有采取任何优化措施的情况下，<code>Kylin</code>会对每一种维度的组合进行预计算:</p>
 <ul>
-<li>如果有4个维度，可能最终会有 2^4 &#x3D;16个<code>Cuboid</code>需要计算</li>
-<li>如果有10个维度，那么没有经过任何优化的Cube就会存在 2^10 &#x3D;1024 个<code>Cuboid</code></li>
-<li>如果有20个维度，那么Cube中总共会存在 2^20 &#x3D; 1,048,576 个 <code>Cuboid</code></li>
+<li>如果有4个维度，可能最终会有 2^4 =16个<code>Cuboid</code>需要计算</li>
+<li>如果有10个维度，那么没有经过任何优化的Cube就会存在 2^10 =1024 个<code>Cuboid</code></li>
+<li>如果有20个维度，那么Cube中总共会存在 2^20 = 1,048,576 个 <code>Cuboid</code></li>
 </ul>
 </blockquote>
 <blockquote>
@@ -1791,39 +1795,39 @@ object KylinJDBC &#123;
 <h4 id="5-2、检查Cuboid数量"><a href="#5-2、检查Cuboid数量" class="headerlink" title="5.2、检查Cuboid数量"></a>5.2、检查<code>Cuboid</code>数量</h4><blockquote>
 <p>使用如下的命令行工具去检查这个<code>Cube</code>中的<code>Cuboid</code>状态：</p>
 </blockquote>
-<pre><code class="bash">kylin.sh org.apache.kylin.engine.mr.common.CubeStatsReader lagou_sales_cube4
+<pre class="line-numbers language-bash"><code class="language-bash">kylin.sh org.apache.kylin.engine.mr.common.CubeStatsReader lagou_sales_cube4
 
-##结果
-============================================================== ============== 
-Statistics of lagou_sales_cube4[20201001000000_20201004000000] 
+<span class="token comment" spellcheck="true">##结果</span>
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span> 
+Statistics of lagou_sales_cube4<span class="token punctuation">[</span>20201001000000_20201004000000<span class="token punctuation">]</span> 
 
 Cube statistics hll precision: 14 
 Total cuboids: 15 
 Total estimated rows: 203 
-Total estimated size(MB): 0.0027539730072021484 
+Total estimated size<span class="token punctuation">(</span>MB<span class="token punctuation">)</span>: 0.0027539730072021484 
 Sampling percentage: 100 Mapper overlap ratio: 0.0 
 Mapper number: 0 
 Length of dimension LAGOU_KYLIN.DW_SALES1.DT is 1 
 Length of dimension LAGOU_KYLIN.DW_SALES1.PRODUCTID is 1 
 Length of dimension LAGOU_KYLIN.DW_SALES1.CHANNELID is 1 
 Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1 
-|---- Cuboid 1111, est row: 54, est MB: 0 
-    |---- Cuboid 0111, est row: 18, est MB: 0, shrink: 33.33% 
-        |---- Cuboid 0011, est row: 6, est MB: 0, shrink: 33.33% 
-            |---- Cuboid 0001, est row: 2, est MB: 0, shrink: 33.33% 
-            |---- Cuboid 0010, est row: 3, est MB: 0, shrink: 50% 
-        |---- Cuboid 0101, est row: 8, est MB: 0, shrink: 44.44% 
-            |---- Cuboid 0100, est row: 4, est MB: 0, shrink: 50% 
-        |---- Cuboid 0110, est row: 9, est MB: 0, shrink: 50% 
-    |---- Cuboid 1011, est row: 18, est MB: 0, shrink: 33.33% 
-        |---- Cuboid 1001, est row: 6, est MB: 0, shrink: 33.33% 
-            |---- Cuboid 1000, est row: 3, est MB: 0, shrink: 50% 
-        |---- Cuboid 1010, est row: 9, est MB: 0, shrink: 50% 
-    |---- Cuboid 1101, est row: 24, est MB: 0, shrink: 44.44% 
-        |---- Cuboid 1100, est row: 12, est MB: 0, shrink: 50% 
-    |---- Cuboid 1110, est row: 27, est MB: 0, shrink: 50%
+<span class="token operator">|</span>---- Cuboid 1111, est row: 54, est MB: 0 
+    <span class="token operator">|</span>---- Cuboid 0111, est row: 18, est MB: 0, shrink: 33.33% 
+        <span class="token operator">|</span>---- Cuboid 0011, est row: 6, est MB: 0, shrink: 33.33% 
+            <span class="token operator">|</span>---- Cuboid 0001, est row: 2, est MB: 0, shrink: 33.33% 
+            <span class="token operator">|</span>---- Cuboid 0010, est row: 3, est MB: 0, shrink: 50% 
+        <span class="token operator">|</span>---- Cuboid 0101, est row: 8, est MB: 0, shrink: 44.44% 
+            <span class="token operator">|</span>---- Cuboid 0100, est row: 4, est MB: 0, shrink: 50% 
+        <span class="token operator">|</span>---- Cuboid 0110, est row: 9, est MB: 0, shrink: 50% 
+    <span class="token operator">|</span>---- Cuboid 1011, est row: 18, est MB: 0, shrink: 33.33% 
+        <span class="token operator">|</span>---- Cuboid 1001, est row: 6, est MB: 0, shrink: 33.33% 
+            <span class="token operator">|</span>---- Cuboid 1000, est row: 3, est MB: 0, shrink: 50% 
+        <span class="token operator">|</span>---- Cuboid 1010, est row: 9, est MB: 0, shrink: 50% 
+    <span class="token operator">|</span>---- Cuboid 1101, est row: 24, est MB: 0, shrink: 44.44% 
+        <span class="token operator">|</span>---- Cuboid 1100, est row: 12, est MB: 0, shrink: 50% 
+    <span class="token operator">|</span>---- Cuboid 1110, est row: 27, est MB: 0, shrink: 50%
     
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <ul>
 <li>所有的 <code>Cuboid</code> 及它的分析结果都以树状的形式打印了出来</li>
@@ -1840,7 +1844,7 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <p><code>WebGUI</code>会提示<code>Cube</code>的源数据大小，以及当前<code>Cube</code>的大小除以源数据大小的比例，称为膨胀</p>
 <p>率(Expansion Rate）</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220803154136385.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220803154136385.png"></p>
 <blockquote>
 <p>一般来说，<code>Cube</code>的膨胀率应该在0%~1000%之间，如果一个<code>Cube</code>的膨胀率超过1000%，那么应当查</p>
 <p>找其中的原因。膨胀率高可能有以下几个方面的原因：</p>
@@ -1881,7 +1885,7 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <li>联合维度（<code>Joint Dimension</code>）</li>
 </ul>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804100730012.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804100730012.png"></p>
 <h5 id="5-5-1、聚合组"><a href="#5-5-1、聚合组" class="headerlink" title="5.5.1、聚合组"></a>5.5.1、聚合组</h5><blockquote>
 <p>默认 <code>Kylin</code>会把所有维度放在同一个聚合组中。</p>
 <p>如果维度数较多（如维度数 &gt; 15），建议用户根据查询的习惯和模式，将维度分布到多个聚合组中。通</p>
@@ -1903,25 +1907,25 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <p>构建<code> N</code> 个维度的 <code>Cube</code> 会生成 <code>2^N</code>个<code> Cuboid</code>。如下图所示，构建一个 4 个维度（A，B，C, D）的 </p>
 <p><code>Cube</code>，需要生成 16 个<code>Cuboid</code>。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804102524917.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804102524917.png"></p>
 <blockquote>
 <p>根据用户关注的维度组合，可以维度划分不同的组合类，这些组合类在 <code>Kylin</code> 中被称为聚合组。如用户</p>
 <p>仅仅关注维度 <code>AB</code> 组合和维度 <code>CD</code> 组合，那么该 <code>Cube</code> 则可以被分化成两个聚合组，分别是聚合组 <code>AB</code> </p>
 <p>和聚合组 <code>CD</code>。生成的 <code>Cuboid</code> 数目从 16 个缩减为 8 个</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804102626550.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804102626550.png"></p>
 <blockquote>
 <p>用户关心的聚合组之间可能包含相同的维度。如聚合组 <code>ABC</code> 和聚合组 <code>BCD</code> 都包含维度 <code>B</code> 和维度 <code>C</code>。</p>
 <p>这些聚合组之间会衍生出相同的<code> Cuboid</code>。聚合组 <code>ABC </code>会产生<code>Cuboid BC</code>，聚合组 <code>BCD </code>也会产生 </p>
 <p><code>Cuboid BC</code>。这些 Cuboid不会重复生成，一份<code>Cuboid </code>为这些聚合组所共有。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804102725205.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804102725205.png"></p>
 <blockquote>
 <p>有了聚合组就可以<strong>粗粒度</strong>地对 <code>Cuboid</code> 进行筛选，获取自己想要的维度组合。<code>Kylin</code>的建模需要业务</p>
 <p>专家参与。</p>
 </blockquote>
 <h5 id="5-5-2、强制维度（Mandatory-Dimension）"><a href="#5-5-2、强制维度（Mandatory-Dimension）" class="headerlink" title="5.5.2、强制维度（Mandatory Dimension）"></a>5.5.2、强制维度（<code>Mandatory Dimension</code>）</h5><blockquote>
-<p><strong>强制</strong>&#x2F;<strong>必要</strong> 维度：指的是那些总会出现在<code>Where</code> 条件或<code>Group By</code> 语句中的维度。</p>
+<p><strong>强制</strong>/<strong>必要</strong> 维度：指的是那些总会出现在<code>Where</code> 条件或<code>Group By</code> 语句中的维度。</p>
 </blockquote>
 <blockquote>
 <p>通过指定某些维度为强制维度，<code>Kylin</code> 不预计算那些不包含此维度的 <code>Cuboid</code> ，从而减少计算量。</p>
@@ -1929,7 +1933,7 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <blockquote>
 <p>维度<code>A</code>是强制维度，那么生成的 <code>Cube</code> 如下图所示，维度数目从16变为9。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804103141737.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804103141737.png"></p>
 <h5 id="5-5-3、层级维度（Hierachy-Dimension）"><a href="#5-5-3、层级维度（Hierachy-Dimension）" class="headerlink" title="5.5.3、层级维度（Hierachy Dimension）"></a>5.5.3、层级维度（<code>Hierachy Dimension</code>）</h5><blockquote>
 <p><strong>层级维度：是指一组有层级关系的维度。</strong></p>
 </blockquote>
@@ -1938,9 +1942,9 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <p>／城市之间分别是一对多的关系。假设维度 A 代表国家，维度 B代表省份，维度 C 代表城市，ABC 三个</p>
 <p>维度可以被设置为层级维度，生成的Cube 如下图所示：</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804103435005.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804103435005.png"></p>
 <blockquote>
-<p><code>Cuboid [A,C,D]</code>&#x3D;<code>Cuboid[A, B, C, D]</code>，<code>Cuboid[B, D]</code>&#x3D;<code>Cuboid[A, B, D]</code>，因而</p>
+<p><code>Cuboid [A,C,D]</code>=<code>Cuboid[A, B, C, D]</code>，<code>Cuboid[B, D]</code>=<code>Cuboid[A, B, D]</code>，因而</p>
 <p><code>Cuboid[A, C, D]</code> 和<code> Cuboid[B, D]</code> 就不必重复存储</p>
 </blockquote>
 <h5 id="5-5-4、联合维度（Joint-Dimension）"><a href="#5-5-4、联合维度（Joint-Dimension）" class="headerlink" title="5.5.4、联合维度（Joint Dimension）"></a>5.5.4、联合维度（<code>Joint Dimension</code>）</h5><blockquote>
@@ -1957,7 +1961,7 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <p>而 <code>Cuboid AB、BC、A</code> 等等<code>Cuboid</code> 都不会被生成。最终的 <code>Cube</code> 结果如下图所示，</p>
 <p><code>Cuboid</code> 数目从 16 减少到 4。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804103918879.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804103918879.png"></p>
 <h5 id="5-5-5、小结"><a href="#5-5-5、小结" class="headerlink" title="5.5.5、小结"></a>5.5.5、小结</h5><ul>
 <li><p>在单个聚合组中，可以对维度进行设置，包括<strong>强制维度</strong>、<strong>层级维度</strong>、<strong>联合维度</strong>。<strong>一个维度</strong>只能出现在一个</p>
 <p>属性组中</p>
@@ -1972,12 +1976,12 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <h4 id="5-6、Rowkeys"><a href="#5-6、Rowkeys" class="headerlink" title="5.6、Rowkeys"></a>5.6、<code>Rowkeys</code></h4><blockquote>
 <p>简单的说<code>Cuboid</code>的维度会映射为<code>HBase</code>的<code>Rowkey</code>，<code>Cuboid</code>的指标会映射为<code>HBase</code>的<code>Value</code>。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804104141601.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804104141601.png"></p>
 <blockquote>
 <p>所有的<code>cuboid</code>计算完成后，会将<code>cuboid</code>转化为<code>HBase</code>的 <code>KeyValue</code> 格式生成<code>HBase</code>的<code>HFile</code>，最</p>
 <p>后将<code>HFile</code>  <code>load</code>进<code>cube</code>对应的<code>HBase</code>表中。</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804105117937.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804105117937.png"></p>
 <h5 id="5-6-1、编码"><a href="#5-6-1、编码" class="headerlink" title="5.6.1、编码"></a>5.6.1、编码</h5><blockquote>
 <p><code>Kylin</code> 以 <code>Key-Value</code> 的方式将 <code>Cube</code> 存储到 <code>HBase</code> 中，<code>HBase</code> 的 <code>key</code>就是<code>Rowkey</code>，是由各维度的</p>
 <p>值拼接而成的。为了更高效地存储这些值，<code>Kylin</code> 会对它们进行编码和压缩；每个维度均可以选择合适</p>
@@ -2033,8 +2037,8 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <p>据的方式构建 <code>cube</code>，这种方式构建的<code>Cube</code>能满足分钟级的更新需求。</p>
 </blockquote>
 <blockquote>
-<p><strong>步骤：项目</strong> <strong>&#x3D;&gt;</strong> <strong>定义数据源（</strong><code>Kafka</code>） <strong>&#x3D;&gt;</strong> <strong>定义</strong><code>Model</code> &#x3D;&gt; **定义<code>Cube</code> &#x3D;&gt; <code>Build Cube</code></p>
-<p><strong>&#x3D;&gt;</strong> <strong>作业调度（频率高）</strong></p>
+<p><strong>步骤：项目</strong> <strong>=&gt;</strong> <strong>定义数据源（</strong><code>Kafka</code>） <strong>=&gt;</strong> <strong>定义</strong><code>Model</code> =&gt; **定义<code>Cube</code> =&gt; <code>Build Cube</code></p>
+<p><strong>=&gt;</strong> <strong>作业调度（频率高）</strong></p>
 </blockquote>
 <h4 id="6-1、准备数据源"><a href="#6-1、准备数据源" class="headerlink" title="6.1、准备数据源"></a>6.1、准备数据源</h4><blockquote>
 <p>从<code>Kafka</code>消费消息，每条消息都需要包含：<strong>维度信息、度量信息、业务时间戳</strong>。</p>
@@ -2042,34 +2046,34 @@ Length of dimension LAGOU_KYLIN.DW_SALES1.REGIONID is 1
 <p>量和时间戳信息提取出来。</p>
 <p><strong>目前默认的分析器为</strong>：<code>org.apache.kylin.source.kafka.TimedJsonStreamParser</code></p>
 </blockquote>
-<pre><code class="bash"># 创建名为kylin_streaming_topic的topic，有三个分区 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 创建名为kylin_streaming_topic的topic，有三个分区 </span>
 kafka-topics.sh --create --zookeeper linux121:2181/kafka1.0 -- replication-factor 1 --partitions 3 --topic kylin_streaming_topic1 
 
-# 使用工具，向以上topic每秒发送100条记录 
+<span class="token comment" spellcheck="true"># 使用工具，向以上topic每秒发送100条记录 </span>
 kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_streaming_topic1 --broker linux121:9092,linux122:9092 
 
-# 检查消息是否成功发送 
+<span class="token comment" spellcheck="true"># 检查消息是否成功发送 </span>
 kafka-console-consumer.sh --bootstrap-server linux121:9092,linux122:9092 --topic kylin_streaming_topic1 -- from-beginning
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><code>Json</code>数据样例</p>
 </blockquote>
-<pre><code class="json">&#123; 
-    &quot;country&quot;: &quot;INDIA&quot;,
-    &quot;amount&quot;: 61.8908749389114,
-    &quot;qty&quot;: 6, 
-    &quot;currency&quot;: &quot;USD&quot;,
-    &quot;order_time&quot;: 1604976730796, 
-    &quot;category&quot;: &quot;ELECTRONIC&quot;, 
-    &quot;device&quot;: &quot;Andriod&quot;, 
-    &quot;user&quot;: &#123; 
-        &quot;gender&quot;: &quot;Female&quot;, 
-        &quot;id&quot;: &quot;d7454b73-e24e-2f28-513e-5ea3e03b082f&quot;, 
-        &quot;first_name&quot;: &quot;unknown&quot;, 
-        &quot;age&quot;: 18 
-    &#125; 
-&#125;
-</code></pre>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span> 
+    <span class="token property">"country"</span><span class="token operator">:</span> <span class="token string">"INDIA"</span><span class="token punctuation">,</span>
+    <span class="token property">"amount"</span><span class="token operator">:</span> <span class="token number">61.8908749389114</span><span class="token punctuation">,</span>
+    <span class="token property">"qty"</span><span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span> 
+    <span class="token property">"currency"</span><span class="token operator">:</span> <span class="token string">"USD"</span><span class="token punctuation">,</span>
+    <span class="token property">"order_time"</span><span class="token operator">:</span> <span class="token number">1604976730796</span><span class="token punctuation">,</span> 
+    <span class="token property">"category"</span><span class="token operator">:</span> <span class="token string">"ELECTRONIC"</span><span class="token punctuation">,</span> 
+    <span class="token property">"device"</span><span class="token operator">:</span> <span class="token string">"Andriod"</span><span class="token punctuation">,</span> 
+    <span class="token property">"user"</span><span class="token operator">:</span> <span class="token punctuation">{</span> 
+        <span class="token property">"gender"</span><span class="token operator">:</span> <span class="token string">"Female"</span><span class="token punctuation">,</span> 
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"d7454b73-e24e-2f28-513e-5ea3e03b082f"</span><span class="token punctuation">,</span> 
+        <span class="token property">"first_name"</span><span class="token operator">:</span> <span class="token string">"unknown"</span><span class="token punctuation">,</span> 
+        <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">18</span> 
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="6-2、定义数据源"><a href="#6-2、定义数据源" class="headerlink" title="6.2、定义数据源"></a>6.2、定义数据源</h4><table>
 <thead>
 <tr>
@@ -2077,25 +2081,25 @@ kafka-console-consumer.sh --bootstrap-server linux121:9092,linux122:9092 --topic
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220804111642728.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804111642728.png"></td>
 </tr>
 <tr>
 <td>定义<code>Schema</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804111701248.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804111701248.png"></td>
 </tr>
 <tr>
 <td>定义<code>kafka</code>信息</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804111729032.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804111729032.png"></td>
 </tr>
 <tr>
 <td>检查结果</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804111750414.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804111750414.png"></td>
 </tr>
 </tbody></table>
 <h4 id="6-3、定义Model"><a href="#6-3、定义Model" class="headerlink" title="6.3、定义Model"></a>6.3、定义<code>Model</code></h4><table>
@@ -2105,31 +2109,31 @@ kafka-console-consumer.sh --bootstrap-server linux121:9092,linux122:9092 --topic
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220804135535889.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135535889.png"></td>
 </tr>
 <tr>
 <td><code>Data Model</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804135552706.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135552706.png"></td>
 </tr>
 <tr>
 <td><code>Dimensions</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804135606933.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135606933.png"></td>
 </tr>
 <tr>
 <td><code>Measures</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804135624624.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135624624.png"></td>
 </tr>
 <tr>
 <td><code>settings</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804135645897.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135645897.png"></td>
 </tr>
 </tbody></table>
 <h4 id="6-4、定义Cube"><a href="#6-4、定义Cube" class="headerlink" title="6.4、定义Cube"></a>6.4、定义<code>Cube</code></h4><table>
@@ -2139,37 +2143,37 @@ kafka-console-consumer.sh --bootstrap-server linux121:9092,linux122:9092 --topic
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220804135752113.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135752113.png"></td>
 </tr>
 <tr>
 <td><code>Dimensions</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804135809650.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135809650.png"></td>
 </tr>
 <tr>
 <td><code>Measures</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804135827946.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135827946.png"></td>
 </tr>
 <tr>
 <td><code>Refresh Setting</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804135844854.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804135844854.png"></td>
 </tr>
 <tr>
 <td>Advanced Setting</td>
 </tr>
 <tr>
-<td>将衍生时间维度设置为<code>Hierarchy</code>关系，减少非必要计算,<br />在<code>Rowkey</code>部分，将用户最频繁用作过滤的列、筛选性强的列放在<code>Rowkey</code>的开始</td>
+<td>将衍生时间维度设置为<code>Hierarchy</code>关系，减少非必要计算,<br>在<code>Rowkey</code>部分，将用户最频繁用作过滤的列、筛选性强的列放在<code>Rowkey</code>的开始</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804140016225.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804140016225.png"></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220804140030369.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804140030369.png"></td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -2192,25 +2196,25 @@ kafka-console-consumer.sh --bootstrap-server linux121:9092,linux122:9092 --topic
 </li>
 </ul>
 </blockquote>
-<h4 id="6-5构建Cube"><a href="#6-5构建Cube" class="headerlink" title="6.5构建Cube"></a>6.5构建<code>Cube</code></h4><pre><code class="bash">curl -X PUT --user ADMIN:KYLIN -H &quot;Content-Type: application/json;charset=utf-8&quot; -d &#39;&#123; &quot;sourceOffsetStart&quot;: 0, &quot;sourceOffsetEnd&quot;: 9223372036854775807, &quot;buildType&quot;: &quot;BUILD&quot;&#125;&#39; http://linux122:7070/kylin/api/cubes/streamingcube1/build2
-</code></pre>
-<p><img src="/../image/Kylin/image-20220804140451417.png"></p>
-<h4 id="6-6、执行查询"><a href="#6-6、执行查询" class="headerlink" title="6.6、执行查询"></a>6.6、执行查询</h4><pre><code class="sql">select 
-    minute_start, 
-    count(*), 
-    sum(amount), 
-    sum(qty) 
-from 
+<h4 id="6-5构建Cube"><a href="#6-5构建Cube" class="headerlink" title="6.5构建Cube"></a>6.5构建<code>Cube</code></h4><pre class="line-numbers language-bash"><code class="language-bash">curl -X PUT --user ADMIN:KYLIN -H <span class="token string">"Content-Type: application/json;charset=utf-8"</span> -d <span class="token string">'{ "sourceOffsetStart": 0, "sourceOffsetEnd": 9223372036854775807, "buildType": "BUILD"}'</span> http://linux122:7070/kylin/api/cubes/streamingcube1/build2
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804140451417.png"></p>
+<h4 id="6-6、执行查询"><a href="#6-6、执行查询" class="headerlink" title="6.6、执行查询"></a>6.6、执行查询</h4><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+    minute_start<span class="token punctuation">,</span> 
+    <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    <span class="token function">sum</span><span class="token punctuation">(</span>qty<span class="token punctuation">)</span> 
+<span class="token keyword">from</span> 
     streamingds1 
-group by 
+<span class="token keyword">group</span> <span class="token keyword">by</span> 
     minute_start 
-order by 
+<span class="token keyword">order</span> <span class="token keyword">by</span> 
     minute_start
-</code></pre>
-<h4 id="6-7、自动构建Cube"><a href="#6-7、自动构建Cube" class="headerlink" title="6.7、自动构建Cube"></a>6.7、自动构建<code>Cube</code></h4><pre><code class="bash">crontab -e 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="6-7、自动构建Cube"><a href="#6-7、自动构建Cube" class="headerlink" title="6.7、自动构建Cube"></a>6.7、自动构建<code>Cube</code></h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">crontab</span> -e 
 
-*/20 * * * * curl -X PUT --user ADMIN:KYLIN -H &quot;Content-Type: application/json;charset=utf-8&quot; -d &#39;&#123; &quot;sourceOffsetStart&quot;: 0, &quot;sourceOffsetEnd&quot;: 9223372036854775807, &quot;buildType&quot;: &quot;BUILD&quot;&#125;&#39; http://linux122:7070/kylin/api/cubes/streamingcube1/
-</code></pre>
+*/20 * * * * curl -X PUT --user ADMIN:KYLIN -H <span class="token string">"Content-Type: application/json;charset=utf-8"</span> -d <span class="token string">'{ "sourceOffsetStart": 0, "sourceOffsetEnd": 9223372036854775807, "buildType": "BUILD"}'</span> http://linux122:7070/kylin/api/cubes/streamingcube1/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="7、实时OLAP"><a href="#7、实时OLAP" class="headerlink" title="7、实时OLAP"></a>7、实时<code>OLAP</code></h3><blockquote>
 <p><code>Kylin V3.0.0</code>发布了全新的实时<code>OLAP</code>功能，借助新添加的流接收器群集的功能，<code>Kylin</code>可以以亚秒</p>
 <p>级的延迟查询流数据。如果希望以微批量方式（大约10分钟的延迟）接收<code>kafka</code>事件，则可以考虑使</p>
@@ -2221,25 +2225,25 @@ order by
 <ul>
 <li><code>Kafka Cluster</code> [<code>data source</code>]</li>
 <li><code>Kylin Process</code> [<code>job server/query server/coordinator</code>]</li>
-<li><font color=red><strong>Kylin streaming receiver Cluster [real-time part computation and storage]</strong></font></li>
+<li><font color="red"><strong>Kylin streaming receiver Cluster [real-time part computation and storage]</strong></font></li>
 <li><code>HBase Cluster</code> [<code>historical part storage</code>]</li>
-<li><font color =red><strong>Zookeeper Cluster [receiver metadata storage]</strong></font></li>
+<li><font color="red"><strong>Zookeeper Cluster [receiver metadata storage]</strong></font></li>
 <li><code>MapReduce</code> [<code>distributed computation</code>]</li>
 <li><code>HDFS</code> [<code>distributed storage</code>]</li>
 </ul>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220804143239386.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220804143239386.png"></p>
 <blockquote>
 <p><strong>Streaming Coordinator</strong>：</p>
 <p><code>Streaming coordinator</code>充当<code>streaming receiver cluster</code>的<code>master node</code>。其主要职</p>
-<p>责包括：分配&#x2F;取消分配特定的<code>topic partition</code>给特定的副本集，暂停或继续使用，收集消</p>
+<p>责包括：分配/取消分配特定的<code>topic partition</code>给特定的副本集，暂停或继续使用，收集消</p>
 <p>费速率（每秒消息）等详细信息。</p>
 </blockquote>
 <blockquote>
 <p><strong>Coordinator Cluster</strong>：</p>
 <p>为了消除单点故障，我们可以启动多个<code>coordinator</code>程序。当集群具有多个<code>coordinator</code>程序时，</p>
 <p><code>zookeeper</code>将选择一个<code>leader</code>。只有<code>leader</code>将回答<code>coordinator</code>客户端的请求，其他进程将</p>
-<p>成为备用&#x2F;候选者，因此将消除单点故障。</p>
+<p>成为备用/候选者，因此将消除单点故障。</p>
 </blockquote>
 <blockquote>
 <p><strong>Streaming Receiver</strong>：</p>
@@ -2263,31 +2267,31 @@ order by
 <p>外关闭但所有<code>replica set</code>都具有至少一个可访问的<code>receiver</code>时，<code>receiver cluster</code>仍可查询，并</p>
 <p>且数据不会丢失。</p>
 </blockquote>
-<h4 id="7-2、准备环境"><a href="#7-2、准备环境" class="headerlink" title="7.2、准备环境"></a>7.2、准备环境</h4><pre><code class="bash">cd /opt/lagou/servers
+<h4 id="7-2、准备环境"><a href="#7-2、准备环境" class="headerlink" title="7.2、准备环境"></a>7.2、准备环境</h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/servers
 
-# coordinator 
-cp -r kylin-3.1.1/ kylin-3.1.1-master/ 
+<span class="token comment" spellcheck="true"># coordinator </span>
+<span class="token function">cp</span> -r kylin-3.1.1/ kylin-3.1.1-master/ 
 
-# receiver 
-cp -r kylin-3.1.1/ kylin-3.1.1-receiver/
-</code></pre>
+<span class="token comment" spellcheck="true"># receiver </span>
+<span class="token function">cp</span> -r kylin-3.1.1/ kylin-3.1.1-receiver/
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="7-2-1、开启Kylin进程"><a href="#7-2-1、开启Kylin进程" class="headerlink" title="7.2.1、开启Kylin进程"></a>7.2.1、开启<code>Kylin</code>进程</h5><blockquote>
 <p><code>kylin</code>进程将充当<code>receiver cluster</code>的<code>coordinator</code>。7070是<code>coordinator</code>的默认端口。</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/servers/kylin-3.1.1-master/bin 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/servers/kylin-3.1.1-master/bin 
 ./kylin.sh start
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="7-2-2、开启Receiver-Process"><a href="#7-2-2、开启Receiver-Process" class="headerlink" title="7.2.2、开启Receiver Process"></a>7.2.2、开启<code>Receiver Process</code></h5><blockquote>
 <p><code>receiver process</code>将作为<code>receiver cluster</code>的工作方。9090是<code>receiver</code>的默认端口。</p>
 </blockquote>
-<pre><code class="ba">cd /opt/lagou/servers/kylin-3.1.1-receiver/bin 
+<pre class="line-numbers language-ba"><code class="language-ba">cd /opt/lagou/servers/kylin-3.1.1-receiver/bin 
 ./kylin.sh streaming start
-</code></pre>
-<h5 id="7-2-3、模拟数据流"><a href="#7-2-3、模拟数据流" class="headerlink" title="7.2.3、模拟数据流"></a>7.2.3、模拟数据流</h5><pre><code class="bash"># 使用工具，每秒会向以上topic每秒发送100条记录 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="7-2-3、模拟数据流"><a href="#7-2-3、模拟数据流" class="headerlink" title="7.2.3、模拟数据流"></a>7.2.3、模拟数据流</h5><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 使用工具，每秒会向以上topic每秒发送100条记录 </span>
 kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_streaming_topic1 --broker linux121:9092,linux122:9092
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="7-3、创建Cube"><a href="#7-3、创建Cube" class="headerlink" title="7.3、创建Cube"></a>7.3、创建<code>Cube</code></h4><blockquote>
-<p>步骤：定义数据源 &#x3D;&gt; 定义<code>Model</code> &#x3D;&gt; 定义<code>Cube</code> &#x3D;&gt; <code>Enable Cube</code> &#x3D;&gt; <code>Kafka</code>发送消息</p>
+<p>步骤：定义数据源 =&gt; 定义<code>Model</code> =&gt; 定义<code>Cube</code> =&gt; <code>Enable Cube</code> =&gt; <code>Kafka</code>发送消息</p>
 <p><code>Model</code>、<code>Cube</code>与前面介绍的方式类似。</p>
 </blockquote>
 <h5 id="7-3-1、定义数据源"><a href="#7-3-1、定义数据源" class="headerlink" title="7.3.1、定义数据源"></a>7.3.1、定义数据源</h5><table>
@@ -2297,25 +2301,25 @@ kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_st
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220805090443681.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090443681.png"></td>
 </tr>
 <tr>
 <td>定义<code>Kafka</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220805090509623.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090509623.png"></td>
 </tr>
 <tr>
 <td><code>Streaming Table</code></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220805090533884.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090533884.png"></td>
 </tr>
 <tr>
 <td>检查结果</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220805090549159.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090549159.png"></td>
 </tr>
 </tbody></table>
 <h5 id="7-3-2、定义Model"><a href="#7-3-2、定义Model" class="headerlink" title="7.3.2、定义Model"></a>7.3.2、定义<code>Model</code></h5><table>
@@ -2325,32 +2329,32 @@ kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_st
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220805090712294.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090712294.png"></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220805090721955.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090721955.png"></td>
 </tr>
 <tr>
 <td>流<code>cube</code>必须分区，选择<code>timestamp</code>列作为分区列</td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220805090738303.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090738303.png"></td>
 </tr>
 </tbody></table>
 <h5 id="7-3-3、定义Cube"><a href="#7-3-3、定义Cube" class="headerlink" title="7.3.3、定义Cube"></a>7.3.3、定义<code>Cube</code></h5><table>
 <thead>
 <tr>
-<th><img src="/../image/Kylin/image-20220805090811896.png"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090811896.png"></th>
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="/../image/Kylin/image-20220805090820486.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090820486.png"></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220805090831022.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090831022.png"></td>
 </tr>
 <tr>
-<td><img src="/../image/Kylin/image-20220805090844792.png"></td>
+<td><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805090844792.png"></td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -2372,15 +2376,15 @@ kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_st
 </li>
 </ul>
 </blockquote>
-<h5 id="7-3-4、Enable-Cube"><a href="#7-3-4、Enable-Cube" class="headerlink" title="7.3.4、Enable Cube"></a>7.3.4、<code>Enable Cube</code></h5><p><img src="/../image/Kylin/image-20220805091216007.png"></p>
+<h5 id="7-3-4、Enable-Cube"><a href="#7-3-4、Enable-Cube" class="headerlink" title="7.3.4、Enable Cube"></a>7.3.4、<code>Enable Cube</code></h5><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805091216007.png"></p>
 <h5 id="7-3-5、开始消费"><a href="#7-3-5、开始消费" class="headerlink" title="7.3.5、开始消费"></a>7.3.5、开始消费</h5><blockquote>
 <p><strong>创建</strong><code>replica set</code></p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220805091249425.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805091249425.png"></p>
 <blockquote>
 <p>启动消费</p>
 </blockquote>
-<p><img src="/../image/Kylin/image-20220805091329555.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Kylin/image-20220805091329555.png"></p>
 
             </div>
             <hr/>
@@ -2531,7 +2535,7 @@ kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_st
                     </span>
                     <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2022/07/28/Kylin/" class="b-link-green">Apache Kylin的使用教程</a>
+                    <a href="/2022/07/28/kylin/" class="b-link-green">Apache Kylin的使用教程</a>
                 </p>
             </div>
     
@@ -2554,7 +2558,7 @@ kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_st
         repo: 'hcs-21.github.io',
         owner: 'hcs-21',
         admin: ["hcs-21"],
-        id: '2022/07/28/Kylin/',
+        id: '2022/07/28/kylin/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -2579,7 +2583,7 @@ kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_st
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/29/Kettle/">
+                <a href="/2022/07/29/kettle/">
                     <div class="card-image">
                         
                         
@@ -2632,7 +2636,7 @@ kylin.sh org.apache.kylin.source.kafka.util.KafkaSampleProducer --topic kylin_st
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/28/linux%EF%BC%88%E4%B8%80%EF%BC%89/">
+                <a href="/2022/07/28/linux-yi/">
                     <div class="card-image">
                         
                         
@@ -3070,5 +3074,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>

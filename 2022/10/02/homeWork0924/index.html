@@ -68,7 +68,11 @@ from ods_user_log">
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -741,36 +745,36 @@ from ods_user_log">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1、统计近一周的日活"><a href="#1、统计近一周的日活" class="headerlink" title="1、统计近一周的日活"></a>1、统计近一周的日活</h2><hr>
-<pre><code class="sql">select 
-    dt,
-    count(distinct userid) user_num,
-    count(distinct deviceid) devicenum
-from ods_user_login_detail 
-group by dt;
-</code></pre>
-<h2 id="2、统计近一周每天top-5-设备日活的城市名称，及日活数"><a href="#2、统计近一周每天top-5-设备日活的城市名称，及日活数" class="headerlink" title="2、统计近一周每天top 5 设备日活的城市名称，及日活数"></a>2、统计近一周每天top 5 设备日活的城市名称，及日活数</h2><pre><code class="sql">select * from (
-    select dt,city,user_num,
-        row_number() over (partition by dt order by user_num desc) rn
-    from (
-        select dt,city,
-            count(distinct userid) user_num   
-        from ods_user_login_detail
-        group by dt,city
-    ) a
-)a1
-where 
-    rn &lt;= 5
-;
-</code></pre>
-<h2 id="3、统计近一周的活跃的次日留存率"><a href="#3、统计近一周的活跃的次日留存率" class="headerlink" title="3、统计近一周的活跃的次日留存率"></a>3、统计近一周的活跃的次日留存率</h2><pre><code class="sql">select dt , num / total_num from (
-    select 
-    t1.dt,count(distinct case when t2.userid is not null then t1.userid else null end ) num ,count(distinct t1.userid) total_num
-    from ods_user_login_detail t1
-    left join ods_user_login_detail t2 on t1.userid = t2.userid and date_add(t1.dt,1) = t2.dt
-    group by t1.dt
-)tmp
-;
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+    dt<span class="token punctuation">,</span>
+    <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> userid<span class="token punctuation">)</span> user_num<span class="token punctuation">,</span>
+    <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> deviceid<span class="token punctuation">)</span> devicenum
+<span class="token keyword">from</span> ods_user_login_detail 
+<span class="token keyword">group</span> <span class="token keyword">by</span> dt<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2、统计近一周每天top-5-设备日活的城市名称，及日活数"><a href="#2、统计近一周每天top-5-设备日活的城市名称，及日活数" class="headerlink" title="2、统计近一周每天top 5 设备日活的城市名称，及日活数"></a>2、统计近一周每天top 5 设备日活的城市名称，及日活数</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> dt<span class="token punctuation">,</span>city<span class="token punctuation">,</span>user_num<span class="token punctuation">,</span>
+        row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> dt <span class="token keyword">order</span> <span class="token keyword">by</span> user_num <span class="token keyword">desc</span><span class="token punctuation">)</span> rn
+    <span class="token keyword">from</span> <span class="token punctuation">(</span>
+        <span class="token keyword">select</span> dt<span class="token punctuation">,</span>city<span class="token punctuation">,</span>
+            <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> userid<span class="token punctuation">)</span> user_num   
+        <span class="token keyword">from</span> ods_user_login_detail
+        <span class="token keyword">group</span> <span class="token keyword">by</span> dt<span class="token punctuation">,</span>city
+    <span class="token punctuation">)</span> <span class="token number">a</span>
+<span class="token punctuation">)</span><span class="token number">a1</span>
+<span class="token keyword">where</span> 
+    rn <span class="token operator">&lt;=</span> <span class="token number">5</span>
+<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3、统计近一周的活跃的次日留存率"><a href="#3、统计近一周的活跃的次日留存率" class="headerlink" title="3、统计近一周的活跃的次日留存率"></a>3、统计近一周的活跃的次日留存率</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> dt <span class="token punctuation">,</span> num <span class="token operator">/</span> total_num <span class="token keyword">from</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> 
+    t1<span class="token punctuation">.</span>dt<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">case</span> <span class="token keyword">when</span> t2<span class="token punctuation">.</span>userid <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">then</span> t1<span class="token punctuation">.</span>userid <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span> <span class="token punctuation">)</span> num <span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> t1<span class="token punctuation">.</span>userid<span class="token punctuation">)</span> total_num
+    <span class="token keyword">from</span> ods_user_login_detail t1
+    <span class="token keyword">left</span> <span class="token keyword">join</span> ods_user_login_detail t2 <span class="token keyword">on</span> t1<span class="token punctuation">.</span>userid <span class="token operator">=</span> t2<span class="token punctuation">.</span>userid <span class="token operator">and</span> date_add<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>dt<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> t2<span class="token punctuation">.</span>dt
+    <span class="token keyword">group</span> <span class="token keyword">by</span> t1<span class="token punctuation">.</span>dt
+<span class="token punctuation">)</span>tmp
+<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -921,7 +925,7 @@ where
                     </span>
                     <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2022/10/02/homeWork0924/" class="b-link-green">私教第五周</a>
+                    <a href="/2022/10/02/homework0924/" class="b-link-green">私教第五周</a>
                 </p>
             </div>
     
@@ -944,7 +948,7 @@ where
         repo: 'hcs-21.github.io',
         owner: 'hcs-21',
         admin: ["hcs-21"],
-        id: '2022/10/02/homeWork0924/',
+        id: '2022/10/02/homework0924/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -969,7 +973,7 @@ where
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/10/26/homeWork1015/">
+                <a href="/2022/10/26/homework1015/">
                     <div class="card-image">
                         
                         
@@ -1022,7 +1026,7 @@ where
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/26/Hadoop%EF%BC%88%E4%B8%80%EF%BC%89/">
+                <a href="/2022/09/26/hadoop-yi/">
                     <div class="card-image">
                         
                         
@@ -1464,5 +1468,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>

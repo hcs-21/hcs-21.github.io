@@ -76,7 +76,11 @@ yum -y install">
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -761,258 +765,258 @@ yum -y install">
 <blockquote>
 <p>安装依赖环境</p>
 </blockquote>
-<pre><code class="bash">yum -y install gcc gcc-c++ zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libpcap-devel xz-devel python-pip
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">yum -y <span class="token function">install</span> gcc gcc-c++ zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libpcap-devel xz-devel python-pip
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>安装<code>git</code></p>
 </blockquote>
-<pre><code class="bash">yum -y install git
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">git</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>安装<code>pyenv</code></p>
 </blockquote>
-<pre><code class="bash">git clone https://github.com/pyenv/pyenv.git
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/pyenv/pyenv.git
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>报错</p>
 </blockquote>
-<pre><code class="bash">fatal: unable to access &#39;https://github.com/pyenv/pyenv.git/&#39;: TCP connection reset by peer
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">fatal: unable to access <span class="token string">'https://github.com/pyenv/pyenv.git/'</span><span class="token keyword">:</span> TCP connection reset by peer
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>解决</p>
 </blockquote>
-<pre><code class="bash">yum install -y nss curl libcurl
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">yum <span class="token function">install</span> -y nss curl libcurl
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>报错</p>
 </blockquote>
-<pre><code class="bash">fatal: unable to access &#39;https://github.com/pyenv/pyenv.git/&#39;: Failed connect to github.com:443; Connection refused
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">fatal: unable to access <span class="token string">'https://github.com/pyenv/pyenv.git/'</span><span class="token keyword">:</span> Failed connect to github.com:443<span class="token punctuation">;</span> Connection refused
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>解决</p>
 </blockquote>
-<pre><code class="bash">git config --global --unset http.proxy
-git config --global --unset https.proxy
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> config --global --unset http.proxy
+<span class="token function">git</span> config --global --unset https.proxy
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p>配置环境变量</p>
 </blockquote>
-<pre><code class="bash">echo &#39;export PATH=&quot;/home/superset/pyenv/bin:$PATH&quot;&#39; &gt;&gt; ~/.bash_profile
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token string">'export PATH="/home/superset/pyenv/bin:<span class="token variable">$PATH</span>"'</span> <span class="token operator">>></span> ~/.bash_profile
 
-echo &#39;eval &quot;$(pyenv init -)&quot;&#39; &gt;&gt; ~/.bash_profile
+<span class="token keyword">echo</span> <span class="token string">'eval "<span class="token variable"><span class="token variable">$(</span>pyenv init -<span class="token variable">)</span></span>"'</span> <span class="token operator">>></span> ~/.bash_profile
 
 
-source ~/.bash_profile
-</code></pre>
+<span class="token function">source</span> ~/.bash_profile
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>验证<code>pyenv</code></p>
 </blockquote>
-<pre><code class="bash">pyenv -v
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv -v
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="1-2、安装-python3-6"><a href="#1-2、安装-python3-6" class="headerlink" title="1.2、安装 python3.6"></a>1.2、安装 python3.6</h3><hr>
 <blockquote>
 <p><code>pyenv</code> 查看可安装版本<code>python</code></p>
 </blockquote>
-<pre><code class="bash">pyenv install --list
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv <span class="token function">install</span> --list
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p><code>pyenv</code>查看已安装版本<code>python</code></p>
 </blockquote>
-<pre><code class="bash">[superset@lagou122 ~]$ pyenv versions
-* system (set by /home/superset/.pyenv/version)
-##系统版本
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>superset@lagou122 ~<span class="token punctuation">]</span>$ pyenv versions
+* system <span class="token punctuation">(</span>set by /home/superset/.pyenv/version<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">##系统版本</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>安装<code>python3.6.6</code></p>
 </blockquote>
-<pre><code class="bash">pyenv install -v 3.6.6
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv <span class="token function">install</span> -v 3.6.6
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p><code>pyenv</code>查看已安装版本<code>python</code></p>
 </blockquote>
-<pre><code class="bash">[superset@lagou122 ~]$ pyenv versions
-* system (set by /home/superset/.pyenv/version)
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>superset@lagou122 ~<span class="token punctuation">]</span>$ pyenv versions
+* system <span class="token punctuation">(</span>set by /home/superset/.pyenv/version<span class="token punctuation">)</span>
   3.6.6
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-3、配置管理python版本"><a href="#1-3、配置管理python版本" class="headerlink" title="1.3、配置管理python版本"></a>1.3、配置管理python版本</h3><hr>
 <blockquote>
 <ul>
-<li>pyenv global <version>  全局配置</li>
-<li>pyenv shell<version>  shell配置,之影响档当前会话</li>
-<li>pyenv local<version>  当前目录模式</li>
+<li>pyenv global <version>  全局配置</version></li>
+<li>pyenv shell<version>  shell配置,之影响档当前会话</version></li>
+<li>pyenv local<version>  当前目录模式</version></li>
 </ul>
 </blockquote>
 <blockquote>
 <p>python 版本全局配置改为 3.6.6</p>
 </blockquote>
-<pre><code class="bash">pyenv global 3.6.6
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv global 3.6.6
 pyenv rehash
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p>查看<code>python</code>版本</p>
 </blockquote>
-<pre><code class="bash">[superset@lagou122 ~]$ python -V
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>superset@lagou122 ~<span class="token punctuation">]</span>$ python -V
 Python 3.6.6
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p>查看<code>python</code>管理器版本</p>
 </blockquote>
-<pre><code class="bash">[superset@lagou122 ~]$ pyenv versions
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>superset@lagou122 ~<span class="token punctuation">]</span>$ pyenv versions
   system
-* 3.6.6 (set by /home/superset/.pyenv/version)
-</code></pre>
+* 3.6.6 <span class="token punctuation">(</span>set by /home/superset/.pyenv/version<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>恢复<code>python</code>系统版本</p>
 </blockquote>
-<pre><code class="bash">pyenv local system
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv local system
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p><code>pyenv</code>管理器卸载安装版本</p>
 </blockquote>
-<pre><code class="bash">pyenv uninstall 3.6.6
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv uninstall 3.6.6
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="1-4、安装pyenv-virtualenv插件"><a href="#1-4、安装pyenv-virtualenv插件" class="headerlink" title="1.4、安装pyenv-virtualenv插件"></a>1.4、安装pyenv-virtualenv插件</h3><hr>
 <blockquote>
 <p>克隆插件</p>
 </blockquote>
-<pre><code class="bash">git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>添加环境变量</p>
 </blockquote>
-<pre><code class="bash">eval &quot;$(pyenv virtualenv-init -)&quot;
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">eval</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span>pyenv virtualenv-init -<span class="token variable">)</span></span>"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>检查插件是否添加成功</p>
 </blockquote>
-<pre><code class="bash">pyenv help virtualenv
-</code></pre>
-<p><img src="/../image/superket/image-20221114121551647.png"></p>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv <span class="token function">help</span> virtualenv
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/superket/image-20221114121551647.png"></p>
 <h3 id="1-5、创建一个隔离环境"><a href="#1-5、创建一个隔离环境" class="headerlink" title="1.5、创建一个隔离环境"></a>1.5、创建一个隔离环境</h3><hr>
-<pre><code class="bash">pyenv virtualenv 3.6.6 myenv
-</code></pre>
-<p><img src="/../image/superket/image-20221114125313238.png"></p>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv virtualenv 3.6.6 myenv
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/superket/image-20221114125313238.png"></p>
 <blockquote>
 <p>切换到虚拟环境</p>
 </blockquote>
-<pre><code class="bash">pyenv activate myenv
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv activate myenv
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>退出隔离环境</p>
 </blockquote>
-<pre><code class="bash">pyenv deactivate
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pyenv deactivate
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>删除隔离环境</p>
 </blockquote>
-<pre><code class="bash">rm -f /home/superset/.pyenv/versions/myenv
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">rm</span> -f /home/superset/.pyenv/versions/myenv
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="二、superSet安装配置-myenv"><a href="#二、superSet安装配置-myenv" class="headerlink" title="二、superSet安装配置(myenv)"></a>二、superSet安装配置(myenv)</h2><hr>
 <h3 id="2-1、安装依赖包"><a href="#2-1、安装依赖包" class="headerlink" title="2.1、安装依赖包"></a>2.1、安装依赖包</h3><hr>
 <blockquote>
 <p>更新<code>python-setuptools</code></p>
 </blockquote>
-<pre><code class="bash">sudo yum upgrade python-setuptools
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> yum upgrade python-setuptools
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>安装依赖包</p>
 </blockquote>
-<pre><code class="bash">sudo yum install -y gcc gcc-c++ libffi-devel python-devel python-pip python-wheel openssl-devel cyrus-sasl-devel openldap-devel
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> -y gcc gcc-c++ libffi-devel python-devel python-pip python-wheel openssl-devel cyrus-sasl-devel openldap-devel
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>可能遇见的问题</p>
 </blockquote>
-<p><img src="/../image/superket/image-20221114131948714.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/superket/image-20221114131948714.png"></p>
 <blockquote>
 <p>解决方案</p>
 </blockquote>
-<pre><code class="bash">sudo yum -y install epel-release
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> yum -y <span class="token function">install</span> epel-release
 
-sudo yum -y install python-pip
-sudo yum -y install python-wheel
-</code></pre>
-<h3 id="2-2、指定国内源更新pip-setuptools"><a href="#2-2、指定国内源更新pip-setuptools" class="headerlink" title="2.2、指定国内源更新pip setuptools"></a>2.2、指定国内源更新<code>pip</code> <code>setuptools</code></h3><pre><code class="bahs">pip install --upgrade setuptools pip -i https://pypi.douban.com/simple/
-</code></pre>
+<span class="token function">sudo</span> yum -y <span class="token function">install</span> python-pip
+<span class="token function">sudo</span> yum -y <span class="token function">install</span> python-wheel
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-2、指定国内源更新pip-setuptools"><a href="#2-2、指定国内源更新pip-setuptools" class="headerlink" title="2.2、指定国内源更新pip setuptools"></a>2.2、指定国内源更新<code>pip</code> <code>setuptools</code></h3><pre class="line-numbers language-bahs"><code class="language-bahs">pip install --upgrade setuptools pip -i https://pypi.douban.com/simple/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="2-3、安装配置superSet"><a href="#2-3、安装配置superSet" class="headerlink" title="2.3、安装配置superSet"></a>2.3、安装配置superSet</h3><blockquote>
 <p>安装<code>superSet</code></p>
 </blockquote>
-<pre><code class="bash">pip install apache-superset -i https://pypi.douban.com/simple/
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> apache-superset -i https://pypi.douban.com/simple/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>初始化<code>superSet</code>数据库</p>
 </blockquote>
-<pre><code class="bash">superset db upgrade
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">superset db upgrade
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>可能遇到的错误</p>
 </blockquote>
-<p><img src="/../image/superket/image-20221114133755162.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/superket/image-20221114133755162.png"></p>
 <blockquote>
 <p>解决方案</p>
 </blockquote>
-<pre><code class="bash">pip install sqlalchemy==1.3.24
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> sqlalchemy<span class="token operator">==</span>1.3.24
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>可能遇到的错误</p>
 </blockquote>
-<p><img src="/../image/superket/image-20221114133920192.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/superket/image-20221114133920192.png"></p>
 <blockquote>
 <p>解决方案</p>
 </blockquote>
-<pre><code class="bash">pip install dataclasses
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> dataclasses
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>创建管理员用户</p>
 </blockquote>
-<pre><code class="bash">##设置环境变量
-export FLASK_APP=superset
-##设置用户名和密码
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">##设置环境变量</span>
+<span class="token function">export</span> FLASK_APP<span class="token operator">=</span>superset
+<span class="token comment" spellcheck="true">##设置用户名和密码</span>
 superset fab create-admin
-</code></pre>
-<p><img src="/../image/superket/image-20221114134551895.png"></p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/superket/image-20221114134551895.png"></p>
 <blockquote>
 <p>初始化<code>superset</code></p>
 </blockquote>
-<pre><code class="bash">superset init
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">superset init
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="2-4、启停服务"><a href="#2-4、启停服务" class="headerlink" title="2.4、启停服务"></a>2.4、启停服务</h3><hr>
 <blockquote>
 <p>安装 <code>gunicorn</code></p>
 </blockquote>
-<pre><code class="bash">pip install gunicorn -i https://pypi.douban.com/simple/
-</code></pre>
-<p><img src="/../image/superket/image-20221114170344885.png"></p>
+<pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> gunicorn -i https://pypi.douban.com/simple/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/superket/image-20221114170344885.png"></p>
 <blockquote>
 <p>启动<code>superset</code></p>
 </blockquote>
-<pre><code class="bash">gunicorn --workers 5 --timeout 120 --bind lagou122:8787 &quot;superset.app:create_app()&quot;  --daemon
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">gunicorn --workers 5 --timeout 120 --bind lagou122:8787 <span class="token string">"superset.app:create_app()"</span>  --daemon
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>访问</p>
 </blockquote>
-<pre><code class="http">lagou122:8787/login/
-</code></pre>
+<pre class="line-numbers language-http"><code class="language-http"><span class="token header-name keyword">lagou122:</span>8787/login/
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>停止<code>superset</code></p>
 </blockquote>
-<pre><code class="bash">ps -ef | awk &#39;/superset/ &amp;&amp; !/awk/&#123;print $2&#125;&#39; | xargs kill -9
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'/superset/ &amp;&amp; !/awk/{print <span class="token variable">$2</span>}'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="三、连接Kylin"><a href="#三、连接Kylin" class="headerlink" title="三、连接Kylin"></a>三、连接<code>Kylin</code></h2><hr>
-<h3 id="3-1、安装插件"><a href="#3-1、安装插件" class="headerlink" title="3.1、安装插件"></a>3.1、安装插件</h3><pre><code class="bash">pip install kylinpy==1.3.0
-</code></pre>
-<h3 id="3-2、连接kylin"><a href="#3-2、连接kylin" class="headerlink" title="3.2、连接kylin"></a>3.2、连接kylin</h3><pre><code class="http">kylin://ADMIN:KYLIN@192.168.8.122:7070/superSet_kylin
-</code></pre>
-<h3 id="3-3、查询"><a href="#3-3、查询" class="headerlink" title="3.3、查询"></a>3.3、查询</h3><p><img src="/../image/superket/image-20221121100452757.png"></p>
-<h2 id="四、连接HIVE"><a href="#四、连接HIVE" class="headerlink" title="四、连接HIVE"></a>四、连接<code>HIVE</code></h2><h3 id="3-1、安装插件-1"><a href="#3-1、安装插件-1" class="headerlink" title="3.1、安装插件"></a>3.1、安装插件</h3><pre><code class="SQL">pip intsall pyhive
+<h3 id="3-1、安装插件"><a href="#3-1、安装插件" class="headerlink" title="3.1、安装插件"></a>3.1、安装插件</h3><pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> kylinpy<span class="token operator">==</span>1.3.0
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-2、连接kylin"><a href="#3-2、连接kylin" class="headerlink" title="3.2、连接kylin"></a>3.2、连接kylin</h3><pre class="line-numbers language-http"><code class="language-http"><span class="token header-name keyword">kylin:</span>//ADMIN:KYLIN@192.168.8.122:7070/superSet_kylin
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-3、查询"><a href="#3-3、查询" class="headerlink" title="3.3、查询"></a>3.3、查询</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/superket/image-20221121100452757.png"></p>
+<h2 id="四、连接HIVE"><a href="#四、连接HIVE" class="headerlink" title="四、连接HIVE"></a>四、连接<code>HIVE</code></h2><h3 id="3-1、安装插件-1"><a href="#3-1、安装插件-1" class="headerlink" title="3.1、安装插件"></a>3.1、安装插件</h3><pre class="line-numbers language-SQL"><code class="language-SQL">pip intsall pyhive
 pip install sasl
 pip install thrift
 pip install thrift-sasl
 pip install cyrus-sasl-plain 
-</code></pre>
-<h3 id="3-2、连接HIVE"><a href="#3-2、连接HIVE" class="headerlink" title="3.2、连接HIVE"></a>3.2、连接<code>HIVE</code></h3><pre><code class="SQL">hive://39.98.36.181:10000/ads
-</code></pre>
-<h3 id="3-3、查询-1"><a href="#3-3、查询-1" class="headerlink" title="3.3、查询"></a>3.3、查询</h3><pre><code class="sql">
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-2、连接HIVE"><a href="#3-2、连接HIVE" class="headerlink" title="3.2、连接HIVE"></a>3.2、连接<code>HIVE</code></h3><pre class="line-numbers language-SQL"><code class="language-SQL">hive://39.98.36.181:10000/ads
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-3、查询-1"><a href="#3-3、查询-1" class="headerlink" title="3.3、查询"></a>3.3、查询</h3><pre class="line-numbers language-sql"><code class="language-sql">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1211,48 +1215,29 @@ pip install cyrus-sasl-plain
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/21/excel/">
+                <a href="/2023/06/07/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="excel">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">excel</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            escel
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2023-03-21
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2023-06-07
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category" target="_blank">
-                                    数据分析
-                                </a>
-                            
-                            
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/study/" target="_blank">
-                        <span class="chip bg-color">study</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" target="_blank">
-                        <span class="chip bg-color">数据分析</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1264,7 +1249,7 @@ pip install cyrus-sasl-plain
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/09/homeWork1029/">
+                <a href="/2022/11/09/homework1029/">
                     <div class="card-image">
                         
                         
@@ -1706,5 +1691,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>

@@ -65,7 +65,11 @@
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -772,7 +776,7 @@
 </blockquote>
 <h2 id="2、主流索引算法以及原理"><a href="#2、主流索引算法以及原理" class="headerlink" title="2、主流索引算法以及原理"></a>2、主流索引算法以及原理</h2><hr>
 <h3 id="2-1、线性查找"><a href="#2-1、线性查找" class="headerlink" title="2.1、线性查找"></a>2.1、线性查找</h3><p>线性查找就是最简单的查找算法，在一个数组或者链表从头到尾遍历查找，时间复杂度是<code>o(n)</code></p>
-<h3 id="2-2、二分查找"><a href="#2-2、二分查找" class="headerlink" title="2.2、二分查找"></a>2.2、二分查找</h3><p><img src="/../image/homeWork0827/image-20220830123914692.png" alt="二分查找"></p>
+<h3 id="2-2、二分查找"><a href="#2-2、二分查找" class="headerlink" title="2.2、二分查找"></a>2.2、二分查找</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220830123914692.png" alt="二分查找"></p>
 <p>二分法相比于线性查找时间复杂度降低到了<code>o(logn)</code>级别，但是添加了一些限制</p>
 <blockquote>
 <ul>
@@ -780,7 +784,7 @@
 <li>数组中元素必须是有序的</li>
 </ul>
 </blockquote>
-<h3 id="2-3、二叉搜索树"><a href="#2-3、二叉搜索树" class="headerlink" title="2.3、二叉搜索树"></a>2.3、二叉搜索树</h3><p><img src="/../image/homeWork0827/image-20220830124040813.png" alt="二分搜索树"></p>
+<h3 id="2-3、二叉搜索树"><a href="#2-3、二叉搜索树" class="headerlink" title="2.3、二叉搜索树"></a>2.3、二叉搜索树</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220830124040813.png" alt="二分搜索树"></p>
 <p>二分法的<strong>缺点就是必须支持随机访问</strong>，但是对于数组而言如果进行插入操作的话时间复杂度是<code>o(n)</code>级别；二</p>
 <p>分搜索树就是结合了二分法和链表的优势实现的，二分搜索树有如下特点：</p>
 <blockquote>
@@ -793,20 +797,20 @@
 <h3 id="2-4、平衡二叉树"><a href="#2-4、平衡二叉树" class="headerlink" title="2.4、平衡二叉树"></a>2.4、平衡二叉树</h3><p>平衡二叉树本质上还是二分搜索树，只不过平衡二叉树约束了左子树和右子树的高度，比如红黑树要求任意节</p>
 <p>点左右子树的高度差不能超过<code>1</code></p>
 <p>二分搜索树在左右子树极不平衡的情况下会退化成链表，平衡二叉树就是为了解决此问题的</p>
-<h3 id="2-5、B树"><a href="#2-5、B树" class="headerlink" title="2.5、B树"></a>2.5、B树</h3><p><img src="/../image/homeWork0827/image-20220830130108273.png"></p>
+<h3 id="2-5、B树"><a href="#2-5、B树" class="headerlink" title="2.5、B树"></a>2.5、B树</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220830130108273.png"></p>
 <p>B树是类似于图中这样的树，它是结合了线性查找和二分搜索树的特点而来的：<strong>每个节点可以存储多个多项</strong></p>
 <p><strong>内容，每一项同时包含索引和数据</strong></p>
-<p><strong>备注</strong>：普通的二叉树或B树每个节点存储的就是整数，这个整数既是节点的数据也是节点用来索引&#x2F;排序的标</p>
+<p><strong>备注</strong>：普通的二叉树或B树每个节点存储的就是整数，这个整数既是节点的数据也是节点用来索引/排序的标</p>
 <p>记；但是在真正的场景中如<code>MySQL</code>中，一项数据包括很多内容而索引可能只是其中一项。</p>
 <h3 id="2-6、B-树"><a href="#2-6、B-树" class="headerlink" title="2.6、B+树"></a>2.6、B+树</h3><p><code>B</code>树同样存在问题，就是在范围查找时非常困难</p>
-<p><img src="/../image/homeWork0827/image-20220830130459545.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220830130459545.png"></p>
 <blockquote>
 <ul>
 <li><code>B+</code>树和<code>B</code>树的区别在于</li>
 <li>上层只存储索引而不存储数据</li>
 </ul>
 </blockquote>
-<h4 id="2-6-1、B-树索引原理"><a href="#2-6-1、B-树索引原理" class="headerlink" title="2.6.1、B+树索引原理"></a>2.6.1、B+树索引原理</h4><p><img src="/../image/homeWork0827/image-20220830130727337.png"></p>
+<h4 id="2-6-1、B-树索引原理"><a href="#2-6-1、B-树索引原理" class="headerlink" title="2.6.1、B+树索引原理"></a>2.6.1、B+树索引原理</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220830130727337.png"></p>
 <p>上图就是一棵 <code>B+</code> 树，阶数为 3，根节点中的关键字 1、18、35 分别是子节点（1，8，14），（18，24，</p>
 <p>31）和（35，41，53）中的<strong>最小值</strong>。每一层父节点的关键字都会出现在下一层的子节点的关键字中，因此<strong>在</strong></p>
 <p><strong>叶子节点中包括了所有的关键字信息</strong>，并且每一个叶子节点都有一个指向下一个节点的指针，这样就形</p>
@@ -845,7 +849,7 @@
 <p>数据开始写入到内存的时候，如果突然断电，或者系统异常，会导致数据丢失，为了防止数据丢失，采用</p>
 <p><code>WAL</code>(<code>Write Ahead Log</code> 预写日志技术）将数据第一时间写入到磁盘文件中，由于是顺序写，所以性能上不</p>
 <p>用担心。在发生异常的时候，可以通过<code>WAL</code>文件进行数据恢复。</p>
-<p><img src="/../image/homeWork0827/image-20220830133520739.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220830133520739.png"></p>
 <p>如上图所示，<code>LSM</code>树，<strong>整体由内存部分数据结构和磁盘上的两类文件组成</strong>。内存中的数据结构为<code>memtable</code>和</p>
 <p><code>immutable Memtable</code>两部分组成，前一个可读可写，后一个是只读的，它们两是一样的数据结构。</p>
 <p><code>immutable Memtable</code> 由于是只读的，可以在刷入到磁盘的时候不用加锁，提升性能。</p>
@@ -883,7 +887,7 @@
 <h4 id="2-7-2、SSTable"><a href="#2-7-2、SSTable" class="headerlink" title="2.7.2、SSTable"></a>2.7.2、<code>SSTable</code></h4><p><code>SSTable</code> 即<code>Sorted String Table </code>，听着蛮高大上，其实就<strong>是排序的有序键值对集合</strong>，是存储在文件中的</p>
 <p>结构。我们保存哈希表为磁盘文件中，为了提升查询速度，一般还保存一个<strong>索引文件</strong>，保存<code>key</code>和<code>offset</code>的</p>
 <p>位置，通过<code>key</code>快速获得<code>offset</code>，再打开文件，直接定位到<code>offset</code>位置。</p>
-<p><img src="/../image/homeWork0827/image-20220830135003684.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220830135003684.png"></p>
 <p><strong>但是哈希表没有顺序的，访问不同的key时候需要随机的磁盘访问，而且哈希表冲突的时候，需要复杂的处理</strong></p>
 <p><strong>逻辑，还无法支持范围查询。</strong></p>
 <p>此结构<strong>将数据部分和索引部分分离，在查询的时候，不需要将整个SSTable文件都读入到内存中</strong>。而是先读入</p>
@@ -899,7 +903,7 @@
 <p><code>compact</code>，即将多个<code>SSTable</code>文件合并成一个<code>SSTable</code>文件。		</p>
 <p><code>SSTable</code> 按照分层滚动合并的方式，<code>Level DB</code> 的<code>Level 0</code>层最多只能保存4个<code>SSTable</code>,当<code>Level 0</code>层满了</p>
 <p>之后，我们就将它们进行多路归并，合并后的文件就是<code>Level 1</code>层的有序<code>SSTable</code>文件</p>
-<p><img src="/../image/homeWork0827/image-20220830135711968.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220830135711968.png"></p>
 <p>除Level 0 层，<code>SSTable</code>层的<code>key</code>的范围是不交叉的，这样查询的时候，就可以通过二分查找的方式进行快速</p>
 <p>查找了。<code>Level 1 </code>层的<code>SSTable </code>就会<code>从Level 1 </code>层中轮询的方式选择一个<code>SSTable</code>去和<code>Level 2 </code>层在此</p>
 <p><code>SSTable</code> 的<code>key</code> 范围内的<code>SSTable</code>进行文件合并，为了防止合并的占用的<code>IO</code>比较多，所以在生成<code>SSTable</code></p>
@@ -916,10 +920,10 @@
 <p>分的简称就能找到那些车属于成都上牌登记，那么我们要找到来自成都的车，只需要找到简称川并且第二个字</p>
 <p>符是A开头的车辆。相比通过内容简介链接地址的方式，<strong>我们通过截取内容的固定部分，来将不同的车牌进行</strong></p>
 <p>**分门别类的方式，这就是一种<code>hash</code>**，如下图</p>
-<p><img src="/../image/homeWork0827/image-20220831130035813.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220831130035813.png"></p>
 <h4 id="3-1、Hash冲突"><a href="#3-1、Hash冲突" class="headerlink" title="3.1、Hash冲突"></a>3.1、<code>Hash</code>冲突</h4><p><strong>多个不同的值通过算出了同一个<code>hash</code>值被称之为<code>hash</code>冲突</strong>。</p>
-<p>当我们要查找id&#x3D;6的数据，只需要用6%4&#x3D;2作为下标遍历下标为2这个槽的元素中id&#x3D;6的值。</p>
-<p><img src="/../image/homeWork0827/image-20220831132905853.png"></p>
+<p>当我们要查找id=6的数据，只需要用6%4=2作为下标遍历下标为2这个槽的元素中id=6的值。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220831132905853.png"></p>
 <h4 id="3-2、Hash索引的缺点"><a href="#3-2、Hash索引的缺点" class="headerlink" title="3.2、Hash索引的缺点"></a>3.2、<code>Hash</code>索引的缺点</h4><blockquote>
 <ul>
 <li>查询性能受<code>hash</code>冲突率影响，性能不稳定</li>
@@ -927,7 +931,7 @@
 <li>结构存储上没有顺序，查询时<strong>排序</strong>无法支持</li>
 </ul>
 </blockquote>
-<h3 id="4、GeoHash索引"><a href="#4、GeoHash索引" class="headerlink" title="4、GeoHash索引"></a>4、<code>GeoHash</code>索引</h3><p><img src="/../image/homeWork0827/image-20220831142152073.png"></p>
+<h3 id="4、GeoHash索引"><a href="#4、GeoHash索引" class="headerlink" title="4、GeoHash索引"></a>4、<code>GeoHash</code>索引</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220831142152073.png"></p>
 <blockquote>
 <ol>
 <li>从横向上将整个方形纸分为左右两份，<strong>左侧部分为标记为 0</strong>， <strong>右侧部分标记为 1</strong>；</li>
@@ -938,7 +942,7 @@
 </blockquote>
 <p>只标记一个方格显得看不出什么规律，如果我们把这些都空格都标识后会发现 被划分在角落里的四个方格会</p>
 <p>有同样的前缀，如下图所示</p>
-<p><img src="/../image/homeWork0827/image-20220831142447672.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/homeWork0827/image-20220831142447672.png"></p>
 <h2 id="3、分布式系统存在的问题"><a href="#3、分布式系统存在的问题" class="headerlink" title="3、分布式系统存在的问题"></a>3、分布式系统存在的问题</h2><hr>
 <h3 id="3-1、节点故障与部分失效"><a href="#3-1、节点故障与部分失效" class="headerlink" title="3.1、节点故障与部分失效"></a>3.1、节点故障与部分失效</h3><p>分布式系统某个节点故障，具有不确定性</p>
 <h3 id="3-2、网络问题"><a href="#3-2、网络问题" class="headerlink" title="3.2、网络问题"></a>3.2、网络问题</h3><blockquote>
@@ -1033,7 +1037,7 @@
 <h2 id="5、用shell统计Q1内容第三列出现的数量"><a href="#5、用shell统计Q1内容第三列出现的数量" class="headerlink" title="5、用shell统计Q1内容第三列出现的数量"></a>5、用<code>shell</code>统计<code>Q1</code>内容第三列出现的数量</h2><blockquote>
 <p><code>Q1</code>文档内容</p>
 </blockquote>
-<pre><code class="tex">Chrome/91.0.4472.101 HTTP/2.0 news 183.136.216.35
+<pre class="line-numbers language-tex"><code class="language-tex">Chrome/91.0.4472.101 HTTP/2.0 news 183.136.216.35
 Safari/537.36  HTTP/1.0 user 183.136.216.35
 Chrome/91.0.4472.101 HTTP/2.0 accout 183.136.216.35
 Safari/537.36  HTTP/1.0 center 183.136.216.34
@@ -1059,30 +1063,30 @@ Chrome/91.0.4472.101 HTTP/2.0 accout 183.136.216.31
 Safari/537.36  HTTP/1.0 list 183.136.216.32
 
 备注：数据以空格分割，共四列，分别是浏览器版本 http协议，页面名称，IP地址
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h3><pre><code class="awk">#!/bin/awk -f
+<h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h3><pre class="line-numbers language-awk"><code class="language-awk">#!/bin/awk -f
 #运行前
 
-BEGIN&#123;
-    printf &quot;type\tnum\n&quot;
-&#125;
+BEGIN{
+    printf "type\tnum\n"
+}
 #运行中
-&#123;
+{
     a[$3]++
-&#125;
+}
 #运行后
-END &#123;
-    for(i in a)print i &quot;\t&quot; a[i]
-&#125;
-</code></pre>
+END {
+    for(i in a)print i "\t" a[i]
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>执行脚本</p>
 </blockquote>
-<pre><code class="bash">awk -f sum.awk sum.txt
-</code></pre>
-<h3 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h3><pre><code class="bash">awk &#39;BEGIN&#123;printf &quot;type\tnum\n&quot;&#125;&#123;a[$3]++&#125;END&#123;for(i in a)print i &quot;\t&quot; a[i]&#125;&#39; sum.txt
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">awk</span> -f sum.awk sum.txt
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">awk</span> <span class="token string">'BEGIN{printf "type\tnum\n"}{a[<span class="token variable">$3</span>]++}END{for(i in a)print i "\t" a[i]}'</span> sum.txt
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1233,7 +1237,7 @@ END &#123;
                     </span>
                     <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2022/08/29/homeWork0827/" class="b-link-green">私教第一周</a>
+                    <a href="/2022/08/29/homework0827/" class="b-link-green">私教第一周</a>
                 </p>
             </div>
     
@@ -1256,7 +1260,7 @@ END &#123;
         repo: 'hcs-21.github.io',
         owner: 'hcs-21',
         admin: ["hcs-21"],
-        id: '2022/08/29/homeWork0827/',
+        id: '2022/08/29/homework0827/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1281,7 +1285,7 @@ END &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/01/javaArray/">
+                <a href="/2022/09/01/javaarray/">
                     <div class="card-image">
                         
                         
@@ -1334,7 +1338,7 @@ END &#123;
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/24/linux%EF%BC%88%E4%B8%89%EF%BC%89/">
+                <a href="/2022/08/24/linux-san/">
                     <div class="card-image">
                         
                         
@@ -1772,5 +1776,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>

@@ -18,9 +18,9 @@
 1.1、什么是Druid
 数据分析的基础架构可以分为以下几类：
 
-使用Hadoop&amp;#x2F;Spark进行分析
+使用Hadoop/Spark进行分析
 
-将Hadoop&amp;#x2F;S">
+将Hadoop/Spark的结果导入 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -74,7 +74,11 @@
         </script>
     
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="郝春帅的博客" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
 
@@ -755,9 +759,9 @@
 <h4 id="1-1、什么是Druid"><a href="#1-1、什么是Druid" class="headerlink" title="1.1、什么是Druid"></a>1.1、什么是<code>Druid</code></h4><blockquote>
 <p>数据分析的基础架构可以分为以下几类：</p>
 <ul>
-<li><p>使用<code>Hadoop</code>&#x2F;<code>Spark</code>进行分析</p>
+<li><p>使用<code>Hadoop</code>/<code>Spark</code>进行分析</p>
 </li>
-<li><p>将<code>Hadoop</code>&#x2F;<code>Spark</code>的结果导入 <code>RDBMS</code> 中提供数据分析</p>
+<li><p>将<code>Hadoop</code>/<code>Spark</code>的结果导入 <code>RDBMS</code> 中提供数据分析</p>
 </li>
 <li><p>将结果保存到容量更大的 <code>NoSQL</code> 数据库中，解决数据分析的存储瓶颈，例如：<code>HBase</code></p>
 </li>
@@ -768,7 +772,7 @@
 </li>
 </ul>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805092522768.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805092522768.png"></p>
 <blockquote>
 <p><code>Druid</code> 是 <code>Metamarkets</code> 公司（一家为在线媒体或广告公司提供数据分析服务的公司）推出的一个分布</p>
 <p>式内存实时分析系统，用于解决<strong>如何在大规模数据集下进行快速的、交互式的查询和分析</strong>。</p>
@@ -835,7 +839,7 @@
 <p><strong>序列数据库</strong>和<strong>搜索系统的思想</strong>，适用于多种场景的高性能数据实时分析。<code>Druid</code>将这三个系统中的每</p>
 <p>个系统的关键特征合并到其接收层、存储格式、查询层和核心体系结构中。</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805102955342.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805102955342.png"></p>
 <blockquote>
 <p><strong>时间序列数据库</strong>主要用于指处理，带时间标签（按照时间的顺序变化）的数据，带时间标签的数据</p>
 <p>也称为时间序列数据。</p>
@@ -874,13 +878,13 @@
 <p><code>Druid</code>是开源大数据技术的补充，包括<code>Apache Kafka</code>，<code>Apache Hadoop</code>，<code>Apache Flink</code>等，通常位</p>
 <p>于存储或处理层与最终应用之间，充当查询层或数据分析服务。</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805103540604.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805103540604.png"></p>
 <h5 id="1-3-3、Ingestion（摄取）"><a href="#1-3-3、Ingestion（摄取）" class="headerlink" title="1.3.3、Ingestion（摄取）"></a>1.3.3、<code>Ingestion</code><strong>（摄取）</strong></h5><blockquote>
 <p><code>Druid</code>支持<strong>流式传输</strong>和<strong>批量摄取</strong>。<code>Druid</code>连接到数据源，包括：<code>Kafka</code>（用于流数据加载），或分布式</p>
 <p>文件系统，如<code>HDFS</code>（用于批处理数据加载）。</p>
 <p><code>Druid</code>在 “索引” 过程中<strong>将数据源中的原始数据转换为支持高效读取的优化格式</strong>（<code>Segment</code>，段）。</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805103713641.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805103713641.png"></p>
 <h5 id="1-3-4、存储"><a href="#1-3-4、存储" class="headerlink" title="1.3.4、存储"></a>1.3.4、存储</h5><blockquote>
 <p><code>Druid</code>的数据存储采用列式存储格式。根据列的类型（字符串，数字等），应用不同的压缩和编码方</p>
 <p>法，根据列类型构建不同类型的索引。</p>
@@ -892,10 +896,10 @@
 <blockquote>
 <p><code>Druid</code>在摄取数据时对数据进行预聚合，节省大量存储空间。</p>
 </blockquote>
-<h5 id="1-3-5、查询方式"><a href="#1-3-5、查询方式" class="headerlink" title="1.3.5、查询方式"></a><img src="/../image/Druid/image-20220805105207860.png">1.3.5、查询方式</h5><blockquote>
+<h5 id="1-3-5、查询方式"><a href="#1-3-5、查询方式" class="headerlink" title="1.3.5、查询方式"></a><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805105207860.png">1.3.5、查询方式</h5><blockquote>
 <p><code>Druid</code>支持<code>JSON</code>、<code>SQL</code>两种方式查询数据。</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805105331149.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805105331149.png"></p>
 <h3 id="1-4、应用场景"><a href="#1-4、应用场景" class="headerlink" title="1.4、应用场景"></a>1.4、应用场景</h3><h5 id="1-4-1、Druid擅长的部分"><a href="#1-4-1、Druid擅长的部分" class="headerlink" title="1.4.1、Druid擅长的部分"></a>1.4.1、Druid擅长的部分</h5><blockquote>
 <ul>
 <li>对于大部分查询场景可以亚秒级响应</li>
@@ -943,7 +947,7 @@
 <li><strong>Query</strong>：<code>Broker</code> &amp; <code>Router</code>，<strong>处理来自外部客户端的查询</strong></li>
 </ul>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805115054727.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805115054727.png"></p>
 <h3 id="2-2、外部依赖"><a href="#2-2、外部依赖" class="headerlink" title="2.2、外部依赖"></a>2.2、外部依赖</h3><ul>
 <li><code>Deep Storage</code>：深度存储，例如<code>HDFS</code>或者<code>S3</code>。不是用来存储查询数据的。而是作为数据的备份或者进程间数据交换</li>
 <li><code>Metadata Storage</code>：元数据存储，可以用<code>RDBMS</code></li>
@@ -954,17 +958,17 @@
 <p><code>Druid官网</code>：<a target="_blank" rel="noopener" href="https://druid.apache.org/">https://druid.apache.org/</a></p>
 <p>下载 <code>Druid</code> 安装包、并解压缩：</p>
 </blockquote>
-<pre><code class="bash">cd /opt/lagou/software 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/lagou/software 
 
-wget http://apache.communilink.net/druid/0.19.0/apache-druid-0.19.0-bin.tar.gz 
+<span class="token function">wget</span> http://apache.communilink.net/druid/0.19.0/apache-druid-0.19.0-bin.tar.gz 
 
-tar -zxvf apache-druid-0.19.0-bin.tar.gz
-</code></pre>
+<span class="token function">tar</span> -zxvf apache-druid-0.19.0-bin.tar.gz
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>查看主目录</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805115419071.png"></p>
-<pre><code class="bash">tree -L 1 ./ 
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805115419071.png"></p>
+<pre class="line-numbers language-bash"><code class="language-bash">tree -L 1 ./ 
 
 ./
 ├── bin 运行相关脚本文件 
@@ -978,7 +982,7 @@ tar -zxvf apache-druid-0.19.0-bin.tar.gz
 ├── quickstart 单机测试部署用到的配置及数据 
 ├── README 
 └── var 启动时生成文件，数据文件在这里了
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1、单服务器部署"><a href="#1、单服务器部署" class="headerlink" title="1、单服务器部署"></a>1、单服务器部署</h3><hr>
 <blockquote>
 <p>单服务器部署的配置文件：</p>
@@ -995,7 +999,7 @@ tar -zxvf apache-druid-0.19.0-bin.tar.gz
 <blockquote>
 <p>但服务器参考配置</p>
 </blockquote>
-<pre><code class="bash">Nano-Quickstart：1个CPU，4GB RAM 
+<pre class="line-numbers language-bash"><code class="language-bash">Nano-Quickstart：1个CPU，4GB RAM 
     启动命令:bin/start-nano-quickstart 
     配置目录： conf/druid/single-server/nano-quickstart/* 
 微型快速入门：4个CPU，16GB RAM 
@@ -1013,22 +1017,22 @@ tar -zxvf apache-druid-0.19.0-bin.tar.gz
 大型X：64 CPU，512GB RAM（〜i3.16xlarge）
     启动命令： bin/start-xlarge 
     配置目录： conf/druid/single-server/xlarge/*
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>启动<code>Druid</code></p>
 </blockquote>
-<pre><code class="bash">./bin/start-nano-quickstart start
-</code></pre>
-<p><img src="/../image/Druid/image-20220805142259586.png"></p>
+<pre class="line-numbers language-bash"><code class="language-bash">./bin/start-nano-quickstart start
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805142259586.png"></p>
 <blockquote>
 <p>登录界面 ：<a target="_blank" rel="noopener" href="http://linux121:8888/%E6%9F%A5%E7%9C%8B%E9%A1%B5%E9%9D%A2">http://linux121:8888/查看页面</a></p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805142336720.png"></p>
-<p><img src="/../image/Druid/image-20220805142412372.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805142336720.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805142412372.png"></p>
 <blockquote>
 <p>使用<code>jps</code>可以看见启动了很多服务：</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805142433622.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805142433622.png"></p>
 <h3 id="2、集群部署"><a href="#2、集群部署" class="headerlink" title="2、集群部署"></a>2、集群部署</h3><hr>
 <h3 id="2-1、部署规化"><a href="#2-1、部署规化" class="headerlink" title="2.1、部署规化"></a>2.1、部署规化</h3><blockquote>
 <ul>
@@ -1065,108 +1069,108 @@ tar -zxvf apache-druid-0.19.0-bin.tar.gz
 <p>虚拟机每个节点<code>2core</code>、<code>3G</code></p>
 <p><code>DeepStorage</code>：<code>Hadoop 2.9.2</code></p>
 </blockquote>
-<h3 id="2-2、设置环境变量"><a href="#2-2、设置环境变量" class="headerlink" title="2.2、设置环境变量"></a>2.2、设置环境变量</h3><pre><code class="bash">vi /etc/profile 
+<h3 id="2-2、设置环境变量"><a href="#2-2、设置环境变量" class="headerlink" title="2.2、设置环境变量"></a>2.2、设置环境变量</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile 
 
-# 在文件中增加以下内容 
-export DRUID_HOME=/opt/lagou/servers/druid-0.19.0 
-export PATH=$PATH:$DRUID_HOME/bin
-</code></pre>
+<span class="token comment" spellcheck="true"># 在文件中增加以下内容 </span>
+<span class="token function">export</span> DRUID_HOME<span class="token operator">=</span>/opt/lagou/servers/druid-0.19.0 
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span><span class="token keyword">:</span><span class="token variable">$DRUID_HOME</span>/bin
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-3、MySQL中创建相关数据库"><a href="#2-3、MySQL中创建相关数据库" class="headerlink" title="2.3、MySQL中创建相关数据库"></a>2.3、<code>MySQ</code>L中创建相关数据库</h3><blockquote>
 <p>使用 <code>root</code> 账号登录<code>MySQL</code>，<code> mysql -uroot -p12345678</code> </p>
 </blockquote>
-<pre><code class="sql">CREATE DATABASE druid DEFAULT CHARACTER SET utf8mb4; 
-CREATE USER &#39;druid&#39;@&#39;%&#39; IDENTIFIED BY &#39;12345678&#39;; 
-GRANT ALL PRIVILEGES ON druid.* TO &#39;druid&#39;@&#39;%&#39;; 
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> druid <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARACTER SET</span> utf8mb4<span class="token punctuation">;</span> 
+<span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">'druid'</span>@'<span class="token operator">%</span><span class="token string">' IDENTIFIED BY '</span><span class="token number">12345678</span><span class="token string">'; 
+GRANT ALL PRIVILEGES ON druid.* TO '</span>druid<span class="token string">'@'</span><span class="token operator">%</span>'<span class="token punctuation">;</span> 
 
--- ERROR 1819 (HY000): Your password does not satisfy the current policy requirements 
-set global validate_password_policy=0;
-</code></pre>
+<span class="token comment" spellcheck="true">-- ERROR 1819 (HY000): Your password does not satisfy the current policy requirements </span>
+<span class="token keyword">set</span> <span class="token keyword">global</span> validate_password_policy<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-4、配置Druid参数"><a href="#2-4、配置Druid参数" class="headerlink" title="2.4、配置Druid参数"></a>2.4、配置<code>Druid</code>参数</h3><blockquote>
-<p>将<code>hadoop</code>配置文件<code>core-site.xml</code>、<code>hdfs-site.xml</code>、<code>yarn-site.xml</code>、&#96;mapred-site.xml链接到</p>
+<p>将<code>hadoop</code>配置文件<code>core-site.xml</code>、<code>hdfs-site.xml</code>、<code>yarn-site.xml</code>、`mapred-site.xml链接到</p>
 <p><code>conf/druid/cluster/_common/</code> 下</p>
 </blockquote>
-<pre><code class="bass">cd /opt/lagou/servers/druid-0.19.0/conf/druid/cluster/_common 
+<pre class="line-numbers language-bass"><code class="language-bass">cd /opt/lagou/servers/druid-0.19.0/conf/druid/cluster/_common 
 
 ln -s $HADOOP_HOME/etc/hadoop/core-site.xml core-site.xml 
 ln -s $HADOOP_HOME/etc/hadoop/hdfs-site.xml hdfs-site.xml 
 ln -s $HADOOP_HOME/etc/hadoop/yarn-site.xml yarn-site.xml 
 ln -s $HADOOP_HOME/etc/hadoop/mapred-site.xml mapred-site.xml
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>将<code>MySQL</code>的驱动程序，链接到<code> **$DRUID_HOME/extensions/mysql-metadata-storage/</code>下</p>
 </blockquote>
-<pre><code class="bash">ln -s $HIVE_HOME/lib/mysql-connector-java-5.1.46.jar mysql-connector-java-5.1.46.jar
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ln</span> -s <span class="token variable">$HIVE_HOME</span>/lib/mysql-connector-java-5.1.46.jar mysql-connector-java-5.1.46.jar
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>修改配置文件(<code>$DRUID_HOME/conf/druid/cluster/_common/common.runtime.properties</code>)</p>
 </blockquote>
-<pre><code class="properties"># 增加&quot;mysql-metadata-storage&quot; 
-druid.extensions.loadList=[&quot;mysql-metadata-storage&quot;, &quot;druid-hdfs-storage&quot;, &quot;druid-kafka- indexing-service&quot;, &quot;druid-datasketches&quot;] 
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 增加"mysql-metadata-storage" </span>
+<span class="token attr-name">druid.extensions.loadList</span><span class="token punctuation">=</span><span class="token attr-value">["mysql-metadata-storage", "druid-hdfs-storage", "druid-kafka- indexing-service", "druid-datasketches"] </span>
 
-# 每台机器写自己的ip或hostname 
-druid.host=linux121 
+<span class="token comment" spellcheck="true"># 每台机器写自己的ip或hostname </span>
+<span class="token attr-name">druid.host</span><span class="token punctuation">=</span><span class="token attr-value">linux121 </span>
 
-# 填写zk地址 
-druid.zk.service.host=linux121:2181,linux122:2181,linux123:2181 druid.zk.paths.base=/druid 
+<span class="token comment" spellcheck="true"># 填写zk地址 </span>
+<span class="token attr-name">druid.zk.service.host</span><span class="token punctuation">=</span><span class="token attr-value">linux121:2181,linux122:2181,linux123:2181 druid.zk.paths.base=/druid </span>
 
-# 注释掉前面 derby 的配置
-# 增加 mysql 的配置 
-druid.metadata.storage.type=mysql druid.metadata.storage.connector.connectURI=jdbc:mysql://linux123:3306/druid druid.metadata.storage.connector.user=druid druid.metadata.storage.connector.password=12345678 
+<span class="token comment" spellcheck="true"># 注释掉前面 derby 的配置</span>
+<span class="token comment" spellcheck="true"># 增加 mysql 的配置 </span>
+<span class="token attr-name">druid.metadata.storage.type</span><span class="token punctuation">=</span><span class="token attr-value">mysql druid.metadata.storage.connector.connectURI=jdbc:mysql://linux123:3306/druid druid.metadata.storage.connector.user=druid druid.metadata.storage.connector.password=12345678 </span>
 
-# 注释掉local的配置 
-# 增加HDFS的配置，即使用HDFS作为深度存储 
-druid.storage.type=hdfs 
-druid.storage.storageDirectory=/druid/segments 
+<span class="token comment" spellcheck="true"># 注释掉local的配置 </span>
+<span class="token comment" spellcheck="true"># 增加HDFS的配置，即使用HDFS作为深度存储 </span>
+<span class="token attr-name">druid.storage.type</span><span class="token punctuation">=</span><span class="token attr-value">hdfs </span>
+<span class="token attr-name">druid.storage.storageDirectory</span><span class="token punctuation">=</span><span class="token attr-value">/druid/segments </span>
 
-# 注释掉 indexer.logs For local disk的配置
-# 增加 indexer.logs For HDFS 的配置 
-druid.indexer.logs.type=hdfs 
-druid.indexer.logs.directory=/druid/indexing-logs
-</code></pre>
+<span class="token comment" spellcheck="true"># 注释掉 indexer.logs For local disk的配置</span>
+<span class="token comment" spellcheck="true"># 增加 indexer.logs For HDFS 的配置 </span>
+<span class="token attr-name">druid.indexer.logs.type</span><span class="token punctuation">=</span><span class="token attr-value">hdfs </span>
+<span class="token attr-name">druid.indexer.logs.directory</span><span class="token punctuation">=</span><span class="token attr-value">/druid/indexing-logs</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-4-1、配置主节点参数"><a href="#2-4-1、配置主节点参数" class="headerlink" title="2.4.1、配置主节点参数"></a>2.4.1、配置主节点参数</h4><blockquote>
 <p>配置主节点文件(<strong>参数大小根据实际情况配置</strong>) </p>
 </blockquote>
-<pre><code class="bash">cd $DRUID_HOME/conf/druid/cluster/master/coordinator-overlord/jvm.config
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token variable">$DRUID_HOME</span>/conf/druid/cluster/master/coordinator-overlord/jvm.config
 
 -server 
 -Xms512m
 -Xmx512m 
 -XX:+ExitOnOutOfMemoryError 
 -XX:+UseG1GC 
--Duser.timezone=UTC+8 
--Dfile.encoding=UTF-8 
--Djava.io.tmpdir=var/tmp 
--Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager
-</code></pre>
+-Duser.timezone<span class="token operator">=</span>UTC+8 
+-Dfile.encoding<span class="token operator">=</span>UTF-8 
+-Djava.io.tmpdir<span class="token operator">=</span>var/tmp 
+-Djava.util.logging.manager<span class="token operator">=</span>org.apache.logging.log4j.jul.LogManager
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-4-2、配置数据节点参数"><a href="#2-4-2、配置数据节点参数" class="headerlink" title="2.4.2、配置数据节点参数"></a>2.4.2、配置数据节点参数</h4><blockquote>
 <p>配置数据节点文件(<strong>参数大小根据实际情况配置</strong>)</p>
 </blockquote>
-<pre><code class="bash">cd $DRUID_HOME/conf/druid/cluster/data/historical/jvm.config
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token variable">$DRUID_HOME</span>/conf/druid/cluster/data/historical/jvm.config
 
 -server 
 -Xms512m 
 -Xmx512m 
--XX:MaxDirectMemorySize=1g 
+-XX:MaxDirectMemorySize<span class="token operator">=</span>1g 
 -XX:+ExitOnOutOfMemoryError 
--Duser.timezone=UTC+8 
--Dfile.encoding=UTF-8 
--Djava.io.tmpdir=var/tmp 
--Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager
-</code></pre>
-<pre><code class="bash">cd $DRUID_HOME/conf/druid/cluster/data/historical/runtime.properties
+-Duser.timezone<span class="token operator">=</span>UTC+8 
+-Dfile.encoding<span class="token operator">=</span>UTF-8 
+-Djava.io.tmpdir<span class="token operator">=</span>var/tmp 
+-Djava.util.logging.manager<span class="token operator">=</span>org.apache.logging.log4j.jul.LogManager
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token variable">$DRUID_HOME</span>/conf/druid/cluster/data/historical/runtime.properties
 
-# 修改这一个参数 
-druid.processing.buffer.sizeBytes=50000000
-</code></pre>
+<span class="token comment" spellcheck="true"># 修改这一个参数 </span>
+druid.processing.buffer.sizeBytes<span class="token operator">=</span>50000000
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><strong>备注：</strong><code>druid.processing.buffffer.sizeBytes</code> 每个查询用于聚合的堆外哈希表的大小</p>
-<p><code>maxDirectMemory</code>&#x3D; </p>
+<p><code>maxDirectMemory</code>= </p>
 <p><code>druid.processing.buffffer.sizeBytes</code> * (<code>druid.processing.numMergeBuffffers</code> +</p>
 <p><code>druid.processing.numThreads</code> + 1)</p>
 <p>如果 <code>druid.processing.buffffer.sizeBytes</code> 太大，那么需要加大<code>maxDirectMemory</code>，否则 </p>
 <p><code>historical </code>服务无法启动</p>
 </blockquote>
-<pre><code class="ba">cd $DRUID_HOME/conf/druid/cluster/data/middleManager/jvm.config
+<pre class="line-numbers language-ba"><code class="language-ba">cd $DRUID_HOME/conf/druid/cluster/data/middleManager/jvm.config
 
 -server 
 -Xms128m 
@@ -1176,11 +1180,11 @@ druid.processing.buffer.sizeBytes=50000000
 -Dfile.encoding=UTF-8 
 -Djava.io.tmpdir=var/tmp 
 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-4-3、配置查询节点的参数"><a href="#2-4-3、配置查询节点的参数" class="headerlink" title="2.4.3、配置查询节点的参数"></a>2.4.3、配置查询节点的参数</h4><blockquote>
 <p>配置查询节点文件(<strong>参数大小根据实际情况配置</strong>)</p>
 </blockquote>
-<pre><code class="bas">cd $DRUID_HOME/conf/druid/cluster/query/broker/jvm.config
+<pre class="line-numbers language-bas"><code class="language-bas">cd $DRUID_HOME/conf/druid/cluster/query/broker/jvm.config
 
 -server 
 -Xms512m 
@@ -1191,34 +1195,34 @@ druid.processing.buffer.sizeBytes=50000000
 -Dfile.encoding=UTF-8 
 -Djava.io.tmpdir=var/tmp 
 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager
-</code></pre>
-<pre><code class="bash">cd $DRUID_HOME/conf/druid/cluster/query/broker/runtime.properties
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token variable">$DRUID_HOME</span>/conf/druid/cluster/query/broker/runtime.properties
 
-# 修改这一个参数 
-druid.processing.buffer.sizeBytes=50000000
-</code></pre>
+<span class="token comment" spellcheck="true"># 修改这一个参数 </span>
+druid.processing.buffer.sizeBytes<span class="token operator">=</span>50000000
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><strong>备注：</strong></p>
 <p><code>druid.processing.buffffer.sizeBytes </code>每个查询用于聚合的堆外哈希表的大小</p>
-<p><code>maxDirectMemory</code> &#x3D; </p>
+<p><code>maxDirectMemory</code> = </p>
 <p><code>druid.processing.buffffer.sizeBytes</code>*(<code>druid.processing.numMergeBuffffers</code> +</p>
 <p><code>druid.processing.numThreads + 1</code>)</p>
 <p>如果 <code>druid.processing.buffffer.sizeBytes</code> 太大，那么需要加大<code>maxDirectMemory</code>，否则 </p>
 <p>broker 服务无法启动</p>
 </blockquote>
-<pre><code class="bash">cd $DRUID_HOME/conf/druid/cluster/query/router/jvm.config
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token variable">$DRUID_HOME</span>/conf/druid/cluster/query/router/jvm.config
 
 -server 
 -Xms128m 
 -Xmx128m 
 -XX:+UseG1GC 
--XX:MaxDirectMemorySize=128m 
+-XX:MaxDirectMemorySize<span class="token operator">=</span>128m 
 -XX:+ExitOnOutOfMemoryError 
--Duser.timezone=UTC+8 
--Dfile.encoding=UTF-8 
--Djava.io.tmpdir=var/tmp 
--Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager
-</code></pre>
+-Duser.timezone<span class="token operator">=</span>UTC+8 
+-Dfile.encoding<span class="token operator">=</span>UTF-8 
+-Djava.io.tmpdir<span class="token operator">=</span>var/tmp 
+-Djava.util.logging.manager<span class="token operator">=</span>org.apache.logging.log4j.jul.LogManager
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-4-4、小结"><a href="#2-4-4、小结" class="headerlink" title="2.4.4、小结"></a>2.4.4、小结</h4><blockquote>
 <ul>
 <li><code>coordinator-overlord</code>，512m</li>
@@ -1232,61 +1236,61 @@ druid.processing.buffer.sizeBytes=50000000
 <h4 id="3-1、分发"><a href="#3-1、分发" class="headerlink" title="3.1、分发"></a>3.1、分发</h4><blockquote>
 <p><strong>备注：</strong></p>
 <ul>
-<li><font color = red><strong>分发后一定要修改</strong> <strong><code>common.runtime.properties</code></strong> <strong>中的</strong> <strong><code>druid.host</code></strong> <strong>为所在节点的</strong><code>ip</code></font></li>
+<li><font color="red"><strong>分发后一定要修改</strong> <strong><code>common.runtime.properties</code></strong> <strong>中的</strong> <strong><code>druid.host</code></strong> <strong>为所在节点的</strong><code>ip</code></font></li>
 <li>在<code>linux122</code>、<code>linux123</code>上添加环境变量 <code>$DRUID_HOME</code></li>
 </ul>
 </blockquote>
-<pre><code class="bash">scp -r druid-0.19.0/ linux122:$PWD 
-scp -r druid-0.19.0/ linux123:$PWD
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">scp</span> -r druid-0.19.0/ linux122:<span class="token variable">$PWD</span> 
+<span class="token function">scp</span> -r druid-0.19.0/ linux123:<span class="token variable">$PWD</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="3-2、启动服务"><a href="#3-2、启动服务" class="headerlink" title="3.2、启动服务"></a>3.2、启动服务</h4><blockquote>
 <p>先启动<code>zk</code>的服务：</p>
 </blockquote>
-<pre><code class="bash"># linux121 
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># linux121 </span>
 zk.sh start
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p>在主节点（<code>linux121</code>）上启动服务：</p>
 </blockquote>
-<pre><code class="bash">nohup start-cluster-master-no-zk-server &amp;
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">nohup</span> start-cluster-master-no-zk-server <span class="token operator">&amp;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>使用<code>jps</code>检查可看见2个名为<code>Main</code>的后台进程，如下图所示：</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805150513410.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805150513410.png"></p>
 <blockquote>
 <p>在数据节点（<code>linux122</code>）上启动服务：</p>
 </blockquote>
-<pre><code class="bash">nohup start-cluster-data-server &amp;
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">nohup</span> start-cluster-data-server <span class="token operator">&amp;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>使用<code>jps</code>检查可看见2个名为<code>Main</code>的后台进程，如下图所示：</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805150605278.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805150605278.png"></p>
 <blockquote>
 <p>在查询节点（<code>linux123</code>）上启动服务：</p>
 </blockquote>
-<pre><code class="bash">nohup start-cluster-query-server &amp;
-</code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">nohup</span> start-cluster-query-server <span class="token operator">&amp;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>使用<code>jps</code>检查可看见2个名为<code>Main</code>的后台进程，如下图所示:</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805150654610.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805150654610.png"></p>
 <h4 id="3-3、查看界面"><a href="#3-3、查看界面" class="headerlink" title="3.3、查看界面"></a>3.3、查看界面</h4><blockquote>
 <p>使用浏览器查看：<a target="_blank" rel="noopener" href="http://linux123:8888/">http://linux123:8888/</a></p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805150725929.png"></p>
-<p><img src="/../image/Druid/image-20220805150732681.png"></p>
-<h4 id="3-4、关闭服务"><a href="#3-4、关闭服务" class="headerlink" title="3.4、关闭服务"></a>3.4、关闭服务</h4><pre><code class="bash"># 在各个节点运行 
-cd /opt/lagou/servers/druid-0.19.0/bin 
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805150725929.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805150732681.png"></p>
+<h4 id="3-4、关闭服务"><a href="#3-4、关闭服务" class="headerlink" title="3.4、关闭服务"></a>3.4、关闭服务</h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 在各个节点运行 </span>
+<span class="token function">cd</span> /opt/lagou/servers/druid-0.19.0/bin 
 ./service --down
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="三、入门案例"><a href="#三、入门案例" class="headerlink" title="三、入门案例"></a>三、入门案例</h2><hr>
 <h3 id="1、从Kafka中加载数据"><a href="#1、从Kafka中加载数据" class="headerlink" title="1、从Kafka中加载数据"></a>1、从<code>Kafka</code>中加载数据</h3><hr>
 <h4 id="1-1、数据及需求说明"><a href="#1-1、数据及需求说明" class="headerlink" title="1.1、数据及需求说明"></a>1.1、数据及需求说明</h4><blockquote>
 <p>典型应用 <strong>不在</strong><code>Druid</code><strong>中处理复杂的数据转换清洗工作</strong></p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805151441472.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805151441472.png"></p>
 <blockquote>
 <p>假设有以下网络流量数据：(数据为<code>json</code>格式，通过<code>Kafka</code>传输)</p>
 <ul>
@@ -1318,58 +1322,58 @@ cd /opt/lagou/servers/druid-0.19.0/bin
 <blockquote>
 <p>测试数据</p>
 </blockquote>
-<pre><code class="json">&#123;&quot;ts&quot;:&quot;2020-10-01T00:01:35Z&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:1, &quot;bytes&quot;:1000, &quot;cost&quot;: 0.1&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:01:36Z&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:2, &quot;bytes&quot;:2000, &quot;cost&quot;: 0.1&#125;
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:01:37Z&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:3, &quot;bytes&quot;:3000, &quot;cost&quot;: 0.1&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:01:38Z&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:4, &quot;bytes&quot;:4000, &quot;cost&quot;: 0.1&#125;
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:01:35Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:01:36Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:01:37Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:01:38Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">4000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">}</span>
 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:08Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:5, &quot;bytes&quot;:5000, &quot;cost&quot;: 0.2&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:09Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:6, &quot;bytes&quot;:6000, &quot;cost&quot;: 0.2&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:10Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:7, &quot;bytes&quot;:7000, &quot;cost&quot;: 0.2&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:11Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:8, &quot;bytes&quot;:8000, &quot;cost&quot;: 0.2&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:12Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;::6666, &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:9, &quot;bytes&quot;:9000, &quot;cost&quot;: 0.2&#125;
-</code></pre>
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:08Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">5000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:09Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">6000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:10Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">7000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:11Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">8000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:12Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">9000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>最后执行查询：</p>
 </blockquote>
-<pre><code class="sql">select * from tab; 
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> tab<span class="token punctuation">;</span> 
 
--- 有两个返回值，以下仅为示意 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:01&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666, 
-&quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:5, &quot;bytes&quot;:1000, &quot;cost&quot;: 0.4, &quot;count&quot;:4&#125;
+<span class="token comment" spellcheck="true">-- 有两个返回值，以下仅为示意 </span>
+{<span class="token string">"ts"</span>:<span class="token string">"2020-10-01T00:01"</span><span class="token punctuation">,</span><span class="token string">"srcip"</span>:<span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token string">"dstip"</span>:<span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token string">"srcport"</span>:<span class="token number">6666</span><span class="token punctuation">,</span> 
+<span class="token string">"dstPort"</span>:<span class="token number">8888</span><span class="token punctuation">,</span> <span class="token string">"protocol"</span>: <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token string">"packets"</span>:<span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">"bytes"</span>:<span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">"cost"</span>: <span class="token number">0.4</span><span class="token punctuation">,</span> <span class="token string">"count"</span>:<span class="token number">4</span>}
 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
-&quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:9, &quot;bytes&quot;:5000, &quot;cost&quot;: 1.0, &quot;count&quot;:5&#125; 
+{<span class="token string">"ts"</span>:<span class="token string">"2020-10-01T00:02"</span><span class="token punctuation">,</span><span class="token string">"srcip"</span>:<span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token string">"dstip"</span>:<span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token string">"srcport"</span>:<span class="token number">6666</span><span class="token punctuation">,</span> 
+<span class="token string">"dstPort"</span>:<span class="token number">8888</span><span class="token punctuation">,</span> <span class="token string">"protocol"</span>: <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token string">"packets"</span>:<span class="token number">9</span><span class="token punctuation">,</span> <span class="token string">"bytes"</span>:<span class="token number">5000</span><span class="token punctuation">,</span> <span class="token string">"cost"</span>: <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token string">"count"</span>:<span class="token number">5</span>} 
 
--- 其他查询 
-select dstPort, min(packets), max(bytes), sum(count), min(count) from tab group by dstPort
-</code></pre>
+<span class="token comment" spellcheck="true">-- 其他查询 </span>
+<span class="token keyword">select</span> dstPort<span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>packets<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">max</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span> <span class="token keyword">from</span> tab <span class="token keyword">group</span> <span class="token keyword">by</span> dstPort
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-2、创建Topic发送消息"><a href="#1-2、创建Topic发送消息" class="headerlink" title="1.2、创建Topic发送消息"></a>1.2、创建<code>Topic</code>发送消息</h4><blockquote>
 <p>启动<code>Kafka</code>集群，并创建一个名为 <code>lagoudruid1</code> 的 <code>Topic</code> ：</p>
-<p><strong>备注</strong>：<code>--zookeeper linux121:2181,linux122:2181/kafka1.0</code> &#x3D;&gt; <code>kafka1.0</code>为<code>namespace</code>，请注</p>
+<p><strong>备注</strong>：<code>--zookeeper linux121:2181,linux122:2181/kafka1.0</code> =&gt; <code>kafka1.0</code>为<code>namespace</code>，请注</p>
 <p>意自己是否添加了</p>
 </blockquote>
-<pre><code class="bash">-- 创建topic 
+<pre class="line-numbers language-bash"><code class="language-bash">-- 创建topic 
 kafka-topics.sh --create --zookeeper linux121:2181,linux122:2181/kafka1.0 --replication- factor 2 --partitions 6 --topic lagoudruid1 
 
 -- 启动生产者 
 kafka-console-producer.sh --broker-list linux121:9092,linux122:9092 --topic lagoudruid1
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-3、摄取数据"><a href="#1-3、摄取数据" class="headerlink" title="1.3、摄取数据"></a>1.3、摄取数据</h4><blockquote>
 <p>浏览器访问 <code>linux123:8888</code>，点击控制台中的 <code>Load data</code> </p>
 </blockquote>
 <h5 id="1-3-1、Start"><a href="#1-3-1、Start" class="headerlink" title="1.3.1、Start"></a>1.3.1、<code>Start</code></h5><blockquote>
 <p>选择 <code>Apache Kafka</code> ，点击 <code>Connect data</code> </p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805154258968.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805154258968.png"></p>
 <h5 id="1-3-2、Connect"><a href="#1-3-2、Connect" class="headerlink" title="1.3.2、Connect"></a>1.3.2、<code>Connect</code></h5><blockquote>
 <ul>
 <li>在 <code>Bootstrap servers</code> 输入<code> linux121:9092</code>,<code>linux122:9092</code> </li>
@@ -1378,18 +1382,18 @@ kafka-console-producer.sh --broker-list linux121:9092,linux122:9092 --topic lago
 <li>后点击<code>Next: Parse data</code>进入下一步</li>
 </ul>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805154359056.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805154359056.png"></p>
 <h5 id="1-3-2、Parse-data"><a href="#1-3-2、Parse-data" class="headerlink" title="1.3.2、Parse data"></a>1.3.2、<code>Parse data</code></h5><blockquote>
 <ul>
 <li>数据加载器将尝试自动为数据确定正确的解析器。可以使用多种解析器解析数据</li>
 <li>这里使用 <code>json</code> 解析器解析数据</li>
 </ul>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805154441115.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805154441115.png"></p>
 <h5 id="1-3-3、Parse-Time"><a href="#1-3-3、Parse-Time" class="headerlink" title="1.3.3、Parse Time"></a>1.3.3、<code>Parse Time</code></h5><blockquote>
 <p>定义数据的主时间列</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805154512768.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805154512768.png"></p>
 <h5 id="1-3-5、Tranform"><a href="#1-3-5、Tranform" class="headerlink" title="1.3.5、Tranform"></a>1.3.5、<code>Tranform</code></h5><blockquote>
 <ul>
 <li>不建议在<code>Druid</code>中进行复杂的数据转换操作，可考虑将这些操作放在数据预处理</li>
@@ -1409,7 +1413,7 @@ kafka-console-producer.sh --broker-list linux121:9092,linux122:9092 --topic lago
 <li>定义是否在摄取数据时进行数据的合并（即<code>Rollup</code>），以及<code>Rollup</code>的粒度</li>
 </ul>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805154650014.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805154650014.png"></p>
 <h5 id="1-3-8、Partition"><a href="#1-3-8、Partition" class="headerlink" title="1.3.8、Partition"></a>1.3.8、<code>Partition</code></h5><blockquote>
 <ul>
 <li><p>定义如何进行数据分区</p>
@@ -1431,25 +1435,25 @@ kafka-console-producer.sh --broker-list linux121:9092,linux122:9092 --topic lago
 </li>
 </ul>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805154853350.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805154853350.png"></p>
 <h5 id="1-3-9、Tune"><a href="#1-3-9、Tune" class="headerlink" title="1.3.9、Tune"></a>1.3.9、<code>Tune</code></h5><blockquote>
 <p>定义任务执行和优化的相关参数</p>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805154920919.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805154920919.png"></p>
 <h5 id="1-3-10、Publish"><a href="#1-3-10、Publish" class="headerlink" title="1.3.10、Publish"></a>1.3.10、<code>Publish</code></h5><blockquote>
 <ol>
 <li>定义<code>Datasource</code>的名称</li>
 <li>定义数据解析失败后采取的动作</li>
 </ol>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805154954721.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805154954721.png"></p>
 <h5 id="1-3-11、Edit-spec"><a href="#1-3-11、Edit-spec" class="headerlink" title="1.3.11、Edit spec"></a>1.3.11、<code>Edit spec</code></h5><blockquote>
 <ul>
 <li><code>json</code>串为数据摄取规范。可返回之前的步骤中进行更改，也可以直接编辑规范，并在前面的步骤中看到它</li>
 <li>摄取规范定义完成后，单击 <code>Submit</code> 将创建一个数据摄取任务</li>
 </ul>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805155036382.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805155036382.png"></p>
 <h4 id="1-4、查询数据"><a href="#1-4、查询数据" class="headerlink" title="1.4、查询数据"></a>1.4、查询数据</h4><blockquote>
 <ul>
 <li>数据摄取规范发布后创建 <code>Supervisor</code></li>
@@ -1457,17 +1461,17 @@ kafka-console-producer.sh --broker-list linux121:9092,linux122:9092 --topic lago
 <li>等待一小段时间，<code>Datasource</code>被创建，此时可以进行数据的查询</li>
 </ul>
 </blockquote>
-<p><img src="/../image/Druid/image-20220805155118650.png"></p>
-<p><img src="/../image/Druid/image-20220805155139250.png"></p>
-<pre><code class="sql">-- 查看全部的数据 
-select * from &quot;lagoutab1&quot; 
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805155118650.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805155139250.png"></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查看全部的数据 </span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">"lagoutab1"</span> 
 
--- 其他查询 
-select dstPort, min(sum_packets), max(min_bytes), sum(&quot;count&quot;), min(&quot;count&quot;) from &quot;lagoutab1&quot; group by dstPort 
+<span class="token comment" spellcheck="true">-- 其他查询 </span>
+<span class="token keyword">select</span> dstPort<span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>sum_packets<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">max</span><span class="token punctuation">(</span>min_bytes<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token string">"count"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token string">"count"</span><span class="token punctuation">)</span> <span class="token keyword">from</span> <span class="token string">"lagoutab1"</span> <span class="token keyword">group</span> <span class="token keyword">by</span> dstPort 
 
--- count字段加引号，表示是一个列名(本质是进行转义，否则认为count是一个函数，将报错)
-</code></pre>
-<p><img src="/../image/Druid/image-20220805155206924.png"></p>
+<span class="token comment" spellcheck="true">-- count字段加引号，表示是一个列名(本质是进行转义，否则认为count是一个函数，将报错)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/../image/Druid/image-20220805155206924.png"></p>
 <h4 id="1-5、数据摄取规范"><a href="#1-5、数据摄取规范" class="headerlink" title="1.5、数据摄取规范"></a>1.5、数据摄取规范</h4><blockquote>
 <ul>
 <li><code>dataSchema</code>。指定传入数据的<code>Schema</code></li>
@@ -1475,35 +1479,35 @@ select dstPort, min(sum_packets), max(min_bytes), sum(&quot;count&quot;), min(&q
 <li><code>tuningConfifig</code>。指定各种摄取参数</li>
 </ul>
 </blockquote>
-<pre><code class="json">&#123;
-    &quot;type&quot;:&quot;kafka&quot;, 
-    &quot;spec&quot;:&#123; 
-        &quot;ioConfig&quot;:Object&#123;...&#125;, 
-    &quot;tuningConfig&quot;:Object&#123;...&#125;, 
-    &quot;dataSchema&quot;:Object&#123;...&#125; 
-    &#125; 
-&#125;
-</code></pre>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"kafka"</span><span class="token punctuation">,</span> 
+    <span class="token property">"spec"</span><span class="token operator">:</span><span class="token punctuation">{</span> 
+        <span class="token property">"ioConfig"</span><span class="token operator">:</span>Object<span class="token punctuation">{</span>...<span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token property">"tuningConfig"</span><span class="token operator">:</span>Object<span class="token punctuation">{</span>...<span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token property">"dataSchema"</span><span class="token operator">:</span>Object<span class="token punctuation">{</span>...<span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="1-5-1、dataSchema的定义"><a href="#1-5-1、dataSchema的定义" class="headerlink" title="1.5.1、dataSchema的定义"></a>1.5.1、<code>dataSchema</code>的定义</h5><blockquote>
 <p><code>Druid</code>摄入数据规范的核心是<code>dataSchema</code>,<code>dataSchema</code>定义了如何解析输入的数据，并将数据存储</p>
 <p>到<code>Druid</code>中</p>
 </blockquote>
-<pre><code class="json">&quot;dataSchema&quot;:&#123;
-    &quot;dataSource&quot;:&quot;lagoutab1&quot;,
-    &quot;granularitySpec&quot;:&#123; 
-        &quot;type&quot;:&quot;uniform&quot;,
-        &quot;queryGranularity&quot;:&quot;MINUTE&quot;,
-        &quot;segmentGranularity&quot;:&quot;DAY&quot;, 
-        &quot;rollup&quot;:true 
-    &#125;,
-    &quot;timestampSpec&quot;:&#123; 
-        &quot;column&quot;:&quot;ts&quot;, 
-        &quot;format&quot;:&quot;iso&quot; 
-    &#125;,
-    &quot;dimensionsSpec&quot;:Object&#123;...&#125;,
-    &quot;metricsSpec&quot;:Array[6] 
-&#125;
-</code></pre>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"dataSchema"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">"dataSource"</span><span class="token operator">:</span><span class="token string">"lagoutab1"</span><span class="token punctuation">,</span>
+    <span class="token property">"granularitySpec"</span><span class="token operator">:</span><span class="token punctuation">{</span> 
+        <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"uniform"</span><span class="token punctuation">,</span>
+        <span class="token property">"queryGranularity"</span><span class="token operator">:</span><span class="token string">"MINUTE"</span><span class="token punctuation">,</span>
+        <span class="token property">"segmentGranularity"</span><span class="token operator">:</span><span class="token string">"DAY"</span><span class="token punctuation">,</span> 
+        <span class="token property">"rollup"</span><span class="token operator">:</span><span class="token boolean">true</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"timestampSpec"</span><span class="token operator">:</span><span class="token punctuation">{</span> 
+        <span class="token property">"column"</span><span class="token operator">:</span><span class="token string">"ts"</span><span class="token punctuation">,</span> 
+        <span class="token property">"format"</span><span class="token operator">:</span><span class="token string">"iso"</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"dimensionsSpec"</span><span class="token operator">:</span>Object<span class="token punctuation">{</span>...<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"metricsSpec"</span><span class="token operator">:</span>Array<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <ul>
 <li><code>dataSource</code>。摄取数据后生成 <code>dataSource </code>的名称（<code>dataSource</code>是在查询中使用的表）</li>
@@ -1519,48 +1523,48 @@ select dstPort, min(sum_packets), max(min_bytes), sum(&quot;count&quot;), min(&q
 <p>输入数据的数据源在<code>ioConfifig</code>中指定，每个任务类型都有自己的<code>ioConfifig</code>，这里从<code> kafka</code> 获</p>
 <p>取数据，配置如下：</p>
 </blockquote>
-<pre><code class="json">&quot;ioConfig&quot;:&#123; 
-    &quot;type&quot;:&quot;kafka&quot;, 
-    &quot;consumerProperties&quot;:&#123; 
-        &quot;bootstrap.servers&quot;:&quot;linux121:9092,linux122:9092&quot; &#125;,
-     &quot;topic&quot;:&quot;lagoudruid1&quot;, 
-     &quot;inputFormat&quot;:&#123; &quot;type&quot;:&quot;json&quot; &#125;,
-     &quot;useEarliestOffset&quot;:true, 
-     &quot;appendToExisting&quot;:true 
-&#125;
-</code></pre>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"ioConfig"</span><span class="token operator">:</span><span class="token punctuation">{</span> 
+    <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"kafka"</span><span class="token punctuation">,</span> 
+    <span class="token property">"consumerProperties"</span><span class="token operator">:</span><span class="token punctuation">{</span> 
+        <span class="token property">"bootstrap.servers"</span><span class="token operator">:</span><span class="token string">"linux121:9092,linux122:9092"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     <span class="token property">"topic"</span><span class="token operator">:</span><span class="token string">"lagoudruid1"</span><span class="token punctuation">,</span> 
+     <span class="token property">"inputFormat"</span><span class="token operator">:</span><span class="token punctuation">{</span> <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"json"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     <span class="token property">"useEarliestOffset"</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span> 
+     <span class="token property">"appendToExisting"</span><span class="token operator">:</span><span class="token boolean">true</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="1-5-3、tuningConfifig的定义"><a href="#1-5-3、tuningConfifig的定义" class="headerlink" title="1.5.3、tuningConfifig的定义"></a>1.5.3、<code>tuningConfifig</code>的定义</h5><blockquote>
 <p><code>tuningConfifig</code>规范根据摄取任务类型而有所不同。</p>
 </blockquote>
-<pre><code class="json">&quot;tuningConfig&quot;:&#123; 
-    &quot;type&quot;:&quot;kafka&quot; 
-&#125;
-</code></pre>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"tuningConfig"</span><span class="token operator">:</span><span class="token punctuation">{</span> 
+    <span class="token property">"type"</span><span class="token operator">:</span><span class="token string">"kafka"</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="2、从HDFS中加载数据"><a href="#2、从HDFS中加载数据" class="headerlink" title="2、从HDFS中加载数据"></a>2、从<code>HDFS</code>中加载数据</h3><hr>
-<pre><code class="bash">hdfs dfs -cat /data/druidlog.dat
-</code></pre>
-<pre><code class="json">-- druidlog.dat 
+<pre class="line-numbers language-bash"><code class="language-bash">hdfs dfs -cat /data/druidlog.dat
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-json"><code class="language-json">-- druidlog.dat 
 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:01:35Z&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:1, &quot;bytes&quot;:1000, &quot;cost&quot;: 0.1&#125;
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:01:36Z&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:2, &quot;bytes&quot;:2000, &quot;cost&quot;: 0.1&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:01:37Z&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666,
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:3, &quot;bytes&quot;:3000, &quot;cost&quot;: 0.1&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:01:38Z&quot;,&quot;srcip&quot;:&quot;6.6.6.6&quot;, &quot;dstip&quot;:&quot;8.8.8.8&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;tcp&quot;, &quot;packets&quot;:4, &quot;bytes&quot;:4000, &quot;cost&quot;: 0.1&#125; 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:01:35Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:01:36Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:01:37Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span>
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:01:38Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"6.6.6.6"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"tcp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">4000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">}</span> 
 
 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:08Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:5, &quot;bytes&quot;:5000, &quot;cost&quot;: 0.2&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:09Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:6, &quot;bytes&quot;:6000, &quot;cost&quot;: 0.2&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:10Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:7, &quot;bytes&quot;:7000, &quot;cost&quot;: 0.2&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:11Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:8, &quot;bytes&quot;:8000, &quot;cost&quot;: 0.2&#125; 
-&#123;&quot;ts&quot;:&quot;2020-10-01T00:02:12Z&quot;,&quot;srcip&quot;:&quot;1.1.1.1&quot;, &quot;dstip&quot;:&quot;2.2.2.2&quot;, &quot;srcport&quot;:6666, 
- &quot;dstPort&quot;:8888, &quot;protocol&quot;: &quot;udp&quot;, &quot;packets&quot;:9, &quot;bytes&quot;:9000, &quot;cost&quot;: 0.2&#125;
-</code></pre>
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:08Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">5000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:09Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">6000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:10Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">7000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:11Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">8000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span> 
+<span class="token punctuation">{</span><span class="token property">"ts"</span><span class="token operator">:</span><span class="token string">"2020-10-01T00:02:12Z"</span><span class="token punctuation">,</span><span class="token property">"srcip"</span><span class="token operator">:</span><span class="token string">"1.1.1.1"</span><span class="token punctuation">,</span> <span class="token property">"dstip"</span><span class="token operator">:</span><span class="token string">"2.2.2.2"</span><span class="token punctuation">,</span> <span class="token property">"srcport"</span><span class="token operator">:</span><span class="token number">6666</span><span class="token punctuation">,</span> 
+ <span class="token property">"dstPort"</span><span class="token operator">:</span><span class="token number">8888</span><span class="token punctuation">,</span> <span class="token property">"protocol"</span><span class="token operator">:</span> <span class="token string">"udp"</span><span class="token punctuation">,</span> <span class="token property">"packets"</span><span class="token operator">:</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token property">"bytes"</span><span class="token operator">:</span><span class="token number">9000</span><span class="token punctuation">,</span> <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-1、定义数据摄取规范"><a href="#2-1、定义数据摄取规范" class="headerlink" title="2.1、定义数据摄取规范"></a>2.1、定义数据摄取规范</h4><blockquote>
 <ul>
 <li><code>HDFS</code>文件，数据格式 <code>json</code>，时间戳<code> ts</code></li>
@@ -1721,7 +1725,7 @@ select dstPort, min(sum_packets), max(min_bytes), sum(&quot;count&quot;), min(&q
                     </span>
                     <a href="https://hcs-21.github.io" class="b-link-green">郝春帅的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2022/08/05/Druid/" class="b-link-green">Apache Druid的使用教程</a>
+                    <a href="/2022/08/05/druid/" class="b-link-green">Apache Druid的使用教程</a>
                 </p>
             </div>
     
@@ -1744,7 +1748,7 @@ select dstPort, min(sum_packets), max(min_bytes), sum(&quot;count&quot;), min(&q
         repo: 'hcs-21.github.io',
         owner: 'hcs-21',
         admin: ["hcs-21"],
-        id: '2022/08/05/Druid/',
+        id: '2022/08/05/druid/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1822,7 +1826,7 @@ select dstPort, min(sum_packets), max(min_bytes), sum(&quot;count&quot;), min(&q
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/29/Kettle/">
+                <a href="/2022/07/29/kettle/">
                     <div class="card-image">
                         
                         
@@ -2264,5 +2268,11 @@ $(function () {
             </script>
         
 
-    </body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=t;var i=n.imageLazyLoadSetting.isSPA,o=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight*o||document.documentElement.clientHeight*o)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}();var t,e}t(),n.addEventListener("scroll",function(){!function(t,e){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)}(t,n)})}(this);</script></body>
 </html>
